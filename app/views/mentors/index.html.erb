@@ -1,0 +1,9 @@
+<p><strong>Mentors Table%></p> 
+
+<% @mentors.each do |mentor| %>
+  <p><strong>Title </strong><%= mentor.title %></p> 
+  <p><strong>First Name: </strong><%= mentor.first_name %></p> 
+  <p><strong>Last Name: </strong><%= mentor.last_name %></p> 
+  <p><strong>Email: </strong><%= mentor.email %></p> 
+  <br>
+<% end %>
