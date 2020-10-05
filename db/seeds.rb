@@ -6,27 +6,54 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-students = Student.create([
+# students = Student.create([
+#   {
+#     username: "jorge-g",
+#     first_name: "Jorge",
+#     last_name: "Gabitto",
+#     email: "jgabitto@gmail.com"
+#   },
+#   {
+#     username: "s-cengiz",
+#     first_name: "Sinan",
+#     last_name: "Cengiz",
+#     email: "scengiz@gmail.com"
+#   },
+#   {
+#     username: "deethedev",
+#     first_name: "Denilson",
+#     last_name: "Velasquez",
+#     email: "deethedev@gmail.com"
+#   },
+#   {
+#     username: "jaochoa",
+#     first_name: "Johan",
+#     last_name: "Ochoa",
+#     email: "jochoa@gmail.com"
+#   }
+# ])
+
+mentors = Mentor.create([
   {
-    username: "jorge-g",
+    title: "software engineer",
     first_name: "Jorge",
     last_name: "Gabitto",
     email: "jgabitto@gmail.com"
   },
   {
-    username: "s-cengiz",
+    title: "software engineer",
     first_name: "Sinan",
     last_name: "Cengiz",
     email: "scengiz@gmail.com"
   },
   {
-    username: "deethedev",
+    title: "software engineer",
     first_name: "Denilson",
     last_name: "Velasquez",
     email: "deethedev@gmail.com"
   },
   {
-    username: "jaochoa",
+    title: "software engineer",
     first_name: "Johan",
     last_name: "Ochoa",
     email: "jochoa@gmail.com"
