@@ -1,12 +1,16 @@
-<a href="/">Go to Stundets</a>
-<h1><strong>Mentors Table</h1> 
+<%= button_to 'Log Out', logout_path, method: :get , :class => "btn btn-primary"  %>
 
-<% @mentors.each do |mentor| %>
-  <p><strong>Title </strong><%= mentor.title %></p> 
-  <p><strong>First Name: </strong><%= mentor.first_name %></p> 
-  <p><strong>Last Name: </strong><%= mentor.last_name %></p> 
-  <p><strong>Email: </strong><%= mentor.email %></p> 
-  <br>
-<% end %>
+<div class="container" style="text-align:center; margin-top:100px;">
+    <a href="/">Go to Stundets</a>
+    <h1><strong>Mentors Table</h1> 
 
-<a href="/">Go to Stundets</a>
+    <% @mentors.each do |mentor| %>
+      <p><strong>Title </strong><%= mentor.title %></p> 
+      <p><strong>First Name: </strong><%= mentor.first_name %></p> 
+      <p><strong>Last Name: </strong><%= mentor.last_name %></p> 
+      <p><strong>Email: </strong><%= mentor.email %></p> 
+      <br>
+    <% end %>
+
+    <a href="/">Go to Stundets</a>
+</div>
