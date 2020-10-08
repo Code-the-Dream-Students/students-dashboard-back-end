@@ -1,0 +1,14 @@
+<h1>Sessions#welcome</h1>
+<p>Find me in app/views/sessions/welcome.html.erb</p>
+
+<% if logged_in? %>    
+    <h1>You are Logged In, <%= current_user.username %></h1>
+    <h1>User ID <%= current_user.id %></h1>
+    <a href="/mentors">Go to Mentors</a>
+    <a href="/">Go to Stundets</a>
+    <%= button_to 'Log Out', logout_path, method: :get %>
+<%end%>
+
+<h1>Welcome</h1>
+<%= button_to "Login", '/login', method: :get%>
+<%= button_to "Sign Up", '/users/new', method: :get%>
