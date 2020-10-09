@@ -12,4 +12,45 @@
  *
  *= require_tree .
  *= require_self
+ * require font-awesome
  */
+
+ @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+ @import "bootstrap";
+ @import "font-awesome";
+ 
+ $white: white;
+ $black: black;
+ $orange: orange;
+ $yellow: yellow;
+ $lightblue: lightblue;
+ 
+ 
+ .navbar {
+        margin-bottom: 0;
+        background: $orange;
+        
+ }
+ body {
+        background: $lightblue;
+        color: $black;
+        font-family: 'Merriweather', sans-serif;
+ }
+
+ .jumbotron{
+       background: $lightblue;
+       color: $black;
+       font-family: 'Merriweather', sans-serif;
+ }
+ h1,
+ h2 {
+        font-weight: bold;
+ }
+ p {
+        font-size: 16px;
+        color: $white;
+ }
+ 
+ a:visited {
+     color: $black;
+ }
