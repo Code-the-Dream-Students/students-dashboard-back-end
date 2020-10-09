@@ -8,119 +8,79 @@
 
 # users = User.create([
 #   {
+#     username: "user1",
+#     email: "user1@gmail.com",
+#     password: "123456",
+#     role: "admin"
+#   },
+#   {
+#     username: "user2",
+#     email: "user2@gmail.com",
+#     password: "123456",
+#     role: "stuff"
+#   },
+#   {
 #     username: "user3",
 #     email: "user3@gmail.com",
-#     password: "123456"
+#     password: "123456",
+#     role: "mentor"
 #   },
 #   {
 #     username: "user4",
 #     email: "user4@gmail.com",
 #     password: "123456"
+#     role: "mentor"
 #   },
 #   {
 #     username: "user5",
 #     email: "user5@gmail.com",
 #     password: "123456"
+#     role: "mentor"
 #   },
 #   {
 #     username: "user6",
 #     email: "user6@gmail.com",
 #     password: "123456"
+#     role: "mentor"
 #   },
 #   {
 #     username: "user7",
 #     email: "user7@gmail.com",
-#     password: "123456"
+#     password: "123456",
+#     role: "student"
 #   },
 #   {
 #     username: "user8",
 #     email: "user8@gmail.com",
-#     password: "123456"
+#     password: "123456",
+#     role: "student"
 #   },
 #   {
 #     username: "user9",
 #     email: "user9@gmail.com",
-#     password: "123456"
+#     password: "123456",
+#     role: "student"
 #   },
 #   {
 #     username: "user10",
 #     email: "user10@gmail.com",
-#     password: "123456"
+#     password: "123456",
+#     role: "student"
 #   },
 #   {
 #     username: "user11",
 #     email: "user11@gmail.com",
-#     password: "123456"
+#     password: "123456",
+#     role: "student"
 #   },
 #   {
 #     username: "user12",
 #     email: "user12@gmail.com",
-#     password: "123456"
+#     password: "123456",
+#     role: "student"
 #   }
 
 
-# ])
-
-
-
-# mentors = Mentor.create([
-#   {
-#     title: "software engineer",
-#     first_name: "Stevenson",
-#     last_name: "Gabitto",
-#     user_id: 1
-#   },
-#   {
-#     title: "software engineer",
-#     first_name: "Mark",
-#     last_name: "Teacher",
-#     user_id: 2
-#   },
-#   {
-#     title: "software engineer",
-#     first_name: "Rayn",
-#     last_name: "Velasquez",
-#     user_id: 3
-#   },
-#   {
-#     title: "software engineer",
-#     first_name: "Tom",
-#     last_name: "Rau",
-#     user_id: 4
-#   }
-# ])
-
-# students = Student.create([
-#   {
-#     first_name: "Jorge",
-#     last_name: "Gabitto",
-#     user_id: 5
-#   },
-#   {
-#     first_name: "Sinan",
-#     last_name: "Cengiz",
-#     user_id: 6
-#   },
-#   {
-#     first_name: "Denilson",
-#     last_name: "Velasquez",
-#     user_id: 7
-#   },
-#   {
-#     first_name: "Johan",
-#     last_name: "Ochoa",
-#     user_id: 8
-#   },
-#   {
-#     first_name: "Lu",
-#     last_name: "Ar",
-#     user_id: 9
-#   },
-#   {
-#     first_name: "Natalli",
-#     last_name: "Natova",
-#     user_id: 10
-#   }
 # ])
 
 # stuff = Stuff.create([
@@ -128,12 +88,73 @@
 #     title: "webspace Admin",
 #     first_name: "Lori",
 #     last_name: "Velasquez",
-#     user_id: 11
+#     user_id: 1
 #   },
 #    {
 #     title: "Admin",
 #     first_name: "Rayn",
 #     last_name: "Rayu",
+#     user_id: 2
+#   }
+# ])
+
+# mentors = Mentor.create([
+#   {
+#     title: "software engineer",
+#     first_name: "Stevenson",
+#     last_name: "Gabitto",
+#     user_id: 3
+#   },
+#   {
+#     title: "software engineer",
+#     first_name: "Mark",
+#     last_name: "Teacher",
+#     user_id: 4
+#   },
+#   {
+#     title: "software engineer",
+#     first_name: "Rayn",
+#     last_name: "Velasquez",
+#     user_id: 5
+#   },
+#   {
+#     title: "software engineer",
+#     first_name: "Tom",
+#     last_name: "Rau",
+#     user_id: 6
+#   }
+# ])
+
+# students = Student.create([
+#   {
+#     first_name: "Jorge",
+#     last_name: "Gabitto",
+#     user_id: 7
+#   },
+#   {
+#     first_name: "Sinan",
+#     last_name: "Cengiz",
+#     user_id: 8
+#   },
+#   {
+#     first_name: "Denilson",
+#     last_name: "Velasquez",
+#     user_id: 9
+#   },
+#   {
+#     first_name: "Johan",
+#     last_name: "Ochoa",
+#     user_id: 10
+#   },
+#   {
+#     first_name: "Lu",
+#     last_name: "Ar",
+#     user_id: 11
+#   },
+#   {
+#     first_name: "Natalli",
+#     last_name: "Natova",
 #     user_id: 12
 #   }
 # ])
+
