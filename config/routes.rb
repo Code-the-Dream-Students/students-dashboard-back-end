@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   root 'students#index'
   get '/mentors', to: 'mentors#index'
+  get '/stuff', to: 'stuff#index'
 
   get 'authorized', to: 'sessions#page_requires_login'
 

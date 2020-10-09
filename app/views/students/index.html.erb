@@ -2,14 +2,17 @@
 
 <div class="container" style="text-align:center; margin-top:100px;">
   <a href="/mentors">Go to Mentors</a>
+  <a href="/stuff">Go to Stuff</a>
   <h1><strong>Students Table</h1> 
   <% @students.each do |student| %>
-    <p><strong>Username: </strong><%= student.username %></p> 
+    <p><strong>User Name: </strong><%= student.user.username %></p> 
     <p><strong>First Name: </strong><%= student.first_name %></p> 
     <p><strong>Last Name: </strong><%= student.last_name %></p> 
+    <p><strong>Email: </strong><%= student.user.email %></p> 
     <br>
   <% end %>
 
   <a href="/mentors">Go to Mentors</a>
+  <a href="/stuff">Go to Stuff</a>
 
 </div>

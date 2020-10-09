@@ -1,0 +1,20 @@
+<%= button_to 'Log Out', logout_path, method: :get , :class => "btn btn-primary"  %>
+
+<div class="container" style="text-align:center; margin-top:100px;">
+  <a href="/mentors">Go to Mentors</a>
+  <a href="/">Go to Students</a>
+  <h1><strong>Stuff Table</h1> 
+  <% @stuff.each do |stuff| %>
+    <p><strong>Title: </strong><%= stuff.title %></p> 
+    <p><strong>Username: </strong><%= stuff.user.username %></p> 
+    <p><strong>First Name: </strong><%= stuff.first_name %></p> 
+    <p><strong>Last Name: </strong><%= stuff.last_name %></p> 
+    <p><strong>Email: </strong><%= stuff.user.email %></p> 
+    <br>
+  <% end %>
+
+  <a href="/mentors">Go to Mentors</a>
+  <a href="/">Go to Students</a>
+
+</div>
+
