@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create]   
+
+  resources :students
   get 'login', to: 'sessions#new'   
   post 'login', to: 'sessions#create'   
   get 'welcome', to: 'sessions#welcome'
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   root 'students#index'
   get '/mentors', to: 'mentors#index'
   get '/stuff', to: 'stuff#index'
+  get '/users', to: 'users#show'
 
   get 'authorized', to: 'sessions#page_requires_login'
 

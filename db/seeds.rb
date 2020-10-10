@@ -28,19 +28,19 @@
 #   {
 #     username: "user4",
 #     email: "user4@gmail.com",
-#     password: "123456"
+#     password: "123456",
 #     role: "mentor"
 #   },
 #   {
 #     username: "user5",
 #     email: "user5@gmail.com",
-#     password: "123456"
+#     password: "123456",
 #     role: "mentor"
 #   },
 #   {
 #     username: "user6",
 #     email: "user6@gmail.com",
-#     password: "123456"
+#     password: "123456",
 #     role: "mentor"
 #   },
 #   {

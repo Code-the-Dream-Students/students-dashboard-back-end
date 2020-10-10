@@ -2,6 +2,11 @@ class UsersController < ApplicationController
 
   skip_before_action :authorized, only: [:new, :create]
 
+  def show
+    @users = User.all
+    json_response(@users)
+  end
+
   def new
     @user = User.new
   end
