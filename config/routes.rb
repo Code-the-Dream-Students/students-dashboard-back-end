@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   root 'students#index'
   get '/mentors', to: 'mentors#index'
-  get '/stuff', to: 'stuff#index'
+  get '/staff', to: 'staff#index'
   get '/users', to: 'users#show'
 
   get 'authorized', to: 'sessions#page_requires_login'

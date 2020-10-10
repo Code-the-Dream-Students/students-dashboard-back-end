@@ -5,7 +5,7 @@
   <a href="/">Go to Students</a>
 
   <div class="col-lg-12" >
-  <h1><strong>Stuff Table</h1> 
+  <h1><strong>Staff Table</h1> 
   <table class="table">
     <thead>
       <tr>
@@ -20,16 +20,16 @@
       </tr>
     </thead>
     <tbody>
-    <% @stuff.each do |stuff| %>
+    <% @staff.each do |staff| %>
       <tr>
         <th scope="row">1</th>
-        <td><%= stuff.user.id %></td>
-        <td><%= stuff.user.username %></td>
-        <td></strong><%= stuff.title %></td>
-        <td></strong><%= stuff.first_name %></td>
-        <td><%= stuff.last_name %></td>
-        <td><%= stuff.user.email %></td>
-        <td><%= stuff.user.role %></td>
+        <td><%= staff.user.id %></td>
+        <td><%= staff.user.username %></td>
+        <td></strong><%= staff.title %></td>
+        <td></strong><%= staff.first_name %></td>
+        <td><%= staff.last_name %></td>
+        <td><%= staff.user.email %></td>
+        <td><%= staff.user.role %></td>
       </tr>
     <% end %>
     </tbody>
