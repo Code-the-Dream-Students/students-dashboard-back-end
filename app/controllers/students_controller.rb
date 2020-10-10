@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :set_student, only: [:show, :edit, :update, :destroy]#except: [:index, :new, create]
+  before_action :set_student, only: [:show, :edit, :update, :destroy, :show_courses]#except: [:index, :new, create]
 
   def index
     @students = Student.all
@@ -38,6 +38,10 @@ class StudentsController < ApplicationController
   def destroy
       @student.destroy
       redirect_to students_path
+  end
+
+  def show_courses
+    json_response(@student.courses)
   end
 
 
