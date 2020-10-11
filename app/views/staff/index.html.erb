@@ -1,11 +1,11 @@
 <%= button_to 'Log Out', logout_path, method: :get , :class => "btn btn-primary"  %>
 
 <div class="container" style="text-align:center; margin-top:100px;">
-  <a href="/staff">Go to Staff</a>
+  <a href="/mentors">Go to Mentors</a>
   <a href="/">Go to Students</a>
 
   <div class="col-lg-12" >
-  <h1><strong>Mentors Table</h1> 
+  <h1><strong>Staff Table</h1> 
   <table class="table">
     <thead>
       <tr>
@@ -20,19 +20,20 @@
       </tr>
     </thead>
     <tbody>
-    <% @mentors.each do |mentor| %>
+    <% @staff.each do |staff| %>
       <tr>
         <th scope="row">1</th>
-        <td><%= mentor.user.id %></td>
-        <td><%= mentor.user.username %></td>
-        <td></strong><%= mentor.title %></td>
-        <td></strong><%= mentor.first_name %></td>
-        <td><%= mentor.last_name %></td>
-        <td><%= mentor.user.email %></td>
-        <td><%= mentor.user.role %></td>
+        <td><%= staff.user.id %></td>
+        <td><%= staff.user.username %></td>
+        <td></strong><%= staff.title %></td>
+        <td></strong><%= staff.first_name %></td>
+        <td><%= staff.last_name %></td>
+        <td><%= staff.user.email %></td>
+        <td><%= staff.user.role %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
 </div>
 </div>
+

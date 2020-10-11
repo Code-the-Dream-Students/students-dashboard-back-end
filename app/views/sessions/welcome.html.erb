@@ -4,7 +4,10 @@
             <% if logged_in? %>   
                 <div class="row" >
                     <%= button_to 'Log Out', logout_path, method: :get , :class => "btn btn-primary" %>
-                    <%= button_to 'Go to Stundets', "/", method: :get , :class => "btn btn-primary" %>
+                    <% if current_user.role === "admin" %>   
+                             <%= button_to 'Go to Admin Page', "/", method: :get , :class => "btn btn-primary" %>
+                            <h1>Role: <%= current_user.role %></h1>
+                    <%end%>
                 <div>
             <%end%>
             <% if !logged_in? %>  
@@ -57,6 +60,7 @@
             </div>
         </div>
     <%end%>
+
 
 
 
