@@ -3,43 +3,50 @@ class StudentsController < ApplicationController
 
   def index
     @students = Student.all
+    json_response(@students)
   end
 
-  def show
-
-  end
-
-  def new
-      @student = Student.new
-  end
-
+  # POST /student
   def create
-      @student = Student.new(student_params)
-      respond_to do |format|
-        if @student.save
-          format.html { redirect_to @student, notice: 'Student was successfully created.' }
-          format.json { render :show, status: :created, location: @student }
-        else
-          format.html { render :new }
-          format.json { render json: @student.errors, status: :unprocessable_entity }
-        end
-      end
+    @student = Student.create!(student_params)
+    json_response(@student, :created)
   end
 
-  def edit
-
+  # GET /students/:id
+  def show
+    json_response(@student)
   end
 
+  # def new
+  #     @student = Student.new
+  # end
+
+  # def create
+  #     @student = Student.new(student_params)
+  #     respond_to do |format|
+  #       if @student.save
+  #         format.html { redirect_to @student, notice: 'Student was successfully created.' }
+  #         format.json { render :show, status: :created, location: @student }
+  #       else
+  #         format.html { render :new }
+  #         format.json { render json: @student.errors, status: :unprocessable_entity }
+  #       end
+  #     end
+  # end
+
+  # PUT /students/:id
   def update
       @student.update(student_params)
-      redirect_to @student
+      head :no_content
   end
 
+  # DELETE /students/:id
   def destroy
       @student.destroy
-      redirect_to students_path
+      head :no_content
   end
 
+  # GET /students/:id/courses
   def show_courses
     json_response(@student.courses)
   end
