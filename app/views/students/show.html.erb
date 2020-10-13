@@ -1,0 +1,8 @@
+<div class="container">
+    <h1>  <%= @student.first_name %> </h1>
+    <h1>  <%= @student.last_name %> </h1>
+    <%= link_to 'Edit Student', edit_student_path(@student) %>
+    <%= link_to 'Delete', @student, method: :delete %>
+</div>
+
+

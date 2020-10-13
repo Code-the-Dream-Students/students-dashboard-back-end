@@ -1,11 +1,49 @@
-<a href="/mentors">Go to Mentors</a>
-<h1><strong>Students Table</h1> 
-<% @students.each do |student| %>
-  <p><strong>Username: </strong><%= student.username %></p> 
-  <p><strong>First Name: </strong><%= student.first_name %></p> 
-  <p><strong>Last Name: </strong><%= student.last_name %></p> 
-  <p><strong>Email: </strong><%= student.email %></p> 
-  <br>
-<% end %>
+<%= button_to 'Log Out', logout_path, method: :get , :class => "btn btn-primary"  %>
 
-<a href="/mentors">Go to Mentors</a>
+
+
+<div class="container" style="text-align:center; margin-top:100px;">
+      <a href="/mentors">Go to Mentors</a>
+      <a href="/staff">Go to Staff</a>
+      <a href="/users">Show  All Users</a>
+      <div class="col-lg-12" >
+          <h1><strong>Students Table</h1> 
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">User ID</th>
+                <th scope="col">User Name</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @students.each do |student| %>
+              <tr>
+                <th scope="row">1</th>
+                <td><%= student.user_id %></td>
+                <td><%= student.user.username %></td>
+                <td></strong><%= student.first_name %></td>
+                <td><%= student.last_name %></td>
+                <td><%= student.user.email %></td>
+                <td><%= student.user.role %></td>
+                <td><%= link_to 'Show', student %></td>
+                <td><%= link_to 'Edit', edit_student_path(student) %></td>
+                <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>        
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+      </div>
+  </div>
+<div style="text-align:center;">
+  <%= link_to 'Add New Student', new_student_path %>
+</div>
+
+
+
+
+

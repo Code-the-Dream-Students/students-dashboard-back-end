@@ -1,0 +1,24 @@
+<%= form_for(student) do |f| %>
+    <div class="field">
+      <%= f.label :first_name %>
+      <% # This will output a text field used to set the
+      # first_name attribute of the Page object.%>
+      <%= f.text_field :first_name %>
+    </div>
+  
+    <div class="field">
+      <%= f.label :last_name %>
+      <% # This will output a larger text field used to set the
+      # body attribute of the Page object.%>
+      <%= f.text_field :last_name %>
+    </div>
+
+    <div class="field">
+        <%= f.label :user_id %>
+        <%= f.text_field  :user_id%>
+    </div>
+  
+    <div>
+      <%= f.submit %>
+    </div>
+  <% end %>

@@ -1,0 +1,67 @@
+
+<div class="container">
+
+            <% if logged_in? %>   
+                <div class="row" >
+                    <%= button_to 'Log Out', logout_path, method: :get , :class => "btn btn-primary" %>
+                    <% if current_user.role === "admin" %>   
+                             <%= button_to 'Go to Admin Page', "/", method: :get , :class => "btn btn-primary" %>
+                            <h1>Role: <%= current_user.role %></h1>
+                    <%end%>
+                <div>
+            <%end%>
+            <% if !logged_in? %>  
+                <div class="row" >
+                    <h1>Get Involved</h1>
+                </div>
+                <div class="row" >
+                    <%= button_to "Login", '/login', method: :get , :class => "btn btn-primary" %>
+                    <%= button_to "Sign Up", '/users/new', method: :get , :class => "btn btn-primary" %>
+                </div>
+            <%end%>
+            <div class="row" >
+                <div class="container">
+                    <div class="jumbotron">
+                        <h1>Welcome to Code the Dream</h1>
+                        <p>Code the Dream offers free intensive training in software development to people from diverse low-income backgrounds. In CTD Labs, our coders work with experienced mentors to hone those skills by building apps and technology platforms for a range of startups, nonprofits and government clients. The ultimate aim of Code the Dream is to create a unique win-win, where our coders gain real experience building apps that make the world a little better place, and then use that experience to launch new careers with enormous opportunity for themselves, their families, and their communities. </p>
+                        <br>
+                    </div>
+                </div>
+            </div>
+</div>
+
+
+<div class="container">
+    <% if logged_in? %>   
+        <div class="row" >
+            <div class="col-lg-12"  >
+                <h1>You succesfully logged in</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12" >
+                <h1>Username:  <%= current_user.username %></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12" >
+                <h1>User ID: <%= current_user.id %></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12" >
+                <h1>Email: <%= current_user.email %></h1>
+            </div>
+        </div>
+        <div class="row" >
+            <div class="col-lg-12" style="text-align:center">
+                
+                
+            </div>
+        </div>
+    <%end%>
+
+
+
+
+

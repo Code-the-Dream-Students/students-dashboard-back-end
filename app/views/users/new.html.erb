@@ -1,0 +1,16 @@
+
+ <div class="container" style="text-align:center; margin-top:100px;">
+
+    <h1>Sign Up</h1>
+
+    <%= form_for @user  do |f| %>  
+        <%= f.label :username%><br>  
+        <%= f.text_field :username%><br>  
+        <%= f.label :email%><br>  
+        <%= f.text_field :email%><br>  
+        <%= f.label :password%><br>  
+        <%= f.password_field :password%><br>  
+        <%= f.submit %>
+    <%end%>
+
+</div>

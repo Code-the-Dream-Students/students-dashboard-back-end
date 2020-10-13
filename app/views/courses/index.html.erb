@@ -1,0 +1,41 @@
+<%= button_to 'Log Out', logout_path, method: :get , :class => "btn btn-primary"  %>
+
+
+
+<div class="container" style="text-align:center; margin-top:100px;">
+      <a href="/mentors">Go to Mentors</a>
+      <a href="/staff">Go to Staff</a>
+      <a href="/users">Show  All Users</a>
+      <div class="col-lg-12" >
+          <h1><strong>Courses Table</h1> 
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Duration</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @courses.each do |course| %>
+              <tr>
+                <th scope="row">1</th>
+                <td><%= course.name %></td>
+                <td><%= course.duration %> weeks</td>
+                <td><%= link_to 'Show', course %></td>
+                <td><%= link_to 'Edit', edit_course_path(course) %></td>
+                <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>        
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+      </div>
+  </div>
+<div style="text-align:center;">
+  <%= link_to 'Add New Course', new_course_path %>
+</div>
+
+
+
+
+
