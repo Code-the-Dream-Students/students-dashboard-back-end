@@ -1,0 +1,20 @@
+<h1><strong>assignments Table</h1> 
+<table class="table">
+<thead>
+    <tr>
+    <th scope="col">#</th>
+    <th scope="col">Name</th>
+    <th scope="col">Github URL</th>
+    <th scope="col">Status</th>
+    </tr>
+</thead>
+<tbody>
+<% @assignments.each do |assignment| %>
+    <tr>
+    <th scope="row">1</th>
+    <td><%= assignment.name %></td>
+    <td><%= assignment.github_url %></td>
+    <td><%= assignment.status %></td></tr>
+<% end %>
+</tbody>
+</table>
