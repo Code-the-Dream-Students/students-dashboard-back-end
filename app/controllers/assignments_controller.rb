@@ -1,9 +1,8 @@
 class AssignmentsController < ApplicationController
-    #helps with ActionController::InvalildAuthenticityToken error status 422
-    #error: request with invalid cterf token - Rails built-in protection
-    protect_from_forgery with: :null_session
+    # Helps with ActionController::InvalildAuthenticityToken error status 422
+    # error: request with invalid cterf token - Rails built-in protection
+    # protect_from_forgery with: :null_session
     before_action :set_assignment, only: [:show, :edit, :update, :destroy]#except: [:index, :new, create]
-    # skip_before_action :authorized
     def index
         @assignments = Assignment.all
         # json_response(@assignments)
@@ -16,7 +15,7 @@ class AssignmentsController < ApplicationController
 
     # POST /assignments
     def create
-        @assignment = Assignment.create(assignment_params)
+        @assignment = Assignment.create!(assignment_params)
         if @assignment.save
             json_response(@assignment, :created)
         else
@@ -48,11 +47,12 @@ class AssignmentsController < ApplicationController
 
 
     private 
-        def assignment_params
-            params.require(:assignment).permit(:name, :github_url, :status)
-        end
 
-        def set_assignment
-            @assignment = Assignment.find(params[:id])
-        end
+    def assignment_params
+        params.require(:assignment).permit(:name, :github_url, :status)
+    end
+
+    def set_assignment
+        @assignment = Assignment.find(params[:id])
+    end
 end

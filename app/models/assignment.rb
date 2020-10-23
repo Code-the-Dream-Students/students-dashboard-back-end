@@ -1,3 +1,4 @@
 class Assignment < ApplicationRecord
-  belongs_to :week
+  # Comment out due to Week model not created in database yet
+  # belongs_to :week
 end

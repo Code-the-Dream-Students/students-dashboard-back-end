@@ -186,3 +186,26 @@
 #     duration: 8
 #   }
 # ])
+
+# assignments = Assignment.create([
+#   {
+#     name: "Week 1",
+#     github_url: "https://classroom.github.com/a/3sC7kKB7",
+#     status: 0
+#   },
+#   {
+#     name: "Week 2",
+#     github_url: "https://classroom.github.com/a/3sC7kKB7",
+#     status: 1
+#   },
+#   {
+#     name: "Week 3",
+#     github_url: "https://classroom.github.com/a/3sC7kKB7",
+#     status: 1
+#   },
+#   {
+#     name: "Week 4",
+#     github_url: "https://classroom.github.com/a/3sC7kKB7",
+#     status: 2
+#   }
+# ])

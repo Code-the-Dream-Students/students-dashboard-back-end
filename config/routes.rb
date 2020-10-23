@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :staffs
   resources :mentors
+  resources :assignments
 
   get '/students/:id/courses', to: 'students#show_courses'
   get '/courses/:id/students', to: 'courses#show_students'
