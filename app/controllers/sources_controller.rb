@@ -39,6 +39,7 @@ class SourcesController < ApplicationController
   def create
     @source = Source.create(source_params)
     if @source
+    # && @user && @user.role == "staff"
       render json: {
         status: :ok,
         message: "Source created",
@@ -54,11 +55,26 @@ class SourcesController < ApplicationController
 
   def update
     if set_source.update(source_params)
-    # && @user
+    # && @user && @user.role == "staff"
       render json: {
         status: :ok,
         message: "Source updated",
         source: set_source
+      }
+    else
+      render json: {
+        status: 401,
+        message: "Error"
+      }
+    end
+  end
+
+  def destroy
+    if set_source.destroy
+    # && @user && @user.role == "staff"
+      render json: {
+        status: :ok,
+        message: "Source deleted",
       }
     else
       render json: {
