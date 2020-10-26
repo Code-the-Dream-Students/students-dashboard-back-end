@@ -15,30 +15,30 @@ class StudentsController < ApplicationController
   
     # GET /students/:id
     def show
-      json_response(@todo)
+      json_response(@student)
     end
   
-    # PUT /todos/:id
+    # PUT /students/:id
     def update
-      @todo.update(todo_params)
+      @todo.update(student_params)
       head :no_content
     end
   
-    # DELETE /todos/:id
+    # DELETE /students/:id
     def destroy
-      @todo.destroy
+      @student.destroy
       head :no_content
     end
   
     private
   
-    def todo_params
+    def student_params
       # whitelist params
-      params.permit(:title, :created_by)
+      params.permit(:first_name, :last_name, :enrolled)
     end
   
-    def set_todo
-      @todo = Todo.find(params[:id])
+    def set_student
+      @student = Student.find(params[:id])
     end
 
 end
