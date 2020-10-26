@@ -1,0 +1,84 @@
+class CoursesController < ApplicationController
+  def index
+    @courses = Course.all
+    render json: {
+      status: :ok,
+      message: "Success",
+      courses: @courses
+    }
+  end
+
+  def show
+    if set_course
+    # && @user 
+      render json: {
+        status: :ok,
+        message: "Success",
+        course: set_course
+      }
+    else
+      render json: {
+        status: 401,
+        message: "Error"
+      }
+    end
+  end
+
+  def create
+    @course = Course.create(course_params)
+    if @course
+    # && @user && @user.role == "staff"
+      render json: {
+        status: :ok,
+        message: "Course created",
+        course: @course
+      }
+    else
+      render json: {
+        status: 401,
+        message: "Error"
+      }
+    end
+  end
+
+  def update
+    if set_course.update(course_params)
+    # && @user && @user.role == "staff"
+      render json: {
+        status: :ok,
+        message: "Course updated",
+        course: set_course
+      }
+    else
+      render json: {
+        status: 401,
+        message: "Error"
+      }
+    end
+  end
+
+  def destroy
+    if set_course.destroy
+    # && @user && @user.role == "staff"
+      render json: {
+        status: :ok,
+        message: "Course deleted",
+      }
+    else
+      render json: {
+        status: 401,
+        message: "Error"
+      }
+    end
+  end
+
+  private
+
+    def course_params
+      params.require(:course).permit(:course_name, :description)
+    end
+
+    def set_course
+      Course.find(params[:id])
+    end
+end
