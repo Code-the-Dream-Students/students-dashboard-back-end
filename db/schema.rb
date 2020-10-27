@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_26_222356) do
+ActiveRecord::Schema.define(version: 2020_10_27_182455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "course_units", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "unit_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "course_name"
@@ -22,24 +29,10 @@ ActiveRecord::Schema.define(version: 2020_10_26_222356) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "courses_units", id: false, force: :cascade do |t|
-    t.bigint "course_id", null: false
-    t.bigint "unit_id", null: false
-    t.index ["course_id", "unit_id"], name: "index_courses_units_on_course_id_and_unit_id"
-    t.index ["unit_id", "course_id"], name: "index_courses_units_on_unit_id_and_course_id"
-  end
-
   create_table "lessons", force: :cascade do |t|
     t.string "lesson_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "lessons_units", id: false, force: :cascade do |t|
-    t.bigint "unit_id", null: false
-    t.bigint "lesson_id", null: false
-    t.index ["lesson_id", "unit_id"], name: "index_lessons_units_on_lesson_id_and_unit_id"
-    t.index ["unit_id", "lesson_id"], name: "index_lessons_units_on_unit_id_and_lesson_id"
   end
 
   create_table "sources", force: :cascade do |t|
@@ -49,6 +42,13 @@ ActiveRecord::Schema.define(version: 2020_10_26_222356) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "lesson_id"
     t.index ["lesson_id"], name: "index_sources_on_lesson_id"
+  end
+
+  create_table "unit_lessons", force: :cascade do |t|
+    t.integer "unit_id"
+    t.integer "lesson_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "units", force: :cascade do |t|

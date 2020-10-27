@@ -1,3 +1,4 @@
 class Course < ApplicationRecord
-  has_and_belongs_to_many :units
+  has_many :course_units
+  has_many :units, through: :course_units
 end
