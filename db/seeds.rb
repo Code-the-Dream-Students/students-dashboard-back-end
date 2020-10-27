@@ -1,96 +1,259 @@
+courses = Course.create([
+  {
+    course_name: "Sunrise",
+    description: "Web basics for Front-End or Back-End development"
+  },
+  {
+    course_name: "Phoenix",
+    description: "Front-End development with React.JS"
+  },
+  {
+    course_name: "Piranha",
+    description: "Back-End development with Ruby on Rails"
+  },
+  {
+    course_name: "High Noon",
+    description: "Front-End and Back-End development with React.JS and Ruby on Rails"
+  }
+])
+
+
+units = Unit.create([
+  {
+    unit_name: "Web basics 1",
+    description: "Welcome to Web Basics I, the first class in Code the Dream’s six-part Web Development course. Web Basics I serves as an introduction to computer programming. You’ll start with Treehouse’s Digital Literacy track, which covers basic computing principles and introduces you to HTML, CSS, JavaScript, & Git. By the time you finish your final project, you’ll have the foundations every programmer needs.",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    unit_name: "Web basics 2",
+    description: "Now that you have mastered the essentials of programming, it’s time to dive deeper. In Web Basics II, you’ll learn the basics of JavaScript, the most popular programming language. Then, you will learn about databases and SQL, a popular back-end language, and work on some more GitHub. Finally, you’ll apply that knowledge in the final project for Web Basics.",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    unit_name: "Front-End 1",
+    description: "Welcome to Front End 1, the first class in our Front End development track.",
+    courses: [
+      Course.find(2),
+      Course.find(4)
+    ]
+  },
+  {
+    unit_name: "Front-End 2",
+    description: "Welcome to Front End II, you will be learning the popular and super powerful javascript framework React.",
+    courses: [
+      Course.find(2),
+      Course.find(4)
+    ]
+  },
+  {
+    unit_name: "Back-End 1",
+    description: "Welcome to Back End I, the first class in our Back End development track.",
+    courses: [
+      Course.find(3),
+      Course.find(4)
+    ]
+  },
+  {
+    unit_name: "Back-End 2",
+    description: "Welcome to Back End II, the first class in our Back End development track.",
+    courses: [
+      Course.find(3),
+      Course.find(4)
+    ]
+  }
+])
+
+
 lessons = Lesson.create([
   {
-    lesson_name: "Digital Literacy, Intro to Terminal, Intro to Git, Intro to HTML & CSS"
+    lesson_name: "Digital Literacy, Intro to Terminal, Intro to Git, Intro to HTML & CSS",
+    units: [
+      Unit.find(1)
+    ]
   },
   {
-    lesson_name: "Intro to Wireframing | Intro to JavaScript | HTML Basics" 
+    lesson_name: "Intro to Wireframing | Intro to JavaScript | HTML Basics",
+    units: [
+      Unit.find(1)
+    ]
   },
   {
-    lesson_name: "Beginning JavaScript | Functions | Numbers" 
+    lesson_name: "Beginning JavaScript | Functions | Numbers",
+    units: [
+      Unit.find(2)
+    ]
   },
   {
-    lesson_name: "Loops | Arrays | Objects" 
+    lesson_name: "Loops | Arrays | Objects",
+    units: [
+      Unit.find(2)
+    ]
   },
   {
-    lesson_name: "Additional JavaScript exercises" 
+    lesson_name: "Additional JavaScript exercises",
+    units: [
+      Unit.find(2)
+    ]
   },
   {
-    lesson_name: "JavaScript and the DOM | CSS Selectors" 
+    lesson_name: "JavaScript and the DOM | CSS Selectors",
+    units: [
+      Unit.find(2)
+    ]
   },
   {
-    lesson_name: "DOM Scripting" 
+    lesson_name: "DOM Scripting",
+    units: [
+      Unit.find(2)
+    ]
   },
   {
-    lesson_name: "Build" 
+    lesson_name: "Build",
+    units: [
+      Unit.find(2)
+    ]
   },
   {
-    lesson_name: "Debugging with CSS, CSS layouts" 
+    lesson_name: "Debugging with CSS, CSS layouts",
+    units: [
+      Unit.find(3)
+    ]
   },
   {
-    lesson_name: "Advanced HTML & CSS, CSS selectors, Bootstrap 4 basics" 
+    lesson_name: "Advanced HTML & CSS, CSS selectors, Bootstrap 4 basics",
+    units: [
+      Unit.find(3)
+    ]
   },
   {
-    lesson_name: "HTML tables, HTML video & audio, Media-player, Intro to FE optimization " 
+    lesson_name: "HTML tables, HTML video & audio, Media-player, Intro to FE optimization ",
+    units: [
+      Unit.find(3)
+    ]
   },
   {
-    lesson_name: "AJAX basics, ASync JavaScript, Working with Fetch" 
+    lesson_name: "AJAX basics, ASync JavaScript, Working with Fetch",
+    units: [
+      Unit.find(3)
+    ]
   },
   {
-    lesson_name: "Object-oriented JavaScript, Web Accessibility Compliance, Web optimization" 
+    lesson_name: "Object-oriented JavaScript, Web Accessibility Compliance, Web optimization",
+    units: [
+      Unit.find(3)
+    ]
   },
   {
-    lesson_name: "Practice with reusable components, Intro to React" 
+    lesson_name: "Practice with reusable components, Intro to React",
+    units: [
+      Unit.find(4)
+    ]
   },
   {
-    lesson_name: "Fetching data & creating routes" 
+    lesson_name: "Fetching data & creating routes",
+    units: [
+      Unit.find(4)
+    ]
   },
   {
-    lesson_name: "Using APIs to fetch data in React. Using Airtable as a lightweight CMS" 
+    lesson_name: "Using APIs to fetch data in React. Using Airtable as a lightweight CMS",
+    units: [
+      Unit.find(4)
+    ]
   },
   {
-    lesson_name: "Authentication patterns. Using Firebase as a backend for a react app. Reviewing React Concepts." 
+    lesson_name: "Authentication patterns. Using Firebase as a backend for a react app. Reviewing React Concepts.",
+    units: [
+      Unit.find(4)
+    ]
   },
   {
-    lesson_name: "React Project." 
+    lesson_name: "React Project.",
+    units: [
+      Unit.find(4)
+    ]
   },
   {
-    lesson_name: "SQL Basics" 
+    lesson_name: "SQL Basics",
+    units: [
+      Unit.find(5)
+    ]
   },
   {
-    lesson_name: "More SQL, Introduction to Ruby" 
+    lesson_name: "More SQL, Introduction to Ruby",
+    units: [
+      Unit.find(5)
+    ]
   },
   {
-    lesson_name: "Ruby" 
+    lesson_name: "Ruby",
+    units: [
+      Unit.find(5)
+    ]
   },
   {
-    lesson_name: "Ruby II" 
+    lesson_name: "Ruby II",
+    units: [
+      Unit.find(5)
+    ]
   },
   {
-    lesson_name: "Ruby III" 
+    lesson_name: "Ruby III",
+    units: [
+      Unit.find(5)
+    ]
   },
   {
-    lesson_name: "Ruby & Sinatra" 
+    lesson_name: "Ruby & Sinatra",
+    units: [
+      Unit.find(5)
+    ]
   },
   {
-    lesson_name: "Ruby on Rails Basics" 
+    lesson_name: "Ruby on Rails Basics",
+    units: [
+      Unit.find(1)
+    ]
   },
   {
-    lesson_name: "Rails Development" 
+    lesson_name: "Rails Development",
+    units: [
+      Unit.find(6)
+    ]
   },
   {
-    lesson_name: "Additional Rails Topics" 
+    lesson_name: "Additional Rails Topics",
+    units: [
+      Unit.find(6)
+    ]
   },
   {
-    lesson_name: "Bringing it all together" 
+    lesson_name: "Bringing it all together",
+    units: [
+      Unit.find(6)
+    ]
   },
   {
-    lesson_name: "Bootstrap 4 Basics; Bootstrap in Rails." 
+    lesson_name: "Bootstrap 4 Basics; Bootstrap in Rails.",
+    units: [
+      Unit.find(6)
+    ]
   },
   {
-    lesson_name: "Building an API, Swagger, Ajax" 
+    lesson_name: "Building an API, Swagger, Ajax",
+    units: [
+      Unit.find(6)
+    ]
   },
   {
-    lesson_name: "Final Project" 
+    lesson_name: "Final Project",
+    units: [
+      Unit.find(6)
+    ]
   }
 ])
 
@@ -328,8 +491,7 @@ sources = Source.create([
   },
   {
     source_title: "Authentication patterns using Firebase",
-    link: "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial
-    ",
+    link: "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial",
     lesson_id: 17
   },
   {
