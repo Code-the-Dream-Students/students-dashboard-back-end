@@ -5,7 +5,15 @@ class SourcesController < ApplicationController
   def index
     # if @user
 
-    @sources = Source.all
+    @sources = params[:course_id] && params[:unit_id] && params[:lesson_id] ?
+      Course.find(params[:course_id]).units.find(params[:unit_id]).lessons.find(params[:lesson_id]).sources :
+      params[:unit_id] && params[:lesson_id] ?
+        Unit.find(params[:unit_id]).lessons.find(params[:lesson_id]).sources :
+        params[:lesson_id] ?
+          Lesson.find(params[:lesson_id]).sources :
+          Source.all
+
+    # @sources = Source.all
     render json: {
       status: :ok,
       message: "Success",
@@ -21,12 +29,22 @@ class SourcesController < ApplicationController
   end
 
   def show
-    if set_source
+
+    @source = params[:course_id] && params[:unit_id] && params[:lesson_id] && set_source ?
+      Course.find(params[:course_id]).units.find(params[:unit_id]).lessons.find(params[:lesson_id]).sources.find(params[:id]) :
+      params[:unit_id] && params[:lesson_id] && set_source ?
+        Unit.find(params[:unit_id]).lessons.find(params[:lesson_id]).sources.find(params[:id]) :
+        params[:lesson_id] && set_source ?
+          Lesson.find(params[:lesson_id]).sources.find(params[:id]) :
+          set_source
+
+
+    if @source
     # && @user 
       render json: {
         status: :ok,
         message: "Success",
-        source: set_source
+        source: @source
       }
     else
       render json: {

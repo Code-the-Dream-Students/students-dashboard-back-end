@@ -8,11 +8,17 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :units do
+    resources :lessons do
+      resources :sources
+    end
+  end
 
+  resources :lessons do
+    resources :sources
+  end
 
-  resources :courses
-  resources :units
-  resources :lessons
   resources :sources
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

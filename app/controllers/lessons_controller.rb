@@ -1,9 +1,10 @@
 class LessonsController < ApplicationController
   def index
-    puts params
     @lessons = params[:course_id] && params[:unit_id] ?
       Course.find(params[:course_id]).units.find(params[:unit_id]).lessons :
-      Lesson.all
+      params[:unit_id] ?
+        Unit.find(params[:unit_id]).lessons :
+        Lesson.all
 
     render json: {
       status: :ok,
@@ -15,7 +16,9 @@ class LessonsController < ApplicationController
   def show
     @lesson = params[:course_id] && params[:unit_id] && set_lesson ?
       Course.find(params[:course_id]).units.find(params[:unit_id]).lessons.find(params[:id]) :
-      set_lesson
+      params[:unit_id] && set_lesson ?
+        Unit.find(params[:unit_id]).lessons.find(params[:id]) :
+        set_lesson
 
     if @lesson
     # && @user 
