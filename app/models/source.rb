@@ -1,3 +1,4 @@
 class Source < ApplicationRecord
-  belongs_to :lesson
+  has_many :lesson_sources
+  has_many :lessons, through: :lesson_sources
 end
