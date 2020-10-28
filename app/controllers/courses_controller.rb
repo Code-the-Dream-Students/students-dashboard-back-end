@@ -2,7 +2,7 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.all
     render json: {
-      status: :ok,
+      status: 200,
       message: "Success",
       courses: @courses
     }
@@ -12,7 +12,7 @@ class CoursesController < ApplicationController
     if set_course
     # && @user 
       render json: {
-        status: :ok,
+        status: 200,
         message: "Success",
         course: set_course
       }
@@ -29,7 +29,7 @@ class CoursesController < ApplicationController
     if @course
     # && @user && @user.role == "staff"
       render json: {
-        status: :ok,
+        status: 200,
         message: "Course created",
         course: @course
       }
@@ -45,7 +45,7 @@ class CoursesController < ApplicationController
     if set_course.update(course_params)
     # && @user && @user.role == "staff"
       render json: {
-        status: :ok,
+        status: 200,
         message: "Course updated",
         course: set_course
       }
@@ -61,7 +61,7 @@ class CoursesController < ApplicationController
     if set_course.destroy
     # && @user && @user.role == "staff"
       render json: {
-        status: :ok,
+        status: 200,
         message: "Course deleted",
       }
     else

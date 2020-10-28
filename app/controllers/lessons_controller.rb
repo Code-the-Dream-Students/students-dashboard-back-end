@@ -7,7 +7,7 @@ class LessonsController < ApplicationController
         Lesson.all
 
     render json: {
-      status: :ok,
+      status: 200,
       message: "Success",
       lessons: @lessons
     }
@@ -23,7 +23,7 @@ class LessonsController < ApplicationController
     if @lesson
     # && @user 
       render json: {
-        status: :ok,
+        status: 200,
         message: "Success",
         lesson: @lesson
       }
@@ -40,7 +40,7 @@ class LessonsController < ApplicationController
       if @lesson
       # && @user && @user.role == "staff"
         render json: {
-          status: :ok,
+          status: 200,
           message: "Lesson created",
           lesson: @lesson
         }
@@ -57,7 +57,7 @@ class LessonsController < ApplicationController
       if set_lesson.update(lesson_params)
       # && @user && @user.role == "staff"
         render json: {
-          status: :ok,
+          status: 200,
           message: "Lesson updated",
           lesson: set_lesson
         }
@@ -74,7 +74,7 @@ class LessonsController < ApplicationController
       if set_lesson.destroy
       # && @user && @user.role == "staff"
         render json: {
-          status: :ok,
+          status: 200,
           message: "Lesson deleted",
         }
       else

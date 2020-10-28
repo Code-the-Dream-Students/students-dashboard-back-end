@@ -15,7 +15,7 @@ class SourcesController < ApplicationController
 
     # @sources = Source.all
     render json: {
-      status: :ok,
+      status: 200,
       message: "Success",
       sources: @sources
     }
@@ -42,7 +42,7 @@ class SourcesController < ApplicationController
     if @source
     # && @user 
       render json: {
-        status: :ok,
+        status: 200,
         message: "Success",
         source: @source
       }
@@ -59,7 +59,7 @@ class SourcesController < ApplicationController
     if @source
     # && @user && @user.role == "staff"
       render json: {
-        status: :ok,
+        status: 200,
         message: "Source created",
         source: @source
       }
@@ -75,7 +75,7 @@ class SourcesController < ApplicationController
     if set_source.update(source_params)
     # && @user && @user.role == "staff"
       render json: {
-        status: :ok,
+        status: 200,
         message: "Source updated",
         source: set_source
       }
@@ -91,7 +91,7 @@ class SourcesController < ApplicationController
     if set_source.destroy
     # && @user && @user.role == "staff"
       render json: {
-        status: :ok,
+        status: 200,
         message: "Source deleted",
       }
     else

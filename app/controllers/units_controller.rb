@@ -5,7 +5,7 @@ class UnitsController < ApplicationController
       Unit.all
 
     render json: {
-      status: :ok,
+      status: 200,
       message: "Success",
       units: @units
     }
@@ -19,7 +19,7 @@ class UnitsController < ApplicationController
     if set_unit
     # && @user 
       render json: {
-        status: :ok,
+        status: 200,
         message: "Success",
         unit: set_unit
       }
@@ -34,7 +34,7 @@ class UnitsController < ApplicationController
       @unit = Unit.create(unit_params)
       if @unit
         render json: {
-          status: :ok,
+          status: 200,
           message: "Unit created",
           unit: @unit
         }
@@ -51,7 +51,7 @@ class UnitsController < ApplicationController
       if set_unit.update(unit_params)
       # && @user && @user.role == "staff"
         render json: {
-          status: :ok,
+          status: 200,
           message: "Unit updated",
           unit: set_unit
         }
@@ -68,7 +68,7 @@ class UnitsController < ApplicationController
       if set_unit.destroy
       # && @user && @user.role == "staff"
         render json: {
-          status: :ok,
+          status: 200,
           message: "Unit deleted",
         }
       else
