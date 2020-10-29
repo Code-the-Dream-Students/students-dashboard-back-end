@@ -1,32 +1,32 @@
 class CourseunitsController < ApplicationController
-  def index
-    if courseunit_params
-      render json: {
-        status: 200,
-        message: "Success",
-        relationship: courseunit_params,
-        course: course_params,
-        unit: unit_params
-      }
-    else
-      render json: {
-        status: 404,
-        message: "Relationship doesn't exist"
-      }
-    end
-  end
+  # def index
+  #   if set_course_unit
+  #     render json: {
+  #       status: 200,
+  #       message: "Success",
+  #       relationship: set_course_unit,
+  #       course: set_course,
+  #       unit: set_unit
+  #     }
+  #   else
+  #     render json: {
+  #       status: 404,
+  #       message: "Relationship doesn't exist"
+  #     }
+  #   end
+  # end
 
   def create
-    if courseunit_params == nil
-      if course_params && unit_params
-        course_params.units << unit_params
+    if set_course_unit == nil
+      if set_course && set_unit
+        set_course.units << set_unit
 
         render json: {
           status: 200,
           message: "Relationship created successfully",
-          relationship: courseunit_params,
-          course: course_params,
-          unit: unit_params
+          relationship: set_course_unit,
+          course: set_course,
+          unit: set_unit
         }
       else
         render json: {
@@ -43,12 +43,12 @@ class CourseunitsController < ApplicationController
   end
 
   def destroy
-    if courseunit_params && courseunit_params.destroy
+    if set_course_unit && set_course_unit.destroy
       render json: {
         status: 200,
         message: "Relationship deleted successfully",
-        course: course_params,
-        unit: unit_params
+        course: set_course,
+        unit: set_unit
       }
     else
       render json: {
@@ -60,15 +60,15 @@ class CourseunitsController < ApplicationController
 
   private
 
-    def course_params
+    def set_course
       Course.find(params[:course_id])
     end
 
-    def unit_params
+    def set_unit
       Unit.find(params[:unit_id])
     end
 
-    def courseunit_params
+    def set_course_unit
       CourseUnit.find_by(course_id: params[:course_id], unit_id: params[:unit_id])
     end
   

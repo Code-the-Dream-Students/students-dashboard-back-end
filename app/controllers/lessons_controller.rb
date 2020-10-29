@@ -1,9 +1,9 @@
 class LessonsController < ApplicationController
   def index
     @lessons = params[:course_id] && params[:unit_id] ?
-      Course.find(params[:course_id]).units.find(params[:unit_id]).lessons :
+      set_course_unit_lessons :
       params[:unit_id] ?
-        Unit.find(params[:unit_id]).lessons :
+        set_unit_lessons :
         Lesson.all
 
     render json: {
@@ -15,9 +15,9 @@ class LessonsController < ApplicationController
 
   def show
     @lesson = params[:course_id] && params[:unit_id] && set_lesson ?
-      Course.find(params[:course_id]).units.find(params[:unit_id]).lessons.find(params[:id]) :
+      set_course_unit_lessons.find(params[:id]) :
       params[:unit_id] && set_lesson ?
-        Unit.find(params[:unit_id]).lessons.find(params[:id]) :
+        set_unit_lessons.find(params[:id]) :
         set_lesson
 
     if @lesson
@@ -33,53 +33,40 @@ class LessonsController < ApplicationController
   end
 
   def create
-    if !params[:course_id] && !params[:unit_id]
+    @lesson = Lesson.create(lesson_params)
 
-      @lesson = Lesson.create(lesson_params)
-
-      if @lesson
-      # && @user && @user.role == "staff"
-        render json: {
-          status: 200,
-          message: "Lesson created",
-          lesson: @lesson
-        }
-      else
-        error_json
-      end
+    if @lesson
+    # && @user && @user.role == "staff"
+      render json: {
+        status: 200,
+        message: "Lesson created",
+        lesson: @lesson
+      }
     else
       error_json
     end
   end
 
   def update
-    if !params[:course_id] && !params[:unit_id]
-      if set_lesson.update(lesson_params)
-      # && @user && @user.role == "staff"
-        render json: {
-          status: 200,
-          message: "Lesson updated",
-          lesson: set_lesson
-        }
-      else
-        error_json
-      end
+    if set_lesson.update(lesson_params)
+    # && @user && @user.role == "staff"
+      render json: {
+        status: 200,
+        message: "Lesson updated",
+        lesson: set_lesson
+      }
     else
       error_json
     end
   end
 
   def destroy
-    if !params[:course_id] && !params[:unit_id]
-      if set_lesson.destroy
-      # && @user && @user.role == "staff"
-        render json: {
-          status: 200,
-          message: "Lesson deleted",
-        }
-      else
-        error_json
-      end
+    if set_lesson.destroy
+    # && @user && @user.role == "staff"
+      render json: {
+        status: 200,
+        message: "Lesson deleted",
+      }
     else
       error_json
     end
@@ -94,6 +81,16 @@ class LessonsController < ApplicationController
     def set_lesson
       Lesson.find(params[:id])
     end
+
+    def set_course_unit_lessons
+      Course.find(params[:course_id]).units.find(params[:unit_id]).lessons
+    end
+
+    def set_unit_lessons
+      Unit.find(params[:unit_id]).lessons
+    end
+
+    def
 
     def error_json
       render json: {

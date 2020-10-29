@@ -5,12 +5,12 @@ class SourcesController < ApplicationController
   def index
     # if @user
 
-    @sources = params[:course_id] && params[:unit_id] && params[:lesson_id] ?
-      Course.find(params[:course_id]).units.find(params[:unit_id]).lessons.find(params[:lesson_id]).sources :
-      params[:unit_id] && params[:lesson_id] ?
-        Unit.find(params[:unit_id]).lessons.find(params[:lesson_id]).sources :
-        params[:lesson_id] ?
-          Lesson.find(params[:lesson_id]).sources :
+    @sources = set_course_id && set_unit_id && set_lesson_id ?
+      set_course_unit_lesson_sources :
+      set_unit_id && set_lesson_id ?
+        set_unit_lesson_sources :
+        set_lesson_id ?
+          set_lesson_sources :
           Source.all
 
     # @sources = Source.all
@@ -30,12 +30,12 @@ class SourcesController < ApplicationController
 
   def show
 
-    @source = params[:course_id] && params[:unit_id] && params[:lesson_id] && set_source ?
-      Course.find(params[:course_id]).units.find(params[:unit_id]).lessons.find(params[:lesson_id]).sources.find(params[:id]) :
-      params[:unit_id] && params[:lesson_id] && set_source ?
-        Unit.find(params[:unit_id]).lessons.find(params[:lesson_id]).sources.find(params[:id]) :
-        params[:lesson_id] && set_source ?
-          Lesson.find(params[:lesson_id]).sources.find(params[:id]) :
+    @source = set_course_id && set_unit_id && set_lesson_id && set_source ?
+      set_course_unit_lesson_sources.find(params[:id]) :
+      set_unit_id && set_lesson_id && set_source ?
+        set_unit_lesson_sources.find(params[:id]) :
+        set_lesson_id && set_source ?
+          set_lesson_sources.find(params[:id]) :
           set_source
 
 
@@ -47,10 +47,7 @@ class SourcesController < ApplicationController
         source: @source
       }
     else
-      render json: {
-        status: 401,
-        message: "Error"
-      }
+      error_json
     end
   end
 
@@ -64,10 +61,7 @@ class SourcesController < ApplicationController
         source: @source
       }
     else
-      render json: {
-        status: 401,
-        message: "Error"
-      }
+      error_json
     end
   end
 
@@ -80,10 +74,7 @@ class SourcesController < ApplicationController
         source: set_source
       }
     else
-      render json: {
-        status: 401,
-        message: "Error"
-      }
+      error_json
     end
   end
 
@@ -95,10 +86,7 @@ class SourcesController < ApplicationController
         message: "Source deleted",
       }
     else
-      render json: {
-        status: 401,
-        message: "Error"
-      }
+      error_json
     end
   end
 
@@ -108,8 +96,39 @@ class SourcesController < ApplicationController
       params.require(:source).permit(:source_title, :link, :lesson_id)
     end
 
+    def set_course_id
+      params[:course_id]
+    end
+
+    def set_unit_id
+      params[:unit_id]
+    end
+
+    def set_lesson_id
+      params[:lesson_id]
+    end
+
     def set_source
       Source.find(params[:id])
+    end
+
+    def set_lesson_sources
+      Lesson.find(set_lesson_id).sources
+    end
+    
+    def set_unit_lesson_sources
+      Unit.find(set_unit_id).lessons.find(set_lesson_id).sources
+    end
+    
+    def set_course_unit_lesson_sources
+      Course.find(set_course_id).units.find(set_unit_id).lessons.find(set_lesson_id).sources
+    end
+
+    def error_json
+      render json: {
+        status: 401,
+        message: "Error"
+      }
     end
 
 end

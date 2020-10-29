@@ -1,35 +1,52 @@
 class UnitsController < ApplicationController
   def index
-    @units = params[:course_id] ?
-      Course.find(params[:course_id]).units :
+    @units = set_course_id ?
+      set_course.units :
       Unit.all
 
-    render json: {
-      status: 200,
-      message: "Success",
-      units: @units
-    }
-  end
-
-  def show
-    @unit = params[:course_id] && set_unit ?
-      Course.find(params[:course_id]).units.find(params[:id]) :
-      set_unit
-      
-    if set_unit
-    # && @user 
+    if set_course_id
       render json: {
         status: 200,
         message: "Success",
-        unit: set_unit
+        units: @units,
+        course: set_course
+      }      
+    else
+      render json: {
+        status: 200,
+        message: "Success",
+        units: @units
       }
+    end
+  end
+
+  def show
+    @unit = set_course_id && set_unit ?
+      set_course.units.find(set_unit_id) :
+      set_unit
+      
+    if @unit
+    # && @user 
+      if set_course_id
+        render json: {
+          status: 200,
+          message: "Success",
+          unit: set_unit,
+          course: set_course
+        }
+      else
+        render json: {
+          status: 200,
+          message: "Success",
+          unit: set_unit,
+        }
+      end
     else
       error_json
     end
   end
 
   def create
-    if !params[:course_id]
       # && @user && @user.role == "staff"
       @unit = Unit.create(unit_params)
       if @unit
@@ -41,39 +58,28 @@ class UnitsController < ApplicationController
       else
         error_json
       end
-    else
-      error_json
-    end
   end
 
   def update
-    if !params[:course_id]
-      if set_unit.update(unit_params)
-      # && @user && @user.role == "staff"
-        render json: {
-          status: 200,
-          message: "Unit updated",
-          unit: set_unit
-        }
-      else
-        error_json
-      end
+    if set_unit.update(unit_params)
+    # && @user && @user.role == "staff"
+      render json: {
+        status: 200,
+        message: "Unit updated",
+        unit: set_unit
+      }
     else
       error_json
     end
   end
 
   def destroy
-    if !params[:course_id]
-      if set_unit.destroy
-      # && @user && @user.role == "staff"
-        render json: {
-          status: 200,
-          message: "Unit deleted",
-        }
-      else
-        error_json
-      end
+    if set_unit.destroy
+    # && @user && @user.role == "staff"
+      render json: {
+        status: 200,
+        message: "Unit deleted",
+      }
     else
       error_json
     end
@@ -85,8 +91,20 @@ class UnitsController < ApplicationController
       params.require(:unit).permit(:unit_name, :description)
     end
 
+    def set_unit_id
+      params[:id]
+    end
+
+    def set_course_id
+      params[:course_id]
+    end
+
     def set_unit
-      Unit.find(params[:id])
+      Unit.find(set_unit_id)
+    end
+
+    def set_course
+      Course.find(set_course_id)
     end
 
     def error_json
