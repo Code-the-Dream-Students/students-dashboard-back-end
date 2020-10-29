@@ -1,32 +1,66 @@
 class LessonsController < ApplicationController
   def index
-    @lessons = params[:course_id] && params[:unit_id] ?
+    @lessons = set_course_id && set_unit_id ?
       set_course_unit_lessons :
-      params[:unit_id] ?
+      set_unit_id ?
         set_unit_lessons :
         Lesson.all
 
-    render json: {
-      status: 200,
-      message: "Success",
-      lessons: @lessons
-    }
+    if set_course_id && set_unit_id
+      render json: {
+        status: 200,
+        message: "Success",
+        lessons: @lessons,
+        course: Course.find(set_course_id),
+        unit: Unit.find(set_unit_id)
+      }
+    elsif set_unit_id
+      render json: {
+        status: 200,
+        message: "Success",
+        lessons: @lessons,
+        unit: Unit.find(set_unit_id)
+      }
+    else
+      render json: {
+        status: 200,
+        message: "Success",
+        lessons: @lessons
+      }
+    end
   end
 
   def show
-    @lesson = params[:course_id] && params[:unit_id] && set_lesson ?
-      set_course_unit_lessons.find(params[:id]) :
-      params[:unit_id] && set_lesson ?
-        set_unit_lessons.find(params[:id]) :
+    @lesson = set_course_id && set_unit_id && set_lesson ?
+      set_course_unit_lessons.find(set_lesson_id) :
+      set_unit_id && set_lesson ?
+        set_unit_lessons.find(set_lesson_id) :
         set_lesson
 
     if @lesson
     # && @user 
-      render json: {
-        status: 200,
-        message: "Success",
-        lesson: @lesson
-      }
+      if set_course_id && set_unit_id
+        render json: {
+          status: 200,
+          message: "Success",
+          lesson: @lesson,
+          course: Course.find(set_course_id),
+          unit: Unit.find(set_unit_id)
+        }
+      elsif set_unit_id
+        render json: {
+          status: 200,
+          message: "Success",
+          lessons: @lesson,
+          unit: Unit.find(set_unit_id)
+        }  
+      else
+        render json: {
+          status: 200,
+          message: "Success",
+          lesson: @lesson
+        }
+      end
     else
       error_json
     end
@@ -78,19 +112,29 @@ class LessonsController < ApplicationController
       params.require(:lesson).permit(:lesson_name)
     end
 
-    def set_lesson
-      Lesson.find(params[:id])
+    def set_course_id
+      params[:course_id]
     end
 
-    def set_course_unit_lessons
-      Course.find(params[:course_id]).units.find(params[:unit_id]).lessons
+    def set_unit_id
+      params[:unit_id]
+    end
+
+    def set_lesson_id
+      params[:id]
+    end
+
+    def set_lesson
+      Lesson.find(set_lesson_id)
     end
 
     def set_unit_lessons
-      Unit.find(params[:unit_id]).lessons
+      Unit.find(set_unit_id).lessons
     end
 
-    def
+    def set_course_unit_lessons
+      Course.find(set_course_id).units.find(set_unit_id).lessons
+    end
 
     def error_json
       render json: {

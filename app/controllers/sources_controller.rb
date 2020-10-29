@@ -1,6 +1,6 @@
 class SourcesController < ApplicationController
 
-  before_action :set_source, only: [:show, :update]
+  # before_action :set_source, only: [:show, :update]
 
   def index
     # if @user
@@ -14,11 +14,37 @@ class SourcesController < ApplicationController
           Source.all
 
     # @sources = Source.all
-    render json: {
-      status: 200,
-      message: "Success",
-      sources: @sources
-    }
+    if set_course_id && set_unit_id && set_lesson_id
+      render json: {
+        status: 200,
+        message: "Success",
+        sources: @sources,
+        course: Course.find(set_course_id),
+        unit: Unit.find(set_unit_id),
+        lesson: Lesson.find(set_lesson_id),
+      }
+    elsif set_unit_id && set_lesson_id
+      render json: {
+        status: 200,
+        message: "Success",
+        sources: @sources,
+        unit: Unit.find(set_unit_id),
+        lesson: Lesson.find(set_lesson_id),
+      }
+    elsif set_lesson_id
+      render json: {
+        status: 200,
+        message: "Success",
+        sources: @sources,
+        lesson: Lesson.find(set_lesson_id),
+      }
+    else
+      render json: {
+        status: 200,
+        message: "Success",
+        sources: @sources
+      }
+    end
 
     # else
     #   render json: {
@@ -31,21 +57,46 @@ class SourcesController < ApplicationController
   def show
 
     @source = set_course_id && set_unit_id && set_lesson_id && set_source ?
-      set_course_unit_lesson_sources.find(params[:id]) :
+      set_course_unit_lesson_sources.find(set_source_id) :
       set_unit_id && set_lesson_id && set_source ?
-        set_unit_lesson_sources.find(params[:id]) :
+        set_unit_lesson_sources.find(set_source_id) :
         set_lesson_id && set_source ?
-          set_lesson_sources.find(params[:id]) :
+          set_lesson_sources.find(set_source_id) :
           set_source
-
 
     if @source
     # && @user 
-      render json: {
-        status: 200,
-        message: "Success",
-        source: @source
-      }
+      if set_course_id && set_unit_id && set_lesson_id
+        render json: {
+          status: 200,
+          message: "Success",
+          sources: @source,
+          course: Course.find(set_course_id),
+          unit: Unit.find(set_unit_id),
+          lesson: Lesson.find(set_lesson_id),
+        }
+      elsif set_unit_id && set_lesson_id
+        render json: {
+          status: 200,
+          message: "Success",
+          sources: @source,
+          unit: Unit.find(set_unit_id),
+          lesson: Lesson.find(set_lesson_id),
+        }
+      elsif set_lesson_id
+        render json: {
+          status: 200,
+          message: "Success",
+          sources: @source,
+          lesson: Lesson.find(set_lesson_id),
+        }  
+      else
+        render json: {
+          status: 200,
+          message: "Success",
+          sources: @source
+        }
+      end
     else
       error_json
     end
@@ -108,8 +159,12 @@ class SourcesController < ApplicationController
       params[:lesson_id]
     end
 
+    def set_source_id
+      params[:id]
+    end
+
     def set_source
-      Source.find(params[:id])
+      Source.find(set_source_id)
     end
 
     def set_lesson_sources
