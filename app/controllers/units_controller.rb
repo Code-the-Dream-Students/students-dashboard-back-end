@@ -20,6 +20,20 @@ class UnitsController < ApplicationController
     end
   end
 
+  def search
+    @units = params[:unit_name] ? 
+      Unit.where("unit_name ILIKE ?", "%#{params[:unit_name]}%") :
+      params[:description] ?
+        Unit.where("description ILIKE ?", "%#{params[:description]}%") :
+        []
+        
+    render json: {
+      status: 200,
+      message: "Success",
+      units: @units
+    }
+  end
+
   def show
     @unit = set_course_id && set_unit ?
       set_course.units.find(set_unit_id) :

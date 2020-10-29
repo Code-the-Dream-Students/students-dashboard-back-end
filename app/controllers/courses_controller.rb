@@ -8,6 +8,20 @@ class CoursesController < ApplicationController
     }
   end
 
+  def search
+    @courses = params[:course_name] ? 
+      Course.where("course_name ILIKE ?", "%#{params[:course_name]}%") :
+      params[:description] ?
+        Course.where("description ILIKE ?", "%#{params[:description]}%") :
+        []
+
+    render json: {
+      status: 200,
+      message: "Success",
+      courses: @courses
+    }
+  end
+
   def show
     if set_course
     # && @user 

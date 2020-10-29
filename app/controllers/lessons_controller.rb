@@ -30,6 +30,18 @@ class LessonsController < ApplicationController
     end
   end
 
+  def search
+    @lessons = params[:lesson_name] ? 
+      Lesson.where("lesson_name ILIKE ?", "%#{params[:lesson_name]}%") :
+      []
+        
+    render json: {
+      status: 200,
+      message: "Success",
+      lessons: @lessons
+    }
+  end
+
   def show
     @lesson = set_course_id && set_unit_id && set_lesson ?
       set_course_unit_lessons.find(set_lesson_id) :

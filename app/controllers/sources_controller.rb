@@ -54,6 +54,21 @@ class SourcesController < ApplicationController
     # end
   end
 
+  def search
+    @sources = params[:source_title] ? 
+      Source.where("source_title ILIKE ?", "%#{params[:source_title]}%") :
+      params[:link] ?
+        Source.where("link ILIKE ?", "%#{params[:link]}%") :
+        []
+
+    render json: {
+      status: 200,
+      message: "Success",
+      sources: @sources
+    }
+  end
+
+
   def show
 
     @source = set_course_id && set_unit_id && set_lesson_id && set_source ?
