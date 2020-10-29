@@ -1,16 +1,15 @@
-class LessonsourcesController < ApplicationController
-
+class UnitLessonsController < ApplicationController
   def create
-    if set_lesson_source == nil
-      if set_lesson && set_source
-        set_lesson.sources << set_source
+    if set_unit_lesson == nil
+      if set_unit && set_lesson
+        set_unit.lessons << set_lesson
 
         render json: {
           status: 200,
           message: "Relationship created successfully",
-          relationship: set_lesson_source,
-          lesson: set_lesson,
-          source: set_source
+          relationship: set_unit_lesson,
+          unit: set_unit,
+          lesson: set_lesson
         }
       else
         render json: {
@@ -27,12 +26,12 @@ class LessonsourcesController < ApplicationController
   end
 
   def destroy
-    if set_lesson_source && set_lesson_source.destroy
+    if set_unit_lesson && set_unit_lesson.destroy
       render json: {
         status: 200,
         message: "Relationship deleted successfully",
-        lesson: set_lesson,
-        source: set_source
+        unit: set_unit,
+        lesson: set_lesson
       }
     else
       render json: {
@@ -44,15 +43,15 @@ class LessonsourcesController < ApplicationController
 
   private
 
+    def set_unit
+      Unit.find(params[:unit_id])
+    end
+
     def set_lesson
       Lesson.find(params[:lesson_id])
     end
 
-    def set_source
-      Source.find(params[:source_id])
-    end
-
-    def set_lesson_source
-      LessonSource.find_by(lesson_id: params[:lesson_id], source_id: params[:source_id])
+    def set_unit_lesson
+      UnitLesson.find_by(unit_id: params[:unit_id], lesson_id: params[:lesson_id])
     end
 end

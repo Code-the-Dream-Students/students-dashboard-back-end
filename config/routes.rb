@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
 
   # get '/courses/:course_id/units/:unit_id', to: 'courseunits#index'
-  post '/courses/:course_id/units/:unit_id', to: 'courseunits#create'
-  delete '/courses/:course_id/units/:unit_id', to: 'courseunits#destroy'
-  post '/units/:unit_id/lessons/:lesson_id', to: 'unitlessons#create'
-  delete '/units/:unit_id/lessons/:lesson_id', to: 'unitlessons#destroy'
-  post '/lessons/:lesson_id/sources/:source_id', to: 'lessonsources#create'
-  delete '/lessons/:lesson_id/sources/:source_id', to: 'lessonsources#destroy'
+  post '/courses/:course_id/units/:unit_id', to: 'course_units#create'
+  delete '/courses/:course_id/units/:unit_id', to: 'course_units#destroy'
+  post '/units/:unit_id/lessons/:lesson_id', to: 'unit_lessons#create'
+  delete '/units/:unit_id/lessons/:lesson_id', to: 'unit_lessons#destroy'
+  post '/lessons/:lesson_id/sources/:source_id', to: 'lesson_sources#create'
+  delete '/lessons/:lesson_id/sources/:source_id', to: 'lesson_sources#destroy'
 
   get 'courses/search', to: 'courses#search'
   get 'units/search', to: 'units#search'

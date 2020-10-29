@@ -1,4 +1,4 @@
-class CourseunitsController < ApplicationController
+class CourseUnitsController < ApplicationController
   # def index
   #   if set_course_unit
   #     render json: {
