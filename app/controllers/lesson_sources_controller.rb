@@ -1,5 +1,4 @@
 class LessonSourcesController < ApplicationController
-
   def create
     if set_lesson_source == nil
       if set_lesson && set_source
