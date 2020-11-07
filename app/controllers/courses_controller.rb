@@ -16,23 +16,17 @@ class CoursesController < ApplicationController
   end
 
   def search
-    if (@courses = params[:course_name] ? 
+    @courses = params[:course_name] ? 
       Course.where("course_name ILIKE ?", "%#{params[:course_name]}%") :
       params[:description] ?
         Course.where("description ILIKE ?", "%#{params[:description]}%") :
-        [])
+        []
 
-      render json: {
-        status: 200,
-        message: "Success",
-        courses: @courses
-      }
-    else
-      render json: {
-        status: 404,
-        error: "Not Found",
-      }
-    end
+    render json: {
+      status: 200,
+      message: "Success",
+      courses: @courses
+    }
   end
 
   def show
@@ -45,8 +39,8 @@ class CoursesController < ApplicationController
       }
     else
       render json: {
-        status: 401,
-        message: "Error"
+        status: 404,
+        error: "Not Found"
       }
     end
   end
