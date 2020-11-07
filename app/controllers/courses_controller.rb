@@ -1,11 +1,18 @@
 class CoursesController < ApplicationController
   def index
     @courses = Course.all
-    render json: {
-      status: 200,
-      message: "Success",
-      courses: @courses
-    }
+    if @courses
+      render json: {
+        status: 200,
+        message: "Success",
+        courses: @courses
+      }
+    else
+      render json: {
+        status: 404,
+        error: "Not Found",
+      }
+    end
   end
 
   def search
@@ -15,11 +22,18 @@ class CoursesController < ApplicationController
         Course.where("description ILIKE ?", "%#{params[:description]}%") :
         []
 
-    render json: {
-      status: 200,
-      message: "Success",
-      courses: @courses
-    }
+    if @courses
+      render json: {
+        status: 200,
+        message: "Success",
+        courses: @courses
+      }
+    else
+      render json: {
+        status: 404,
+        error: "Not Found",
+      }
+    end
   end
 
   def show
