@@ -20,13 +20,13 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  user: <%=ENV['POSTGRES_USER'] %>
-  password: <%=ENV['POSTGRES_PASSWORD'] %>
-  port: <%=ENV['POSTGRES_PORT'] %>
 
 development:
   <<: *default
   database: students_dashboard_back_end_SINAN
+  user: <%=ENV['POSTGRES_USER'] %>
+  password: <%=ENV['POSTGRES_PASSWORD'] %>
+  port: <%=ENV['POSTGRES_PORT'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: students_dashboard_back_end_production
-  username: students_dashboard_back_end
-  password: <%= ENV['STUDENTS_DASHBOARD_BACK_END_DATABASE_PASSWORD'] %>
+  # database: students_dashboard_back_end_production
+  # username: students_dashboard_back_end
+  # password: <%= ENV['STUDENTS_DASHBOARD_BACK_END_DATABASE_PASSWORD'] %>
