@@ -83,6 +83,6 @@ test:
 #
 production:
   <<: *default
-  # database: students_dashboard_back_end_production
+  database: <%= ENV['DATABASE_URL'] %>
   # username: students_dashboard_back_end
   # password: <%= ENV['STUDENTS_DASHBOARD_BACK_END_DATABASE_PASSWORD'] %>
