@@ -1,1 +1,1 @@
-bin/rails server -p ${PORT:-5000} -e $RAILS_ENV
+bin/rails server -p $PORT -e $RAILS_ENV
