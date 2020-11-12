@@ -16,7 +16,7 @@ class ApplicationController < ActionController::API
   end
   def authenticate_user
     jwt = cookies.signed[:jwt]
-    render json: {message: 'Please Login - from authenticate_user'}, status: :unauthorized unless jwt
+    raise(ExceptionHandler::AuthenticationError, Message.unauthorized) unless jwt
     # decode_jwt(jwt)
   end
 end
