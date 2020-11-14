@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/', to: 'home#index'
   # get '/courses/:course_id/units/:unit_id', to: 'courseunits#index'
   post '/courses/:course_id/units/:unit_id', to: 'course_units#create'
   delete '/courses/:course_id/units/:unit_id', to: 'course_units#destroy'

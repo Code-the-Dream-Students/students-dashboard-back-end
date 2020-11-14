@@ -45,14 +45,44 @@ class UnitsController < ApplicationController
         render json: {
           status: 200,
           message: "Success",
-          unit: set_unit,
+          unit: {
+            id: set_unit.id,
+            unit_name: set_unit.unit_name,
+            description: set_unit.description,
+            created_at: set_unit.created_at,
+            updated_at: set_unit.updated_at,
+            lessons: Unit.find(set_unit.id).lessons.map do |lesson|
+              {
+                id: lesson.id,
+                lesson_name: lesson.lesson_name,
+                created_at: lesson.created_at,
+                updated_at: lesson.updated_at,
+                sources: Lesson.find(lesson.id).sources
+              }
+            end
+          },
           course: set_course
         }
       else
         render json: {
           status: 200,
           message: "Success",
-          unit: set_unit,
+          unit: {
+            id: set_unit.id,
+            unit_name: set_unit.unit_name,
+            description: set_unit.description,
+            created_at: set_unit.created_at,
+            updated_at: set_unit.updated_at,
+            lessons: Unit.find(set_unit.id).lessons.map do |lesson|
+              {
+                id: lesson.id,
+                lesson_name: lesson.lesson_name,
+                created_at: lesson.created_at,
+                updated_at: lesson.updated_at,
+                sources: Lesson.find(lesson.id).sources
+              }
+            end
+          }
         }
       end
     else

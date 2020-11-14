@@ -55,22 +55,40 @@ class LessonsController < ApplicationController
         render json: {
           status: 200,
           message: "Success",
-          lesson: @lesson,
+          lesson: {
+            id: @lesson.id,
+            lesson_name: @lesson.lesson_name,
+            created_at: @lesson.created_at,
+            updated_at: @lesson.updated_at,
+            sources: Lesson.find(@lesson.id).sources
+          },
           course: Course.find(set_course_id),
-          unit: Unit.find(set_unit_id)
+          unit: Unit.find(set_unit_id),
         }
       elsif set_unit_id
         render json: {
           status: 200,
           message: "Success",
-          lessons: @lesson,
+          lesson: {
+            id: @lesson.id,
+            lesson_name: @lesson.lesson_name,
+            created_at: @lesson.created_at,
+            updated_at: @lesson.updated_at,
+            sources: Lesson.find(@lesson.id).sources
+          },
           unit: Unit.find(set_unit_id)
         }  
       else
         render json: {
           status: 200,
           message: "Success",
-          lesson: @lesson
+          lesson: {
+            id: @lesson.id,
+            lesson_name: @lesson.lesson_name,
+            created_at: @lesson.created_at,
+            updated_at: @lesson.updated_at,
+            sources: Lesson.find(@lesson.id).sources
+          }
         }
       end
     else
