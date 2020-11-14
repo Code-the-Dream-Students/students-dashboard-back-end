@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: students_dashboard_back_end_production
-  username: students_dashboard_back_end
-  password: <%= ENV['STUDENTS_DASHBOARD_BACK_END_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  # database: students_dashboard_back_end_production
+  # username: students_dashboard_back_end
+  # password: <%= ENV['STUDENTS_DASHBOARD_BACK_END_DATABASE_PASSWORD'] %>
