@@ -75,11 +75,11 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
-#
-production:
-  database = <%= ENV['DATABASE_URL'] %>
+  production:
+    url: <%= ENV['DATABASE_URL'] %>
+
+# production:
+#   database: <%= ENV['DATABASE_URL'] %>
   # <<: *default
 
   # database: students_dashboard_back_end_production
