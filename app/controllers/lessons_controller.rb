@@ -55,13 +55,7 @@ class LessonsController < ApplicationController
         render json: {
           status: 200,
           message: "Success",
-          lesson: {
-            id: @lesson.id,
-            lesson_name: @lesson.lesson_name,
-            created_at: @lesson.created_at,
-            updated_at: @lesson.updated_at,
-            sources: Lesson.find(@lesson.id).sources
-          },
+          lesson: lesson_details,
           course: Course.find(set_course_id),
           unit: Unit.find(set_unit_id),
         }
@@ -69,26 +63,14 @@ class LessonsController < ApplicationController
         render json: {
           status: 200,
           message: "Success",
-          lesson: {
-            id: @lesson.id,
-            lesson_name: @lesson.lesson_name,
-            created_at: @lesson.created_at,
-            updated_at: @lesson.updated_at,
-            sources: Lesson.find(@lesson.id).sources
-          },
+          lesson: lesson_details,
           unit: Unit.find(set_unit_id)
         }  
       else
         render json: {
           status: 200,
           message: "Success",
-          lesson: {
-            id: @lesson.id,
-            lesson_name: @lesson.lesson_name,
-            created_at: @lesson.created_at,
-            updated_at: @lesson.updated_at,
-            sources: Lesson.find(@lesson.id).sources
-          }
+          lesson: lesson_details
         }
       end
     else
@@ -164,6 +146,16 @@ class LessonsController < ApplicationController
 
     def set_course_unit_lessons
       Course.find(set_course_id).units.find(set_unit_id).lessons
+    end
+
+    def lesson_details
+      {
+        id: @lesson.id,
+        lesson_name: @lesson.lesson_name,
+        created_at: @lesson.created_at,
+        updated_at: @lesson.updated_at,
+        sources: Lesson.find(@lesson.id).sources
+      }
     end
 
     def error_json

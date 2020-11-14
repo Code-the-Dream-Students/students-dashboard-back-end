@@ -45,44 +45,14 @@ class UnitsController < ApplicationController
         render json: {
           status: 200,
           message: "Success",
-          unit: {
-            id: set_unit.id,
-            unit_name: set_unit.unit_name,
-            description: set_unit.description,
-            created_at: set_unit.created_at,
-            updated_at: set_unit.updated_at,
-            lessons: Unit.find(set_unit.id).lessons.map do |lesson|
-              {
-                id: lesson.id,
-                lesson_name: lesson.lesson_name,
-                created_at: lesson.created_at,
-                updated_at: lesson.updated_at,
-                sources: Lesson.find(lesson.id).sources
-              }
-            end
-          },
+          unit: unit_details,
           course: set_course
         }
       else
         render json: {
           status: 200,
           message: "Success",
-          unit: {
-            id: set_unit.id,
-            unit_name: set_unit.unit_name,
-            description: set_unit.description,
-            created_at: set_unit.created_at,
-            updated_at: set_unit.updated_at,
-            lessons: Unit.find(set_unit.id).lessons.map do |lesson|
-              {
-                id: lesson.id,
-                lesson_name: lesson.lesson_name,
-                created_at: lesson.created_at,
-                updated_at: lesson.updated_at,
-                sources: Lesson.find(lesson.id).sources
-              }
-            end
-          }
+          unit: unit_details
         }
       end
     else
@@ -149,6 +119,25 @@ class UnitsController < ApplicationController
 
     def set_course
       Course.find(set_course_id)
+    end
+
+    def unit_details
+      {
+        id: set_unit.id,
+        unit_name: set_unit.unit_name,
+        description: set_unit.description,
+        created_at: set_unit.created_at,
+        updated_at: set_unit.updated_at,
+        lessons: Unit.find(set_unit.id).lessons.map do |lesson|
+          {
+            id: lesson.id,
+            lesson_name: lesson.lesson_name,
+            created_at: lesson.created_at,
+            updated_at: lesson.updated_at,
+            sources: Lesson.find(lesson.id).sources
+          }
+        end
+      }
     end
 
     def error_json
