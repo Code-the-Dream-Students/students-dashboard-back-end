@@ -21,11 +21,13 @@ class CoursesController < ApplicationController
         Course.where("description ILIKE ?", "%#{params[:description]}%") :
         []
 
-    render json: {
-      status: 200,
-      message: "Success",
-      courses: @courses
-    }
+    render ({
+      json: {
+        message: "Success",
+        courses: @courses
+      },
+      status: 200
+    })
   end
 
   def show
@@ -71,11 +73,13 @@ class CoursesController < ApplicationController
     @course = Course.create(course_params)
     if @course
     # && @user && @user.role == "staff"
-      render json: {
-        status: 200,
-        message: "Course created",
-        course: @course
-      }
+      render ({
+        json: {
+          message: "Course created",
+          course: @course
+        },
+        status: 200
+      })
     else
       error_json
     end
@@ -84,11 +88,13 @@ class CoursesController < ApplicationController
   def update
     if set_course.update(course_params)
     # && @user && @user.role == "staff"
-      render json: {
-        status: 200,
-        message: "Course updated",
-        course: set_course
-      }
+      render ({
+        json: {
+          message: "Course updated",
+          course: set_course
+        },
+        status: 200
+      })
     else
       error_json
     end
@@ -97,10 +103,12 @@ class CoursesController < ApplicationController
   def destroy
     if set_course.destroy
     # && @user && @user.role == "staff"
-      render json: {
-        status: 200,
-        message: "Course deleted",
-      }
+      render ({
+        json: {
+          message: "Course deleted",
+        },
+        status: 200
+      })
     else
       error_json
     end
@@ -117,10 +125,12 @@ class CoursesController < ApplicationController
     end
 
     def error_json
-      render json: {
-        status: 404,
-        error: "Not found"
-      }
+      render ({
+        json: {
+          error: "Not found"
+        },
+        status: 404
+      })
     end
     
 end
