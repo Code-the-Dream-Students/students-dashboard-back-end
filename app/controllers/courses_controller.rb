@@ -78,7 +78,7 @@ class CoursesController < ApplicationController
           message: "Course created",
           course: @course
         },
-        status: 200
+        status: 201
       })
     else
       error_json
