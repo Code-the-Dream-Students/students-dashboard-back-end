@@ -127,7 +127,7 @@ class CoursesController < ApplicationController
     def error_json
       render ({
         json: {
-          error: "Not found"
+          error: "Not Found"
         },
         status: 404
       })

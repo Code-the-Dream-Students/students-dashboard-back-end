@@ -15,43 +15,45 @@ class SourcesController < ApplicationController
 
     # @sources = Source.all
     if set_course_id && set_unit_id && set_lesson_id
-      render json: {
-        status: 200,
-        message: "Success",
-        sources: @sources,
-        course: Course.find(set_course_id),
-        unit: Unit.find(set_unit_id),
-        lesson: Lesson.find(set_lesson_id),
-      }
+      render ({
+        json: {
+          message: "Success",
+          sources: @sources,
+          course: Course.find(set_course_id),
+          unit: Unit.find(set_unit_id),
+          lesson: Lesson.find(set_lesson_id),
+        },
+        status: 200
+      })
     elsif set_unit_id && set_lesson_id
-      render json: {
-        status: 200,
-        message: "Success",
-        sources: @sources,
-        unit: Unit.find(set_unit_id),
-        lesson: Lesson.find(set_lesson_id),
-      }
+      render ({
+        json: {
+          message: "Success",
+          sources: @sources,
+          unit: Unit.find(set_unit_id),
+          lesson: Lesson.find(set_lesson_id),
+        },
+        status: 200
+      })
     elsif set_lesson_id
-      render json: {
-        status: 200,
-        message: "Success",
-        sources: @sources,
-        lesson: Lesson.find(set_lesson_id),
-      }
+      render ({
+        json: {
+          message: "Success",
+          sources: @sources,
+          lesson: Lesson.find(set_lesson_id),
+        },
+        status: 200
+      })
     else
-      render json: {
-        status: 200,
-        message: "Success",
-        sources: @sources
-      }
+      render ({
+        json: {
+          message: "Success",
+          sources: @sources
+        },
+        status: 200
+      })
     end
 
-    # else
-    #   render json: {
-    #     status: :401,
-    #     message: "Error"
-    #   }
-    # end
   end
 
   def search
@@ -61,11 +63,13 @@ class SourcesController < ApplicationController
         Source.where("link ILIKE ?", "%#{params[:link]}%") :
         []
 
-    render json: {
-      status: 200,
-      message: "Success",
-      sources: @sources
-    }
+    render ({
+      json: {
+        message: "Success",
+        sources: @sources
+      },
+      status: 200
+    })
   end
 
 
@@ -82,35 +86,43 @@ class SourcesController < ApplicationController
     if @source
     # && @user 
       if set_course_id && set_unit_id && set_lesson_id
-        render json: {
-          status: 200,
-          message: "Success",
-          sources: @source,
-          course: Course.find(set_course_id),
-          unit: Unit.find(set_unit_id),
-          lesson: Lesson.find(set_lesson_id),
-        }
+        render ({
+          json: {
+            message: "Success",
+            sources: @source,
+            course: Course.find(set_course_id),
+            unit: Unit.find(set_unit_id),
+            lesson: Lesson.find(set_lesson_id),
+          },
+          status: 200
+        })
       elsif set_unit_id && set_lesson_id
-        render json: {
-          status: 200,
-          message: "Success",
-          sources: @source,
-          unit: Unit.find(set_unit_id),
-          lesson: Lesson.find(set_lesson_id),
-        }
+        render ({
+          json: {
+            message: "Success",
+            sources: @source,
+            unit: Unit.find(set_unit_id),
+            lesson: Lesson.find(set_lesson_id),
+          },
+          status: 200
+        })
       elsif set_lesson_id
-        render json: {
-          status: 200,
-          message: "Success",
-          sources: @source,
-          lesson: Lesson.find(set_lesson_id),
-        }  
+        render ({
+          json: {
+            message: "Success",
+            sources: @source,
+            lesson: Lesson.find(set_lesson_id),
+          },
+          status: 200
+        })  
       else
-        render json: {
-          status: 200,
-          message: "Success",
-          sources: @source
-        }
+        render ({
+          json: {
+            message: "Success",
+            sources: @source
+          },
+          status: 200
+        })
       end
     else
       error_json
@@ -121,11 +133,13 @@ class SourcesController < ApplicationController
     @source = Source.create(source_params)
     if @source
     # && @user && @user.role == "staff"
-      render json: {
-        status: 200,
-        message: "Source created",
-        source: @source
-      }
+      render ({
+        json: {
+          message: "Source created",
+          source: @source
+        },
+        status: 200
+      })
     else
       error_json
     end
@@ -134,11 +148,13 @@ class SourcesController < ApplicationController
   def update
     if set_source.update(source_params)
     # && @user && @user.role == "staff"
-      render json: {
-        status: 200,
-        message: "Source updated",
-        source: set_source
-      }
+      render ({
+        json: {
+          message: "Source updated",
+          source: set_source
+        },
+        status: 200
+      })
     else
       error_json
     end
@@ -147,10 +163,12 @@ class SourcesController < ApplicationController
   def destroy
     if set_source.destroy
     # && @user && @user.role == "staff"
-      render json: {
-        status: 200,
-        message: "Source deleted",
-      }
+      render ({
+        json: {
+          message: "Source deleted",
+        },
+        status: 200
+      })
     else
       error_json
     end
@@ -195,10 +213,12 @@ class SourcesController < ApplicationController
     end
 
     def error_json
-      render json: {
-        status: 401,
-        message: "Error"
-      }
+      render ({
+        json: {
+          error: "Not Found"
+        },
+        status: 404
+      })
     end
 
 end
