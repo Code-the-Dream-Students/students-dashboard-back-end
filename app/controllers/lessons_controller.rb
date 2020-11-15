@@ -7,26 +7,32 @@ class LessonsController < ApplicationController
         Lesson.all
 
     if set_course_id && set_unit_id
-      render json: {
-        status: 200,
-        message: "Success",
-        lessons: @lessons,
-        course: Course.find(set_course_id),
-        unit: Unit.find(set_unit_id)
-      }
+      render ({
+        json: {
+          message: "Success",
+          lessons: @lessons,
+          course: Course.find(set_course_id),
+          unit: Unit.find(set_unit_id)
+        },
+        status: 200
+      })
     elsif set_unit_id
-      render json: {
-        status: 200,
-        message: "Success",
-        lessons: @lessons,
-        unit: Unit.find(set_unit_id)
-      }
+      render ({
+        json: {
+          message: "Success",
+          lessons: @lessons,
+          unit: Unit.find(set_unit_id)
+        },
+        status: 200
+      })
     else
-      render json: {
-        status: 200,
-        message: "Success",
-        lessons: @lessons
-      }
+      render ({
+        json: {
+          message: "Success",
+          lessons: @lessons
+        },
+        status: 200
+      })
     end
   end
 
@@ -35,11 +41,13 @@ class LessonsController < ApplicationController
       Lesson.where("lesson_name ILIKE ?", "%#{params[:lesson_name]}%") :
       []
         
-    render json: {
-      status: 200,
-      message: "Success",
-      lessons: @lessons
-    }
+    render ({
+      json: {
+        message: "Success",
+        lessons: @lessons
+      },
+      status: 200
+    })
   end
 
   def show
@@ -52,26 +60,32 @@ class LessonsController < ApplicationController
     if @lesson
     # && @user 
       if set_course_id && set_unit_id
-        render json: {
-          status: 200,
-          message: "Success",
-          lesson: lesson_details,
-          course: Course.find(set_course_id),
-          unit: Unit.find(set_unit_id),
-        }
+        render ({
+          json: {
+            message: "Success",
+            lesson: lesson_details,
+            course: Course.find(set_course_id),
+            unit: Unit.find(set_unit_id),
+          },
+          status: 200
+        })
       elsif set_unit_id
-        render json: {
-          status: 200,
-          message: "Success",
-          lesson: lesson_details,
-          unit: Unit.find(set_unit_id)
-        }  
+        render ({
+          json: {
+            message: "Success",
+            lesson: lesson_details,
+            unit: Unit.find(set_unit_id)
+          },
+          status: 200
+        })  
       else
-        render json: {
-          status: 200,
-          message: "Success",
-          lesson: lesson_details
-        }
+        render ({
+          json: {
+            message: "Success",
+            lesson: lesson_details
+          },
+          status: 200
+        })
       end
     else
       error_json
@@ -83,11 +97,13 @@ class LessonsController < ApplicationController
 
     if @lesson
     # && @user && @user.role == "staff"
-      render json: {
-        status: 200,
-        message: "Lesson created",
-        lesson: @lesson
-      }
+      render ({
+        json: {
+          message: "Lesson created",
+          lesson: @lesson
+        },
+        status: 200
+      })
     else
       error_json
     end
@@ -96,11 +112,13 @@ class LessonsController < ApplicationController
   def update
     if set_lesson.update(lesson_params)
     # && @user && @user.role == "staff"
-      render json: {
-        status: 200,
-        message: "Lesson updated",
-        lesson: set_lesson
-      }
+      render ({
+        json: {
+          message: "Lesson updated",
+          lesson: set_lesson
+        },
+        status: 200
+      })
     else
       error_json
     end
@@ -109,10 +127,12 @@ class LessonsController < ApplicationController
   def destroy
     if set_lesson.destroy
     # && @user && @user.role == "staff"
-      render json: {
-        status: 200,
-        message: "Lesson deleted",
-      }
+      render ({
+        json: {
+          message: "Lesson deleted"
+        },
+        status: 200
+      })
     else
       error_json
     end
@@ -159,10 +179,12 @@ class LessonsController < ApplicationController
     end
 
     def error_json
-      render json: {
-        status: 401,
-        message: "Error"
-      }
+      render ({
+        json: {
+          error: "Not Found"
+        },
+        status: 404
+      })
     end
 
 end
