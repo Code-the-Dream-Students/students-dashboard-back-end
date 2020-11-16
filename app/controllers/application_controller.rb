@@ -11,12 +11,13 @@ class ApplicationController < ActionController::API
   private
 
   # Check for valid request token and return user
-  def authorize_request
-    @current_user = (AuthorizeApiRequest.new(request.headers).call)[:user]
-  end
+  # def authorize_request
+  #   @current_user = (AuthorizeApiRequest.new(request.headers).call)[:user]
+  # end
   def authenticate_user
     jwt = cookies.signed[:jwt]
-    raise(ExceptionHandler::AuthenticationError, Message.unauthorized) unless jwt
+    # raise(ExceptionHandler::AuthenticationError, Message.unauthorized) unless jwt
     # decode_jwt(jwt)
+    @current_user = (AuthorizeApiRequest.new(jwt).call)[:user]
   end
 end
