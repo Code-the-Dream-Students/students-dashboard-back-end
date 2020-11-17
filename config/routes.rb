@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :staffs
 
   post 'auth/login', to: 'authentication#authenticate'
+  get 'logout', to: 'users#logout'
   post 'signup', to: 'users#create'
   
 end
