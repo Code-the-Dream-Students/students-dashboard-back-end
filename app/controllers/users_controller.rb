@@ -8,7 +8,7 @@ class UsersController < ApplicationController
       user = User.create!(user_params)
       auth_token = AuthenticateUser.new(user.email, user.password).call
       # HTTP-only cookie stored with refresh_token
-      cookies.signed[:jwt] = {value:  auth_token, httponly: true, expires: 2.hours.from_now}
+      cookies.signed[:jwt] = {value:  auth_token, httponly: true, SameSite: "Strict", expires: 2.hours.from_now}
           
       response = { message: Message.account_created, auth_token: auth_token }
       json_response(response, :created)
