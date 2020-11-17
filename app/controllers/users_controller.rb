@@ -18,7 +18,6 @@ class UsersController < ApplicationController
     cookies.delete :jwt
     json_response(message: Message.logout_success)
   end
-end
 
 
   private
