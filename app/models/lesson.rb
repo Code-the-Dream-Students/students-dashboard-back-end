@@ -5,4 +5,5 @@ class Lesson < ApplicationRecord
   has_many :lesson_sources
   has_many :sources, through: :lesson_sources
   has_one :assignment
+  has_many :weeks
 end

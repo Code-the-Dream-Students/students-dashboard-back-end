@@ -449,6 +449,57 @@ assignments = Assignment.create([
   }
 ])
 
+weeks = Week.create([
+  {
+    week_number: 1,
+    course_id: 1,
+    unit_id: 1,
+    lesson_id: 1 
+  },
+  {
+    week_number: 2,
+    course_id: 1,
+    unit_id: 1,
+    lesson_id: 2
+  },
+  {
+    week_number: 3,
+    course_id: 1,
+    unit_id: 2,
+    lesson_id: 3
+  },
+  {
+    week_number: 4,
+    course_id: 1,
+    unit_id: 2,
+    lesson_id: 4
+  },
+  {
+    week_number: 5,
+    course_id: 1,
+    unit_id: 2,
+    lesson_id: 5
+  },
+  {
+    week_number: 6,
+    course_id: 1,
+    unit_id: 2,
+    lesson_id: 6
+  },
+  {
+    week_number: 7,
+    course_id: 1,
+    unit_id: 2,
+    lesson_id: 7
+  },
+  {
+    week_number: 8,
+    course_id: 1,
+    unit_id: 2,
+    lesson_id: 8
+  }
+])
+
 sources = Source.create([
   {
     source_title: "Computer Basics",
