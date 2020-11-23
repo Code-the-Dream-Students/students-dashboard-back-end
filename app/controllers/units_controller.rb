@@ -79,7 +79,7 @@ class UnitsController < ApplicationController
             message: "Unit created",
             unit: @unit
           },
-          status: 200
+          status: 201
         })
       else
         error_json

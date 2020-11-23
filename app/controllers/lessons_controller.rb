@@ -102,7 +102,7 @@ class LessonsController < ApplicationController
           message: "Lesson created",
           lesson: @lesson
         },
-        status: 200
+        status: 201
       })
     else
       error_json

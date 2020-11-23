@@ -138,7 +138,7 @@ class SourcesController < ApplicationController
           message: "Source created",
           source: @source
         },
-        status: 200
+        status: 201
       })
     else
       error_json
