@@ -257,6 +257,197 @@ lessons = Lesson.create([
   }
 ])
 
+assignments = Assignment.create([
+  {
+    link: "https://learn.codethedream.org/web-basics-1/web-basics-week-1/web-basics-setup-and-first-lesson-instructions/",
+    description: "Your assignment for Lesson 1 is to set up your coding environment and push your first code repository to Github.",
+    lesson_id: 1
+  },
+  {
+    link: "https://github.com/Code-the-Dream-School/web-basics-1-week-2",
+    description: "",
+    lesson_id: 2
+  },
+  {
+    link: "https://github.com/Code-the-Dream-School/web-basics-2-week-1/",
+    description: "https://learn.codethedream.org/web-basics-ii-week-1-assignment/",
+    lesson_id: 3
+  },
+  {
+    link: "https://github.com/Code-the-Dream-School/web-basics-2-week-2",
+    description: "",
+    lesson_id: 4
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/28e039a6e21094351c65f2375fc2c0a2",
+    description: "",
+    lesson_id: 5
+  },
+  {
+    link: "https://github.com/Code-the-Dream-School/web-basics-2-week-3",
+    description: "",
+    lesson_id: 6
+  },
+  {
+    link: "https://github.com/Code-the-Dream-School/web-basics-2-week-4",
+    description: "",
+    lesson_id: 7
+  },
+  {
+    link: "https://github.com/Code-the-Dream-School/Front-End-1-Week-5-Assignment",
+    description: "",
+    lesson_id: 8
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/a6fdb8b63faf4a9cd52e192e1d803a53",
+    description: "",
+    lesson_id: 9
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/ebb943e6e58bb1c6516415194afd2438",
+    description: "",
+    lesson_id: 10
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/86f7a973cc80db4df4fab55bf8a087d3",
+    description: "",
+    lesson_id: 11
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/c9cb2d63fda939291a142e407f50fdf0",
+    description: "",
+    lesson_id: 12
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/787bc76b33eea8f5f81928d26991c552/status",
+    description: "",
+    lesson_id: 13
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/cf65f7e5b827c7bb1d9e894a7de92231",
+    description: "",
+    lesson_id: 14
+  },
+  {
+    link: "",
+    description: "You have no additional assignments for this section. Practice what you’ve learned and try and weave it into your section 1 assignment. ",
+    lesson_id: 15
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/a6b1056eab3221a7d2750ed51b9cc83e/status",
+    description: "",
+    lesson_id: 16
+  },
+  {
+    link: "",
+    description: "Create an App using firebase that allows users to log-in, sign-up, & reset their passwords. Follow the tutorial above and then submit your code via Squibby. ",
+    lesson_id: 17
+  },
+  {
+    link: "",
+    description: "Final project.",
+    lesson_id: 18
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/b68c0be5007b34dcf8f7a679fdf015af/status",
+    description: "In addition to this assignment, please set up your machine for Ruby and Rails development. It is quite easy to set up Linux and Mac machines for Ruby and Rails development, but it is harder on Windows.",
+    lesson_id: 19
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/9d6d06b1cd76e4b4b233597f6df4bc5e/status",
+    description: "",
+    lesson_id: 20
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/bd4ed40b2090e1844f68ebdc6fda5661/status",
+    description: "",
+    lesson_id: 21
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/66bfd62e48f2f4338bc46382b875dda5/status",
+    description: "",
+    lesson_id: 22
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/9fec8653362ca4bca32440ce258fe3d0/status",
+    description: "",
+    lesson_id: 23
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/c71801a77f537ebc699a433361078d52/status",
+    description: "",
+    lesson_id: 24
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/45e116e4b30243a1d115bd6e0fd671d3/status",
+    description: "The assignment for this week is to duplicate the instructor’s work on the blog application. You do not need to do rails new to start, because your assignment workspace is in the link. Maintain your blog repository to reflect all changes that the instructor shows. It is important that you continue to make changes as the instructor directs, because otherwise you won’t remember the skills.",
+    lesson_id: 25
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/7b7f3fc7bec7b7e56658c35081199090/status\nhttps://classroom.github.com/assignment-invitations/416625466d39b18fcba45059d6870199/status\nhttps://classroom.github.com/assignment-invitations/93243b98cf851a0c10e010c9a8f48933/status",
+    description: "Maintain your blog repository with the additional changes shown by the instructor in a continuation of assignment 1. In addition, there are three shorter assignments on Active Record associations. You will modify three new Rails applications. and you will have a github repository for each. How you set these these up is in the teacher’s notes, not the videos. You should have a forum application called community: https://teamtreehouse.com/library/has-and-belongs-to-many-associations , for which the starter workspace is assignment 2a. Then you will have a magazine subscription application called periodical: https://teamtreehouse.com/library/has-many-through-associations . The starter workspace for this one is 2b. Finally you will have a movie database called mdb: https://teamtreehouse.com/library/polymorphic-options . The starter workspace is 2c. These are small applications. ",
+    lesson_id: 26
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/0608305c02a9a172438ea1c4fddbdff7/status",
+    description: "The starter workspace for your assignment is in the link. You will also use this workspace in Week 4.
+
+    You will add validations to your model, as well as handling errors with appropriate messages to the user. You will also practice the use of a debugging tool called byebug.
+    
+    For the second part of your assignment, add Rspec testing to your customer-order application as described in the slides. ",
+    lesson_id: 27
+  },
+  {
+    link: "https://docs.google.com/presentation/d/14SYpYdjz9y5gu31fAdwGXtG7wID0arjAxI0_csv7WG4/edit#slide=id.p",
+    description: "The assignment is described in detail at the link above. Please review these slides carefully.
+
+    You will continue to use the workspace and application used in Week 3.
+    
+    At the completion of this assignment, your work will be evaluated. Please try to follow the instructions carefully and complete all elements of the assignment.",
+    lesson_id: 28
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/4a2ad99f06a6c7f3fe5392b0799aa6c3",
+    description: "Complete the Bootstrap Basics course in Treehouse. Try to do as many of the in class exercises as you can, so that you acquire the skills demonstrated by the instructor in the video. Then complete the Bootstrap for Rails homework, starting with the workspace in the link, and push to Github.",
+    lesson_id: 29
+  },
+  {
+    link: "https://classroom.github.com/assignment-invitations/518324e5d375e0673e422276b6034fd8/status\nhttps://classroom.github.com/assignment-invitations/3915198f498b5a81937db8f6b51c5e71",
+    description: "You will have two starter workspaces for Week 6. The first is the workspace you will use to implement the API and to instrument it for Swagger. That first one is 6a. The second workspace is a very basic Ajax application that calls the API, and the starter is 6b.",
+    lesson_id: 30
+  },
+  {
+    link: "",
+    description: "You will use your own git repository. There is no git classroom assignment for the final project. By the end of week 1, you should definitely have an assignment described and agreed to by the mentors. The steps in setting up the git repository are:
+
+    rails new <project-name>
+    cd <project-name>
+    git init
+    On github, create a new empty repository. It should be public and should have no README.md
+    Copy the URL for the new repository, and then on your workspace do:
+    git remote add origin <git-repository-url>
+    git add -A
+    git commit -m “first commit”
+    git push -u origin master
+    
+    As you develop your application, you should create a feature branch for each feature, using
+    
+    git checkout -b <feature-name>
+    
+    and then when it is complete, do:
+    
+    git add -A
+    git commit -m “feature-name”
+    git push origin <feature-name>
+    
+    Then on the git repository, do a pull request, verify it, and merge your own pull request into the master. Then start the next feature with this sequence:
+    
+    git checkout master
+    git pull origin master
+    git checkout -b <new-feature>",
+    lesson_id: 31
+  }
+])
 
 sources = Source.create([
   {
