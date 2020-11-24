@@ -8,11 +8,15 @@ Rails.application.routes.draw do
   delete '/units/:unit_id/lessons/:lesson_id', to: 'unit_lessons#destroy'
   post '/lessons/:lesson_id/sources/:source_id', to: 'lesson_sources#create'
   delete '/lessons/:lesson_id/sources/:source_id', to: 'lesson_sources#destroy'
-
+  
   get 'courses/search', to: 'courses#search'
   get 'units/search', to: 'units#search'
   get 'lessons/search', to: 'lessons#search'
   get 'sources/search', to: 'sources#search'
+  get '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#show'
+  post '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#create'
+  put '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#update'
+  delete '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#destroy'
 
   resources :courses do
     resources :units, only: [:index, :show] do
@@ -20,6 +24,7 @@ Rails.application.routes.draw do
         resources :sources, only: [:index, :show]
       end
     end
+    resources :weeks, only: [:index, :show]
   end
   
   resources :units do
