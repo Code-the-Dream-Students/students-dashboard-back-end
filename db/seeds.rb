@@ -497,7 +497,169 @@ weeks = Week.create([
     course_id: 1,
     unit_id: 2,
     lesson_id: 8
-  }
+  },
+  {
+    week_number: 1,
+    course_id: 2,
+    unit_id: 3,
+    lesson_id: 9
+  },
+  {
+    week_number: 2,
+    course_id: 2,
+    unit_id: 3,
+    lesson_id: 10
+  },
+  {
+    week_number: 3,
+    course_id: 2,
+    unit_id: 3,
+    lesson_id: 11
+  },
+  {
+    week_number: 4,
+    course_id: 2,
+    unit_id: 3,
+    lesson_id: 12
+  },
+  {
+    week_number: 5,
+    course_id: 2,
+    unit_id: 3,
+    lesson_id: 13
+  },
+  {
+    week_number: 6,
+    course_id: 2,
+    unit_id: 4,
+    lesson_id: 14
+  },
+  {
+    week_number: 7,
+    course_id: 2,
+    unit_id: 4,
+    lesson_id: 15
+  },
+  {
+    week_number: 8,
+    course_id: 2,
+    unit_id: 4,
+    lesson_id: 16
+  },
+  {
+    week_number: 9,
+    course_id: 2,
+    unit_id: 4,
+    lesson_id: 17
+  },
+  {
+    week_number: 10,
+    course_id: 2,
+    unit_id: 4,
+    lesson_id: 18
+  },
+  {
+    week_number: 11,
+    course_id: 2,
+    unit_id: 4,
+    lesson_id: 18
+  },
+  {
+    week_number: 1,
+    course_id: 3,
+    unit_id: 5,
+    lesson_id: 19
+  },
+  {
+    week_number: 2,
+    course_id: 3,
+    unit_id: 5,
+    lesson_id: 20
+  },
+  {
+    week_number: 3,
+    course_id: 3,
+    unit_id: 5,
+    lesson_id: 21
+  },
+  {
+    week_number: 4,
+    course_id: 3,
+    unit_id: 5,
+    lesson_id: 22
+  },
+  {
+    week_number: 5,
+    course_id: 3,
+    unit_id: 5,
+    lesson_id: 23
+  },
+  {
+    week_number: 6,
+    course_id: 3,
+    unit_id: 5,
+    lesson_id: 24
+  },
+  {
+    week_number: 7,
+    course_id: 3,
+    unit_id: 6,
+    lesson_id: 25
+  },
+  {
+    week_number: 8,
+    course_id: 3,
+    unit_id: 6,
+    lesson_id: 26
+  },
+  {
+    week_number: 9,
+    course_id: 3,
+    unit_id: 6,
+    lesson_id: 27
+  },
+  {
+    week_number: 10,
+    course_id: 3,
+    unit_id: 6,
+    lesson_id: 28
+  },
+  {
+    week_number: 11,
+    course_id: 3,
+    unit_id: 6,
+    lesson_id: 29
+  },
+  {
+    week_number: 12,
+    course_id: 3,
+    unit_id: 6,
+    lesson_id: 30
+  },
+  {
+    week_number: 13,
+    course_id: 3,
+    unit_id: 6,
+    lesson_id: 31
+  },
+  {
+    week_number: 14,
+    course_id: 3,
+    unit_id: 6,
+    lesson_id: 31
+  },
+  {
+    week_number: 15,
+    course_id: 3,
+    unit_id: 6,
+    lesson_id: 31
+  },
+  {
+    week_number: ,
+    course_id: 4,
+    unit_id: ,
+    lesson_id: 
+  },
 ])
 
 sources = Source.create([
