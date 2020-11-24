@@ -9,19 +9,34 @@ Rails.application.routes.draw do
   post '/lessons/:lesson_id/sources/:source_id', to: 'lesson_sources#create'
   delete '/lessons/:lesson_id/sources/:source_id', to: 'lesson_sources#destroy'
   
-  get 'courses/search', to: 'courses#search'
-  get 'units/search', to: 'units#search'
-  get 'lessons/search', to: 'lessons#search'
-  get 'sources/search', to: 'sources#search'
+  get '/courses/search', to: 'courses#search'
+  get '/units/search', to: 'units#search'
+  get '/lessons/search', to: 'lessons#search'
+  get '/sources/search', to: 'sources#search'
+
   get '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#show'
   post '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#create'
   put '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#update'
   delete '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#destroy'
 
+  get '/courses/:course_id/units/:unit_id/lessons/:lesson_id/assignment', to: 'assignments#show'
+  get '/units/:unit_id/lessons/:lesson_id/assignment', to: 'assignments#show'
+  get '/lessons/:lesson_id/assignment', to: 'assignments#show'
+  post '/courses/:course_id/units/:unit_id/lessons/:lesson_id/assignment', to: 'assignments#create'
+  post '/units/:unit_id/lessons/:lesson_id/assignment', to: 'assignments#create'
+  post '/lessons/:lesson_id/assignment', to: 'assignments#create'
+  put '/courses/:course_id/units/:unit_id/lessons/:lesson_id/assignment', to: 'assignments#update'
+  put '/units/:unit_id/lessons/:lesson_id/assignment', to: 'assignments#update'
+  put '/lessons/:lesson_id/assignment', to: 'assignments#update'
+  delete '/courses/:course_id/units/:unit_id/lessons/:lesson_id/assignment', to: 'assignments#destroy'
+  delete '/units/:unit_id/lessons/:lesson_id/assignment', to: 'assignments#destroy'
+  delete '/lessons/:lesson_id/assignment', to: 'assignments#destroy'
+
   resources :courses do
     resources :units, only: [:index, :show] do
       resources :lessons, only: [:index, :show] do
         resources :sources, only: [:index, :show]
+        resources :assignments
       end
     end
     resources :weeks, only: [:index, :show]
