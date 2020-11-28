@@ -8,7 +8,17 @@ class WeeksController < ApplicationController
     render ({
       json: {
         message: "Success",
-        weeks: @weeks
+        weeks: @weeks.map do |week|
+          {
+            id: week.id,
+            week_number: week.week_number,
+            course: Course.find(week.course_id),
+            unit: Unit.find(week.unit_id),
+            lesson: Lesson.find(week.lesson_id),
+            created_at: week.created_at,
+            updated_at: week.updated_at
+          }
+        end
       },
       status: 200
     })
@@ -23,7 +33,15 @@ class WeeksController < ApplicationController
       render ({
         json: {
           message: "Success",
-          week: @week
+          week: {
+            id: @week.id,
+            week_number: @week.week_number,
+            course: Course.find(@week.course_id),
+            unit: Unit.find(@week.unit_id),
+            lesson: Lesson.find(@week.lesson_id),
+            created_at: @week.created_at,
+            updated_at: @week.updated_at
+          }
         }
       })
     else

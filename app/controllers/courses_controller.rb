@@ -55,6 +55,7 @@ class CoursesController < ApplicationController
                     lesson_name: lesson.lesson_name,
                     created_at: lesson.created_at,
                     updated_at: lesson.updated_at,
+                    assignment: Lesson.find(lesson.id).assignment,
                     sources: Lesson.find(lesson.id).sources
                   }
                 end
