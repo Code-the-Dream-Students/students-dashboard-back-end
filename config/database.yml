@@ -23,7 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: students_dashboard_back_end_development
+  database: students_dashboard_back_end_SINAN
+  user: <%=ENV['POSTGRES_USER'] %>
+  password: <%=ENV['POSTGRES_PASSWORD'] %>
+  port: <%=ENV['POSTGRES_PORT'] %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +60,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: students_dashboard_back_end_test
+  database: students_dashboard_back_end_test_SINAN
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +83,15 @@ test:
 #
 production:
   <<: *default
-  database: students_dashboard_back_end_production
-  username: students_dashboard_back_end
-  password: <%= ENV['STUDENTS_DASHBOARD_BACK_END_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  #This is just a back-up
+  #production:
+  #  url: <%= ENV['DATABASE_URL'] %>
+
+# production:
+#   database: <%= ENV['DATABASE_URL'] %>
+  # <<: *default
+
+  # database: students_dashboard_back_end_production
+  # username: students_dashboard_back_end
+  # password: <%= ENV['STUDENTS_DASHBOARD_BACK_END_DATABASE_PASSWORD'] %>
