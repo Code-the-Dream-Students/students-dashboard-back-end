@@ -37,7 +37,7 @@ module StudentsDashboardBackEnd
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://127.0.0.1:3000'
+        origins 'http://localhost:3000/'
         resource(
           '*',
           headers: :any,
@@ -50,6 +50,7 @@ module StudentsDashboardBackEnd
     config.action_dispatch.default_headers = {
       'Access-Control-Allow-Origin' => 'http://localhost:3000/',
       'Access-Control-Request-Method' => %w{GET POST PUT}.join(","),
+      'Access-Control-Allow-Credentials' => true
     }
     
   end
