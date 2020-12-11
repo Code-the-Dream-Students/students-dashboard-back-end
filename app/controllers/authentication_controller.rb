@@ -8,7 +8,7 @@ class AuthenticationController < ApplicationController
       # HTTP-only cookie stored with refresh_token
       cookies.signed[:jwt] = {value:  auth_token, httponly: true, SameSite: "Strict", expires: 2.hours.from_now}
                 
-      json_response(auth_token: auth_token, user_role: user.role,user_id: user.id)
+      json_response(message: "Successfully authenticated." , user_role: user.role,user_id: user.id)
     end
 
     private
