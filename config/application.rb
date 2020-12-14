@@ -44,7 +44,7 @@ module StudentsDashboardBackEnd
           '*',
           headers: :any,
           methods: [:get, :post, :patch, :put, :delete, :options]
-          )
+        )
       end
     end    
   end
