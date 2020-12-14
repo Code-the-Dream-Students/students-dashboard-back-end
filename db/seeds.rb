@@ -1457,7 +1457,7 @@ sources = Source.create([
     lessons: [
       Lesson.find(31)
     ]
-   }
+  }
 ])
 
 
