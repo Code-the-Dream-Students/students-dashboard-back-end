@@ -51,11 +51,41 @@ ActiveRecord::Schema.define(version: 2020_11_23_075649) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "mentors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_mentors_on_user_id"
+  end
+
   create_table "sources", force: :cascade do |t|
     t.string "source_title"
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "staffs", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "title"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_staffs_on_user_id"
+  end
+
+  create_table "students", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "enrolled"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
   end
 
   create_table "unit_lessons", force: :cascade do |t|
@@ -72,6 +102,15 @@ ActiveRecord::Schema.define(version: 2020_11_23_075649) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.string "role"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "weeks", force: :cascade do |t|
     t.integer "week_number"
     t.integer "course_id"
@@ -84,4 +123,7 @@ ActiveRecord::Schema.define(version: 2020_11_23_075649) do
     t.index ["unit_id"], name: "index_weeks_on_unit_id"
   end
 
+  add_foreign_key "mentors", "users"
+  add_foreign_key "staffs", "users"
+  add_foreign_key "students", "users"
 end
