@@ -12,6 +12,7 @@ class WeeksController < ApplicationController
           {
             id: week.id,
             week_number: week.week_number,
+            start_date: week.start_date,
             course: Course.find(week.course_id),
             unit: Unit.find(week.unit_id),
             lesson: Lesson.find(week.lesson_id),
@@ -36,6 +37,7 @@ class WeeksController < ApplicationController
           week: {
             id: @week.id,
             week_number: @week.week_number,
+            start_date: @week.start_date,
             course: Course.find(@week.course_id),
             unit: Unit.find(@week.unit_id),
             lesson: Lesson.find(@week.lesson_id),
@@ -53,6 +55,7 @@ class WeeksController < ApplicationController
     if set_course_unit_lesson && !(set_week)
       @week = Week.new(
         week_number: params[:week_number],
+        start_date: params[:start_date],
         course_id: set_course_id,
         unit_id: set_unit_id,
         lesson_id: set_lesson_id
@@ -118,7 +121,7 @@ class WeeksController < ApplicationController
   private
 
     def week_params
-      params.require(:week).permit(:week_number)
+      params.require(:week).permit(:week_number, :start_date)
     end
 
     def set_course_id

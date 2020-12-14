@@ -5,6 +5,7 @@ class CreateWeeks < ActiveRecord::Migration[6.0]
       t.integer :course_id
       t.integer :unit_id
       t.integer :lesson_id
+      t.date :start_date
 
       t.timestamps
     end
