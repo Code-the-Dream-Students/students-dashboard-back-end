@@ -1,5 +1,6 @@
 class SourcesController < ApplicationController
 
+  skip_before_action :authenticate_user
   # before_action :set_source, only: [:show, :update]
 
   def index
