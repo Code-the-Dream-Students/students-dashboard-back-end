@@ -1,5 +1,7 @@
 class AssignmentsController < ApplicationController
 
+  skip_before_action :authenticate_user
+
   def show
     @assignment = set_course_id && set_unit_id && set_lesson_id && set_assignment ?
       set_course_unit_lesson_assignment :

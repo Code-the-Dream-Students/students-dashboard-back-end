@@ -1,4 +1,7 @@
 class LessonSourcesController < ApplicationController
+
+  skip_before_action :authenticate_user
+
   def create
     if set_lesson_source == nil
       if set_lesson && set_source
