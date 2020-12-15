@@ -1,5 +1,7 @@
 class WeeksController < ApplicationController
 
+  skip_before_action :authenticate_user
+
   # before_action :set_week, only: [:show, :update, :destroy]
 
   def index
@@ -8,7 +10,20 @@ class WeeksController < ApplicationController
     render ({
       json: {
         message: "Success",
-        weeks: @weeks
+        weeks: @weeks.map do |week|
+          {
+            id: week.id,
+            week_number: week.week_number,
+            start_date: week.start_date,
+            end_date: week.end_date,
+            assignment: week.lesson.assignment,
+            course: Course.find(week.course_id),
+            unit: Unit.find(week.unit_id),
+            lesson: Lesson.find(week.lesson_id),
+            created_at: week.created_at,
+            updated_at: week.updated_at
+          }
+        end
       },
       status: 200
     })
@@ -23,7 +38,18 @@ class WeeksController < ApplicationController
       render ({
         json: {
           message: "Success",
-          week: @week
+          week: {
+            id: @week.id,
+            week_number: @week.week_number,
+            start_date: @week.start_date,
+            end_date: @week.end_date,
+            assignment: @week.lesson.assignment,
+            course: Course.find(@week.course_id),
+            unit: Unit.find(@week.unit_id),
+            lesson: Lesson.find(@week.lesson_id),
+            created_at: @week.created_at,
+            updated_at: @week.updated_at
+          }
         }
       })
     else
@@ -35,6 +61,8 @@ class WeeksController < ApplicationController
     if set_course_unit_lesson && !(set_week)
       @week = Week.new(
         week_number: params[:week_number],
+        start_date: params[:start_date],
+        end_date: params[:end_date],
         course_id: set_course_id,
         unit_id: set_unit_id,
         lesson_id: set_lesson_id
@@ -100,7 +128,7 @@ class WeeksController < ApplicationController
   private
 
     def week_params
-      params.require(:week).permit(:week_number)
+      params.require(:week).permit(:week_number, :start_date, :end_date)
     end
 
     def set_course_id

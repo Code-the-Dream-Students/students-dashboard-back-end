@@ -116,6 +116,8 @@ ActiveRecord::Schema.define(version: 2020_11_23_075649) do
     t.integer "course_id"
     t.integer "unit_id"
     t.integer "lesson_id"
+    t.date "start_date"
+    t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_weeks_on_course_id"

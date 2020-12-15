@@ -452,360 +452,480 @@ assignments = Assignment.create([
 weeks = Week.create([
   {
     week_number: 1,
+    start_date: "2021-02-03",
+    end_date: "2021-02-09",
     course_id: 1,
     unit_id: 1,
     lesson_id: 1 
   },
   {
     week_number: 2,
+    start_date: "2021-02-10",
+    end_date: "2021-02-16",
     course_id: 1,
     unit_id: 1,
     lesson_id: 2
   },
   {
     week_number: 3,
+    start_date: "2021-02-17",
+    end_date: "2021-02-23",
     course_id: 1,
     unit_id: 2,
     lesson_id: 3
   },
   {
     week_number: 4,
+    start_date: "2021-02-24",
+    end_date: "2021-03-02",
     course_id: 1,
     unit_id: 2,
     lesson_id: 4
   },
   {
     week_number: 5,
+    start_date: "2021-03-03",
+    end_date: "2021-03-09",
     course_id: 1,
     unit_id: 2,
     lesson_id: 5
   },
   {
     week_number: 6,
+    start_date: "2021-03-10",
+    end_date: "2021-03-16",
     course_id: 1,
     unit_id: 2,
     lesson_id: 6
   },
   {
     week_number: 7,
+    start_date: "2021-03-17",
+    end_date: "2021-03-23",
     course_id: 1,
     unit_id: 2,
     lesson_id: 7
   },
   {
     week_number: 8,
+    start_date: "2021-03-24",
+    end_date: "2021-03-30",
     course_id: 1,
     unit_id: 2,
     lesson_id: 8
   },
   {
     week_number: 1,
+    start_date: "2021-02-03",
+    end_date: "2021-02-09",
     course_id: 2,
     unit_id: 3,
     lesson_id: 9
   },
   {
     week_number: 2,
+    start_date: "2021-02-10",
+    end_date: "2021-02-16",
     course_id: 2,
     unit_id: 3,
     lesson_id: 10
   },
   {
     week_number: 3,
+    start_date: "2021-02-17",
+    end_date: "2021-02-23",
     course_id: 2,
     unit_id: 3,
     lesson_id: 11
   },
   {
     week_number: 4,
+    start_date: "2021-02-24",
+    end_date: "2021-03-02",
     course_id: 2,
     unit_id: 3,
     lesson_id: 12
   },
   {
     week_number: 5,
+    start_date: "2021-03-03",
+    end_date: "2021-03-09",
     course_id: 2,
     unit_id: 3,
     lesson_id: 13
   },
   {
     week_number: 6,
+    start_date: "2021-03-10",
+    end_date: "2021-03-16",
     course_id: 2,
     unit_id: 4,
     lesson_id: 14
   },
   {
     week_number: 7,
+    start_date: "2021-03-17",
+    end_date: "2021-03-23",
     course_id: 2,
     unit_id: 4,
     lesson_id: 15
   },
   {
     week_number: 8,
+    start_date: "2021-03-24",
+    end_date: "2021-03-30",
     course_id: 2,
     unit_id: 4,
     lesson_id: 16
   },
   {
     week_number: 9,
+    start_date: "2021-03-31",
+    end_date: "2021-04-06",
     course_id: 2,
     unit_id: 4,
     lesson_id: 17
   },
   {
     week_number: 10,
+    start_date: "2021-04-7",
+    end_date: "2021-04-13",
     course_id: 2,
     unit_id: 4,
     lesson_id: 18
   },
   {
     week_number: 11,
+    start_date: "2021-04-14",
+    end_date: "2021-04-20",
     course_id: 2,
     unit_id: 4,
     lesson_id: 18
   },
   {
     week_number: 1,
+    start_date: "2021-02-03",
+    end_date: "2021-02-09",
     course_id: 3,
     unit_id: 5,
     lesson_id: 19
   },
   {
     week_number: 2,
+    start_date: "2021-02-10",
+    end_date: "2021-02-16",
     course_id: 3,
     unit_id: 5,
     lesson_id: 20
   },
   {
     week_number: 3,
+    start_date: "2021-02-17",
+    end_date: "2021-02-23",
     course_id: 3,
     unit_id: 5,
     lesson_id: 21
   },
   {
     week_number: 4,
+    start_date: "2021-02-24",
+    end_date: "2021-03-02",
     course_id: 3,
     unit_id: 5,
     lesson_id: 22
   },
   {
     week_number: 5,
+    start_date: "2021-03-03",
+    end_date: "2021-03-09",
     course_id: 3,
     unit_id: 5,
     lesson_id: 23
   },
   {
     week_number: 6,
+    start_date: "2021-03-10",
+    end_date: "2021-03-16",
     course_id: 3,
     unit_id: 5,
     lesson_id: 24
   },
   {
     week_number: 7,
+    start_date: "2021-03-17",
+    end_date: "2021-03-23",
     course_id: 3,
     unit_id: 6,
     lesson_id: 25
   },
   {
     week_number: 8,
+    start_date: "2021-03-24",
+    end_date: "2021-03-30",
     course_id: 3,
     unit_id: 6,
     lesson_id: 26
   },
   {
     week_number: 9,
+    start_date: "2021-03-31",
+    end_date: "2021-04-06",
     course_id: 3,
     unit_id: 6,
     lesson_id: 27
   },
   {
     week_number: 10,
+    start_date: "2021-03-31",
+    end_date: "2021-04-06",
     course_id: 3,
     unit_id: 6,
     lesson_id: 28
   },
   {
     week_number: 11,
+    start_date: "2021-04-14",
+    end_date: "2021-04-20",
     course_id: 3,
     unit_id: 6,
     lesson_id: 29
   },
   {
     week_number: 12,
+    start_date: "2021-04-21",
+    end_date: "2021-04-27",
     course_id: 3,
     unit_id: 6,
     lesson_id: 30
   },
   {
     week_number: 13,
+    start_date: "2021-04-28",
+    end_date: "2021-05-04",
     course_id: 3,
     unit_id: 6,
     lesson_id: 31
   },
   {
     week_number: 14,
+    start_date: "2021-05-05",
+    end_date: "2021-05-11",
     course_id: 3,
     unit_id: 6,
     lesson_id: 31
   },
   {
     week_number: 15,
+    start_date: "2021-05-12",
+    end_date: "2021-05-18",
     course_id: 3,
     unit_id: 6,
     lesson_id: 31
   },
   {
     week_number: 1,
+    start_date: "2021-02-03",
+    end_date: "2021-02-09",
     course_id: 4,
     unit_id: 3,
     lesson_id: 9
   },
   {
     week_number: 2,
+    start_date: "2021-02-10",
+    end_date: "2021-02-16",
     course_id: 4,
     unit_id: 3,
     lesson_id: 10
   },
   {
     week_number: 3,
+    start_date: "2021-02-17",
+    end_date: "2021-02-23",
     course_id: 4,
     unit_id: 3,
     lesson_id: 11
   },
   {
     week_number: 4,
+    start_date: "2021-02-24",
+    end_date: "2021-03-02",
     course_id: 4,
     unit_id: 3,
     lesson_id: 12
   },
   {
     week_number: 5,
+    start_date: "2021-03-03",
+    end_date: "2021-03-09",
     course_id: 4,
     unit_id: 3,
     lesson_id: 13
   },
   {
     week_number: 6,
+    start_date: "2021-03-10",
+    end_date: "2021-03-16",
     course_id: 4,
     unit_id: 4,
     lesson_id: 14 
   },
   {
     week_number: 7,
+    start_date: "2021-03-17",
+    end_date: "2021-03-23",
     course_id: 4,
     unit_id: 4,
     lesson_id: 15
   },
   {
     week_number: 8,
+    start_date: "2021-03-24",
+    end_date: "2021-03-30",
     course_id: 4,
     unit_id: 4,
     lesson_id: 16
   },
   {
     week_number: 9,
+    start_date: "2021-03-31",
+    end_date: "2021-04-06",
     course_id: 4,
     unit_id: 4,
     lesson_id: 17
   },
   {
     week_number: 10,
+    start_date: "2021-04-07",
+    end_date: "2021-04-13",
     course_id: 4,
     unit_id: 4,
     lesson_id: 18
   },
   {
     week_number: 11,
+    start_date: "2021-04-14",
+    end_date: "2021-04-20",
     course_id: 4,
     unit_id: 4,
     lesson_id: 18
   },
   {
     week_number: 12,
+    start_date: "2021-04-21",
+    end_date: "2021-04-27",
     course_id: 4,
     unit_id: 5,
     lesson_id: 19
   },
   {
     week_number: 13,
+    start_date: "2021-04-28",
+    end_date: "2021-05-04",
     course_id: 4,
     unit_id: 5,
     lesson_id: 20
   },
   {
     week_number: 14,
+    start_date: "2021-05-05",
+    end_date: "2021-05-11",
     course_id: 4,
     unit_id: 5,
     lesson_id: 21
   },
   {
     week_number: 15,
+    start_date: "2021-05-12",
+    end_date: "2021-05-18",
     course_id: 4,
     unit_id: 5,
     lesson_id: 22
   },
   {
     week_number: 16,
+    start_date: "2021-05-19",
+    end_date: "2021-05-25",
     course_id: 4,
     unit_id: 5,
     lesson_id: 23
   },
   {
     week_number: 17,
+    start_date: "2021-05-26",
+    end_date: "2021-06-01",
     course_id: 4,
     unit_id: 5,
     lesson_id: 24
   },
   {
     week_number: 18,
+    start_date: "2021-06-02",
+    end_date: "2021-06-08",
     course_id: 4,
     unit_id: 6,
     lesson_id: 25
   },
   {
     week_number: 19,
+    start_date: "2021-06-09",
+    end_date: "2021-06-15",
     course_id: 4,
     unit_id: 6,
     lesson_id: 26
   },
   {
     week_number: 20,
+    start_date: "2021-06-16",
+    end_date: "2021-06-22",
     course_id: 4,
     unit_id: 6,
     lesson_id: 27
   },
   {
     week_number: 21,
+    start_date: "2021-06-23",
+    end_date: "2021-06-29",
     course_id: 4,
     unit_id: 6,
     lesson_id: 28
   },
   {
     week_number: 22,
+    start_date: "2021-06-30",
+    end_date: "2021-07-06",
     course_id: 4,
     unit_id: 6,
     lesson_id: 29
   },
   {
     week_number: 23,
+    start_date: "2021-07-07",
+    end_date: "2021-07-13",
     course_id: 4,
     unit_id: 6,
     lesson_id: 30
   },
   {
     week_number: 24,
+    start_date: "2021-07-14",
+    end_date: "2021-07-20",
     course_id: 4,
     unit_id: 6,
     lesson_id: 31
   },
   {
     week_number: 25,
+    start_date: "2021-07-21",
+    end_date: "2021-07-27",
     course_id: 4,
     unit_id: 6,
     lesson_id: 31
   },
   {
     week_number: 26,
+    start_date: "2021-07-28",
+    end_date: "2021-08-03",
     course_id: 4,
     unit_id: 6,
     lesson_id: 31
@@ -1337,7 +1457,7 @@ sources = Source.create([
     lessons: [
       Lesson.find(31)
     ]
-   }
+  }
 ])
 
 
