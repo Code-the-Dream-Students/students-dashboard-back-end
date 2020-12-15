@@ -34,6 +34,7 @@
       rescue_from ExceptionHandler::InvalidToken, with: :four_twenty_two
   
     end
+
     private
   
     # JSON response with message; Status code 422 - unprocessable entity
@@ -45,4 +46,5 @@
     def unauthorized_request(e)
       json_response({ message: e.message }, :unauthorized)
     end
+
   end

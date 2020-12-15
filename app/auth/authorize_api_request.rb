@@ -1,7 +1,9 @@
 # app/auth/authorize_api_request.rb
 class AuthorizeApiRequest
-    def initialize(headers = {})
-      @headers = headers
+  include ::ActionController::Cookies
+  
+    def initialize(jwt = {})
+      @jwt = jwt
     end
   
     # Service entry point - return valid user object
@@ -13,7 +15,7 @@ class AuthorizeApiRequest
   
     private
   
-    attr_reader :headers
+    attr_reader :jwt
   
     def user
       # check if user is in the database
@@ -30,13 +32,16 @@ class AuthorizeApiRequest
   
     # decode authentication token
     def decoded_auth_token
-      @decoded_auth_token ||= JsonWebToken.decode(http_auth_header)
+    # byebug
+    # jwt = cookies.signed[:jwt]
+    @decoded_auth_token ||= JsonWebToken.decode(cookie_jwt)
+    raise(ExceptionHandler::AuthenticationError, Message.unauthorized) unless :decoded_auth_token
     end
   
     # check for token in `Authorization` header
-    def http_auth_header
-      if headers['Authorization'].present?
-        return headers['Authorization'].split(' ').last
+    def cookie_jwt
+      if jwt.present?
+        return jwt
       end
         raise(ExceptionHandler::MissingToken, Message.missing_token)
     end
