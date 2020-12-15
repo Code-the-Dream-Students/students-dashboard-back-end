@@ -39,13 +39,12 @@ module StudentsDashboardBackEnd
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://locahost:3000'
-        resource(
-          '*',
+        origins ['http://localhost:3001', 'http://localhost:3000']
+        resource '*',
           headers: :any,
           methods: [:get, :post, :patch, :put, :delete, :options],
           credentials: true
-        )
+        
       end
     end    
   end
