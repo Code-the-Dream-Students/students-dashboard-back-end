@@ -34,18 +34,17 @@ module StudentsDashboardBackEnd
     # Skip views, helpers and assets when generating a new resource.
     
     ###Why is config.api_only = true commented out?
-    # config.api_only = true
+    config.api_only = true
     config.middleware.use ActionDispatch::Cookies # Required for all session management
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'http://locahost:3000'
-        resource(
-          '*',
+        origins 'http://localhost:3001'
+        resource '*',
           headers: :any,
           methods: [:get, :post, :patch, :put, :delete, :options],
           credentials: true
-        )
+        
       end
     end    
   end
