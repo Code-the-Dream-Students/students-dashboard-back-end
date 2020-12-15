@@ -10,7 +10,8 @@ class AuthenticationController < ApplicationController
         value: auth_token, 
         httponly: true, 
         same_site: :none,
-        secure: true, 
+        secure: true,
+        domain: ['localhost:3000', 'localhost:3001'], 
         expires: 2.hours.from_now}
                 
       json_response(auth_token: auth_token, user_role: user.role,user_id: user.id)
