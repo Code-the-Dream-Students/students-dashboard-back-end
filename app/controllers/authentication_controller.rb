@@ -9,7 +9,7 @@ class AuthenticationController < ApplicationController
       cookies.signed[:jwt] = {
         value: auth_token, 
         httponly: true, 
-        # same_site: :none,
+        same_site: :none,
         secure: true,
         # domain: 'localhost:3001', 
         domain: %w(localhost:3000 localhost:3001), 
