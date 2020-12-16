@@ -8,7 +8,7 @@ class AuthenticationController < ApplicationController
       # HTTP-only cookie stored with refresh_token
       cookies.signed[:jwt] = {
         value: auth_token, 
-        httponly: true, 
+        # httponly: true, 
         same_site: :none,
         secure: true,
         # domain: 'localhost:3001', 
