@@ -41,7 +41,7 @@ module StudentsDashboardBackEnd
         origins 'http://localhost:3001', 'http://localhost:3000'
         resource '*',
           headers: :any,
-          methods: [:get, :post, :patch, :put, :delete, :options],
+          methods: [:get, :post, :patch, :put, :delete, :options, :head],
           credentials: true
         
       end
