@@ -32,19 +32,18 @@ module StudentsDashboardBackEnd
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
-    
-    ###Why is config.api_only = true commented out?
-    # config.api_only = true
+    config.api_only = true
     config.middleware.use ActionDispatch::Cookies # Required for all session management
 
     # config.action_controller.forgery_protection_origin_check = false
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins ['localhost:3001', 'localhost:3000']
+        #Removed origins Array, changed syntax as documented: https://www.rubydoc.info/gems/rack-cors/0.4.0
+        origins 'http://localhost:3001', 'http://localhost:3000'
         resource '*',
           headers: :any,
-          methods: [:get, :post, :patch, :put, :delete, :options],
+          methods: [:get, :post, :patch, :put, :delete, :options, :head],
           credentials: true
         
       end

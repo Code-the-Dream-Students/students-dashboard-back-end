@@ -5,19 +5,19 @@ class ApplicationController < ActionController::API
 
     # called before every action on controllers
   # before_action :authorize_request
-  before_action :authenticate_user
+  before_action :authorize_user
   attr_reader :current_user
 
   private
 
-  # Check for valid request token and return user
-  # def authorize_request
-  #   @current_user = (AuthorizeApiRequest.new(request.headers).call)[:user]
-  # end
-  def authenticate_user
+  def authorize_user
+    # Check for valid cookie stored jwt token
     jwt = cookies.signed[:jwt]
-    # raise(ExceptionHandler::AuthenticationError, Message.unauthorized) unless jwt
-    # decode_jwt(jwt)
-    @current_user = (AuthorizeApiRequest.new(jwt).call)[:user]
+    # Return user with AuthorizeApiRequest Module
+    if jwt
+      @current_user = (AuthorizeApiRequest.new(jwt).call)[:user]
+    else
+      raise(ExceptionHandler::AuthenticationError, Message.unauthorized)
+    end
   end
 end

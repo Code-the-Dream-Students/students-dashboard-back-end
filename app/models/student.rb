@@ -1,3 +1,6 @@
 class Student < ApplicationRecord
-  belongs_to :user 
+  # Model associations
+  belongs_to :user
+
+  # Needs to have validations
 end
