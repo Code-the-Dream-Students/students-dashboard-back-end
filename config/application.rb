@@ -44,8 +44,7 @@ module StudentsDashboardBackEnd
         resource '*',
           headers: :any,
           methods: [:get, :post, :patch, :put, :delete, :options, :head],
-          credentials: true
-        
+          credentials: true       
       end
     end    
   end
