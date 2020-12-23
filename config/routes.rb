@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :students
+  resources :mentors
+  resources :staffs
+
+  post 'auth/login', to: 'authentication#authenticate'
+  post 'signup', to: 'users#create'
+
+  get 'users', to: 'users#index'
+  put 'users/:id', to: 'users#update'
+  get 'logout', to: 'users#logout'
 
   get '/', to: 'home#index'
-  # get '/courses/:course_id/units/:unit_id', to: 'courseunits#index'
   post '/courses/:course_id/units/:unit_id', to: 'course_units#create'
   delete '/courses/:course_id/units/:unit_id', to: 'course_units#destroy'
   post '/units/:unit_id/lessons/:lesson_id', to: 'unit_lessons#create'
@@ -32,6 +42,9 @@ Rails.application.routes.draw do
   delete '/units/:unit_id/lessons/:lesson_id/assignment', to: 'assignments#destroy'
   delete '/lessons/:lesson_id/assignment', to: 'assignments#destroy'
 
+  get 'mentor_courses', to: 'mentor_courses#index'
+  get 'mentor_courses/:course_id', to: 'mentor_courses#show'
+
   resources :courses do
     resources :units, only: [:index, :show] do
       resources :lessons, only: [:index, :show] do
@@ -52,19 +65,5 @@ Rails.application.routes.draw do
     resources :sources, only: [:index, :show]
   end
 
-  resources :sources
-  
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  resources :students
-  resources :mentors
-  resources :staffs
-
-  post 'auth/login', to: 'authentication#authenticate'
-  post 'signup', to: 'users#create'
-
-  get 'users', to: 'users#index'
-  put 'users/:id', to: 'users#update'
-  get 'logout', to: 'users#logout'
-  
+  resources :sources  
 end

@@ -7,7 +7,7 @@ class AuthenticationController < ApplicationController
       user = User.find_by(email: auth_params[:email])
       # HTTP-only cookie stored with refresh_token
       # Note - May be needed before launching production:  SameSite: "Strict"
-      cookies.signed[:jwt] = {value:  auth_token, httponly: true, same_site: :none, secure: true, expires: 2.hours.from_now}
+      cookies.signed[:jwt] = {value:  auth_token, httponly: true, same_site: :none, expires: 2.hours.from_now}
       
       json_response(message: "Successfully authenticated." , user_role: user.role,user_id: user.id)
     end
