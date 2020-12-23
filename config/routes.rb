@@ -44,6 +44,8 @@ Rails.application.routes.draw do
 
   get 'mentor_courses', to: 'mentor_courses#index'
   get 'mentor_courses/:course_id', to: 'mentor_courses#show'
+  post 'mentor_courses', to: 'mentor_courses#create'
+  delete 'mentor_courses/:course_id', to: 'mentor_courses#destroy'
 
   resources :courses do
     resources :units, only: [:index, :show] do
