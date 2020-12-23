@@ -37,7 +37,7 @@ module StudentsDashboardBackEnd
     # config.api_only = true
     config.middleware.use ActionDispatch::Cookies # Required for all session management
 
-    config.action_controller.forgery_protection_origin_check = false
+    # config.action_controller.forgery_protection_origin_check = false
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
