@@ -20,7 +20,7 @@ class StudentsController < ApplicationController
   
     # PUT /students/:id
     def update
-      @todo.update(student_params)
+      @student.update(student_params)
       head :no_content
     end
   
