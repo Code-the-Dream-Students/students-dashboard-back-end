@@ -24,9 +24,9 @@ default: &default
 development:
   <<: *default
   database: students_dashboard_back_end_SINAN
-  user: <%=ENV['POSTGRES_USER'] %>
-  password: <%=ENV['POSTGRES_PASSWORD'] %>
-  port: <%=ENV['POSTGRES_PORT'] %>
+  user: postgres
+  password: password
+  
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -95,3 +95,4 @@ production:
   # database: students_dashboard_back_end_production
   # username: students_dashboard_back_end
   # password: <%= ENV['STUDENTS_DASHBOARD_BACK_END_DATABASE_PASSWORD'] %>
+  #port: <%=ENV['POSTGRES_PORT'] %>

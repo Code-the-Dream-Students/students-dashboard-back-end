@@ -26,7 +26,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # gem 'rack-cors'
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 gem 'jwt', '~> 2.2', '>= 2.2.2'
-
+gem 'hirb'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
