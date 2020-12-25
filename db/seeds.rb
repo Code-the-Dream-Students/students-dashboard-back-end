@@ -1632,10 +1632,7 @@ students = Student.create([
 student_courses = StudentCourse.create([
   {
     student_id: Student.find_by(user_id: 7).id,
-    student: Student.find_by(user_id: 7),
-    week_number: 1,
-    # student_weekly_progress_id: StudentWeeklyProgress.find_by(week_number: 1).id,
-    # student_weekly_progresses: StudentWeeklyProgress.find(Student.find_by(user_id: 7).id)
+    student: Student.find_by(user_id: 7)
   }
 ])
 
