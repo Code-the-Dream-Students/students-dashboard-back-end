@@ -1632,14 +1632,14 @@ students = Student.create([
 student_weekly_progress = StudentWeeklyProgress.create([
   {
     # student_id: Student.find(73).user_id,
+    week_id: Week.find_by(course_id: 4, week_number: 1).id,
     week_number: 1,
-    student_course_id: StudentCourse.find_by(week_number: 1).id,
     # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
     # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
     # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
     # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
     # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
-    # week: Week.find_by(course_id: 4, week_number: 1),
+    week: Week.find_by(course_id: 4, week_number: 1),
     instructions_progress: 0,
     resources_progress: 0,
     assignment_progress: 0,
@@ -1648,89 +1648,90 @@ student_weekly_progress = StudentWeeklyProgress.create([
   }
 ])
 
-# student_courses = StudentCourse.create([
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 1,
-#     # student_weekly_progress: StudentWeeklyProgress.find(1)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 2,
-#     # student_weekly_progress: StudentWeeklyProgress.find(2)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 3,
-#     # student_weekly_progress: StudentWeeklyProgress.find(3)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 4,
-#     # student_weekly_progress: StudentWeeklyProgress.find(4)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 5,
-#     # student_weekly_progress: StudentWeeklyProgress.find(5)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 6,
-#     # student_weekly_progress: StudentWeeklyProgress.find(6)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 7,
-#     # student_weekly_progress: StudentWeeklyProgress.find(7)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 8,
-#     # student_weekly_progress: StudentWeeklyProgress.find(8)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 9,
-#     # student_weekly_progress: StudentWeeklyProgress.find(9)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 10,
-#     # student_weekly_progress: StudentWeeklyProgress.find(10)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 11,
-#     # student_weekly_progress: StudentWeeklyProgress.find(11)
-#   },
-#   {
-#     # course_id: Course.find_by(course_name: 'High Noon').id,
-#     # student_id: Student.find_by(user_id: 7).id,
-#     student: Student.find_by(user_id: 7),
-#     week_number: 12,
-#     # student_weekly_progress: StudentWeeklyProgress.find(12)
-#   },
-# ])
+student_courses = StudentCourse.create([
+  {
+    # course_id: Course.find_by(course_name: 'High Noon').id,
+    # student_id: Student.find_by(user_id: 7).id,
+    student: Student.find_by(user_id: 7),
+    week_number: 1,
+    student_weekly_progress_id: StudentWeeklyProgress.find_by(week_number: 1).id,
+    student_weekly_progress: StudentWeeklyProgress.find_by(week_number: 1)
+  },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 2,
+  #   student_weekly_progress: StudentWeeklyProgress.find(2).id
+  # },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 3,
+  #   student_weekly_progress: StudentWeeklyProgress.find(3).id
+  # },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 4,
+  #   student_weekly_progress: StudentWeeklyProgress.find(4).id
+  # },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 5,
+  #   student_weekly_progress: StudentWeeklyProgress.find(5).id
+  # },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 6,
+  #   student_weekly_progress: StudentWeeklyProgress.find(6).id
+  # },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 7,
+  #  student_weekly_progress: StudentWeeklyProgress.find(7).id
+  # },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 8,
+  #   student_weekly_progress: StudentWeeklyProgress.find(8).id
+  # },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 9,
+  #   student_weekly_progress: StudentWeeklyProgress.find(9).id
+  # },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 10,
+  #   student_weekly_progress: StudentWeeklyProgress.find(10).id
+  # },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 11,
+  #   student_weekly_progress: StudentWeeklyProgress.find(11).id
+  # },
+  # {
+  #   # course_id: Course.find_by(course_name: 'High Noon').id,
+  #   # student_id: Student.find_by(user_id: 7).id,
+  #   student: Student.find_by(user_id: 7),
+  #   week_number: 12,
+  #   student_weekly_progress: StudentWeeklyProgress.find(12).id
+  # },
+])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_24_160208) do
+ActiveRecord::Schema.define(version: 2020_12_25_170337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,7 +83,9 @@ ActiveRecord::Schema.define(version: 2020_12_24_160208) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "student_id", null: false
+    t.bigint "student_weekly_progress_id", null: false
     t.index ["student_id"], name: "index_student_courses_on_student_id"
+    t.index ["student_weekly_progress_id"], name: "index_student_courses_on_student_weekly_progress_id"
   end
 
   create_table "student_weekly_progresses", force: :cascade do |t|
@@ -95,8 +97,8 @@ ActiveRecord::Schema.define(version: 2020_12_24_160208) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "week_number"
-    t.bigint "student_course_id", null: false
-    t.index ["student_course_id"], name: "index_student_weekly_progresses_on_student_course_id"
+    t.bigint "week_id", null: false
+    t.index ["week_id"], name: "index_student_weekly_progresses_on_week_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -148,7 +150,8 @@ ActiveRecord::Schema.define(version: 2020_12_24_160208) do
 
   add_foreign_key "mentors", "users"
   add_foreign_key "staffs", "users"
+  add_foreign_key "student_courses", "student_weekly_progresses"
   add_foreign_key "student_courses", "students"
-  add_foreign_key "student_weekly_progresses", "student_courses"
+  add_foreign_key "student_weekly_progresses", "weeks"
   add_foreign_key "students", "users"
 end
