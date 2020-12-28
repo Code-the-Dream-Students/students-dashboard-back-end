@@ -35,6 +35,8 @@ module StudentsDashboardBackEnd
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies # Required for all session management
 
+    # config.action_controller.forgery_protection_origin_check = false
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         #Removed origins Array, changed syntax as documented: https://www.rubydoc.info/gems/rack-cors/0.4.0
@@ -42,8 +44,7 @@ module StudentsDashboardBackEnd
         resource '*',
           headers: :any,
           methods: [:get, :post, :patch, :put, :delete, :options, :head],
-          credentials: true
-        
+          credentials: true       
       end
     end    
   end
