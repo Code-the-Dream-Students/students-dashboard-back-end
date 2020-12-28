@@ -51,6 +51,15 @@ ActiveRecord::Schema.define(version: 2020_12_26_175211) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "mentor_courses", force: :cascade do |t|
+    t.integer "mentor_id"
+    t.integer "course_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_mentor_courses_on_course_id"
+    t.index ["mentor_id"], name: "index_mentor_courses_on_mentor_id"
+  end
+
   create_table "mentors", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -115,7 +124,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_175211) do
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.string "enrolled"
+    t.boolean "enrolled"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

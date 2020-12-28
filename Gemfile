@@ -27,6 +27,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors', '~> 1.1', '>= 1.1.1'
 gem 'jwt', '~> 2.2', '>= 2.2.2'
 gem 'hirb'
+gem 'rails_same_site_cookie', '~> 0.1.8'
+gem 'rails_on_heroku'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -38,6 +41,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  
+  gem 'dotenv-rails'
+  # Avoid polling for changes (windows only)
+  # gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1555,7 +1555,7 @@ staffs = Staff.create([
     last_name: "Administrator",
     user_id: 1
   },
-   {
+  {
     title: "Admin",
     first_name: "Rayn",
     last_name: "Rayu",
@@ -1626,6 +1626,41 @@ students = Student.create([
     last_name: "Natova",
     enrolled: true,
     user_id: 12
+  }
+])
+
+mentor_courses = MentorCourse.create([
+  {
+    mentor_id: 1,
+    course_id: 1
+  },
+  {
+    mentor_id: 2,
+    course_id: 2
+  },
+  {
+    mentor_id: 3,
+    course_id: 3
+  },
+  {
+    mentor_id: 4,
+    course_id: 4
+  },
+  {
+    mentor_id: 1,
+    course_id: 4
+  },
+  {
+    mentor_id: 2,
+    course_id: 3
+  },
+  {
+    mentor_id: 3,
+    course_id: 2
+  },
+  {
+    mentor_id: 4,
+    course_id: 1
   }
 ])
 
@@ -1830,4 +1865,3 @@ student_weekly_progress = StudentWeeklyProgress.create([
     # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
   }
 ])
-
