@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_26_175211) do
+ActiveRecord::Schema.define(version: 2020_12_28_220124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 2020_12_26_175211) do
     t.string "comments"
     t.date "date"
     t.time "time"
+    t.bigint "student_weekly_progress_id", null: false
+    t.index ["student_weekly_progress_id"], name: "index_registered_mentor_sessions_on_student_weekly_progress_id"
   end
 
   create_table "sources", force: :cascade do |t|
@@ -115,8 +117,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_175211) do
     t.integer "week_number"
     t.bigint "week_id", null: false
     t.bigint "student_course_id", null: false
-    t.bigint "registered_mentor_session_id", null: false
-    t.index ["registered_mentor_session_id"], name: "index_student_weekly_progresses_on_registered_mentor_session_id"
+    t.integer "student_id"
     t.index ["student_course_id"], name: "index_student_weekly_progresses_on_student_course_id"
     t.index ["week_id"], name: "index_student_weekly_progresses_on_week_id"
   end
@@ -124,7 +125,7 @@ ActiveRecord::Schema.define(version: 2020_12_26_175211) do
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.boolean "enrolled"
+    t.string "enrolled"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -169,9 +170,9 @@ ActiveRecord::Schema.define(version: 2020_12_26_175211) do
   end
 
   add_foreign_key "mentors", "users"
+  add_foreign_key "registered_mentor_sessions", "student_weekly_progresses"
   add_foreign_key "staffs", "users"
   add_foreign_key "student_courses", "students"
-  add_foreign_key "student_weekly_progresses", "registered_mentor_sessions"
   add_foreign_key "student_weekly_progresses", "student_courses"
   add_foreign_key "student_weekly_progresses", "weeks"
   add_foreign_key "students", "users"
