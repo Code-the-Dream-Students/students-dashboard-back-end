@@ -1632,35 +1632,51 @@ students = Student.create([
 mentor_courses = MentorCourse.create([
   {
     mentor_id: 1,
-    course_id: 1
+    course_id: 1,
+    date: Time.now,
+    time: Time.now,
   },
   {
     mentor_id: 2,
-    course_id: 2
+    course_id: 2,
+    date: Time.now,
+    time: Time.now,
   },
   {
     mentor_id: 3,
-    course_id: 3
+    course_id: 3,
+    date: Time.now,
+    time: Time.now,
   },
   {
     mentor_id: 4,
-    course_id: 4
+    course_id: 4,
+    date: Time.now,
+    time: Time.now,
   },
   {
     mentor_id: 1,
-    course_id: 4
+    course_id: 4,
+    date: Time.now,
+    time: Time.now,
   },
   {
     mentor_id: 2,
-    course_id: 3
+    course_id: 3,
+    date: Time.now,
+    time: Time.now,
   },
   {
     mentor_id: 3,
-    course_id: 2
+    course_id: 2,
+    date: Time.now,
+    time: Time.now,
   },
   {
     mentor_id: 4,
-    course_id: 1
+    course_id: 1,
+    date: Time.now,
+    time: Time.now,
   }
 ])
 
@@ -1677,8 +1693,8 @@ student_courses = StudentCourse.create([
 
 student_weekly_progress = StudentWeeklyProgress.create([
   {
-    student_course_id: StudentCourse.find_by(student_id: 73).id,
-    student_id: 73,
+    student_course_id: StudentCourse.find_by(student_id: 1).id,
+    student_id: Student.find(1).id,
     week_id: Week.find_by(course_id: 4, week_number: 1).id,
     week_number: 1,
     week: Week.find_by(course_id: 4, week_number: 1),
@@ -1694,8 +1710,8 @@ student_weekly_progress = StudentWeeklyProgress.create([
     # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
   },
   {
-    student_course_id: StudentCourse.find_by(student_id: 73).id,
-    student_id: 73,
+    student_course_id: StudentCourse.find_by(student_id: 1).id,
+    student_id: Student.find(1).id,
     week_id: Week.find_by(course_id: 4, week_number: 2).id,
     week_number: 2,
     week: Week.find_by(course_id: 4, week_number: 2),
@@ -1711,8 +1727,8 @@ student_weekly_progress = StudentWeeklyProgress.create([
     # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
   },
   {
-    student_course_id: StudentCourse.find_by(student_id: 73).id,
-    student_id: 73,
+    student_course_id: StudentCourse.find_by(student_id: 1).id,
+    student_id: Student.find(1).id,
     week_id: Week.find_by(course_id: 4, week_number: 3).id,
     week_number: 3,
     week: Week.find_by(course_id: 4, week_number: 3),
@@ -1727,199 +1743,55 @@ student_weekly_progress = StudentWeeklyProgress.create([
     # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
     # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
   },
-  # {
-  #   student_course_id: 112,
-  #   week_id: Week.find_by(course_id: 4, week_number: 4).id,
-  #   week_number: 4,
-  #   week: Week.find_by(course_id: 4, week_number: 4),
-  #   instructions_progress: 0,
-  #   resources_progress: 0,
-  #   assignment_progress: 0,
-  #   assignment_submission: '',
-  #   total_progress: 0
-  #   # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-  #   # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-  #   # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-  #   # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-  #   # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
-  # },
-  # {
-  #   student_course_id: 112,
-  #   week_id: Week.find_by(course_id: 4, week_number: 5).id,
-  #   week_number: 5,
-  #   week: Week.find_by(course_id: 4, week_number: 5),
-  #   instructions_progress: 0,
-  #   resources_progress: 0,
-  #   assignment_progress: 0,
-  #   assignment_submission: '',
-  #   total_progress: 0
-  #   # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-  #   # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-  #   # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-  #   # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-  #   # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
-  # },
-  # {
-  #   student_course_id: 112,
-  #   week_id: Week.find_by(course_id: 4, week_number: 6).id,
-  #   week_number: 6,
-  #   week: Week.find_by(course_id: 4, week_number: 6),
-  #   instructions_progress: 0,
-  #   resources_progress: 0,
-  #   assignment_progress: 0,
-  #   assignment_submission: '',
-  #   total_progress: 0
-  #   # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-  #   # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-  #   # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-  #   # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-  #   # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
-  # },
-  # {
-  #   student_course_id: 112,
-  #   week_id: Week.find_by(course_id: 4, week_number: 7).id,
-  #   week_number: 7,
-  #   week: Week.find_by(course_id: 4, week_number: 7),
-  #   instructions_progress: 0,
-  #   resources_progress: 0,
-  #   assignment_progress: 0,
-  #   assignment_submission: '',
-  #   total_progress: 0
-  #   # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-  #   # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-  #   # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-  #   # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-  #   # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
-  # },
-  # {
-  #   student_course_id: 112,
-  #   week_id: Week.find_by(course_id: 4, week_number: 8).id,
-  #   week_number: 8,
-  #   week: Week.find_by(course_id: 4, week_number: 8),
-  #   instructions_progress: 0,
-  #   resources_progress: 0,
-  #   assignment_progress: 0,
-  #   assignment_submission: '',
-  #   total_progress: 0
-  #   # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-  #   # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-  #   # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-  #   # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-  #   # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
-  # },
-  # {
-  #   student_course_id: 112,
-  #   week_id: Week.find_by(course_id: 4, week_number: 9).id,
-  #   week_number: 9,
-  #   week: Week.find_by(course_id: 4, week_number: 9),
-  #   instructions_progress: 0,
-  #   resources_progress: 0,
-  #   assignment_progress: 0,
-  #   assignment_submission: '',
-  #   total_progress: 0
-  #   # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-  #   # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-  #   # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-  #   # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-  #   # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
-  # },
-  # {
-  #   student_course_id: 112,
-  #   week_id: Week.find_by(course_id: 4, week_number: 10).id,
-  #   week_number: 10,
-  #   week: Week.find_by(course_id: 4, week_number: 10),
-  #   instructions_progress: 0,
-  #   resources_progress: 0,
-  #   assignment_progress: 0,
-  #   assignment_submission: '',
-  #   total_progress: 0
-  #   # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-  #   # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-  #   # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-  #   # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-  #   # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
-  # },
-  # {
-  #   student_course_id: 112,
-  #   week_id: Week.find_by(course_id: 4, week_number: 11).id,
-  #   week_number: 11,
-  #   week: Week.find_by(course_id: 4, week_number: 11),
-  #   instructions_progress: 0,
-  #   resources_progress: 0,
-  #   assignment_progress: 0,
-  #   assignment_submission: '',
-  #   total_progress: 0
-  #   # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-  #   # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-  #   # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-  #   # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-  #   # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
-  # },
-  # {
-  #   student_course_id: 112,
-  #   week_id: Week.find_by(course_id: 4, week_number: 12).id,
-  #   week_number: 12,
-  #   week: Week.find_by(course_id: 4, week_number: 12),
-  #   instructions_progress: 0,
-  #   resources_progress: 0,
-  #   assignment_progress: 0,
-  #   assignment_submission: '',
-  #   total_progress: 0
-  #   # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-  #   # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-  #   # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-  #   # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-  #   # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
-  # }
 ])
 
 registered_mentor_sessions = RegisteredMentorSession.create([
   {
     student_id: Student.find_by(user_id: 7).id,
     week_number: 1,
-    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 73, week_number: 1).id,
-    date: Time.now,
-    time: Time.now,
+    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 1, week_number: 1).id,
+    mentor_course_id: MentorCourse.find_by(course_id: 4, mentor_id: 4).id,
+    # mentor_courses: MentorCourse.find_by(course_id: 4),
     comments: 'I want to work on deploying rails in heroku.'
   },
   {
     student_id: Student.find_by(user_id: 7).id,
     week_number: 1,
-    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 73, week_number: 1).id,
-    date: Time.now,
-    time: Time.now,
+    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 1, week_number: 1).id,
+    mentor_course_id: MentorCourse.find_by(course_id: 4, mentor_id: 1).id,
+    # mentor_courses: MentorCourse.find_by(course_id: 4),
     comments: 'I am stuck using React hooks.'
   },
   {
     student_id: Student.find_by(user_id: 7).id,
     week_number: 2,
-    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 73, week_number: 2).id,
-    date: Time.now,
-    time: Time.now,
+    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 1, week_number: 2).id,
+    mentor_course_id: MentorCourse.find_by(course_id: 4, mentor_id: 4).id,
+    # mentor_courses: MentorCourse.find_by(course_id: 4),
     comments: 'I hate coding!'
   },
   {
     student_id: Student.find_by(user_id: 7).id,
     week_number: 2,
-    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 73, week_number: 2).id,
-    date: Time.now,
-    time: Time.now,
+    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 1, week_number: 2).id,
+    mentor_course_id: MentorCourse.find_by(course_id: 4, mentor_id: 1).id,
+    # mentor_courses: MentorCourse.find_by(course_id: 4),
     comments: 'I love ctd.'
   },
   {
     student_id: Student.find_by(user_id: 7).id,
     week_number: 3,
-    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 73, week_number: 3).id,
-    date: Time.now,
-    time: Time.now,
+    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 1, week_number: 3).id,
+    mentor_course_id: MentorCourse.find_by(course_id: 4, mentor_id: 4).id,
+    # mentor_courses: MentorCourse.find_by(course_id: 4),
     comments: 'I hate coding again.'
   },
   {
     student_id: Student.find_by(user_id: 7).id,
     week_number: 3,
-    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 73, week_number: 3).id,
-    date: Time.now,
-    time: Time.now,
+    student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 1, week_number: 3).id,
+    mentor_course_id: MentorCourse.find_by(course_id: 4, mentor_id: 1).id,
+    # mentor_courses: MentorCourse.find_by(course_id: 4),
     comments: 'I am in love with ruby'
   }
 ])

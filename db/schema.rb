@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_28_220124) do
+ActiveRecord::Schema.define(version: 2020_12_28_235130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2020_12_28_220124) do
     t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.date "date"
+    t.time "time"
     t.index ["course_id"], name: "index_mentor_courses_on_course_id"
     t.index ["mentor_id"], name: "index_mentor_courses_on_mentor_id"
   end
@@ -76,9 +78,9 @@ ActiveRecord::Schema.define(version: 2020_12_28_220124) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "comments"
-    t.date "date"
-    t.time "time"
     t.bigint "student_weekly_progress_id", null: false
+    t.bigint "mentor_course_id", null: false
+    t.index ["mentor_course_id"], name: "index_registered_mentor_sessions_on_mentor_course_id"
     t.index ["student_weekly_progress_id"], name: "index_registered_mentor_sessions_on_student_weekly_progress_id"
   end
 
@@ -170,6 +172,7 @@ ActiveRecord::Schema.define(version: 2020_12_28_220124) do
   end
 
   add_foreign_key "mentors", "users"
+  add_foreign_key "registered_mentor_sessions", "mentor_courses"
   add_foreign_key "registered_mentor_sessions", "student_weekly_progresses"
   add_foreign_key "staffs", "users"
   add_foreign_key "student_courses", "students"
