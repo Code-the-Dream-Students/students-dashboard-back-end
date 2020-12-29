@@ -75,6 +75,8 @@ GEM
     hirb (0.7.3)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
+    jsonapi-serializer (2.1.0)
+      activesupport (>= 4.2)
     jwt (2.2.2)
     listen (3.2.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -179,6 +181,7 @@ DEPENDENCIES
   byebug
   dotenv-rails
   hirb
+  jsonapi-serializer
   jwt (~> 2.2, >= 2.2.2)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)

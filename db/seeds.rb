@@ -1680,20 +1680,8 @@ mentor_courses = MentorCourse.create([
   }
 ])
 
-student_courses = StudentCourse.create([
-  {
-    student_id: Student.find_by(user_id: 7).id,
-    student: Student.find_by(user_id: 7)
-  },
-  {
-    student_id: Student.find_by(user_id: 8).id,
-    student: Student.find_by(user_id: 8)
-  }
-])
-
 student_weekly_progress = StudentWeeklyProgress.create([
   {
-    student_course_id: StudentCourse.find_by(student_id: 1).id,
     student_id: Student.find(1).id,
     week_id: Week.find_by(course_id: 4, week_number: 1).id,
     week_number: 1,
@@ -1710,7 +1698,6 @@ student_weekly_progress = StudentWeeklyProgress.create([
     # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
   },
   {
-    student_course_id: StudentCourse.find_by(student_id: 1).id,
     student_id: Student.find(1).id,
     week_id: Week.find_by(course_id: 4, week_number: 2).id,
     week_number: 2,
@@ -1727,7 +1714,6 @@ student_weekly_progress = StudentWeeklyProgress.create([
     # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
   },
   {
-    student_course_id: StudentCourse.find_by(student_id: 1).id,
     student_id: Student.find(1).id,
     week_id: Week.find_by(course_id: 4, week_number: 3).id,
     week_number: 3,
