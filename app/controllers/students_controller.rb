@@ -49,7 +49,7 @@ class StudentsController < ApplicationController
     end
     
     def student_options
-      ['user','student_weekly_progresses.registered_mentor_sessions', 'student_weekly_progresses.week', 'student_weekly_progresses.registered_mentor_sessions.mentor_course', 'student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor']
+      ['user','student_weekly_progresses.registered_mentor_sessions', 'student_weekly_progresses.week', 'student_weekly_progresses.registered_mentor_sessions.mentor_course', 'student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor', 'student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor.user', 'student_weekly_progresses.week.course', 'student_weekly_progresses.week.unit', 'student_weekly_progresses.week.lesson']
     end
 
     # def student_options
@@ -64,9 +64,9 @@ class StudentsController < ApplicationController
     #   [:username, :email]
     # end
 
-    def options
-      # @options ||= { include: %i[student_weekly_progresses user], fields: {student: [:first_name, :last_name, :enrolled, :user_id], user: [:username, :email]}}
-      @options ||= { include: %i[user student_weekly_progresses], fields: {student: student_options, student_weekly_progress: student_weekly_progress_options, user: user_options}}
-    end
+    # def options
+    #   # @options ||= { include: %i[student_weekly_progresses user], fields: {student: [:first_name, :last_name, :enrolled, :user_id], user: [:username, :email]}}
+    #   @options ||= { include: %i[user student_weekly_progresses], fields: {student: student_options, student_weekly_progress: student_weekly_progress_options, user: user_options}}
+    # end
 
 end

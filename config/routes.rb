@@ -47,6 +47,12 @@ Rails.application.routes.draw do
   post 'mentor_courses', to: 'mentor_courses#create'
   delete 'mentor_courses/:course_id', to: 'mentor_courses#destroy'
 
+  get 'students', to: 'students#index'
+  get 'students/:user_id', to: 'students#show'
+
+  get 'student_weekly_progress/:student_id', to: 'student_weekly_progress#index'
+  get 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#show'
+
   resources :courses do
     resources :units, only: [:index, :show] do
       resources :lessons, only: [:index, :show] do
@@ -68,8 +74,5 @@ Rails.application.routes.draw do
   end
 
   resources :sources
-  
-  resources :students, only: [:index, :show], param: :user_id do
-    resources :student_weekly_progresses, only: [:index, :show]
-  end
+
 end

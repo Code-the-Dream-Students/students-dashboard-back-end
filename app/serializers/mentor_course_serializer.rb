@@ -1,6 +1,10 @@
 class MentorCourseSerializer < ActiveModel::Serializer
-  attributes :date, :time
+  attributes :message, :date, :time
 
   belongs_to :mentor
   belongs_to :course
+
+  def message
+    message = "Success"
+  end
 end

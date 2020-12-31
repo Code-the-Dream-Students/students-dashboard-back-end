@@ -1,5 +1,5 @@
 class RegisteredMentorSessionSerializer < ActiveModel::Serializer
-  attributes :week_number, :comments
+  attributes :id, :week_number, :comments
 
   belongs_to :mentor_course
 end
