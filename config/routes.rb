@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :students
+  # resources :students
   resources :mentors
   resources :staffs
 
@@ -67,5 +67,9 @@ Rails.application.routes.draw do
     resources :sources, only: [:index, :show]
   end
 
-  resources :sources  
+  resources :sources
+  
+  resources :students, only: [:index, :show], param: :user_id do
+    resources :student_weekly_progresses, only: [:index, :show]
+  end
 end

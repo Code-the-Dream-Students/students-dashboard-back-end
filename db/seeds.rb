@@ -1691,11 +1691,6 @@ student_weekly_progress = StudentWeeklyProgress.create([
     assignment_progress: 0,
     assignment_submission: '',
     total_progress: 0,
-    # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-    # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-    # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-    # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-    # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
   },
   {
     student_id: Student.find(1).id,
@@ -1707,11 +1702,6 @@ student_weekly_progress = StudentWeeklyProgress.create([
     assignment_progress: 0,
     assignment_submission: '',
     total_progress: 0,
-    # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-    # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-    # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-    # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-    # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
   },
   {
     student_id: Student.find(1).id,
@@ -1723,11 +1713,6 @@ student_weekly_progress = StudentWeeklyProgress.create([
     assignment_progress: 0,
     assignment_submission: '',
     total_progress: 0,
-    # student_weekly_progress_id: Week.find_by(week_number: 1, course_id: 4).id,
-    # course_id: Week.find_by(course_id: 4, week_number: 1).course_id,
-    # unit_id: Week.find_by(course_id: 4, week_number: 1).unit_id,
-    # lesson_id: Week.find_by(course_id: 4, week_number: 1).lesson_id,
-    # week_number: Week.find_by(course_id: 4, week_number: 1).week_number,
   },
 ])
 
@@ -1737,7 +1722,6 @@ registered_mentor_sessions = RegisteredMentorSession.create([
     week_number: 1,
     student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 1, week_number: 1).id,
     mentor_course_id: MentorCourse.find_by(course_id: 4, mentor_id: 4).id,
-    # mentor_courses: MentorCourse.find_by(course_id: 4),
     comments: 'I want to work on deploying rails in heroku.'
   },
   {
@@ -1745,7 +1729,6 @@ registered_mentor_sessions = RegisteredMentorSession.create([
     week_number: 1,
     student_weekly_progress_id: StudentWeeklyProgress.find_by(student_id: 1, week_number: 1).id,
     mentor_course_id: MentorCourse.find_by(course_id: 4, mentor_id: 1).id,
-    # mentor_courses: MentorCourse.find_by(course_id: 4),
     comments: 'I am stuck using React hooks.'
   },
   {
