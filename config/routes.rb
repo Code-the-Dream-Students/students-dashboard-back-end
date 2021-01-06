@@ -57,6 +57,8 @@ Rails.application.routes.draw do
   get 'registered_mentor_sessions/:student_id', to: 'registered_mentor_sessions#index'
   get 'registered_mentor_sessions/:student_id/week_number/:week_number', to: 'registered_mentor_sessions#show'
   post 'registered_mentor_sessions/:student_id', to: 'registered_mentor_sessions#create'
+  patch 'registered_mentor_sessions/:registered_mentor_session_id', to: 'registered_mentor_sessions#update'
+  delete 'registered_mentor_sessions/:registered_mentor_session_id', to: 'registered_mentor_sessions#destroy'
 
   resources :courses do
     resources :units, only: [:index, :show] do

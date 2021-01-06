@@ -22,6 +22,10 @@ class StudentWeeklyProgressController < ApplicationController
         render json: @student_weekly_progress, include: student_weekly_progresses_options
     end
 
+    def create
+        
+    end
+
     private
 
     def student_params

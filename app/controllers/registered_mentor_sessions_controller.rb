@@ -1,8 +1,8 @@
 class RegisteredMentorSessionsController < ApplicationController
     skip_before_action :authorize_user
     before_action :set_registered_mentor_sessions, only: [:index]
-    before_action :set_registered_mentor_session, only: [:show, :update]
-    # before_action :find_mentor, only: [:create]
+    before_action :set_registered_mentor_session, only: [:show]
+    before_action :find_registered_mentor_session, only: [:update, :destroy]
 
     serialization_scope :view_context
 
@@ -20,11 +20,23 @@ class RegisteredMentorSessionsController < ApplicationController
         render json: new_mentor_session, include: registered_mentor_sessions_options
     end
 
+    def update
+        @find_registered_mentor_session.update(registered_params)
+
+        render json: @find_registered_mentor_session, include: registered_mentor_sessions_options
+    end
+
+    def destroy
+        @find_registered_mentor_session.destroy
+
+        render json: { message: "Registered mentor session removed!"}
+    end
+
     private
 
     def registered_params
         # whitelist params
-        params.require(:registered_mentor_session).permit(:week_number, :comments, :student_weekly_progress_id)
+        params.require(:registered_mentor_session).permit(:comments)
     end
 
     def set_registered_mentor_session
@@ -34,6 +46,10 @@ class RegisteredMentorSessionsController < ApplicationController
     def set_registered_mentor_sessions
         # @student = Student.find(params[:id])
         @registered_mentor_sessions = RegisteredMentorSession.where(student_id: params[:student_id])
+    end
+
+    def find_registered_mentor_session
+        @find_registered_mentor_session = RegisteredMentorSession.find(params[:registered_mentor_session_id])
     end
 
     def find_mentor
