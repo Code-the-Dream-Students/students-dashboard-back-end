@@ -52,6 +52,11 @@ Rails.application.routes.draw do
 
   get 'student_weekly_progress/:student_id', to: 'student_weekly_progress#index'
   get 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#show'
+  patch 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#update'
+
+  get 'registered_mentor_sessions/:student_id', to: 'registered_mentor_sessions#index'
+  get 'registered_mentor_sessions/:student_id/week_number/:week_number', to: 'registered_mentor_sessions#show'
+  post 'registered_mentor_sessions/:student_id', to: 'registered_mentor_sessions#create'
 
   resources :courses do
     resources :units, only: [:index, :show] do
