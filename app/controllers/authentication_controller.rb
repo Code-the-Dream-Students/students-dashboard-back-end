@@ -8,13 +8,18 @@ class AuthenticationController < ApplicationController
       # HTTP-only cookie stored with refresh_token
       # Note - May be needed before launching production:  SameSite: "Strict"
       cookies.signed[:jwt] = {value:  auth_token, httponly: true, same_site: :none, expires: 2.hours.from_now}
-      
-      json_response(message: "Successfully authenticated." , user_role: user.role,user_id: user.id)
+      response.set_header('authentication', auth_token)
+      render json: user, include: user_options
+      # json_response(message: "Successfully authenticated." , user_role: user.role,user_id: user.id)
     end
 
     private
 
     def auth_params
       params.permit(:email, :password, authentication: [:email, :password])
+    end
+
+    def user_options
+      ['user', 'student', 'student.student_weekly_progresses.registered_mentor_sessions', 'student.student_weekly_progresses.week', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor.user', 'student.student_weekly_progresses.week.course', 'student.student_weekly_progresses.week.unit', 'student.student_weekly_progresses.week.lesson']
     end
 end

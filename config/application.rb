@@ -42,7 +42,7 @@ module StudentsDashboardBackEnd
         #Removed origins Array, changed syntax as documented: https://www.rubydoc.info/gems/rack-cors/0.4.0
         origins 'http://localhost:3001', 'http://localhost:3000'
         resource '*',
-          headers: :any,
+          headers: :authentication,
           methods: [:get, :post, :patch, :put, :delete, :options, :head],
           credentials: true       
       end
