@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
 
   get 'users', to: 'users#index'
-  get 'user', to: 'users#show'
+  post 'user', to: 'users#context'
   put 'users/:id', to: 'users#update'
   get 'logout', to: 'users#logout'
 

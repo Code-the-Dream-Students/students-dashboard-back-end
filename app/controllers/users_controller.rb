@@ -28,13 +28,13 @@ class UsersController < ApplicationController
     end
   end
 
-  def show
+  def context
     token = params[:token]
     decoded_token = JsonWebToken.decode(token)
 
     if decoded_token
       user = User.find_by(id: decoded_token[:user_id])
-      json_response(user, :ok)
+      json_response(user, :ok, user_options)
     end
   end
 
@@ -55,5 +55,9 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation
     )
+  end
+
+  def user_options
+    ['user', 'student', 'student.student_weekly_progresses.registered_mentor_sessions', 'student.student_weekly_progresses.week', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor.user', 'student.student_weekly_progresses.week.course', 'student.student_weekly_progresses.week.unit', 'student.student_weekly_progresses.week.lesson']
   end
 end
