@@ -28,6 +28,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    token = params[:token]
+    decoded_token = JsonWebToken.decode(token)
+
+    if decoded_token
+      user = User.find_by(id: decoded_token[:user_id])
+      json_response(user, :ok)
+    end
+  end
+
   def logout
     # Delete cookie to invalidate session
     cookies.delete :jwt

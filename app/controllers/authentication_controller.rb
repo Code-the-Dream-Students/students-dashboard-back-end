@@ -9,7 +9,8 @@ class AuthenticationController < ApplicationController
       # Note - May be needed before launching production:  SameSite: "Strict"
       cookies.signed[:jwt] = {value:  auth_token, httponly: true, same_site: :none, expires: 2.hours.from_now}
       response.set_header('authentication', auth_token)
-      render json: user, include: user_options
+      json_response(user, :ok, user_options)
+      # render json: user, include: user_options
       # json_response(message: "Successfully authenticated." , user_role: user.role,user_id: user.id)
     end
 
