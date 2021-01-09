@@ -9,9 +9,9 @@ class MentorCourseSerializer < ActiveModel::Serializer
   end
 
   def start
-    object.start_time.to_time.strftime("%I:%M%P")
+    object.start_time.to_time.strftime("%H:%M")
   end
   def end
-    object.end_time.to_time.strftime("%I:%M%P")
+    object.end_time.to_time.strftime("%H:%M")
   end
 end
