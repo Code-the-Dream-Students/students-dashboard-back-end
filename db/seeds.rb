@@ -1633,50 +1633,58 @@ mentor_courses = MentorCourse.create([
   {
     mentor_id: 1,
     course_id: 1,
-    date: Time.now,
-    time: Time.now,
+    day: 'Monday', 
+    start_time: Time.now.strftime("%I:%M%P"),
+    end_time: (Time.now + 60*60).strftime("%I:%M%P")
   },
   {
     mentor_id: 2,
     course_id: 2,
-    date: Time.now,
-    time: Time.now,
+    day: 'Monday', 
+    start_time: Time.now.strftime("%I:%M%P"),
+    end_time: (Time.now + 60*60).strftime("%I:%M%P")
   },
   {
     mentor_id: 3,
     course_id: 3,
-    date: Time.now,
-    time: Time.now,
+    day: 'Tuesday', 
+    start_time: Time.now.strftime("%I:%M%P"),
+    end_time: (Time.now + 60*60).strftime("%I:%M%P")
   },
   {
     mentor_id: 4,
     course_id: 4,
-    date: Time.now,
-    time: Time.now,
+    day: 'Tuesday', 
+    start_time: Time.now.strftime("%I:%M%P"),
+    end_time: (Time.now + 60*60).strftime("%I:%M%P")
   },
   {
     mentor_id: 1,
     course_id: 4,
-    date: Time.now,
-    time: Time.now,
+    day: 'Wednesday', 
+    start_time: Time.now.strftime("%I:%M%P"),
+    end_time: (Time.now + 60*60).strftime("%I:%M%P")
   },
   {
     mentor_id: 2,
     course_id: 3,
-    date: Time.now,
-    time: Time.now,
+    day: 'Thursday', 
+    start_time: Time.now.strftime("%I:%M%P"),
+    end_time: (Time.now + 60*60).strftime("%I:%M%P")
   },
   {
     mentor_id: 3,
     course_id: 2,
-    date: Time.now,
-    time: Time.now,
+    day: 'Friday', 
+    start_time: Time.now.strftime("%I:%M%P"),
+    end_time: (Time.now + 60*60).strftime("%I:%M%P")
   },
   {
     mentor_id: 4,
     course_id: 1,
-    date: Time.now,
-    time: Time.now,
+    day: 'Saturday', 
+    start_time: Time.now.strftime("%I:%M%P"),
+    end_time: (Time.now + 60*60).strftime("%I:%M%P")
   }
 ])
 
