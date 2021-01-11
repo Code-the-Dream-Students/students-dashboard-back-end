@@ -3,6 +3,7 @@ class StudentSerializer < ActiveModel::Serializer
 
   belongs_to :user
   has_many :student_weekly_progresses
+  has_one :student_course
 
   def student_id
     student_id = object.id

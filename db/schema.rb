@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_09_210747) do
+ActiveRecord::Schema.define(version: 2021_01_11_024305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,15 @@ ActiveRecord::Schema.define(version: 2021_01_09_210747) do
     t.index ["user_id"], name: "index_staffs_on_user_id"
   end
 
+  create_table "student_courses", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_student_courses_on_course_id"
+    t.index ["student_id"], name: "index_student_courses_on_student_id"
+  end
+
   create_table "student_weekly_progresses", force: :cascade do |t|
     t.integer "total_progress"
     t.string "assignment_submission"
@@ -168,6 +177,8 @@ ActiveRecord::Schema.define(version: 2021_01_09_210747) do
   add_foreign_key "registered_mentor_sessions", "mentor_courses"
   add_foreign_key "registered_mentor_sessions", "student_weekly_progresses"
   add_foreign_key "staffs", "users"
+  add_foreign_key "student_courses", "courses"
+  add_foreign_key "student_courses", "students"
   add_foreign_key "student_weekly_progresses", "students"
   add_foreign_key "student_weekly_progresses", "weeks"
   add_foreign_key "students", "users"

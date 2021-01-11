@@ -49,7 +49,7 @@ class StudentsController < ApplicationController
     end
     
     def student_options
-      ['user','student_weekly_progresses.registered_mentor_sessions', 'student_weekly_progresses.week', 'student_weekly_progresses.registered_mentor_sessions.mentor_course', 'student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor', 'student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor.user', 'student_weekly_progresses.week.course', 'student_weekly_progresses.week.unit', 'student_weekly_progresses.week.lesson']
+      ['user', 'student_course.course','student_weekly_progresses.registered_mentor_sessions', 'student_weekly_progresses.week', 'student_weekly_progresses.registered_mentor_sessions.mentor_course', 'student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor', 'student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor.user', 'student_weekly_progresses.week.course', 'student_weekly_progresses.week.unit', 'student_weekly_progresses.week.lesson']
     end
 
     # def student_options

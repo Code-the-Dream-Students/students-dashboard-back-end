@@ -1772,3 +1772,34 @@ registered_mentor_sessions = RegisteredMentorSession.create([
     comments: 'I am in love with ruby'
   }
 ])
+
+student_courses = StudentCourse.create([
+  {
+    student_id: 1,
+    course_id: 4
+  },
+  {
+    student_id: 2,
+    course_id: 4
+  },
+  {
+    student_id: 3,
+    course_id: 4
+  },
+  {
+    student_id: 4,
+    course_id: 4
+  },
+  {
+    student_id: 5,
+    course_id: 4
+  },
+  {
+    student_id: 6,
+    course_id: 4
+  },
+  {
+    student_id: 7,
+    course_id: 4
+  },
+])
