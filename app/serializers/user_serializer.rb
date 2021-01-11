@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :message, :email, :username, :role
+  attributes :message, :id, :email, :username, :role
 
   has_one :student, if: :is_student?
   has_one :mentor, if: :is_mentor?
