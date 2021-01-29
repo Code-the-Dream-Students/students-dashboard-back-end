@@ -7,7 +7,7 @@ class AuthenticationController < ApplicationController
       user = User.find_by(email: auth_params[:email])
       # HTTP-only cookie stored with refresh_token
       # Note - May be needed before launching production:  SameSite: "Strict"
-      # cookies.signed[:jwt] = {value:  auth_token, httponly: true, same_site: :none, expires: 2.hours.from_now}
+      cookies.signed[:jwt] = {value:  auth_token, httponly: true, same_site: :none, expires: 2.hours.from_now}
       response.set_header('Authorization', auth_token)
       json_response(user, :ok, user_options)
       # render json: user, include: user_options
@@ -17,9 +17,8 @@ class AuthenticationController < ApplicationController
     private
 
     def auth_params
-      # params.permit(:email, :password, authentication: [:email, :password])
-      params.permit(:email, :password)
-
+      params.permit(:email, :password, authentication: [:email, :password])
+      # params.permit(:email, :password)
     end
 
     def user_options
