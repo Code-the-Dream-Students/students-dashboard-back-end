@@ -1,13 +1,13 @@
 # app/controllers/users_controller.rb
 class UsersController < ApplicationController
-  skip_before_action :authorize_user, only: :create
+  skip_before_action :authorize_user, :get_current_user, only: [:create]
   # POST /signup
   # return authenticated token upon signup
   def create
     user = User.create!(user_params)
     auth_token = AuthenticateUser.new(user.email, user.password).call
     # HTTP-only cookie stored with refresh_token
-    cookies.signed[:jwt] = {value:  auth_token, httponly: true, SameSite: "None", expires: 2.hours.from_now}
+    # cookies.signed[:jwt] = {value:  auth_token, httponly: true, SameSite: "None", expires: 2.hours.from_now}
     
     response = { message: Message.account_created, auth_token: auth_token }
     json_response(response, :created)
@@ -29,13 +29,14 @@ class UsersController < ApplicationController
   end
 
   def context
-    token = params[:token]
-    decoded_token = JsonWebToken.decode(token)
+    # token = params[:token]
+    # decoded_token = JsonWebToken.decode(token)
 
-    if decoded_token
-      user = User.find_by(id: decoded_token[:user_id])
-      json_response(user, :ok, user_options)
-    end
+    # if decoded_token
+    #   user = User.find_by(id: decoded_token[:user_id])
+    #   json_response(user, :ok, user_options)
+    # end
+      json_response(@current_user, :ok, user_options)
   end
 
   def logout

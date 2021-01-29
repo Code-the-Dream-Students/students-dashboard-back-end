@@ -20,7 +20,7 @@ class AuthorizeApiRequest
     def user
       # check if user is in the database
       # memoize user object
-      @user ||= User.find(decoded_auth_token[:user_id]) if decoded_auth_token
+      @user ||= User.find(@decoded_auth_token) if decoded_auth_token
       # handle user not found
     rescue ActiveRecord::RecordNotFound => e
       # raise custom error
@@ -34,8 +34,8 @@ class AuthorizeApiRequest
     def decoded_auth_token
     # byebug
     # jwt = cookies.signed[:jwt]
-    @decoded_auth_token ||= JsonWebToken.decode(cookie_jwt)
-    raise(ExceptionHandler::AuthenticationError, Message.unauthorized) unless :decoded_auth_token
+    return @decoded_auth_token ||= (JsonWebToken.decode(cookie_jwt))[:user_id]
+    raise(ExceptionHandler::AuthenticationError, Message.unauthorized)
     end
   
     # check for token in `Authorization` header
