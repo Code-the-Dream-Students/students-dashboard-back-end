@@ -24,12 +24,12 @@ class StudentCourseController < ApplicationController
         user = User.create!({username: params[:username], email: params[:email], password: 'student123456', role: 'student'})
         student = Student.create!({ first_name: 'first', last_name: 'last', enrolled: true, user_id: user.id})
         student_course = StudentCourse.create!({course_id: params[:course_id], student_id: student.id})
-        json_response(student_course, :created)
+        json_response(student_course, :created, student_courses_options)
     end
 
     def create
         student_course = StudentCourse.create!({student_id: params[:student_id], course_id: params[:course_id]})
-        json_response(student_course, :created)
+        json_response(student_course, :created, student_courses_options)
     end
 
     private
