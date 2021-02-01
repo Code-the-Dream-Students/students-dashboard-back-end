@@ -51,6 +51,13 @@ Rails.application.routes.draw do
   get 'students', to: 'students#index'
   get 'students/:user_id', to: 'students#show'
 
+  get 'student_courses', to: 'student_course#index'
+  get 'student_courses/:course_id', to: 'student_course#show'
+  get 'student_courses/student/:student_id', to: 'student_course#find_student'
+  post 'student_courses/create', to: 'student_course#create'
+  post 'student_courses/create_student_and_course', to: 'student_course#create_student_and_course'
+
+
   get 'student_weekly_progress/:student_id', to: 'student_weekly_progress#index'
   get 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#show'
   patch 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#update'
