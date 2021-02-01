@@ -11,18 +11,21 @@ class StudentsController < ApplicationController
       # json_response(@students)
     end
   
-    # # POST /students
-    # def create
-    #   @student = Student.create!(student_params)
-    #   json_response(@student, :created)
-    # end
-  
     # GET /students/:id
     def show
       render json: @student, include: student_options
       # render json: StudentSerializer.new(@student, options).serializable_hash.to_json
       # json_response(@student)
     end
+
+    # POST /students
+    def create
+      # @student = Student.create!(student_params)
+      user = User.create!({username: params[:username], email: params[:email], password: 'student123456', role: 'student'})
+      student = Student.create!({ first_name: params[:first_name], last_name: params[:last_name], enrolled: true, user_id: user.id})
+      json_response(student, :created, student_options)
+    end
+      
   
     # # PUT /students/:id
     # def update

@@ -3,7 +3,7 @@ class StudentWeeklyProgressController < ApplicationController
     before_action :set_student_weekly_progresses, only: [:index]
     before_action :set_student_weekly_progress, only: [:show, :update]
 
-    serialization_scope :view_context
+    # serialization_scope :view_context
 
     def index
         render json: @student_weekly_progresses, include: student_weekly_progresses_options
@@ -43,6 +43,6 @@ class StudentWeeklyProgressController < ApplicationController
     end
 
     def student_weekly_progresses_options
-        ['student_weekly_progress', 'week', 'week.course', 'week.unit', 'week.lesson','registered_mentor_sessions', 'registered_mentor_sessions.mentor_course', 'registered_mentor_sessions.mentor_course.mentor', 'registered_mentor_sessions.mentor_course.mentor.user']
+        ['student_weekly_progress', 'week', 'student', 'student.user', 'week.course', 'week.unit', 'week.lesson','registered_mentor_sessions', 'registered_mentor_sessions.mentor_course', 'registered_mentor_sessions.mentor_course.mentor', 'registered_mentor_sessions.mentor_course.mentor.user']
     end
 end
