@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_11_024305) do
+ActiveRecord::Schema.define(version: 2021_02_01_212613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -122,7 +122,9 @@ ActiveRecord::Schema.define(version: 2021_01_11_024305) do
     t.integer "week_number"
     t.bigint "week_id", null: false
     t.bigint "student_id", null: false
+    t.bigint "unit_id", null: false
     t.index ["student_id"], name: "index_student_weekly_progresses_on_student_id"
+    t.index ["unit_id"], name: "index_student_weekly_progresses_on_unit_id"
     t.index ["week_id"], name: "index_student_weekly_progresses_on_week_id"
   end
 
@@ -180,6 +182,7 @@ ActiveRecord::Schema.define(version: 2021_01_11_024305) do
   add_foreign_key "student_courses", "courses"
   add_foreign_key "student_courses", "students"
   add_foreign_key "student_weekly_progresses", "students"
+  add_foreign_key "student_weekly_progresses", "units"
   add_foreign_key "student_weekly_progresses", "weeks"
   add_foreign_key "students", "users"
 end
