@@ -51,6 +51,7 @@ Rails.application.routes.draw do
   get 'students', to: 'students#index'
   get 'students/:user_id', to: 'students#show'
   post 'students', to: 'students#create'
+  put 'students', to: 'students#update'
 
   get 'student_courses', to: 'student_course#index'
   get 'student_courses/:course_id', to: 'student_course#show'
@@ -61,6 +62,7 @@ Rails.application.routes.draw do
 
   get 'student_weekly_progress/:student_id', to: 'student_weekly_progress#index'
   get 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#show'
+  get 'student_weekly_progress/:student_id/tracking', to: 'student_weekly_progress#student_tracking'
   patch 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#update'
 
   get 'registered_mentor_sessions/:student_id', to: 'registered_mentor_sessions#index'

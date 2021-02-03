@@ -1,9 +1,10 @@
 class StudentWeeklyProgressController < ApplicationController
     skip_before_action :authorize_user
     before_action :set_student_weekly_progresses, only: [:index]
+    before_action :set_students, only: [:student_tracking]
     before_action :set_student_weekly_progress, only: [:show, :update]
 
-    # serialization_scope :view_context
+    serialization_scope :view_context
 
     def index
         render json: @student_weekly_progresses, include: student_weekly_progresses_options
@@ -11,6 +12,10 @@ class StudentWeeklyProgressController < ApplicationController
 
     def show
         render json: @student_weekly_progress, include: student_weekly_progresses_options
+    end
+
+    def student_tracking
+        render json: @students, each_serializer: TrackingSerializer
     end
 
     def update
@@ -42,7 +47,15 @@ class StudentWeeklyProgressController < ApplicationController
         @student_weekly_progresses = StudentWeeklyProgress.where(student_id: params[:student_id])
     end
 
+    def set_students
+        @students = Student.all
+    end
+
     def student_weekly_progresses_options
         ['student_weekly_progress', 'week', 'student', 'student.user', 'week.course', 'week.unit', 'week.lesson','registered_mentor_sessions', 'registered_mentor_sessions.mentor_course', 'registered_mentor_sessions.mentor_course.mentor', 'registered_mentor_sessions.mentor_course.mentor.user']
+    end
+
+    def tracking_options
+        ['student_weekly_progresses.week', 'student_weekly_progresses.week.course', 'student_weekly_progresses.week.unit', 'student_weekly_progresses.week.lesson']
     end
 end

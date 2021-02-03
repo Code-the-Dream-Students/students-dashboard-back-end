@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
-    skip_before_action :authorize_user
-    before_action :set_student, only: [:show, :update, :destroy]
+    skip_before_action :authorize_user, only: [:index, :show, :create]
+    before_action :set_student, only: [:show, :destroy]
     serialization_scope :view_context
   
     # GET /students
@@ -27,11 +27,12 @@ class StudentsController < ApplicationController
     end
       
   
-    # # PUT /students/:id
-    # def update
-    #   @student.update(student_params)
-    #   head :no_content
-    # end
+    # PUT /students/:id
+    def update
+      student = Student.find_by(user_id: @current_user.id)
+      student.update(student_params)
+      head :no_content
+    end
   
     # # DELETE /students/:id
     # def destroy
@@ -43,7 +44,7 @@ class StudentsController < ApplicationController
   
     def student_params
       # whitelist params
-      params.require(:student).permit(:first_name, :last_name, :enrolled)
+      params.permit(:first_name, :last_name, :enrolled)
     end
   
     def set_student
