@@ -1,5 +1,5 @@
 class TrackingSerializer < ActiveModel::Serializer
-  attributes :student_id, :user_id, :course_id, :course, :first_name, :last_name, :units, :student_weekly_progress
+  attributes :student_id, :user_id, :course_id, :course, :first_name, :last_name, :units, :student_weekly_progresses
 
   # has_many :student_weekly_progresses
   # belongs_to :week
@@ -28,7 +28,7 @@ class TrackingSerializer < ActiveModel::Serializer
     object.user.id
   end
 
-  def student_weekly_progress
+  def student_weekly_progresses
     object.student_weekly_progresses.map do |progress|
       {
         week: progress.week_number,
