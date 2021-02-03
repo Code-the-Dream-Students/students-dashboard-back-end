@@ -1,16 +1,9 @@
 class TrackingSerializer < ActiveModel::Serializer
   attributes :student_id, :user_id, :course_id, :course, :first_name, :last_name, :units, :student_weekly_progresses
 
-  # has_many :student_weekly_progresses
-  # belongs_to :week
-
   def message
     message = "Success"
   end
-  
-  # def student_info
-  #   {student_id: object.id, first_name: object.first_name, last_name: object.last_name}
-  # end
 
   def first_name
     object.first_name

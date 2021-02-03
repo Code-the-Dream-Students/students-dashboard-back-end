@@ -1,7 +1,7 @@
 class StudentWeeklyProgressController < ApplicationController
     skip_before_action :authorize_user
     before_action :set_student_weekly_progresses, only: [:index]
-    before_action :set_students, only: [:student_tracking]
+    before_action :set_students, only: [:students_tracking]
     before_action :set_student_weekly_progress, only: [:show, :update]
 
     serialization_scope :view_context
@@ -14,8 +14,13 @@ class StudentWeeklyProgressController < ApplicationController
         render json: @student_weekly_progress, include: student_weekly_progresses_options
     end
 
-    def student_tracking
+    def students_tracking
         render json: @students, each_serializer: TrackingSerializer
+    end
+
+    def student_tracking
+        student = Student.find(params[:student_id])
+        render json: student, serializer: TrackingSerializer
     end
 
     def update

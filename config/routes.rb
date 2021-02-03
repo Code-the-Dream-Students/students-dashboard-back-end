@@ -59,10 +59,10 @@ Rails.application.routes.draw do
   post 'student_courses/create', to: 'student_course#create'
   post 'student_courses/create_student_and_course', to: 'student_course#create_student_and_course'
 
-
+  get 'student_weekly_progress/students_tracking', to: 'student_weekly_progress#students_tracking'
   get 'student_weekly_progress/:student_id', to: 'student_weekly_progress#index'
+  get 'student_weekly_progress/:student_id/student_tracking', to: 'student_weekly_progress#student_tracking'
   get 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#show'
-  get 'student_weekly_progress/:student_id/tracking', to: 'student_weekly_progress#student_tracking'
   patch 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#update'
 
   get 'registered_mentor_sessions/:student_id', to: 'registered_mentor_sessions#index'
