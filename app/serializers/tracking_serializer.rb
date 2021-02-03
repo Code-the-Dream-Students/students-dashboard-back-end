@@ -22,7 +22,7 @@ class TrackingSerializer < ActiveModel::Serializer
   end
 
   def student_weekly_progresses
-    object.student_weekly_progresses.map do |progress|
+    object.student_weekly_progresses.order("student_id ASC", "week_number ASC").map do |progress|
       {
         week: progress.week_number,
         week_id: progress.week.id,
@@ -41,7 +41,7 @@ class TrackingSerializer < ActiveModel::Serializer
   end
 
   def units
-    progress = object.student_weekly_progresses.reduce({}) do |acc, curr|
+    progress = object.student_weekly_progresses.order("student_id ASC", "week_number ASC").reduce({}) do |acc, curr|
       unit = curr.week.unit.unit_name.to_sym
       if acc.key?(unit)
         {**acc, unit => [*acc[unit], {
