@@ -21,9 +21,26 @@ class StudentCourseController < ApplicationController
     end
 
     def create_student_and_course
+        weeks = 23;
         user = User.create!({username: params[:username], email: params[:email], password: 'student123456', role: 'student'})
         student = Student.create!({ first_name: 'first', last_name: 'last', enrolled: true, user_id: user.id})
         student_course = StudentCourse.create!({course_id: params[:course_id], student_id: student.id})
+        # ActiveRecord::Base.transaction do
+        #     weeks.times do |n|
+        #       StudentWeeklyProgress.create!({    
+        #         student_id: student.id,
+        #         unit_id: 3,
+        #         week_id: Week.find_by(course_id: 4, week_number: n).id,
+        #         week_number: n,
+        #         week: Week.find_by(course_id: 4, week_number: n),
+        #         instructions_progress: 0,
+        #         resources_progress: 0,
+        #         assignment_progress: 0,
+        #         assignment_submission: '',
+        #         total_progress: 0
+        #         })
+        #     end
+        #   end
         json_response(student_course, :created, student_courses_options)
     end
 

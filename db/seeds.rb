@@ -1689,6 +1689,18 @@ mentor_courses = MentorCourse.create([
 ])
 
 student_weekly_progress = StudentWeeklyProgress.create([
+  # {
+  #   student_id: Student.find(1).id,
+  #   unit_id: 2,
+  #   week_id: Week.find_by(course_id: 4, week_number: 1).id,
+  #   week_number: 1,
+  #   week: Week.find_by(course_id: 4, week_number: 1),
+  #   instructions_progress: 0,
+  #   resources_progress: 0,
+  #   assignment_progress: 0,
+  #   assignment_submission: '',
+  #   total_progress: 0,
+  # },
   {
     student_id: Student.find(1).id,
     unit_id: 2,
