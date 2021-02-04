@@ -1,11 +1,11 @@
 class StudentCourseController < ApplicationController
     skip_before_action :authorize_user
     before_action :find_students_by_course, only: [:show]
-    before_action :find_student_by_course, only: [:find_student]
+    before_action :find_student_by_course, only: [:find_student, :update]
     # serialization_scope :view_context
 
     def index
-        student_courses = StudentCourse.all
+        student_courses = StudentCourse.all.order("id ASC")
         json_response(student_courses, :ok, student_courses_options)
         # render json: student_courses, include: student_courses_options
     end
@@ -49,6 +49,11 @@ class StudentCourseController < ApplicationController
         json_response(student_course, :created, student_courses_options)
     end
 
+    def update
+        @student.update({course_id: params[:course_id]})
+        json_response(@student, :created, student_courses_options)
+    end
+
     private
 
     def student_course_params
@@ -60,10 +65,10 @@ class StudentCourseController < ApplicationController
     end
 
     def find_students_by_course
-        @student_courses = StudentCourse.where(course_id: params[:course_id])
+        @student_courses = StudentCourse.where(course_id: params[:course_id]).order("id ASC")
     end
 
     def find_student_by_course
-        @student = StudentCourse.where(student_id: params[:student_id])
+        @student = StudentCourse.where(student_id: params[:student_id]).order("id ASC")
     end
 end
