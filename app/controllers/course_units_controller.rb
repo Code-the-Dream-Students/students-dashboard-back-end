@@ -19,6 +19,11 @@ class CourseUnitsController < ApplicationController
   #   end
   # end
 
+  def index
+    course_units = CourseUnit.all
+    render json: course_units
+  end
+
   def create
     if set_course_unit == nil
       if set_course && set_unit
