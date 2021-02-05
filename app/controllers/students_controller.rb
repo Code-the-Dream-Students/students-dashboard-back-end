@@ -5,7 +5,7 @@ class StudentsController < ApplicationController
   
     # GET /students
     def index
-      @students = Student.all
+      @students = Student.all.order("id ASC")
       render json: @students, include: student_options
       # render json: StudentSerializer.new(@students, options).serializable_hash.to_json
       # json_response(@students)
