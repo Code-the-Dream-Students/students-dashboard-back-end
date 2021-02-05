@@ -33,6 +33,13 @@ class StudentsController < ApplicationController
       student.update(student_params)
       head :no_content
     end
+
+      # PUT 
+      def staff_update
+        student = Student.find_by(params[:student_id])
+        student.update(student_params)
+        head :no_content
+      end
   
     # # DELETE /students/:id
     # def destroy

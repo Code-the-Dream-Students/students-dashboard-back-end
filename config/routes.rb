@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   get 'students/:user_id', to: 'students#show'
   post 'students', to: 'students#create'
   put 'students', to: 'students#update'
+  put 'students/staff_update', to: 'students#staff_update'
 
   get 'student_courses', to: 'student_course#index'
   get 'student_courses/student/:student_id', to: 'student_course#find_student'
