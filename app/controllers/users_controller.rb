@@ -1,30 +1,64 @@
 # app/controllers/users_controller.rb
 class UsersController < ApplicationController
-
-    skip_before_action :authenticate_user, only: :create
-    # POST /signup
-    # return authenticated token upon signup
-    def create
-      user = User.create!(user_params)
-      auth_token = AuthenticateUser.new(user.email, user.password).call
-      response = { message: Message.account_created, auth_token: auth_token }
-      json_response(response, :created)
-    end
-
-    def logout
-      current_user && current_user.a 
-      json_response(response, :created)
-    end
-
+  skip_before_action :authorize_user, :get_current_user, only: [:create]
+  # POST /signup
+  # return authenticated token upon signup
+  def create
+    user = User.create!(user_params)
+    auth_token = AuthenticateUser.new(user.email, user.password).call
+    # HTTP-only cookie stored with refresh_token
+    # cookies.signed[:jwt] = {value:  auth_token, httponly: true, SameSite: "None", expires: 2.hours.from_now}
+    
+    response = { message: Message.account_created, auth_token: auth_token }
+    json_response(response, :created)
+  end
   
-    private
-  
-    def user_params
-      params.permit(
-        :username,
-        :email,
-        :password,
-        :password_confirmation
-      )
+  # GET /users
+  def index
+    @users = User.all
+    json_response(@users)
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      json_response(message: Message.account_updated)
+    else
+      json_response(message: "could not update.")
     end
   end
+
+  def context
+    # token = params[:token]
+    # decoded_token = JsonWebToken.decode(token)
+
+    # if decoded_token
+    #   user = User.find_by(id: decoded_token[:user_id])
+    #   json_response(user, :ok, user_options)
+    # end
+      json_response(@current_user, :ok, user_options)
+  end
+
+  def logout
+    # Delete cookie to invalidate session
+    cookies.delete :jwt
+    json_response(message: Message.logout_success)
+  end
+
+
+  private
+
+  def user_params
+    params.require(:user).permit(
+      :username,
+      :email,
+      :role,
+      :password,
+      :password_confirmation
+    )
+  end
+
+  def user_options
+    ['user', 'student', 'staff', 'student.student_course.course', 'student.student_weekly_progresses.registered_mentor_sessions', 'student.student_weekly_progresses.week', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor.user', 'student.student_weekly_progresses.week.course', 'student.student_weekly_progresses.week.unit', 'student.student_weekly_progresses.week.lesson']
+  end
+end

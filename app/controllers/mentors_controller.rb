@@ -1,5 +1,5 @@
 class MentorsController < ApplicationController
-  skip_before_action :authenticate_user
+  skip_before_action :authorize_user
   before_action :set_mentor, only: [:show, :update, :destroy]
   # GET /mentors
   def index
