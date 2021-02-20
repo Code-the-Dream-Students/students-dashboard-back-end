@@ -6,7 +6,8 @@ class AssignmentsController < ApplicationController
 
   def index
     assignments = Assignment.all
-    render json: assignments
+    # render json: assignments
+    render json: assignments, each_serializer: StaffCreateAssignmentsSerializer
   end
 
   def show
