@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get '/lessons/search', to: 'lessons#search'
   get '/sources/search', to: 'sources#search'
 
+  get '/assignments', to: 'assignments#index'
+
   get '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#show'
   post '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#create'
   put '/courses/:course_id/units/:unit_id/lessons/:lesson_id/week', to: 'weeks#update'
