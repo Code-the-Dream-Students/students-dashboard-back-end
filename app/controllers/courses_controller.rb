@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
     #   error_json
     # end
     @courses = Course.all
-    render json: @courses, include: ['units.weeks', 'units.weeks.lesson'], each_serializer: StaffCreateCourseAssignmentsSerializer
+    render json: @courses, include: ['units.weeks', 'units.weeks.lesson', 'units.weeks.lesson.assignment', 'units.weeks.lesson.sources'], each_serializer: StaffCreateCourseAssignmentsSerializer
   end
 
   def search
