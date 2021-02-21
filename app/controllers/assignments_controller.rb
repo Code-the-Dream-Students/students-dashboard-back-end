@@ -2,6 +2,14 @@ class AssignmentsController < ApplicationController
 
   skip_before_action :authorize_user
 
+  before_action :get_course_unit_lesson_assignment, only: [:one_assignment]
+
+  def index
+    assignments = Assignment.all
+    # render json: assignments
+    render json: assignments, each_serializer: StaffCreateAssignmentsSerializer
+  end
+
   def show
     @assignment = set_course_id && set_unit_id && set_lesson_id && set_assignment ?
       set_course_unit_lesson_assignment :
@@ -134,6 +142,10 @@ class AssignmentsController < ApplicationController
     
     def set_course_unit_lesson_assignment
       Course.find(set_course_id).units.find(set_unit_id).lessons.find(set_lesson_id).assignment
+    end
+
+    def get_course_unit_lesson_assignment
+      @assignment = Course.find(set_course_id).units.find(set_unit_id).lessons.find(set_lesson_id).assignment
     end
 
     def error_json
