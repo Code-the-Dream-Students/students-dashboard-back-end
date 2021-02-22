@@ -1,5 +1,5 @@
 class WeekSerializer < ActiveModel::Serializer
-  attributes :id, :week_number, :course_id, :course_name, :unit_id, :unit_name, :lesson_id, :start_date, :end_date
+  attributes :id, :key, :week_number, :course_id, :course_name, :unit_id, :unit_name, :lesson_id, :start_date, :end_date
 
   belongs_to :course
   belongs_to :unit
@@ -11,5 +11,9 @@ class WeekSerializer < ActiveModel::Serializer
 
   def unit_name
     object.unit.unit_name
+  end
+
+  def key
+    object.id
   end
 end
