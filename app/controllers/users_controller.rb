@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def context
+  def show_current_user
     # token = params[:token]
     # decoded_token = JsonWebToken.decode(token)
 
