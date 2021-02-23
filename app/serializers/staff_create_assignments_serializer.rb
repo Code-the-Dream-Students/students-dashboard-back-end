@@ -2,12 +2,19 @@ class StaffCreateAssignmentsSerializer < ActiveModel::Serializer
   attributes :id, :description, :link, :units, :lesson, :courses
 
   def courses
-    object.lesson.units.order("id ASC").each_with_index.map { |unit, index|
-      {
-        id: unit.courses[index].id,
-        name: unit.courses[index].course_name,
+    object.lesson.units.order("id ASC").reduce({}) do |acc, curr|
+      curr.courses.map { |course|
+        { **acc, id: course.id, name: course.course_name }
       }
-    }
+    end
+    # object.lesson.units.order("id ASC").map { |unit|
+    #     unit.courses.map { |course|
+    #       {
+    #         id: course.id,
+    #         name: course.course_name,
+    #       }
+    #     }
+    # }
   end
 
   def units

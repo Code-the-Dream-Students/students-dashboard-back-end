@@ -5,5 +5,4 @@ class StaffCreateCourseAssignmentsSerializer < ActiveModel::Serializer
   has_many :units, through: :course_units
   has_many :weeks
 
-
 end
