@@ -44,12 +44,12 @@ class StudentWeeklyProgressController < ApplicationController
     end
 
     def set_student_weekly_progress
-        @student_weekly_progress = StudentWeeklyProgress.where(student_id: params[:student_id], week_number: params[:week_number])
+        @student_weekly_progress = StudentWeeklyProgress.where(student_id: params[:student_id], week_number: params[:week_number]).order("week_number ASC")
     end
 
     def set_student_weekly_progresses
         # @student = Student.find(params[:id])
-        @student_weekly_progresses = StudentWeeklyProgress.where(student_id: params[:student_id])
+        @student_weekly_progresses = StudentWeeklyProgress.where(student_id: params[:student_id]).order("week_number ASC")
     end
 
     def set_students
