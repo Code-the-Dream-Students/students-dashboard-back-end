@@ -1,30 +1,37 @@
 class MentorCoursesController < ApplicationController
+  skip_before_action :authorize_user
+  before_action :set_mentor_course, only: [:show]
+  serialization_scope :view_context
+
   def index
-    if current_user.role === "mentor"
-      render ({
-        json: { 
-          user: current_user,
-          mentor_data: current_user.mentor,
-          courses: current_user.mentor.courses 
-        }, 
-        status: 200
-      })
-    else
-      render json: { error: "Not Found" }, status: 404
-    end
+    mentor_courses = MentorCourse.all
+    render json: mentor_courses, include: ['mentor', 'course', 'mentor.user']
+    # if current_user.role === "mentor"
+    #   render ({
+    #     json: { 
+    #       user: current_user,
+    #       mentor_data: current_user.mentor,
+    #       courses: current_user.mentor.courses 
+    #     }, 
+    #     status: 200
+    #   })
+    # else
+    #   render json: { error: "Not Found" }, status: 404
+    # end
   end
 
   def show
-    if current_user.role === "mentor"
-      render ({
-        json: { 
-          course: current_user.mentor.courses.find(params[:course_id]) 
-        }, 
-        status: 200
-      })
-    else
-      render json: { error: "Not Found" }, status: 404
-    end
+    render json: @mentor_course, include: ['mentor', 'course', 'mentor.user']
+    # if current_user.role === "mentor"
+    #   render ({
+    #     json: { 
+    #       course: current_user.mentor.courses.find(params[:course_id]) 
+    #     }, 
+    #     status: 200
+    #   })
+    # else
+    #   render json: { error: "Not Found" }, status: 404
+    # end
   end
 
   def create
@@ -74,6 +81,18 @@ class MentorCoursesController < ApplicationController
     else
       render json: { error: "Not Found" }, status: 404
     end
+  end
+
+  private
+
+  def mentor_course_params
+    # whitelist params
+    # params.require(:mentor_course).permit(:first_name, :last_name, :enrolled)
+  end
+
+  def set_mentor_course
+    # @student = Student.find(params[:id])
+    @mentor_course = MentorCourse.where(course_id: params[:course_id])
   end
 
 end

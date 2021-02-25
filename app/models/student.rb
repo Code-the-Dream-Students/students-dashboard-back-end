@@ -1,6 +1,5 @@
 class Student < ApplicationRecord
-  # Model associations
   belongs_to :user
-
-  # Needs to have validations
+  has_many :student_weekly_progresses
+  has_one :student_course
 end

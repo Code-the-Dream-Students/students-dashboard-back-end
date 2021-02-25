@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_23_050613) do
+ActiveRecord::Schema.define(version: 2021_02_24_023525) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2020_12_23_050613) do
     t.integer "lesson_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "resources"
+    t.text "assignment"
     t.index ["lesson_id"], name: "index_assignments_on_lesson_id"
   end
 
@@ -56,6 +58,9 @@ ActiveRecord::Schema.define(version: 2020_12_23_050613) do
     t.integer "course_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.time "start_time"
+    t.time "end_time"
+    t.string "day"
     t.index ["course_id"], name: "index_mentor_courses_on_course_id"
     t.index ["mentor_id"], name: "index_mentor_courses_on_mentor_id"
   end
@@ -68,6 +73,18 @@ ActiveRecord::Schema.define(version: 2020_12_23_050613) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_mentors_on_user_id"
+  end
+
+  create_table "registered_mentor_sessions", force: :cascade do |t|
+    t.integer "week_number"
+    t.integer "student_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "comments"
+    t.bigint "student_weekly_progress_id", null: false
+    t.bigint "mentor_course_id", null: false
+    t.index ["mentor_course_id"], name: "index_registered_mentor_sessions_on_mentor_course_id"
+    t.index ["student_weekly_progress_id"], name: "index_registered_mentor_sessions_on_student_weekly_progress_id"
   end
 
   create_table "sources", force: :cascade do |t|
@@ -87,10 +104,36 @@ ActiveRecord::Schema.define(version: 2020_12_23_050613) do
     t.index ["user_id"], name: "index_staffs_on_user_id"
   end
 
+  create_table "student_courses", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "course_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["course_id"], name: "index_student_courses_on_course_id"
+    t.index ["student_id"], name: "index_student_courses_on_student_id"
+  end
+
+  create_table "student_weekly_progresses", force: :cascade do |t|
+    t.integer "total_progress"
+    t.string "assignment_submission"
+    t.integer "instructions_progress"
+    t.integer "resources_progress"
+    t.integer "assignment_progress"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "week_number"
+    t.bigint "week_id", null: false
+    t.bigint "student_id", null: false
+    t.bigint "unit_id", null: false
+    t.index ["student_id"], name: "index_student_weekly_progresses_on_student_id"
+    t.index ["unit_id"], name: "index_student_weekly_progresses_on_unit_id"
+    t.index ["week_id"], name: "index_student_weekly_progresses_on_week_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.boolean "enrolled"
+    t.string "enrolled"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -135,6 +178,13 @@ ActiveRecord::Schema.define(version: 2020_12_23_050613) do
   end
 
   add_foreign_key "mentors", "users"
+  add_foreign_key "registered_mentor_sessions", "mentor_courses"
+  add_foreign_key "registered_mentor_sessions", "student_weekly_progresses"
   add_foreign_key "staffs", "users"
+  add_foreign_key "student_courses", "courses"
+  add_foreign_key "student_courses", "students"
+  add_foreign_key "student_weekly_progresses", "students"
+  add_foreign_key "student_weekly_progresses", "units"
+  add_foreign_key "student_weekly_progresses", "weeks"
   add_foreign_key "students", "users"
 end
