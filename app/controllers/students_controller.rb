@@ -1,5 +1,4 @@
 class StudentsController < ApplicationController
-    skip_before_action :authorize_user, only: [:index, :show, :create, :staff_update]
     before_action :set_student, only: [:show, :destroy]
     serialization_scope :view_context
   

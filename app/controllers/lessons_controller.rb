@@ -1,6 +1,5 @@
 class LessonsController < ApplicationController
 
-  skip_before_action :authorize_user
 
   def index
     @lessons = set_course_id && set_unit_id ?

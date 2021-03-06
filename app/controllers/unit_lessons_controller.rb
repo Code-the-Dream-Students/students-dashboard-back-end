@@ -1,6 +1,5 @@
 class UnitLessonsController < ApplicationController
 
-  skip_before_action :authorize_user
 
   def create
     if set_unit_lesson == nil

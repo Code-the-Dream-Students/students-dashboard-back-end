@@ -1,6 +1,5 @@
 class CourseUnitsController < ApplicationController
 
-  skip_before_action :authorize_user
 
   # def index
   #   if set_course_unit

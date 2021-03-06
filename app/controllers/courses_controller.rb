@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
 
-  skip_before_action :authorize_user
 
   def index
     # @courses = Course.all

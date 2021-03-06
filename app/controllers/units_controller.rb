@@ -1,6 +1,5 @@
 class UnitsController < ApplicationController
 
-  skip_before_action :authorize_user
 
   def index
     @units = set_course_id ?

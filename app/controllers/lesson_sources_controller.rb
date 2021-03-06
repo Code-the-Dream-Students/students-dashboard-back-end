@@ -1,6 +1,5 @@
 class LessonSourcesController < ApplicationController
 
-  skip_before_action :authorize_user
 
   def create
     if set_lesson_source == nil
