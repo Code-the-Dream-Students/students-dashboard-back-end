@@ -1,20 +1,23 @@
 class CoursesController < ApplicationController
 
-  skip_before_action :authorize_user
+  skip_before_action :authenticate_cookie
+
 
   def index
+    # @courses = Course.all
+    # if @courses
+    #   render ({
+    #     json: {
+    #       message: "Success",
+    #       courses: @courses
+    #     },
+    #     status: 200
+    #   })
+    # else
+    #   error_json
+    # end
     @courses = Course.all
-    if @courses
-      render ({
-        json: {
-          message: "Success",
-          courses: @courses
-        },
-        status: 200
-      })
-    else
-      error_json
-    end
+    render json: @courses, include: ['weeks.lesson.assignment', 'units.weeks', 'units.weeks.lesson', 'units.weeks.lesson.assignment', 'units.weeks.lesson.sources'], each_serializer: StaffCreateCourseAssignmentsSerializer
   end
 
   def search

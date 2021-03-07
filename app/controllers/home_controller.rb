@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
 
-  skip_before_action :authorize_user
+  skip_before_action :authenticate_cookie
 
   def index
     @data = Course.all.map do |course|

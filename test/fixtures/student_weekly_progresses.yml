@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_progress: 1
+  week_number: 1
+  course_id: 1
+  student_id: 1
+  assignment_submission: MyString
+  instructions_progress: 1
+  resources_progress: 1
+  assignment_progress: 1
+  unit_id: 1
+  lesson_id: 1
+
+two:
+  total_progress: 1
+  week_number: 1
+  course_id: 1
+  student_id: 1
+  assignment_submission: MyString
+  instructions_progress: 1
+  resources_progress: 1
+  assignment_progress: 1
+  unit_id: 1
+  lesson_id: 1

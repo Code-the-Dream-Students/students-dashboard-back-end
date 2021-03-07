@@ -1,6 +1,6 @@
 class CourseUnitsController < ApplicationController
 
-  skip_before_action :authorize_user
+  skip_before_action :authenticate_cookie
 
   # def index
   #   if set_course_unit
@@ -18,6 +18,11 @@ class CourseUnitsController < ApplicationController
   #     }
   #   end
   # end
+
+  def index
+    course_units = CourseUnit.all
+    render json: course_units
+  end
 
   def create
     if set_course_unit == nil
