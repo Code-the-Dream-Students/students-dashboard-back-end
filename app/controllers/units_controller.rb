@@ -1,5 +1,6 @@
 class UnitsController < ApplicationController
 
+  skip_before_action :authenticate_cookie
 
   def index
     @units = set_course_id ?

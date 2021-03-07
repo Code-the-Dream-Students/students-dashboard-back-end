@@ -1,4 +1,7 @@
 class StudentsController < ApplicationController
+
+    skip_before_action :authenticate_cookie, only: [:index, :show, :create, :staff_update]
+
     before_action :set_student, only: [:show, :destroy]
     serialization_scope :view_context
   

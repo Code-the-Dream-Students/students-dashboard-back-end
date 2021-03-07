@@ -1,4 +1,7 @@
 class MentorCoursesController < ApplicationController
+
+  skip_before_action :authenticate_cookie
+
   before_action :set_mentor_course, only: [:show]
   serialization_scope :view_context
 

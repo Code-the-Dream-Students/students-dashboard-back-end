@@ -1,5 +1,6 @@
 class CourseUnitsController < ApplicationController
 
+  skip_before_action :authenticate_cookie
 
   # def index
   #   if set_course_unit

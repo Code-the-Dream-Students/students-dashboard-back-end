@@ -1,5 +1,6 @@
 class UnitLessonsController < ApplicationController
 
+  skip_before_action :authenticate_cookie
 
   def create
     if set_unit_lesson == nil

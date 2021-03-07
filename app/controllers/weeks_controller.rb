@@ -1,6 +1,6 @@
 class WeeksController < ApplicationController
 
-
+  skip_before_action :authenticate_cookie
   # before_action :set_week, only: [:show, :update, :destroy]
 
   def index

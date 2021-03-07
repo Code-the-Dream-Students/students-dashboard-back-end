@@ -1,5 +1,6 @@
 class LessonSourcesController < ApplicationController
 
+  skip_before_action :authenticate_cookie
 
   def create
     if set_lesson_source == nil
