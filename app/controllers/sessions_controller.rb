@@ -20,4 +20,26 @@ class SessionsController < Devise::SessionsController
       render json: { error: "User already logged in" }, status: 200
     end
   end
+
+  private
+    def user_options
+      [
+        'user', 
+        'student', 
+        'staff', 
+        'student.student_course.course', 
+        'student.student_weekly_progresses.registered_mentor_sessions', 
+        'student.student_weekly_progresses.week', 
+        'student.student_weekly_progresses.registered_mentor_sessions.mentor_course', 
+        'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor', 
+        'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor.user', 
+        'student.student_weekly_progresses.week.course', 
+        'student.student_weekly_progresses.week.unit', 
+        'student.student_weekly_progresses.week.lesson'
+      ]
+    end
+
+    private
+
+
 end

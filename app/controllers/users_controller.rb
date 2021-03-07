@@ -1,11 +1,11 @@
 # app/controllers/users_controller.rb
 class UsersController < ApplicationController
-  skip_before_action :authenticate_cookie, :current_user, only: [:create]
-  
-  # GET /users
+    # GET /users
+  before_action :current_user, only: [:show_current_user]
+
   def index
     @users = User.all
-    json_response(@users)
+    render json: @users
   end
 
   def update
@@ -25,15 +25,8 @@ class UsersController < ApplicationController
     #   user = User.find_by(id: decoded_token[:user_id])
     #   json_response(user, :ok, user_options)
     # end
-      json_response(@current_user, :ok, user_options)
+      render json: @user, status: :ok
   end
-
-  def logout
-    # Delete cookie to invalidate session
-    cookies.delete :jwt
-    json_response(message: Message.logout_success)
-  end
-
 
   private
 
@@ -45,6 +38,20 @@ class UsersController < ApplicationController
       :password,
       :password_confirmation
     )
+  end
+
+  def auth_header
+    request.headers['Authorization']
+  end
+
+  def current_user
+    if auth_header
+      decoded_token = CoreModules::JsonWebToken.decode(auth_header)
+      if decoded_token
+        @user = User.find_by(id: decoded_token[:user_id])
+      end
+      if @user then return @user else return false end
+    end
   end
 
   def user_options
