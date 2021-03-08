@@ -9,7 +9,7 @@ class SessionsController < Devise::SessionsController
         if login_hash
           @user = User.find_by_email(email)
           response.set_header('Authorization', login_hash[:token])
-          render json: @user, status: :ok
+          render json: @user, status: :ok, include: user_options
         else
           render json: {error: 'Incorrect email or password'}, status: 422  
         end
