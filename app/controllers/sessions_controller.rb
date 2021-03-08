@@ -1,6 +1,5 @@
 # app/controllers/authentication_controller.rb
 class SessionsController < Devise::SessionsController
-    # return auth token once user is authenticated
   def create
     if !current_user
       email = params["email"]
@@ -8,8 +7,9 @@ class SessionsController < Devise::SessionsController
       if email && password
         login_hash = User.handle_login(email, password)
         if login_hash
+          @user = User.find_by_email(email)
           response.set_header('Authorization', login_hash[:token])
-          render json: {message: "Authorized"}
+          render json: @user, status: :ok
         else
           render json: {error: 'Incorrect email or password'}, status: 422  
         end
@@ -38,8 +38,4 @@ class SessionsController < Devise::SessionsController
         'student.student_weekly_progresses.week.lesson'
       ]
     end
-
-    private
-
-
 end
