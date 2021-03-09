@@ -50,34 +50,39 @@ class UnitsController < ApplicationController
   end
 
   def show
-    @unit = set_course_id && set_unit ?
-      set_course.units.find(set_unit_id) :
-      set_unit
-      
-    if @unit
-    # && @user 
-      if set_course_id
-        render ({
-          json: {
-            message: "Success",
-            unit: unit_details,
-            course: set_course
-          },
-          status: 200
-        })
-      else
-        render ({
-          json: {
-            message: "Success",
-            unit: unit_details
-          },
-          status: 200
-        })
-      end
-    else
-      error_json
-    end
+    @unit = set_unit
+    render json: @unit, status: 200, include: ['unit', 'lessons.sources']
   end
+
+  # def show
+  #   @unit = set_course_id && set_unit ?
+  #     set_course.units.find(set_unit_id) :
+  #     set_unit
+      
+  #   if @unit
+  #   # && @user 
+  #     if set_course_id
+  #       render ({
+  #         json: {
+  #           message: "Success",
+  #           unit: unit_details,
+  #           course: set_course
+  #         },
+  #         status: 200
+  #       })
+  #     else
+  #       render ({
+  #         json: {
+  #           message: "Success",
+  #           unit: unit_details
+  #         },
+  #         status: 200
+  #       })
+  #     end
+  #   else
+  #     error_json
+  #   end
+  # end
 
   def create
       # && @user && @user.role == "staff"
