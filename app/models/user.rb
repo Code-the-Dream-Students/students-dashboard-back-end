@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-         # Model associations
+  # Model associations
   has_one :student, foreign_key: :user_id
   has_one :mentor, foreign_key: :user_id
   has_one :staff, foreign_key: :user_id
