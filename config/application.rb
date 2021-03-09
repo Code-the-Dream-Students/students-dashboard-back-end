@@ -33,7 +33,9 @@ module StudentsDashboardBackEnd
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-    config.middleware.use ActionDispatch::Cookies # Required for all session management
+    # config.middleware.use ActionDispatch::Cookies # Required for all session management
+    config.autoload_paths += %W( lib/ )
+
 
     # config.action_controller.forgery_protection_origin_check = false
 

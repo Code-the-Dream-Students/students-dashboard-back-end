@@ -1,22 +1,11 @@
 # app/controllers/users_controller.rb
 class UsersController < ApplicationController
-  skip_before_action :authorize_user, :get_current_user, only: [:create]
-  # POST /signup
-  # return authenticated token upon signup
-  def create
-    user = User.create!(user_params)
-    auth_token = AuthenticateUser.new(user.email, user.password).call
-    # HTTP-only cookie stored with refresh_token
-    # cookies.signed[:jwt] = {value:  auth_token, httponly: true, SameSite: "None", expires: 2.hours.from_now}
-    
-    response = { message: Message.account_created, auth_token: auth_token }
-    json_response(response, :created)
-  end
-  
-  # GET /users
+    # GET /users
+  before_action :current_user, only: [:show_current_user]
+
   def index
     @users = User.all
-    json_response(@users)
+    render json: @users
   end
 
   def update
@@ -36,29 +25,36 @@ class UsersController < ApplicationController
     #   user = User.find_by(id: decoded_token[:user_id])
     #   json_response(user, :ok, user_options)
     # end
-      json_response(@current_user, :ok, user_options)
+      render json: @user, status: :ok
   end
-
-  def logout
-    # Delete cookie to invalidate session
-    cookies.delete :jwt
-    json_response(message: Message.logout_success)
-  end
-
 
   private
 
-  def user_params
-    params.require(:user).permit(
-      :username,
-      :email,
-      :role,
-      :password,
-      :password_confirmation
-    )
-  end
+    def user_params
+      params.require(:user).permit(
+        :username,
+        :email,
+        :role,
+        :password,
+        :password_confirmation
+      )
+    end
 
-  def user_options
-    ['user', 'student', 'staff', 'student.student_course.course', 'student.student_weekly_progresses.registered_mentor_sessions', 'student.student_weekly_progresses.week', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor.user', 'student.student_weekly_progresses.week.course', 'student.student_weekly_progresses.week.unit', 'student.student_weekly_progresses.week.lesson']
-  end
+    def auth_header
+      request.headers['Authorization']
+    end
+
+    def current_user
+      if auth_header
+        decoded_token = CoreModules::JsonWebToken.decode(auth_header)
+        if decoded_token
+          @user = User.find_by(id: decoded_token[:user_id])
+        end
+        if @user then return @user else return false end
+      end
+    end
+
+    def user_options
+      ['user', 'student', 'staff', 'student.student_course.course', 'student.student_weekly_progresses.registered_mentor_sessions', 'student.student_weekly_progresses.week', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor', 'student.student_weekly_progresses.registered_mentor_sessions.mentor_course.mentor.user', 'student.student_weekly_progresses.week.course', 'student.student_weekly_progresses.week.unit', 'student.student_weekly_progresses.week.lesson']
+    end
 end

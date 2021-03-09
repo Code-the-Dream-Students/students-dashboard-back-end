@@ -1,5 +1,6 @@
 class StudentCourseController < ApplicationController
-    skip_before_action :authorize_user
+
+    skip_before_action :authenticate_cookie
     before_action :find_students_by_course, only: [:show]
     before_action :find_student_by_course, only: [:find_student, :update]
     # serialization_scope :view_context

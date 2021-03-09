@@ -1,5 +1,5 @@
 class RegisteredMentorSessionsController < ApplicationController
-    skip_before_action :authorize_user
+    skip_before_action :authenticate_cookie
     before_action :set_registered_mentor_sessions, only: [:index]
     before_action :set_registered_mentor_session, only: [:show]
     before_action :find_registered_mentor_session, only: [:update, :destroy]

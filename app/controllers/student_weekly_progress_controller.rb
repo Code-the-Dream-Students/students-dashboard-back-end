@@ -1,5 +1,6 @@
 class StudentWeeklyProgressController < ApplicationController
-    skip_before_action :authorize_user
+
+    skip_before_action :authenticate_cookie
     before_action :set_student_weekly_progresses, only: [:index]
     before_action :set_students, only: [:students_tracking]
     before_action :set_student_weekly_progress, only: [:show, :update]

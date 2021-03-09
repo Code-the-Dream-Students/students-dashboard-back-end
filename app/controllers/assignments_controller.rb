@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
 
-  skip_before_action :authorize_user
+  skip_before_action :authenticate_cookie
 
   before_action :get_course_unit_lesson_assignment, only: [:one_assignment]
 
