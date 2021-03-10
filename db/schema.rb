@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_023525) do
+ActiveRecord::Schema.define(version: 2021_03_09_225643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,24 @@ ActiveRecord::Schema.define(version: 2021_02_24_023525) do
     t.text "resources"
     t.text "assignment"
     t.index ["lesson_id"], name: "index_assignments_on_lesson_id"
+  end
+
+  create_table "cohort_courses", force: :cascade do |t|
+    t.integer "cohort_id"
+    t.integer "course_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cohort_id"], name: "index_cohort_courses_on_cohort_id"
+    t.index ["course_id"], name: "index_cohort_courses_on_course_id"
+  end
+
+  create_table "cohorts", force: :cascade do |t|
+    t.string "cohort_name"
+    t.string "description"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "course_units", force: :cascade do |t|

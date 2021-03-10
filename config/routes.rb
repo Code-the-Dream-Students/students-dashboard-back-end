@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # resources :students
   resources :mentors
   resources :staffs
+  resources :cohorts
 
   # post 'auth/login', to: 'authentication#authenticate'
   # post 'signup', to: 'users#create'
@@ -18,6 +19,8 @@ Rails.application.routes.draw do
   get 'logout', to: 'users#logout'
 
   get '/', to: 'home#index'
+  post '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#create'
+  delete '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#destroy'
   post '/courses/:course_id/units/:unit_id', to: 'course_units#create'
   delete '/courses/:course_id/units/:unit_id', to: 'course_units#destroy'
   post '/units/:unit_id/lessons/:lesson_id', to: 'unit_lessons#create'

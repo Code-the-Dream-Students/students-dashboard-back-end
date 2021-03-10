@@ -2,30 +2,36 @@ class UnitsController < ApplicationController
 
   skip_before_action :authenticate_cookie
 
-  def index
-    @units = set_course_id ?
-      set_course.units :
-      Unit.all
+  # def index
+  #   @units = set_course_id ?
+  #     set_course.units :
+  #     Unit.all
 
-    if set_course_id
-      render ({
-        json: {
-          message: "Success",
-          units: @units,
-          course: set_course
-        },
-        status: 200
-      })      
-    else
-      render ({
-        json: {
-          message: "Success",
-          units: @units
-        },
-        status: 200
-      })
-    end
+  #   if set_course_id
+  #     render ({
+  #       json: {
+  #         message: "Success",
+  #         units: @units,
+  #         course: set_course
+  #       },
+  #       status: 200
+  #     })      
+  #   else
+  #     render ({
+  #       json: {
+  #         message: "Success",
+  #         units: @units
+  #       },
+  #       status: 200
+  #     })
+  #   end
+  # end
+
+  def index
+    @units = Unit.all
+    render json: @units, status: 200, include: ['unit', 'lessons.sources']
   end
+
 
   def search
     @units = params[:unit_name] ? 
