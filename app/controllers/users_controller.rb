@@ -25,7 +25,7 @@ class UsersController < ApplicationController
     #   user = User.find_by(id: decoded_token[:user_id])
     #   json_response(user, :ok, user_options)
     # end
-      render json: @user, status: :ok
+      render json: @user, status: :ok, include: user_options 
   end
 
   private
