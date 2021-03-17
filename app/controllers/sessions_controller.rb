@@ -44,6 +44,7 @@ class SessionsController < Devise::SessionsController
     p res.parsed_response[0]["email"]
     email = res.parsed_response[0]["email"]
     user = User.find_by(email: email.downcase)
+    p user
     if user
       token = CoreModules::JsonWebToken.encode({
         user_id: user.id
