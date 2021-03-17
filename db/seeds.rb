@@ -1471,7 +1471,7 @@ users = User.create([
   },
   {
     username: "jgabitto",
-    email: "jgabitto@gmail.com",
+    email: "jgabitto1792@gmail.com",
     password: "123456",
     password_confirmation: "123456",
     role: "staff"
