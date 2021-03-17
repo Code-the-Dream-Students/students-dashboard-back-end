@@ -42,8 +42,17 @@ class SessionsController < Devise::SessionsController
     res = HTTParty.get('https://api.github.com/user/emails', :headers => headers)
     p res
     p res.parsed_response[0]["email"]
-
-    redirect_to "http://localhost:3000/"
+    email = res.parsed_response[0]["email"]
+    user = User.find_by(email: email.downcase)
+    if user
+      token = CoreModules::JsonWebToken.encode({
+        user_id: user.id
+      }, 24.hours.from_now)
+     else
+      token = false
+    end
+    
+    redirect_to "http://localhost:3000/#{token}"
   end
 
   private
