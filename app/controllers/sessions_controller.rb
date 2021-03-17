@@ -41,7 +41,7 @@ class SessionsController < Devise::SessionsController
     # p info
     res = HTTParty.get('https://api.github.com/user/emails', :headers => headers)
     p res
-    p res.parsed_response["email"]
+    p res.parsed_response[0]["email"]
 
     redirect_to "http://localhost:3000/"
   end
