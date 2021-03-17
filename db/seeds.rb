@@ -1470,6 +1470,13 @@ users = User.create([
     role: "admin"
   },
   {
+    username: "jgabitto",
+    email: "jgabitto@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "staff"
+  },
+  {
     username: "user2",
     email: "user2@gmail.com",
     password: "123456",
