@@ -5,8 +5,8 @@ Rails.application.routes.draw do
     sessions: :sessions
   }
 
-  devise_scope :sessions do
-    get 'create_github', to: "devise/sessions#create_github"
+  devise_scope :user do
+    get 'create_github' => "sessions#create_github"
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # resources :students
