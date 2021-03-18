@@ -55,7 +55,7 @@ class SessionsController < Devise::SessionsController
     
     p token
     
-    redirect_to "http://localhost:3000/auth/#{token}"
+    redirect_to "http://localhost:3000/auth/user?val=#{token}"
   end
 
   private
