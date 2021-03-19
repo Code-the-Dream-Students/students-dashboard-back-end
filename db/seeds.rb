@@ -1562,6 +1562,12 @@ staffs = Staff.create([
     last_name: "Administrator",
     user_id: 1
   },
+    {
+    title: "Admin",
+    first_name: "J",
+    last_name: "G",
+    user_id: 2
+  },
   {
     title: "Admin",
     first_name: "Rayn",
