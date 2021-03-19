@@ -4,20 +4,16 @@ class CoursesController < ApplicationController
 
 
   def index
-    # @courses = Course.all
-    # if @courses
-    #   render ({
-    #     json: {
-    #       message: "Success",
-    #       courses: @courses
-    #     },
-    #     status: 200
-    #   })
-    # else
-    #   error_json
-    # end
     @courses = Course.all
-    render json: @courses, include: ['weeks.lesson.assignment', 'units.weeks', 'units.weeks.lesson', 'units.weeks.lesson.assignment', 'units.weeks.lesson.sources'], each_serializer: StaffCreateCourseAssignmentsSerializer
+    render json: @courses, include: 
+      [
+        'weeks.lesson.assignment',
+        'units.weeks',
+        'units.weeks.lesson',
+        'units.weeks.lesson.assignment',
+        'units.weeks.lesson.sources'
+      ],
+      each_serializer: StaffCreateCourseAssignmentsSerializer
   end
 
   def search
