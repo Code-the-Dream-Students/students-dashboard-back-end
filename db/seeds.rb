@@ -1494,6 +1494,13 @@ users = User.create([
     role: "admin"
   },
   {
+    username: "jgabitto",
+    email: "jgabitto1792@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "staff"
+  },
+  {
     username: "user2",
     email: "user2@gmail.com",
     password: "123456",
@@ -1579,11 +1586,17 @@ staffs = Staff.create([
     last_name: "Administrator",
     user_id: 1
   },
+    {
+    title: "Admin",
+    first_name: "J",
+    last_name: "G",
+    user_id: 2
+  },
   {
     title: "Admin",
     first_name: "Rayn",
     last_name: "Rayu",
-    user_id: 2
+    user_id: 3
   }
 ])
 
