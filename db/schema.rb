@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_225643) do
+ActiveRecord::Schema.define(version: 2021_03_22_222058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -156,6 +156,30 @@ ActiveRecord::Schema.define(version: 2021_03_09_225643) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
+  create_table "tcourse_tunits", force: :cascade do |t|
+    t.integer "tcourse_id"
+    t.integer "tunit_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tcourse_id"], name: "index_tcourse_tunits_on_tcourse_id"
+    t.index ["tunit_id"], name: "index_tcourse_tunits_on_tunit_id"
+  end
+
+  create_table "tcourses", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tunits", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "duration"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "unit_lessons", force: :cascade do |t|
