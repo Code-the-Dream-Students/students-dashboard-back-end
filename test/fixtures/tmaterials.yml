@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  url: MyString
+  plarform: MyString
+  treehouse_type: MyString
+  instructor: MyString
+  duration: MyString
+  learning_objectives: MyString
+  tools: MyString
+  notes: MyString
+
+two:
+  title: MyString
+  url: MyString
+  plarform: MyString
+  treehouse_type: MyString
+  instructor: MyString
+  duration: MyString
+  learning_objectives: MyString
+  tools: MyString
+  notes: MyString

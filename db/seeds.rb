@@ -1,69 +1,93 @@
+cohorts = Cohort.create([
+  {
+    cohort_name: "Red Koi",
+    description: "Back-End development"
+  },
+  {
+    cohort_name: "Red Eclipse",
+    description: "Intro to programming"
+  }
+])
+
+
 courses = Course.create([
   {
-    course_name: "Sunrise",
-    description: "Web basics for Front-End or Back-End development"
+    course_name: "Ruby on Rails",
+    description: "Front-End development with React.JS",
+    cohorts: [
+      Cohort.find(1)
+    ]
   },
   {
-    course_name: "Phoenix",
-    description: "Front-End development with React.JS"
-  },
-  {
-    course_name: "Piranha",
-    description: "Back-End development with Ruby on Rails"
-  },
-  {
-    course_name: "High Noon",
-    description: "Front-End and Back-End development with React.JS and Ruby on Rails"
+    course_name: "Intro to programming",
+    description: "Web basics for Front-End or Back-End development",
+    cohorts: [
+      Cohort.find(2)
+    ]
   }
 ])
 
 
 units = Unit.create([
   {
-    unit_name: "Web basics 1",
-    description: "Welcome to Web Basics I, the first class in Code the Dream’s six-part Web Development course. Web Basics I serves as an introduction to computer programming. You’ll start with Treehouse’s Digital Literacy track, which covers basic computing principles and introduces you to HTML, CSS, JavaScript, & Git. By the time you finish your final project, you’ll have the foundations every programmer needs.",
-    courses: [
-      Course.find(1)
-    ]
+    unit_name: "Intro to Terminal | Intro to Git",
+    description: "" 
   },
   {
-    unit_name: "Web basics 2",
-    description: "Now that you have mastered the essentials of programming, it’s time to dive deeper. In Web Basics II, you’ll learn the basics of JavaScript, the most popular programming language. Then, you will learn about databases and SQL, a popular back-end language, and work on some more GitHub. Finally, you’ll apply that knowledge in the final project for Web Basics.",
-    courses: [
-      Course.find(1)
-    ]
+    unit_name: "Intro to HTML & CSS | Intro to Wire Framing",
+    description: "",
   },
   {
-    unit_name: "Front-End 1",
-    description: "Welcome to Front End 1, the first class in our Front End development track.",
-    courses: [
-      Course.find(2),
-      Course.find(4)
-    ]
+    unit_name: "JS Basics | JS Functions | JS Numbers",
+    description: ""
   },
   {
-    unit_name: "Front-End 2",
-    description: "Welcome to Front End II, you will be learning the popular and super powerful javascript framework React.",
-    courses: [
-      Course.find(2),
-      Course.find(4)
-    ]
+    unit_name: "Intro to Flexbox (Thanksgiving)",
+    description: ""
   },
   {
-    unit_name: "Back-End 1",
-    description: "Welcome to Back End I, the first class in our Back End development track.",
-    courses: [
-      Course.find(3),
-      Course.find(4)
-    ]
+    unit_name: "JS Loops | JS Arrays | JS Objections",
+    description: ""
   },
   {
-    unit_name: "Back-End 2",
-    description: "Welcome to Back End II, the first class in our Back End development track.",
-    courses: [
-      Course.find(3),
-      Course.find(4)
-    ]
+    unit_name: "Landscape of JS",
+    description: ""
+  }
+  {
+    unit_name: "Catch Up week (mentor sessions continue)",
+    description: ""
+  },
+  {
+    unit_name: "Winter Holiday Break (no mentor sessions)",
+    description: ""
+  },
+  {
+    unit_name: "Battleship",
+    description: ""
+  },
+  {
+    unit_name: "Finish Battleship (mentor sessions resume)",
+    description: ""
+  },
+  {
+    unit_name: "JS and the DOM | DOM Scripting by Examples | CSS Selectors Quickstart",
+    description: ""
+  },
+  {
+    unit_name: "Working with Fetch | AJAX Basics | ASync Javascript",
+    description: ""
+  },
+  {
+    unit_name: "Catch Up week + start on final projects (mentor sessions continue)",
+    description: ""
+  },
+  {
+    unit_name: "Final Projects",
+    description: ""
+  },
+  {
+    unit_name: "Final Project presentations",
+    description: ""
   }
 ])
 
@@ -1470,6 +1494,13 @@ users = User.create([
     role: "admin"
   },
   {
+    username: "jgabitto",
+    email: "jgabitto1792@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "staff"
+  },
+  {
     username: "user2",
     email: "user2@gmail.com",
     password: "123456",
@@ -1555,11 +1586,17 @@ staffs = Staff.create([
     last_name: "Administrator",
     user_id: 1
   },
+    {
+    title: "Admin",
+    first_name: "J",
+    last_name: "G",
+    user_id: 2
+  },
   {
     title: "Admin",
     first_name: "Rayn",
     last_name: "Rayu",
-    user_id: 2
+    user_id: 3
   }
 ])
 
@@ -3496,5 +3533,5 @@ student_courses = StudentCourse.create([
   {
     student_id: 7,
     course_id: 4
-  },
+  }
 ])
