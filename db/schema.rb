@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_22_225126) do
+ActiveRecord::Schema.define(version: 2021_03_23_222407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,10 +36,9 @@ ActiveRecord::Schema.define(version: 2021_03_22_225126) do
   end
 
   create_table "cohorts", force: :cascade do |t|
-    t.string "cohort_name"
-    t.string "description"
+    t.string "name"
+    t.text "description"
     t.date "start_date"
-    t.date "end_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -158,6 +157,14 @@ ActiveRecord::Schema.define(version: 2021_03_22_225126) do
     t.index ["user_id"], name: "index_students_on_user_id"
   end
 
+  create_table "tassignments", force: :cascade do |t|
+    t.string "title"
+    t.string "link"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "tcourse_tunits", force: :cascade do |t|
     t.integer "tcourse_id"
     t.integer "tunit_id"
@@ -169,15 +176,47 @@ ActiveRecord::Schema.define(version: 2021_03_22_225126) do
 
   create_table "tcourses", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tlesson_tassignments", force: :cascade do |t|
+    t.integer "tlesson_id"
+    t.integer "tassignment_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tassignment_id"], name: "index_tlesson_tassignments_on_tassignment_id"
+    t.index ["tlesson_id"], name: "index_tlesson_tassignments_on_tlesson_id"
+  end
+
+  create_table "tlesson_tmaterials", force: :cascade do |t|
+    t.integer "tlesson_id"
+    t.integer "tmaterial_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tlesson_id"], name: "index_tlesson_tmaterials_on_tlesson_id"
+    t.index ["tmaterial_id"], name: "index_tlesson_tmaterials_on_tmaterial_id"
   end
 
   create_table "tlessons", force: :cascade do |t|
     t.string "name"
     t.string "duration"
-    t.string "learning_objectives"
+    t.text "learning_objectives"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tmaterials", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.string "platform"
+    t.string "treehouse_type"
+    t.string "instructor"
+    t.string "duration"
+    t.text "learning_objectives"
+    t.string "tools"
+    t.text "notes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -193,7 +232,7 @@ ActiveRecord::Schema.define(version: 2021_03_22_225126) do
 
   create_table "tunits", force: :cascade do |t|
     t.string "name"
-    t.string "description"
+    t.text "description"
     t.string "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

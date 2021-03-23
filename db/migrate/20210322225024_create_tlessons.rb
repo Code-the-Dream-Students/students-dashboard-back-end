@@ -3,7 +3,7 @@ class CreateTlessons < ActiveRecord::Migration[6.0]
     create_table :tlessons do |t|
       t.string :name
       t.string :duration
-      t.string :learning_objectives
+      t.text :learning_objectives
 
       t.timestamps
     end
