@@ -1,0 +1,2 @@
+class TlessonsController < ApplicationController
+end

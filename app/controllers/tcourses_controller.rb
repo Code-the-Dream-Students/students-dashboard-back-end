@@ -1,0 +1,2 @@
+class TcoursesController < ApplicationController
+end

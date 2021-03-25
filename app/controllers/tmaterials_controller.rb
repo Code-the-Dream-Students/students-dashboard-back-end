@@ -1,0 +1,2 @@
+class TmaterialsController < ApplicationController
+end
