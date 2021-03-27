@@ -1,3 +1,3 @@
-class CourseSerializer < ActiveModel::Serializer
+class TcourseSerializer < ActiveModel::Serializer
   attributes :id, :name, :description
 end

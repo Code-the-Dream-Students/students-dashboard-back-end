@@ -1,5 +1,5 @@
-class TunitsController < ApplicationController
-  
+class TunitsController < ApplicationController 
+  # skip_before_action :authenticate_cookie
   before_action :set_tunit, only: [:show, :update, :destroy]
 
   def index
