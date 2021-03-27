@@ -4,27 +4,27 @@ class TunitsController < ApplicationController
 
   def index
     @tunits = Tunit.all
-    render json: @tunits, include: ['tcourses']
+    render json: @tunits, include: ['tlessons.tmaterials', 'tlessons.tassignments', 'tcourses']
   end
 
   def search
     @tunits = params[:name] ? Tunit.where("name ILIKE ?", "%#{params[:name]}%") : 
     params[:description] ? Tunit.where("description ILIKE ?", "%#{params[:description]}%") : []
         
-    render json: @tunits, include: ['tcourses']
+    render json: @tunits, include: ['tlessons.tmaterials', 'tlessons.tassignments', 'tcourses']
   end
 
   def show
-    render json: @tunit, include: ['tcourses']
+    render json: @tunit, include: ['tlessons.tmaterials', 'tlessons.tassignments', 'tcourses']
   end
 
   def create
-      @tunit = Tunit.create(tunit_params)
-      if @tunit
-        render json: { message: "Unit template successfully created", tunit: @tunit }
-      else
-        error_json
-      end
+    @tunit = Tunit.create(tunit_params)
+    if @tunit
+      render json: { message: "Unit template successfully created", tunit: @tunit }
+    else
+      error_json
+    end
   end
 
   def update

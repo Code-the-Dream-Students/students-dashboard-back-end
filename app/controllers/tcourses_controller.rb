@@ -4,19 +4,19 @@ class TcoursesController < ApplicationController
 
   def index
     @tcourses = Tcourse.all
-    render json: @tcourses, message: "success", include: ['tunits'] 
+    render json: @tcourses, include: ['tunits.tlessons.tassignments', 'tunits.tlessons.tmaterials'] 
   end
 
   def search
     @tcourses = params[:name] ? Tcourse.where("name ILIKE ?", "%#{params[:name]}%") : 
     params[:description] ? Tcourse.where("description ILIKE ?", "%#{params[:description]}%") : []
 
-    render json: @tcourses, include: ['tunits']
+    render json: @tcourses, include: ['tunits.tlessons.tassignments', 'tunits.tlessons.tmaterials']
   end
 
   def show
     if @tcourse 
-      render json: @tcourse, message: "success", include: ['tunits']
+      render json: @tcourse, include: ['tunits.tlessons.tassignments', 'tunits.tlessons.tmaterials']
     else
       error_json
     end

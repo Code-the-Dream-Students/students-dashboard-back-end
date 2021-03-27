@@ -4,25 +4,25 @@ class TlessonsController < ApplicationController
 
     def index
       @tlessons = Tlesson.all
-      render json: @tlessons, include: ['tunits', 'tassignments', 'tmaterials']
+      render json: @tlessons, include: ['tunits.tcourses', 'tassignments', 'tmaterials']
     end
   
     def search
-      @tlessons = params[:name] ? Tlesson.where("name ILIKE ?", "%#{params[:name]}%") :           
-      render json: @tlessons, include: ['tunits', 'tassignments', 'tmaterials']
+      @tlessons = Tlesson.where("name ILIKE ?", "%#{params[:name]}%")           
+      render json: @tlessons, include: ['tunits.tcourses', 'tassignments', 'tmaterials']
     end
   
     def show
-      render json: @tlesson, include: ['tunits', 'tassignments', 'tmaterials']
+      render json: @tlesson, include: ['tunits.tcourses', 'tassignments', 'tmaterials']
     end
   
     def create
-        @tlesson = Tlesson.create(tlesson_params)
-        if @tlesson
-          render json: { message: "Lesson template successfully created", tlesson: @tlesson }
-        else
-          error_json
-        end
+      @tlesson = Tlesson.create(tlesson_params)
+      if @tlesson
+        render json: { message: "Lesson template successfully created", tlesson: @tlesson }
+      else
+        error_json
+      end
     end
   
     def update

@@ -4,25 +4,25 @@ class TmaterialsController < ApplicationController
 
   def index
     @tmaterials = Tmaterial.all
-    render json: @tmaterials, include: ['tlessons']
+    render json: @tmaterials, include: ['tlessons.tunits.tcourses', 'tlessons.tmaterials']
   end
 
   def search
-    @tmaterials = params[:title] ? Tmaterial.where("title ILIKE ?", "%#{params[:title]}%") :           
-    render json: @tmaterials, include: ['tlessons']
+    @tmaterials = Tmaterial.where("title ILIKE ?", "%#{params[:title]}%")          
+    render json: @tmaterials, include: ['tlessons.tunits.tcourses', 'tlessons.tmaterials']
   end
 
   def show
-    render json: @tmaterial, include: ['tlessons']
+    render json: @tmaterial, include: ['tlessons.tunits.tcourses', 'tlessons.tmaterials']
   end
 
   def create
-      @tmaterial = Tmaterial.create(tmaterial_params)
-      if @tmaterial
-        render json: { message: "Material template successfully created", tmaterial: @tmaterial }
-      else
-        error_json
-      end
+    @tmaterial = Tmaterial.create(tmaterial_params)
+    if @tmaterial
+      render json: { message: "Material template successfully created", tmaterial: @tmaterial }
+    else
+      error_json
+    end
   end
 
   def update

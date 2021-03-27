@@ -1,5 +1,5 @@
 class TmaterialSerializer < ActiveModel::Serializer
-  attributes 
+  attributes [
     :id, 
     :title, 
     :url, 
@@ -10,4 +10,8 @@ class TmaterialSerializer < ActiveModel::Serializer
     :learning_objectives, 
     :tools, 
     :notes
+  ] 
+
+  has_many :tlessons
+  
 end

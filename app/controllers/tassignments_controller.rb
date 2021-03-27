@@ -4,25 +4,25 @@ class TassignmentsController < ApplicationController
 
   def index
     @tassignments = Tassignment.all
-    render json: @tassignments, include: ['tlessons']
+    render json: @tassignments, include: ['tlessons.tunits.tcourses', 'tlessons.tmaterials']
   end
 
   def search
-    @tassignments = params[:title] ? Tassignment.where("title ILIKE ?", "%#{params[:title]}%") :           
-    render json: @tassignments, include: ['tlessons']
+    @tassignments = Tassignment.where("title ILIKE ?", "%#{params[:title]}%")         
+    render json: @tassignments, include: ['tlessons.tunits.tcourses', 'tlessons.tmaterials']
   end
 
   def show
-    render json: @tassignment, include: ['tlessons']
+    render json: @tassignment, include: ['tlessons.tunits.tcourses', 'tlessons.tmaterials']
   end
 
   def create
-      @tassignment = Tassignment.create(tassignment_params)
-      if @tassignment
-        render json: { message: "Assignment template successfully created", tassignment: @tassignment }
-      else
-        error_json
-      end
+    @tassignment = Tassignment.create(tassignment_params)
+    if @tassignment
+      render json: { message: "Assignment template successfully created", tassignment: @tassignment }
+    else
+      error_json
+    end
   end
 
   def update

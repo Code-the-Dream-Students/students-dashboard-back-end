@@ -1,10 +1,10 @@
 cohorts = Cohort.create([
   {
-    cohort_name: "Red Koi",
+    name: "Red Koi",
     description: "Back-End development"
   },
   {
-    cohort_name: "Red Eclipse",
+    name: "Red Eclipse",
     description: "Intro to programming"
   }
 ])
@@ -14,16 +14,16 @@ courses = Course.create([
   {
     course_name: "Ruby on Rails",
     description: "Front-End development with React.JS",
-    cohorts: [
-      Cohort.find(1)
-    ]
+    # cohorts: [
+    #   Cohort.find(1)
+    # ]
   },
   {
     course_name: "Intro to programming",
     description: "Web basics for Front-End or Back-End development",
-    cohorts: [
-      Cohort.find(2)
-    ]
+    # cohorts: [
+    #   Cohort.find(2)
+    # ]
   }
 ])
 
@@ -52,7 +52,7 @@ units = Unit.create([
   {
     unit_name: "Landscape of JS",
     description: ""
-  }
+  },
   {
     unit_name: "Catch Up week (mentor sessions continue)",
     description: ""
