@@ -12,16 +12,19 @@ Rails.application.routes.draw do
   # resources :mentors
   resources :students
   resources :staffs
-  resources :cohorts
 
+  resources :cohorts
   resources :courses
   resources :units
   resources :lessons
   resources :materials
   resources :assignments
-  # resources :cohorts
-  # resources :cohorts
 
+  resources :tcourses
+  resources :tunits
+  resources :tlessons
+  resources :tmaterials
+  resources :tassignments
 
 
 
@@ -94,7 +97,7 @@ Rails.application.routes.draw do
   # get 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#show'
   # patch 'student_weekly_progress/:student_id/week_number/:week_number', to: 'student_weekly_progress#update'
 
-  # get 'registered_me  ntor_sessions/:student_id', to: 'registered_mentor_sessions#index'
+  # get 'registered_mentor_sessions/:student_id', to: 'registered_mentor_sessions#index'
   # get 'registered_mentor_sessions/:student_id/week_number/:week_number', to: 'registered_mentor_sessions#show'
   # post 'registered_mentor_sessions/:student_id', to: 'registered_mentor_sessions#create'
   # patch 'registered_mentor_sessions/:registered_mentor_session_id', to: 'registered_mentor_sessions#update'
