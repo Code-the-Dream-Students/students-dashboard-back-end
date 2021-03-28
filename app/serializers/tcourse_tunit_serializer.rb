@@ -1,5 +1,5 @@
 class TcourseTunitSerializer < ActiveModel::Serializer
-  attributes :id, :tcourse_id, :tunit_id
+  attributes :id
 
   belongs_to :tcourse
   belongs_to :tunit

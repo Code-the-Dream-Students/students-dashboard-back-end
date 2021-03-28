@@ -3,5 +3,4 @@ class TunitSerializer < ActiveModel::Serializer
 
   has_many :tcourses
   has_many :tlessons
-
 end

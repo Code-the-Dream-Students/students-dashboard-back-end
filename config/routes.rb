@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :users,
   controllers: {
     registrations: :registrations,
@@ -8,7 +9,6 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'create_github' => "sessions#create_github"
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # resources :mentors
   resources :students
   resources :staffs
@@ -26,8 +26,6 @@ Rails.application.routes.draw do
   resources :tmaterials
   resources :tassignments
 
-
-
   # post 'auth/login', to: 'authentication#authenticate'
   # post 'signup', to: 'users#create'
 
@@ -36,7 +34,23 @@ Rails.application.routes.draw do
   put 'users/:id', to: 'users#update'
   get 'logout', to: 'users#logout'
 
-  # get '/', to: 'home#index'
+  get '/', to: 'home#index'
+
+  get '/tcourses_tunits', to: 'tcourse_tunits#index'
+  get '/tcourses/:tcourse_id/tunits/:tunit_id', to: 'tcourse_tunits#show'
+  post '/tcourses/:tcourse_id/tunits/:tunit_id', to: 'tcourse_tunits#create'
+  delete '/tcourses/:tcourse_id/tunits/:tunit_id', to: 'tcourse_tunits#destroy'
+
+  get '/tunits_tlessons', to: 'tunit_tlessons#index'
+  get '/tunits/:tunit_id/tlessons/:tlesson_id', to: 'tunit_tlessons#show'
+  post '/tunits/:tunit_id/tlessons/:tlesson_id', to: 'tunit_tlessons#create'
+  delete '/tunits/:tunit_id/tlessons/:tlesson_id', to: 'tunit_tlessons#destroy'
+
+  # post '/units/:unit_id/lessons/:lesson_id', to: 'unit_lessons#create'
+  # delete '/units/:unit_id/lessons/:lesson_id', to: 'unit_lessons#destroy'
+  # post '/lessons/:lesson_id/sources/:source_id', to: 'lesson_sources#create'
+  # delete '/lessons/:lesson_id/sources/:source_id', to: 'lesson_sources#destroy'
+
   # post '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#create'
   # delete '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#destroy'
   # post '/courses/:course_id/units/:unit_id', to: 'course_units#create'
