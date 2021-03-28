@@ -26,9 +26,6 @@ Rails.application.routes.draw do
   resources :tmaterials
   resources :tassignments
 
-  # post 'auth/login', to: 'authentication#authenticate'
-  # post 'signup', to: 'users#create'
-
   get 'users', to: 'users#index'
   get 'user', to: 'users#show_current_user'
   put 'users/:id', to: 'users#update'
@@ -46,10 +43,15 @@ Rails.application.routes.draw do
   post '/tunits/:tunit_id/tlessons/:tlesson_id', to: 'tunit_tlessons#create'
   delete '/tunits/:tunit_id/tlessons/:tlesson_id', to: 'tunit_tlessons#destroy'
 
-  # post '/units/:unit_id/lessons/:lesson_id', to: 'unit_lessons#create'
-  # delete '/units/:unit_id/lessons/:lesson_id', to: 'unit_lessons#destroy'
-  # post '/lessons/:lesson_id/sources/:source_id', to: 'lesson_sources#create'
-  # delete '/lessons/:lesson_id/sources/:source_id', to: 'lesson_sources#destroy'
+  get '/tlessons_tmaterials', to: 'tlesson_tmaterials#index'
+  get '/tlessons/:tlesson_id/tmaterials/:tmaterial_id', to: 'tlesson_tmaterials#show'
+  post '/tlessons/:tlesson_id/tmaterials/:tmaterial_id', to: 'tlesson_tmaterials#create'
+  delete '/tlessons/:tlesson_id/tmaterials/:tmaterial_id', to: 'tlesson_tmaterials#destroy'
+
+  get '/tlessons_tassignments', to: 'tlesson_tassignments#index'
+  get '/tlessons/:tlesson_id/tassignments/:tassignment_id', to: 'tlesson_tassignments#show'
+  post '/tlessons/:tlesson_id/tassignments/:tassignment_id', to: 'tlesson_tassignments#create'
+  delete '/tlessons/:tlesson_id/tassignments/:tassignment_id', to: 'tlesson_tassignments#destroy'
 
   # post '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#create'
   # delete '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#destroy'

@@ -24,7 +24,7 @@ class TunitTlessonsController < ApplicationController
 
   def create
     if @tunit_tlesson == nil
-      if @tunit && @tunit
+      if @tunit && @tlesson
         @tunit.tlessons << @tlesson
 
         render json: {
@@ -46,7 +46,7 @@ class TunitTlessonsController < ApplicationController
       render json: {
         message: "Relationship deleted successfully",
         tunit: @tunit,
-        tlesson: @ttlesson
+        tlesson: @tlesson
       }
     else
       render json: { message: "Relationship doesn't exist" }, status: 404
