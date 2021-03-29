@@ -8,25 +8,19 @@ class CohortsController < ApplicationController
   def index
     @cohorts = Cohort.all
     render json: @cohorts
-    # , include: ['weeks.lesson.assignment', 'units.weeks', 'units.weeks.lesson', 'units.weeks.lesson.assignment', 'units.weeks.lesson.sources'], each_serializer: StaffCreateCourseAssignmentsSerializer
   end
 
   def search
-    @cohorts = params[:cohort_name] ? 
-      Cohort.where("cohort_name ILIKE ?", "%#{params[:cohort_name]}%") :
-      params[:description] ?
-        Cohort.where("description ILIKE ?", "%#{params[:description]}%") :
-        []
+    @cohorts = params[:cohort_name] ? Cohort.where("cohort_name ILIKE ?", "%#{params[:cohort_name]}%") :
+    params[:description] ? Cohort.where("description ILIKE ?", "%#{params[:description]}%") : []
 
-    render ({
-      json: @cohorts, status: :ok
-    })
+    render json: @cohorts
   end
 
   def show
     if @cohort
     # && @user 
-      render json: @cohort, status: 200
+      render json: @cohort
     else
       error_json
     end
@@ -36,13 +30,7 @@ class CohortsController < ApplicationController
     @cohort = Cohort.create(cohort_params)
     if @cohort
     # && @user && @user.role == "staff"
-      render ({
-        json: {
-          message: "Cohort created",
-          cohort: @cohort
-        },
-        status: 201
-      })
+      render json: { message: "Cohort created", cohort: @cohort }
     else
       error_json
     end
@@ -51,13 +39,7 @@ class CohortsController < ApplicationController
   def update
     if @cohort.update(cohort_params)
     # && @user && @user.role == "staff"
-      render ({
-        json: {
-          message: "Cohort updated",
-          cohort: @cohort
-        },
-        status: 200
-      })
+      render json: { message: "Cohort updated", cohort: @cohort }
     else
       error_json
     end
@@ -66,12 +48,7 @@ class CohortsController < ApplicationController
   def destroy
     if @cohort.destroy
     # && @user && @user.role == "staff"
-      render ({
-        json: {
-          message: "Cohort deleted",
-        },
-        status: 200
-      })
+      render json: { message: "Cohort deleted"}
     else
       error_json
     end
@@ -88,12 +65,7 @@ class CohortsController < ApplicationController
     end
 
     def error_json
-      render ({
-        json: {
-          error: "Not Found"
-        },
-        status: 404
-      })
+      render json: { error: "Not Found" }, status: 404
     end
 
 

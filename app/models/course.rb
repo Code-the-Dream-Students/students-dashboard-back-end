@@ -1,4 +1,6 @@
 class Course < ApplicationRecord
+  has_many :cohort_courses
+  has_many :cohorts, through: :cohort_courses
   has_many :course_units
   has_many :units, through: :course_units
   has_many :weeks
