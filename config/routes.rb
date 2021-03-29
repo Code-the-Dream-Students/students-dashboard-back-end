@@ -126,26 +126,5 @@ Rails.application.routes.draw do
   # patch 'registered_mentor_sessions/:registered_mentor_session_id', to: 'registered_mentor_sessions#update'
   # delete 'registered_mentor_sessions/:registered_mentor_session_id', to: 'registered_mentor_sessions#destroy'
 
-  # resources :courses do
-  #   resources :units, only: [:index, :show] do
-  #     resources :lessons, only: [:index, :show] do
-  #       resources :sources, only: [:index, :show]
-  #       resources :assignments
-  #     end
-  #   end
-  #   resources :weeks, only: [:index, :show]
-  # end
-  
-  # resources :units do
-  #   resources :lessons, only: [:index, :show] do
-  #     resources :sources, only: [:index, :show]
-  #   end
-  # end
-
-  # resources :lessons do
-  #   resources :sources, only: [:index, :show]
-  # end
-
-  # resources :sources
 
 end
