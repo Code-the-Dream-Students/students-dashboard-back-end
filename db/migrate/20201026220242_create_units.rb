@@ -3,6 +3,7 @@ class CreateUnits < ActiveRecord::Migration[6.0]
     create_table :units do |t|
       t.string :name
       t.text :description
+      t.string :duration
 
       t.timestamps
     end

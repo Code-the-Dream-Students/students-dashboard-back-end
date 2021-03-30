@@ -7,19 +7,19 @@ class CohortsController < ApplicationController
 
   def index
     @cohorts = Cohort.all
-    render json: @cohorts
+    render json: @cohorts, include: "courses.units.lessons"
   end
 
   def search
     @cohorts = params[:cohort_name] ? Cohort.where("cohort_name ILIKE ?", "%#{params[:cohort_name]}%") :
     params[:description] ? Cohort.where("description ILIKE ?", "%#{params[:description]}%") : []
 
-    render json: @cohorts
+    render json: @cohorts, include: "courses.units.lessons"
   end
 
   def show
     if @cohort
-      render json: @cohort
+      render json: @cohort, include: "courses.units.lessons"
     else
       error_json
     end
