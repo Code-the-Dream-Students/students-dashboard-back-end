@@ -21,7 +21,7 @@ class StaffCreateAssignmentsSerializer < ActiveModel::Serializer
     object.lesson.units.order("id ASC").map do |unit|
       {
         id: unit.id,
-        name: unit.unit_name,
+        name: unit.name
       }
     end
   end

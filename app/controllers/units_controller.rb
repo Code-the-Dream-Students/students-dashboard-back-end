@@ -1,6 +1,6 @@
 class UnitsController < ApplicationController
 
-  skip_before_action :authenticate_cookie
+  # skip_before_action :authenticate_cookie
   before_action :set_unit, only: [:show, :update, :destroy]
 
   def index
