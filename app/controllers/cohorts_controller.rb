@@ -1,9 +1,7 @@
 class CohortsController < ApplicationController
 
   skip_before_action :authenticate_cookie
-
   before_action :set_cohort, only: [:show, :update, :destroy]
-
 
   def index
     @cohorts = Cohort.all
