@@ -19,7 +19,6 @@ class CohortsController < ApplicationController
 
   def show
     if @cohort
-    # && @user 
       render json: @cohort
     else
       error_json
@@ -27,9 +26,8 @@ class CohortsController < ApplicationController
   end
 
   def create
-    @cohort = Cohort.create(cohort_params)
-    if @cohort
-    # && @user && @user.role == "staff"
+    @cohort = Cohort.new(cohort_params)
+    if @cohort.save
       render json: { message: "Cohort created", cohort: @cohort }
     else
       error_json
@@ -38,7 +36,6 @@ class CohortsController < ApplicationController
 
   def update
     if @cohort.update(cohort_params)
-    # && @user && @user.role == "staff"
       render json: { message: "Cohort updated", cohort: @cohort }
     else
       error_json
@@ -47,7 +44,6 @@ class CohortsController < ApplicationController
 
   def destroy
     if @cohort.destroy
-    # && @user && @user.role == "staff"
       render json: { message: "Cohort deleted"}
     else
       error_json

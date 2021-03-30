@@ -14,7 +14,7 @@ class CohortCoursesController < ApplicationController
   def create
     if @cohort_course == nil
       if @cohort && @course
-        @cohort.courses << set_course
+        @cohort.courses << @course
 
         render json: {
           status: 200,

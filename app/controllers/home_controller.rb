@@ -6,14 +6,14 @@ class HomeController < ApplicationController
     @data = Course.all.map do |course|
       {
         id: course.id,
-        course_name: course.course_name,
+        name: course.name,
         description: course.description,
         created_at: course.created_at,
         updated_at: course.updated_at,
         units: Course.find(course.id).units.map do |unit|
           {
             id: unit.id,
-            unit_name: unit.unit_name,
+            name: unit.name,
             description: unit.description,
             created_at: unit.created_at,
             updated_at: unit.updated_at,

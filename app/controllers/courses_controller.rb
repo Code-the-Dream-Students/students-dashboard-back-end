@@ -1,21 +1,9 @@
 class CoursesController < ApplicationController
 
   skip_before_action :authenticate_cookie
-
+  before_action :set_course, only: [:show, :update, :destroy]
 
   def index
-    # @courses = Course.all
-    # if @courses
-    #   render ({
-    #     json: {
-    #       message: "Success",
-    #       courses: @courses
-    #     },
-    #     status: 200
-    #   })
-    # else
-    #   error_json
-    # end
     @courses = Course.all
     render json: @courses, include: [
       'weeks.lesson.assignment', 
@@ -28,8 +16,8 @@ class CoursesController < ApplicationController
   end
 
   def search
-    @courses = params[:course_name] ? 
-      Course.where("course_name ILIKE ?", "%#{params[:course_name]}%") :
+    @courses = params[:name] ? 
+      Course.where("name ILIKE ?", "%#{params[:name]}%") :
       params[:description] ?
         Course.where("description ILIKE ?", "%#{params[:description]}%") :
         []
@@ -44,21 +32,21 @@ class CoursesController < ApplicationController
   end
 
   def show
-    if set_course
+    if @course
     # && @user 
       render ({
         json: {
           message: "Success",
           course: {
-            id: set_course.id,
-            course_name: set_course.course_name,
-            description: set_course.description,
-            created_at: set_course.created_at,
-            updated_at: set_course.updated_at,
-            units: Course.find(set_course.id).units.map do |unit|
+            id: @course.id,
+            name: @course.name,
+            description: @course.description,
+            created_at: @course.created_at,
+            updated_at: @course.updated_at,
+            units: Course.find(@course.id).units.map do |unit|
               {
                 id: unit.id,
-                unit_name: unit.unit_name,
+                name: unit.name,
                 description: unit.description,
                 created_at: unit.created_at,
                 updated_at: unit.updated_at,
@@ -84,8 +72,8 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.create(course_params)
-    if @course
+    @course = Course.new(course_params)
+    if @course.save
     # && @user && @user.role == "staff"
       render ({
         json: {
@@ -100,12 +88,12 @@ class CoursesController < ApplicationController
   end
 
   def update
-    if set_course.update(course_params)
+    if @course.update(course_params)
     # && @user && @user.role == "staff"
       render ({
         json: {
           message: "Course updated",
-          course: set_course
+          course: @course
         },
         status: 200
       })
@@ -115,7 +103,7 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    if set_course.destroy
+    if @course.destroy
     # && @user && @user.role == "staff"
       render ({
         json: {
@@ -131,20 +119,15 @@ class CoursesController < ApplicationController
   private
 
     def course_params
-      params.require(:course).permit(:course_name, :description)
+      params.require(:course).permit(:name, :description)
     end
 
     def set_course
-      Course.find(params[:id])
+      @course = Course.find(params[:id])
     end
 
     def error_json
-      render ({
-        json: {
-          error: "Not Found"
-        },
-        status: 404
-      })
+      render json: { error: "Not Found" }, status: 404
     end
     
 end

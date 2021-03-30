@@ -1,5 +1,5 @@
 class UnitSerializer < ActiveModel::Serializer
-  attributes :id, :unit_name, :description
+  attributes :id, :name, :description
 
   has_many :weeks
   has_many :lessons
