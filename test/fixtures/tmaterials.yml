@@ -3,7 +3,7 @@
 one:
   title: MyString
   url: MyString
-  plarform: MyString
+  platform: MyString
   treehouse_type: MyString
   instructor: MyString
   duration: MyString
@@ -14,7 +14,7 @@ one:
 two:
   title: MyString
   url: MyString
-  plarform: MyString
+  platform: MyString
   treehouse_type: MyString
   instructor: MyString
   duration: MyString

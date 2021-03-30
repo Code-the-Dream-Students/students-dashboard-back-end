@@ -1,18 +1,21 @@
 class UnitLessonsController < ApplicationController
 
   skip_before_action :authenticate_cookie
+  before_action :set_unit
+  before_action :set_lesson
+  before_action :set_unit_lesson
 
   def create
-    if set_unit_lesson == nil
-      if set_unit && set_lesson
-        set_unit.lessons << set_lesson
+    if @unit_lesson == nil
+      if @unit && @lesson
+        @unit.lessons << @lesson
 
         render json: {
           status: 200,
           message: "Relationship created successfully",
-          relationship: set_unit_lesson,
-          unit: set_unit,
-          lesson: set_lesson
+          relationship: @unit_lesson,
+          unit: @unit,
+          lesson: @lesson
         }
       else
         render json: {
@@ -29,12 +32,12 @@ class UnitLessonsController < ApplicationController
   end
 
   def destroy
-    if set_unit_lesson && set_unit_lesson.destroy
+    if @unit_lesson && @unit_lesson.destroy
       render json: {
         status: 200,
         message: "Relationship deleted successfully",
-        unit: set_unit,
-        lesson: set_lesson
+        unit: @unit,
+        lesson: @lesson
       }
     else
       render json: {
@@ -47,14 +50,14 @@ class UnitLessonsController < ApplicationController
   private
 
     def set_unit
-      Unit.find(params[:unit_id])
+      @unit = Unit.find(params[:unit_id])
     end
 
     def set_lesson
-      Lesson.find(params[:lesson_id])
+      @lesson = Lesson.find(params[:lesson_id])
     end
 
     def set_unit_lesson
-      UnitLesson.find_by(unit_id: params[:unit_id], lesson_id: params[:lesson_id])
+      @unit_lesson = UnitLesson.find_by(unit_id: params[:unit_id], lesson_id: params[:lesson_id])
     end
 end

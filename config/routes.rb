@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  #User authentication
   devise_for :users,
   controllers: {
     registrations: :registrations,
@@ -9,6 +11,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'create_github' => "sessions#create_github"
   end
+
+
   # resources :mentors
   resources :students
   resources :staffs
@@ -20,19 +24,19 @@ Rails.application.routes.draw do
   resources :materials
   resources :assignments
 
+  #Resources Templates
   resources :tcourses
   resources :tunits
   resources :tlessons
   resources :tmaterials
   resources :tassignments
 
+  #User information
   get 'users', to: 'users#index'
   get 'user', to: 'users#show_current_user'
   put 'users/:id', to: 'users#update'
-  get 'logout', to: 'users#logout'
 
-  get '/', to: 'home#index'
-
+  #Templates relationships generators
   get '/tcourses_tunits', to: 'tcourse_tunits#index'
   get '/tcourses/:tcourse_id/tunits/:tunit_id', to: 'tcourse_tunits#show'
   post '/tcourses/:tcourse_id/tunits/:tunit_id', to: 'tcourse_tunits#create'
@@ -119,26 +123,5 @@ Rails.application.routes.draw do
   # patch 'registered_mentor_sessions/:registered_mentor_session_id', to: 'registered_mentor_sessions#update'
   # delete 'registered_mentor_sessions/:registered_mentor_session_id', to: 'registered_mentor_sessions#destroy'
 
-  # resources :courses do
-  #   resources :units, only: [:index, :show] do
-  #     resources :lessons, only: [:index, :show] do
-  #       resources :sources, only: [:index, :show]
-  #       resources :assignments
-  #     end
-  #   end
-  #   resources :weeks, only: [:index, :show]
-  # end
-  
-  # resources :units do
-  #   resources :lessons, only: [:index, :show] do
-  #     resources :sources, only: [:index, :show]
-  #   end
-  # end
-
-  # resources :lessons do
-  #   resources :sources, only: [:index, :show]
-  # end
-
-  # resources :sources
 
 end

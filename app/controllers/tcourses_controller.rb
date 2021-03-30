@@ -1,5 +1,5 @@
 class TcoursesController < ApplicationController
-  # skip_before_action :authenticate_cookie
+  skip_before_action :authenticate_cookie
   before_action :set_tcourse, only: [:show, :update, :destroy]
 
   def index
@@ -23,11 +23,11 @@ class TcoursesController < ApplicationController
   end
 
   def create
-    @tcourse = Tcourse.create(tcourse_params)
-    if @tcourse
-      render json: { message: "Course template successfully created", tcourse: @tcourse }
+    @tcourse = Tcourse.new(tcourse_params)
+    if @tcourse.save
+      render json: { message: "Course template successfully created", tcourse: @tcourse }, status: 201
     else
-      error_json
+      render json: { errors: @tcourse.errors }, status: 400
     end
   end
 
@@ -43,7 +43,7 @@ class TcoursesController < ApplicationController
     if @tcourse.destroy
       render json: { message: "Course template successfully deleted" }
     else
-      error_json
+      render json: { errors: @tcourse.errors }
     end
   end
 
@@ -59,6 +59,10 @@ class TcoursesController < ApplicationController
 
     def error_json
       render json: { error: "Not Found" }, status: 404
+    end
+
+    def error_json_create
+      render json: { error: "Missing parameters, ensure you have name and description" }, status: 404
     end
 
 end

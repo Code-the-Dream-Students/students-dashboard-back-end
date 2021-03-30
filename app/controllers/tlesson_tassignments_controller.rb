@@ -1,4 +1,6 @@
 class TlessonTassignmentsController < ApplicationController
+
+  skip_before_action :authenticate_cookie
   before_action :set_tlesson, only: [:show, :create, :destroy]
   before_action :set_assignment, only: [:show, :create, :destroy]
   before_action :set_tlesson_tmaterial, only: [:show, :create, :destroy]

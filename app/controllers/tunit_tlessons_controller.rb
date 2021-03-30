@@ -1,6 +1,6 @@
 class TunitTlessonsController < ApplicationController
 
-  # skip_before_action :authenticate_cookie
+  skip_before_action :authenticate_cookie
   before_action :set_tunit, only: [:show, :create, :destroy]
   before_action :set_tlesson, only: [:show, :create, :destroy]
   before_action :set_tunit_tlesson, only: [:show, :create, :destroy]
