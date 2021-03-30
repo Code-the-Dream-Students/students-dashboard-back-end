@@ -11,7 +11,7 @@ class CohortsController < ApplicationController
   end
 
   def search
-    @cohorts = params[:cohort_name] ? Cohort.where("cohort_name ILIKE ?", "%#{params[:cohort_name]}%") :
+    @cohorts = params[:name] ? Cohort.where("name ILIKE ?", "%#{params[:name]}%") :
     params[:description] ? Cohort.where("description ILIKE ?", "%#{params[:description]}%") : []
 
     render json: @cohorts, include: "courses.units.lessons"
@@ -53,7 +53,7 @@ class CohortsController < ApplicationController
   private
 
     def cohort_params
-      params.require(:cohort).permit(:cohort_name, :description)
+      params.require(:cohort).permit(:name, :description)
     end
 
     def set_cohort
@@ -63,6 +63,5 @@ class CohortsController < ApplicationController
     def error_json
       render json: { error: "Not Found" }, status: 404
     end
-
 
 end

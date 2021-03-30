@@ -36,9 +36,6 @@ Rails.application.routes.draw do
   get 'user', to: 'users#show_current_user'
   put 'users/:id', to: 'users#update'
 
-  #All data courses
-  get '/', to: 'home#index'
-
   #Templates relationships generators
   get '/tcourses_tunits', to: 'tcourse_tunits#index'
   get '/tcourses/:tcourse_id/tunits/:tunit_id', to: 'tcourse_tunits#show'
