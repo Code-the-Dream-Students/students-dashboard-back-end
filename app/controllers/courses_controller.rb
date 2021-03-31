@@ -48,6 +48,17 @@ class CoursesController < ApplicationController
     end
   end
 
+  def clone_unit
+    @course = Course.find(params[:course_id])
+    @tunit = Tunit.find(params[:tunit_id])
+
+    @unit = CoreModules::CloneGenerator.clone_unit(@course, @tunit)
+    
+    if @unit
+      render json: @unit 
+    end 
+  end
+
   private
 
     def course_params

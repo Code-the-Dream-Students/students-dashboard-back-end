@@ -9,130 +9,439 @@ cohorts = Cohort.create([
   }
 ])
 
-courses = Course.create([
+tcourses = Tcourse.create([
   {
     name: "Ruby on Rails",
-    description: "Front-End development with React.JS",
-    cohorts: [
-      Cohort.find(1)
-    ]
+    description: "Front-End development with React.JS"
   },
   {
     name: "Intro to programming",
-    description: "Web basics for Front-End or Back-End development",
-    cohorts: [
-      Cohort.find(2)
-    ]
+    description: "Web basics for Front-End or Back-End development"
   }
 ])
 
-units = Unit.create([
+tunits = Tunit.create([
   {
     name: "Intro to Terminal | Intro to Git",
     description: "sdfasdf",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ] 
   },
   {
     name: "Intro to HTML & CSS | Intro to Wire Framing",
     description: "adfasdf",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "JS Basics | JS Functions | JS Numbers",
     description: "adfadf",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "Intro to Flexbox (Thanksgiving)",
     description: "adfadfad",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "JS Loops | JS Arrays | JS Objections",
     description: "adfasdfa",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "Landscape of JS",
     description: "adfasdfa",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "Catch Up week (mentor sessions continue)",
     description: "adfasdfadadf",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "Winter Holiday Break (no mentor sessions)",
     description: "adfadfasd",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "Battleship",
     description: "adfasdfadfadf",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "Finish Battleship (mentor sessions resume)",
     description: "adfasdfasdfas",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "JS and the DOM | DOM Scripting by Examples | CSS Selectors Quickstart",
     description: "adfasdfasdf",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "Working with Fetch | AJAX Basics | ASync Javascript",
     description: "adfadfasdf",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "Catch Up week + start on final projects (mentor sessions continue)",
     description: "adfasdfasdf",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "Final Projects",
     description: "adfasdfasd",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   },
   {
     name: "Final Project presentations",
     description: "adfasdfadfas",
-    courses: [
-      Course.find(1)
+    tcourses: [
+      Tcourse.find(1)
     ]
   }
 ])
+
+tlessons = Tlesson.create([
+  {
+    name: "Digital Literacy, Intro to Terminal, Intro to Git, Intro to HTML & CSS",
+    tunits: [
+      Tunit.find(1)
+    ]
+  },
+  {
+    name: "Intro to Wireframing | Intro to JavaScript | HTML Basics",
+    tunits: [
+      Tunit.find(1)
+    ]
+  },
+  {
+    name: "Beginning JavaScript | Functions | Numbers",
+    tunits: [
+      Tunit.find(2)
+    ]
+  },
+  {
+    name: "Loops | Arrays | Objects",
+    tunits: [
+      Tunit.find(2)
+    ]
+  },
+  {
+    name: "Additional JavaScript exercises",
+    tunits: [
+      Tunit.find(2)
+    ]
+  },
+  {
+    name: "JavaScript and the DOM | CSS Selectors",
+    tunits: [
+      Tunit.find(2)
+    ]
+  },
+  {
+    name: "DOM Scripting",
+    tunits: [
+      Tunit.find(2)
+    ]
+  },
+  {
+    name: "Build",
+    tunits: [
+      Tunit.find(2)
+    ]
+  },
+  {
+    name: "Debugging with CSS, CSS layouts",
+    tunits: [
+      Tunit.find(3)
+    ]
+  },
+  {
+    name: "Advanced HTML & CSS, CSS selectors, Bootstrap 4 basics",
+    tunits: [
+      Tunit.find(3)
+    ]
+  },
+  {
+    name: "HTML tables, HTML video & audio, Media-player, Intro to FE optimization ",
+    tunits: [
+      Tunit.find(3)
+    ]
+  },
+  {
+    name: "AJAX basics, ASync JavaScript, Working with Fetch",
+    tunits: [
+      Tunit.find(3)
+    ]
+  },
+  {
+    name: "Object-oriented JavaScript, Web Accessibility Compliance, Web optimization",
+    tunits: [
+      Tunit.find(3)
+    ]
+  },
+  {
+    name: "Practice with reusable components, Intro to React",
+    tunits: [
+      Tunit.find(4)
+    ]
+  },
+  {
+    name: "Fetching data & creating routes",
+    tunits: [
+      Tunit.find(4)
+    ]
+  },
+  {
+    name: "Using APIs to fetch data in React. Using Airtable as a lightweight CMS",
+    tunits: [
+      Tunit.find(4)
+    ]
+  },
+  {
+    name: "Authentication patterns. Using Firebase as a backend for a react app. Reviewing React Concepts.",
+    tunits: [
+      Tunit.find(4)
+    ]
+  },
+  {
+    name: "React Project.",
+    tunits: [
+      Tunit.find(4)
+    ]
+  },
+  {
+    name: "SQL Basics",
+    tunits: [
+      Tunit.find(5)
+    ]
+  },
+  {
+    name: "More SQL, Introduction to Ruby",
+    tunits: [
+      Tunit.find(5)
+    ]
+  },
+  {
+    name: "Ruby",
+    tunits: [
+      Tunit.find(5)
+    ]
+  },
+  {
+    name: "Ruby II",
+    tunits: [
+      Tunit.find(5)
+    ]
+  },
+  {
+    name: "Ruby III",
+    tunits: [
+      Tunit.find(5)
+    ]
+  },
+  {
+    name: "Ruby & Sinatra",
+    tunits: [
+      Tunit.find(5)
+    ]
+  },
+  {
+    name: "Ruby on Rails Basics",
+    tunits: [
+      Tunit.find(6)
+    ]
+  },
+  {
+    name: "Rails Development",
+    tunits: [
+      Tunit.find(6)
+    ]
+  },
+  {
+    name: "Additional Rails Topics",
+    tunits: [
+      Tunit.find(6)
+    ]
+  },
+  {
+    name: "Bringing it all together",
+    tunits: [
+      Tunit.find(6)
+    ]
+  },
+  {
+    name: "Bootstrap 4 Basics; Bootstrap in Rails.",
+    tunits: [
+      Tunit.find(6)
+    ]
+  },
+  {
+    name: "Building an API, Swagger, Ajax",
+    tunits: [
+      Tunit.find(6)
+    ]
+  },
+  {
+    name: "Final Project",
+    tunits: [
+      Tunit.find(6)
+    ]
+  }
+])
+
+
+# courses = Course.create([
+#   {
+#     name: "Ruby on Rails",
+#     description: "Front-End development with React.JS",
+#     cohorts: [
+#       Cohort.find(1)
+#     ]
+#   },
+#   {
+#     name: "Intro to programming",
+#     description: "Web basics for Front-End or Back-End development",
+#     cohorts: [
+#       Cohort.find(2)
+#     ]
+#   }
+# ])
+
+# units = Unit.create([
+#   {
+#     name: "Intro to Terminal | Intro to Git",
+#     description: "sdfasdf",
+#     courses: [
+#       Course.find(1)
+#     ] 
+#   },
+#   {
+#     name: "Intro to HTML & CSS | Intro to Wire Framing",
+#     description: "adfasdf",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "JS Basics | JS Functions | JS Numbers",
+#     description: "adfadf",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "Intro to Flexbox (Thanksgiving)",
+#     description: "adfadfad",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "JS Loops | JS Arrays | JS Objections",
+#     description: "adfasdfa",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "Landscape of JS",
+#     description: "adfasdfa",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "Catch Up week (mentor sessions continue)",
+#     description: "adfasdfadadf",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "Winter Holiday Break (no mentor sessions)",
+#     description: "adfadfasd",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "Battleship",
+#     description: "adfasdfadfadf",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "Finish Battleship (mentor sessions resume)",
+#     description: "adfasdfasdfas",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "JS and the DOM | DOM Scripting by Examples | CSS Selectors Quickstart",
+#     description: "adfasdfasdf",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "Working with Fetch | AJAX Basics | ASync Javascript",
+#     description: "adfadfasdf",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "Catch Up week + start on final projects (mentor sessions continue)",
+#     description: "adfasdfasdf",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "Final Projects",
+#     description: "adfasdfasd",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   },
+#   {
+#     name: "Final Project presentations",
+#     description: "adfasdfadfas",
+#     courses: [
+#       Course.find(1)
+#     ]
+#   }
+# ])
 
 # lessons = Lesson.create([
 #   {

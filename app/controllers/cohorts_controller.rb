@@ -48,6 +48,17 @@ class CohortsController < ApplicationController
     end
   end
 
+  def clone_course
+    @cohort = Cohort.find(params[:cohort_id])
+    @tcourse = Tcourse.find(params[:tcourse_id])
+
+    @course = CoreModules::CloneGenerator.clone_course(@cohort, @tcourse)
+    
+    if @course
+      render json: @course 
+    end 
+  end
+
   private
 
     def cohort_params

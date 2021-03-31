@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   resources :staffs
 
   resources :cohorts
+  post 'cohorts/:cohort_id/clone_course/:tcourse_id', to: 'cohorts#clone_course'
   resources :courses
+  post 'courses/:course_id/clone_unit/:tunit_id', to: 'courses#clone_unit'
   resources :units
   resources :lessons
   resources :materials
