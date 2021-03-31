@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   resources :staffs
 
   resources :cohorts
+  post 'cohorts/:cohort_id/clone_course/:tcourse_id', to: 'cohorts#clone_course'
   resources :courses
+  post 'courses/:course_id/clone_unit/:tunit_id', to: 'courses#clone_unit'
   resources :units
   resources :lessons
   resources :materials
@@ -35,9 +37,6 @@ Rails.application.routes.draw do
   get 'users', to: 'users#index'
   get 'user', to: 'users#show_current_user'
   put 'users/:id', to: 'users#update'
-
-  #All data courses
-  get '/', to: 'home#index'
 
   #Templates relationships generators
   get '/tcourses_tunits', to: 'tcourse_tunits#index'

@@ -1,5 +1,5 @@
 class TlessonsController < ApplicationController
-    # skip_before_action :authenticate_cookie
+    skip_before_action :authenticate_cookie
     before_action :set_tlesson, only: [:show, :update, :destroy]
 
     def index
