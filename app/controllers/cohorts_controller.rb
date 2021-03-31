@@ -48,22 +48,15 @@ class CohortsController < ApplicationController
     end
   end
 
-  def clone_course 
-    @tcourse = Tcourse.find(params[:tcourse_id])
+  def clone_course
     @cohort = Cohort.find(params[:cohort_id])
-    if @tcourse && @cohort
-      @course = Course.new(name: @tcourse.name, description: @tcourse.description)
-      @tcourse.tunits.each do |tunit| 
-        @unit = Unit.new(name: tunit.name, description: tunit.description, duration: tunit.duration);
-        if @unit.save
-          @course.units << @unit
-        end
-      end
-      if @course.save
-        @cohort.courses << @course
-        render json: { message: "Course cloned successfully", course: @course }
-      end
-    end
+    @tcourse = Tcourse.find(params[:tcourse_id])
+
+    @course = CoreModules::CloneGenerator.clone_course(@cohort, @tcourse)
+    
+    if @course
+      render json: @course 
+    end 
   end
 
   private
