@@ -5,9 +5,9 @@ class Unit < ApplicationRecord
   has_many :lessons, through: :unit_lessons
   has_many :weeks
 
-  validates_presence_of :unit_name, :description, :on => :create
+  validates_presence_of :name, :description, :on => :create
 
-  validates_length_of :unit_name, :description,
+  validates_length_of :name, :description,
     :minimum => 2,
     :allow_nil => true
 

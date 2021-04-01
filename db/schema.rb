@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_162355) do
   end
 
   create_table "courses", force: :cascade do |t|
-    t.string "course_name"
+    t.string "name"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -264,8 +264,9 @@ ActiveRecord::Schema.define(version: 2021_04_01_162355) do
   end
 
   create_table "units", force: :cascade do |t|
-    t.string "unit_name"
+    t.string "name"
     t.text "description"
+    t.string "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

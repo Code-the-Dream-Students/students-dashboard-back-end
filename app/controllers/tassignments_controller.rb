@@ -1,5 +1,5 @@
 class TassignmentsController < ApplicationController
-  # skip_before_action :authenticate_cookie
+  skip_before_action :authenticate_cookie
   before_action :set_tassignment, only: [:show, :update, :destroy]
 
   def index
