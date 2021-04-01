@@ -3,5 +3,4 @@ class CourseUnit < ApplicationRecord
   belongs_to :unit
 
   validates_presence_of :course, :unit
-
 end

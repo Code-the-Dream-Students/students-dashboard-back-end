@@ -28,7 +28,7 @@ class CohortsController < ApplicationController
     if @cohort.save
       render json: { message: "Cohort created", cohort: @cohort }
     else
-      error_json
+      render json: @cohort.errors
     end
   end
 
@@ -62,7 +62,7 @@ class CohortsController < ApplicationController
   private
 
     def cohort_params
-      params.require(:cohort).permit(:name, :description)
+      params.require(:cohort).permit(:name, :description, :start_date)
     end
 
     def set_cohort
