@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_222407) do
+ActiveRecord::Schema.define(version: 2021_04_01_162355) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 2021_03_23_222407) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "resources"
     t.text "assignment"
+    t.bigint "cohort_id", null: false
+    t.index ["cohort_id"], name: "index_assignments_on_cohort_id"
     t.index ["lesson_id"], name: "index_assignments_on_lesson_id"
   end
 
@@ -65,9 +67,32 @@ ActiveRecord::Schema.define(version: 2021_03_23_222407) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string "lesson_name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cohort_id", null: false
+    t.string "description"
+    t.string "name"
+    t.index ["cohort_id"], name: "index_lessons_on_cohort_id"
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.string "source_title"
+    t.string "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "lesson_id", null: false
+    t.bigint "cohort_id", null: false
+    t.bigint "student_id", null: false
+    t.string "description"
+    t.string "platform"
+    t.string "treehouse_type"
+    t.string "instructor"
+    t.string "duration"
+    t.text "learning_objectives"
+    t.text "notes"
+    t.index ["cohort_id"], name: "index_materials_on_cohort_id"
+    t.index ["lesson_id"], name: "index_materials_on_lesson_id"
+    t.index ["student_id"], name: "index_materials_on_student_id"
   end
 
   create_table "mentor_courses", force: :cascade do |t|
@@ -102,13 +127,6 @@ ActiveRecord::Schema.define(version: 2021_03_23_222407) do
     t.bigint "mentor_course_id", null: false
     t.index ["mentor_course_id"], name: "index_registered_mentor_sessions_on_mentor_course_id"
     t.index ["student_weekly_progress_id"], name: "index_registered_mentor_sessions_on_student_weekly_progress_id"
-  end
-
-  create_table "sources", force: :cascade do |t|
-    t.string "source_title"
-    t.string "link"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "staffs", force: :cascade do |t|
@@ -280,6 +298,11 @@ ActiveRecord::Schema.define(version: 2021_03_23_222407) do
     t.index ["unit_id"], name: "index_weeks_on_unit_id"
   end
 
+  add_foreign_key "assignments", "cohorts"
+  add_foreign_key "lessons", "cohorts"
+  add_foreign_key "materials", "cohorts"
+  add_foreign_key "materials", "lessons"
+  add_foreign_key "materials", "students"
   add_foreign_key "mentors", "users"
   add_foreign_key "registered_mentor_sessions", "mentor_courses"
   add_foreign_key "registered_mentor_sessions", "student_weekly_progresses"

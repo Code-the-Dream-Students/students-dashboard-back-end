@@ -998,7 +998,7 @@ assignments = Assignment.create([
 #   }
 # ])
 
-sources = Source.create([
+materials = Material.create([
   {
     source_title: "Computer Basics",
     link: "https://teamtreehouse.com/library/computer-basics",
