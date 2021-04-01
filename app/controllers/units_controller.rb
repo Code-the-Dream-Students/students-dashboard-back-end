@@ -8,12 +8,12 @@ class UnitsController < ApplicationController
     render json: @units, status: 200, include: ["courses.cohorts", "lessons"]
   end
 
-  def search
-    @units = params[:name] ? Unit.where("name ILIKE ?", "%#{params[:name]}%") :
-    params[:description] ? Unit.where("description ILIKE ?", "%#{params[:description]}%") : []
+  # def search
+  #   @units = params[:name] ? Unit.where("name ILIKE ?", "%#{params[:name]}%") :
+  #   params[:description] ? Unit.where("description ILIKE ?", "%#{params[:description]}%") : []
         
-    render json: @units, include: ["courses.cohorts", "lessons"]
-  end
+  #   render json: @units, include: ["courses.cohorts", "lessons"]
+  # end
 
   def show
     render json: @unit, status: 200, include: ["courses.cohorts", "lessons"]

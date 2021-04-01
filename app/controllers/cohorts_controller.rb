@@ -8,12 +8,12 @@ class CohortsController < ApplicationController
     render json: @cohorts, include: "courses.units.lessons"
   end
 
-  def search
-    @cohorts = params[:name] ? Cohort.where("name ILIKE ?", "%#{params[:name]}%") :
-    params[:description] ? Cohort.where("description ILIKE ?", "%#{params[:description]}%") : []
+  # def search
+  #   @cohorts = params[:name] ? Cohort.where("name ILIKE ?", "%#{params[:name]}%") :
+  #   params[:description] ? Cohort.where("description ILIKE ?", "%#{params[:description]}%") : []
 
-    render json: @cohorts, include: "courses.units.lessons"
-  end
+  #   render json: @cohorts, include: "courses.units.lessons"
+  # end
 
   def show
     if @cohort
