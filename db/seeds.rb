@@ -318,319 +318,319 @@ tlessons = Tlesson.create([
 ])
 
 
-# courses = Course.create([
-#   {
-#     name: "Ruby on Rails",
-#     description: "Front-End development with React.JS",
-#     cohorts: [
-#       Cohort.find(1)
-#     ]
-#   },
-#   {
-#     name: "Intro to programming",
-#     description: "Web basics for Front-End or Back-End development",
-#     cohorts: [
-#       Cohort.find(2)
-#     ]
-#   }
-# ])
+courses = Course.create([
+  {
+    name: "Ruby on Rails",
+    description: "Front-End development with React.JS",
+    cohorts: [
+      Cohort.find(1)
+    ]
+  },
+  {
+    name: "Intro to programming",
+    description: "Web basics for Front-End or Back-End development",
+    cohorts: [
+      Cohort.find(2)
+    ]
+  }
+])
 
-# units = Unit.create([
-#   {
-#     name: "Intro to Terminal | Intro to Git",
-#     description: "sdfasdf",
-#     courses: [
-#       Course.find(1)
-#     ] 
-#   },
-#   {
-#     name: "Intro to HTML & CSS | Intro to Wire Framing",
-#     description: "adfasdf",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "JS Basics | JS Functions | JS Numbers",
-#     description: "adfadf",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "Intro to Flexbox (Thanksgiving)",
-#     description: "adfadfad",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "JS Loops | JS Arrays | JS Objections",
-#     description: "adfasdfa",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "Landscape of JS",
-#     description: "adfasdfa",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "Catch Up week (mentor sessions continue)",
-#     description: "adfasdfadadf",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "Winter Holiday Break (no mentor sessions)",
-#     description: "adfadfasd",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "Battleship",
-#     description: "adfasdfadfadf",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "Finish Battleship (mentor sessions resume)",
-#     description: "adfasdfasdfas",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "JS and the DOM | DOM Scripting by Examples | CSS Selectors Quickstart",
-#     description: "adfasdfasdf",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "Working with Fetch | AJAX Basics | ASync Javascript",
-#     description: "adfadfasdf",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "Catch Up week + start on final projects (mentor sessions continue)",
-#     description: "adfasdfasdf",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "Final Projects",
-#     description: "adfasdfasd",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   },
-#   {
-#     name: "Final Project presentations",
-#     description: "adfasdfadfas",
-#     courses: [
-#       Course.find(1)
-#     ]
-#   }
-# ])
+units = Unit.create([
+  {
+    name: "Intro to Terminal | Intro to Git",
+    description: "sdfasdf",
+    courses: [
+      Course.find(1)
+    ] 
+  },
+  {
+    name: "Intro to HTML & CSS | Intro to Wire Framing",
+    description: "adfasdf",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "JS Basics | JS Functions | JS Numbers",
+    description: "adfadf",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "Intro to Flexbox (Thanksgiving)",
+    description: "adfadfad",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "JS Loops | JS Arrays | JS Objections",
+    description: "adfasdfa",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "Landscape of JS",
+    description: "adfasdfa",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "Catch Up week (mentor sessions continue)",
+    description: "adfasdfadadf",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "Winter Holiday Break (no mentor sessions)",
+    description: "adfadfasd",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "Battleship",
+    description: "adfasdfadfadf",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "Finish Battleship (mentor sessions resume)",
+    description: "adfasdfasdfas",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "JS and the DOM | DOM Scripting by Examples | CSS Selectors Quickstart",
+    description: "adfasdfasdf",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "Working with Fetch | AJAX Basics | ASync Javascript",
+    description: "adfadfasdf",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "Catch Up week + start on final projects (mentor sessions continue)",
+    description: "adfasdfasdf",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "Final Projects",
+    description: "adfasdfasd",
+    courses: [
+      Course.find(1)
+    ]
+  },
+  {
+    name: "Final Project presentations",
+    description: "adfasdfadfas",
+    courses: [
+      Course.find(1)
+    ]
+  }
+])
 
-# lessons = Lesson.create([
-#   {
-#     lesson_name: "Digital Literacy, Intro to Terminal, Intro to Git, Intro to HTML & CSS",
-#     units: [
-#       Unit.find(1)
-#     ]
-#   },
-#   {
-#     lesson_name: "Intro to Wireframing | Intro to JavaScript | HTML Basics",
-#     units: [
-#       Unit.find(1)
-#     ]
-#   },
-#   {
-#     lesson_name: "Beginning JavaScript | Functions | Numbers",
-#     units: [
-#       Unit.find(2)
-#     ]
-#   },
-#   {
-#     lesson_name: "Loops | Arrays | Objects",
-#     units: [
-#       Unit.find(2)
-#     ]
-#   },
-#   {
-#     lesson_name: "Additional JavaScript exercises",
-#     units: [
-#       Unit.find(2)
-#     ]
-#   },
-#   {
-#     lesson_name: "JavaScript and the DOM | CSS Selectors",
-#     units: [
-#       Unit.find(2)
-#     ]
-#   },
-#   {
-#     lesson_name: "DOM Scripting",
-#     units: [
-#       Unit.find(2)
-#     ]
-#   },
-#   {
-#     lesson_name: "Build",
-#     units: [
-#       Unit.find(2)
-#     ]
-#   },
-#   {
-#     lesson_name: "Debugging with CSS, CSS layouts",
-#     units: [
-#       Unit.find(3)
-#     ]
-#   },
-#   {
-#     lesson_name: "Advanced HTML & CSS, CSS selectors, Bootstrap 4 basics",
-#     units: [
-#       Unit.find(3)
-#     ]
-#   },
-#   {
-#     lesson_name: "HTML tables, HTML video & audio, Media-player, Intro to FE optimization ",
-#     units: [
-#       Unit.find(3)
-#     ]
-#   },
-#   {
-#     lesson_name: "AJAX basics, ASync JavaScript, Working with Fetch",
-#     units: [
-#       Unit.find(3)
-#     ]
-#   },
-#   {
-#     lesson_name: "Object-oriented JavaScript, Web Accessibility Compliance, Web optimization",
-#     units: [
-#       Unit.find(3)
-#     ]
-#   },
-#   {
-#     lesson_name: "Practice with reusable components, Intro to React",
-#     units: [
-#       Unit.find(4)
-#     ]
-#   },
-#   {
-#     lesson_name: "Fetching data & creating routes",
-#     units: [
-#       Unit.find(4)
-#     ]
-#   },
-#   {
-#     lesson_name: "Using APIs to fetch data in React. Using Airtable as a lightweight CMS",
-#     units: [
-#       Unit.find(4)
-#     ]
-#   },
-#   {
-#     lesson_name: "Authentication patterns. Using Firebase as a backend for a react app. Reviewing React Concepts.",
-#     units: [
-#       Unit.find(4)
-#     ]
-#   },
-#   {
-#     lesson_name: "React Project.",
-#     units: [
-#       Unit.find(4)
-#     ]
-#   },
-#   {
-#     lesson_name: "SQL Basics",
-#     units: [
-#       Unit.find(5)
-#     ]
-#   },
-#   {
-#     lesson_name: "More SQL, Introduction to Ruby",
-#     units: [
-#       Unit.find(5)
-#     ]
-#   },
-#   {
-#     lesson_name: "Ruby",
-#     units: [
-#       Unit.find(5)
-#     ]
-#   },
-#   {
-#     lesson_name: "Ruby II",
-#     units: [
-#       Unit.find(5)
-#     ]
-#   },
-#   {
-#     lesson_name: "Ruby III",
-#     units: [
-#       Unit.find(5)
-#     ]
-#   },
-#   {
-#     lesson_name: "Ruby & Sinatra",
-#     units: [
-#       Unit.find(5)
-#     ]
-#   },
-#   {
-#     lesson_name: "Ruby on Rails Basics",
-#     units: [
-#       Unit.find(6)
-#     ]
-#   },
-#   {
-#     lesson_name: "Rails Development",
-#     units: [
-#       Unit.find(6)
-#     ]
-#   },
-#   {
-#     lesson_name: "Additional Rails Topics",
-#     units: [
-#       Unit.find(6)
-#     ]
-#   },
-#   {
-#     lesson_name: "Bringing it all together",
-#     units: [
-#       Unit.find(6)
-#     ]
-#   },
-#   {
-#     lesson_name: "Bootstrap 4 Basics; Bootstrap in Rails.",
-#     units: [
-#       Unit.find(6)
-#     ]
-#   },
-#   {
-#     lesson_name: "Building an API, Swagger, Ajax",
-#     units: [
-#       Unit.find(6)
-#     ]
-#   },
-#   {
-#     lesson_name: "Final Project",
-#     units: [
-#       Unit.find(6)
-#     ]
-#   }
-# ])
+lessons = Lesson.create([
+  {
+    lesson_name: "Digital Literacy, Intro to Terminal, Intro to Git, Intro to HTML & CSS",
+    units: [
+      Unit.find(1)
+    ]
+  },
+  {
+    lesson_name: "Intro to Wireframing | Intro to JavaScript | HTML Basics",
+    units: [
+      Unit.find(1)
+    ]
+  },
+  {
+    lesson_name: "Beginning JavaScript | Functions | Numbers",
+    units: [
+      Unit.find(2)
+    ]
+  },
+  {
+    lesson_name: "Loops | Arrays | Objects",
+    units: [
+      Unit.find(2)
+    ]
+  },
+  {
+    lesson_name: "Additional JavaScript exercises",
+    units: [
+      Unit.find(2)
+    ]
+  },
+  {
+    lesson_name: "JavaScript and the DOM | CSS Selectors",
+    units: [
+      Unit.find(2)
+    ]
+  },
+  {
+    lesson_name: "DOM Scripting",
+    units: [
+      Unit.find(2)
+    ]
+  },
+  {
+    lesson_name: "Build",
+    units: [
+      Unit.find(2)
+    ]
+  },
+  {
+    lesson_name: "Debugging with CSS, CSS layouts",
+    units: [
+      Unit.find(3)
+    ]
+  },
+  {
+    lesson_name: "Advanced HTML & CSS, CSS selectors, Bootstrap 4 basics",
+    units: [
+      Unit.find(3)
+    ]
+  },
+  {
+    lesson_name: "HTML tables, HTML video & audio, Media-player, Intro to FE optimization ",
+    units: [
+      Unit.find(3)
+    ]
+  },
+  {
+    lesson_name: "AJAX basics, ASync JavaScript, Working with Fetch",
+    units: [
+      Unit.find(3)
+    ]
+  },
+  {
+    lesson_name: "Object-oriented JavaScript, Web Accessibility Compliance, Web optimization",
+    units: [
+      Unit.find(3)
+    ]
+  },
+  {
+    lesson_name: "Practice with reusable components, Intro to React",
+    units: [
+      Unit.find(4)
+    ]
+  },
+  {
+    lesson_name: "Fetching data & creating routes",
+    units: [
+      Unit.find(4)
+    ]
+  },
+  {
+    lesson_name: "Using APIs to fetch data in React. Using Airtable as a lightweight CMS",
+    units: [
+      Unit.find(4)
+    ]
+  },
+  {
+    lesson_name: "Authentication patterns. Using Firebase as a backend for a react app. Reviewing React Concepts.",
+    units: [
+      Unit.find(4)
+    ]
+  },
+  {
+    lesson_name: "React Project.",
+    units: [
+      Unit.find(4)
+    ]
+  },
+  {
+    lesson_name: "SQL Basics",
+    units: [
+      Unit.find(5)
+    ]
+  },
+  {
+    lesson_name: "More SQL, Introduction to Ruby",
+    units: [
+      Unit.find(5)
+    ]
+  },
+  {
+    lesson_name: "Ruby",
+    units: [
+      Unit.find(5)
+    ]
+  },
+  {
+    lesson_name: "Ruby II",
+    units: [
+      Unit.find(5)
+    ]
+  },
+  {
+    lesson_name: "Ruby III",
+    units: [
+      Unit.find(5)
+    ]
+  },
+  {
+    lesson_name: "Ruby & Sinatra",
+    units: [
+      Unit.find(5)
+    ]
+  },
+  {
+    lesson_name: "Ruby on Rails Basics",
+    units: [
+      Unit.find(6)
+    ]
+  },
+  {
+    lesson_name: "Rails Development",
+    units: [
+      Unit.find(6)
+    ]
+  },
+  {
+    lesson_name: "Additional Rails Topics",
+    units: [
+      Unit.find(6)
+    ]
+  },
+  {
+    lesson_name: "Bringing it all together",
+    units: [
+      Unit.find(6)
+    ]
+  },
+  {
+    lesson_name: "Bootstrap 4 Basics; Bootstrap in Rails.",
+    units: [
+      Unit.find(6)
+    ]
+  },
+  {
+    lesson_name: "Building an API, Swagger, Ajax",
+    units: [
+      Unit.find(6)
+    ]
+  },
+  {
+    lesson_name: "Final Project",
+    units: [
+      Unit.find(6)
+    ]
+  }
+])
 
 # assignments = Assignment.create([
 #   {
