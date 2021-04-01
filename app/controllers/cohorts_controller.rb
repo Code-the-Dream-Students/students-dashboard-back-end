@@ -8,12 +8,12 @@ class CohortsController < ApplicationController
     render json: @cohorts, include: "courses.units.lessons"
   end
 
-  def search
-    @cohorts = params[:name] ? Cohort.where("name ILIKE ?", "%#{params[:name]}%") :
-    params[:description] ? Cohort.where("description ILIKE ?", "%#{params[:description]}%") : []
+  # def search
+  #   @cohorts = params[:name] ? Cohort.where("name ILIKE ?", "%#{params[:name]}%") :
+  #   params[:description] ? Cohort.where("description ILIKE ?", "%#{params[:description]}%") : []
 
-    render json: @cohorts, include: "courses.units.lessons"
-  end
+  #   render json: @cohorts, include: "courses.units.lessons"
+  # end
 
   def show
     if @cohort
@@ -26,23 +26,23 @@ class CohortsController < ApplicationController
   def create
     @cohort = Cohort.new(cohort_params)
     if @cohort.save
-      render json: { message: "Cohort created", cohort: @cohort }
+      render json: { message: "Cohort successfully created", cohort: @cohort }
     else
-      error_json
+      render json: @cohort.errors
     end
   end
 
   def update
     if @cohort.update(cohort_params)
-      render json: { message: "Cohort updated", cohort: @cohort }
+      render json: { message: "Cohort successfully updated", cohort: @cohort }
     else
       error_json
     end
   end
 
   def destroy
-    if @cohort.destroy
-      render json: { message: "Cohort deleted"}
+    if CoreModules::DeleteClone.delete_cohort(@cohort)
+      render json: { message: "Cohort successfully deleted", cohort: @cohort }
     else
       error_json
     end
@@ -62,7 +62,7 @@ class CohortsController < ApplicationController
   private
 
     def cohort_params
-      params.require(:cohort).permit(:name, :description)
+      params.require(:cohort).permit(:name, :description, :start_date)
     end
 
     def set_cohort
@@ -70,7 +70,7 @@ class CohortsController < ApplicationController
     end
 
     def error_json
-      render json: { error: "Not Found" }, status: 404
+      render json: { error: "Bad request" }, status: 404
     end
 
 end
