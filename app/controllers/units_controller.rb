@@ -1,6 +1,6 @@
 class UnitsController < ApplicationController
 
-  # skip_before_action :authenticate_cookie
+  skip_before_action :authenticate_cookie
   before_action :set_unit, only: [:show, :update, :destroy]
 
   def index
@@ -37,8 +37,8 @@ class UnitsController < ApplicationController
   end
 
   def destroy
-    if @unit.destroy
-      render json: { message: "Unit deleted" }, status: 200
+    if CoreModules::DeleteClone.delete_unit(@unit)
+      render json: { message: "Unit successfully deleted", unit: @unit }
     else
       error_json
     end
@@ -55,6 +55,6 @@ class UnitsController < ApplicationController
     end
 
     def error_json
-      render json: { error: "Not Found" }, status: 404
+      render json: { error: "Bad request" }, status: 404
     end
 end

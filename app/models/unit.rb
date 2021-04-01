@@ -8,7 +8,7 @@ class Unit < ApplicationRecord
   validates_presence_of :name, 
     :on => :create
 
-  validates_length_of :name, :description, :duration
+  validates_length_of :name, :description, :duration,
     :minimum => 2,
     :allow_nil => true,
     :allow_blank => true
