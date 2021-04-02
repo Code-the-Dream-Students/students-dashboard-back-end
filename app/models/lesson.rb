@@ -3,6 +3,7 @@ class Lesson < ApplicationRecord
   has_many :unit_lessons
   has_many :units, through: :unit_lessons
   has_one :assignment
+  belongs_to :cohort
   
   validates_presence_of :name, :on => :create
 

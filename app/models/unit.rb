@@ -3,7 +3,8 @@ class Unit < ApplicationRecord
   has_many :courses, through: :course_units
   has_many :unit_lessons
   has_many :lessons, through: :unit_lessons
-  has_many :weeks
+  belongs_to :cohort
+  # has_many :weeks
 
   validates_presence_of :name, :description, :on => :create
 

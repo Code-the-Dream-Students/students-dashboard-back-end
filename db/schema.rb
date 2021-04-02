@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_162355) do
+ActiveRecord::Schema.define(version: 2021_04_02_131559) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,8 @@ ActiveRecord::Schema.define(version: 2021_04_01_162355) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cohort_id", null: false
+    t.index ["cohort_id"], name: "index_courses_on_cohort_id"
   end
 
   create_table "lesson_sources", force: :cascade do |t|
@@ -269,6 +271,8 @@ ActiveRecord::Schema.define(version: 2021_04_01_162355) do
     t.string "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "cohort_id", null: false
+    t.index ["cohort_id"], name: "index_units_on_cohort_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -300,6 +304,7 @@ ActiveRecord::Schema.define(version: 2021_04_01_162355) do
   end
 
   add_foreign_key "assignments", "cohorts"
+  add_foreign_key "courses", "cohorts"
   add_foreign_key "lessons", "cohorts"
   add_foreign_key "materials", "cohorts"
   add_foreign_key "materials", "lessons"
@@ -314,4 +319,5 @@ ActiveRecord::Schema.define(version: 2021_04_01_162355) do
   add_foreign_key "student_weekly_progresses", "units"
   add_foreign_key "student_weekly_progresses", "weeks"
   add_foreign_key "students", "users"
+  add_foreign_key "units", "cohorts"
 end
