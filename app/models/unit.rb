@@ -6,10 +6,12 @@ class Unit < ApplicationRecord
   belongs_to :cohort
   # has_many :weeks
 
-  validates_presence_of :name, :description, :on => :create
+  validates_presence_of :name, 
+    :on => :create
 
-  validates_length_of :name, :description,
+  validates_length_of :name, :description, :duration,
     :minimum => 2,
-    :allow_nil => true
+    :allow_nil => true,
+    :allow_blank => true
 
 end

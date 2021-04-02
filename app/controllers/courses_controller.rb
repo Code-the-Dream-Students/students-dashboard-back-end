@@ -7,12 +7,12 @@ class CoursesController < ApplicationController
     render json: @courses, include: ["cohorts", "units.lessons"]
   end
 
-  def search
-    @courses = params[:name] ? Course.where("name ILIKE ?", "%#{params[:name]}%") :
-    params[:description] ? Course.where("description ILIKE ?", "%#{params[:description]}%") : []
+  # def search
+  #   @courses = params[:name] ? Course.where("name ILIKE ?", "%#{params[:name]}%") :
+  #   params[:description] ? Course.where("description ILIKE ?", "%#{params[:description]}%") : []
 
-    render json: @courses, include: ["cohorts", "units.lessons"]
-  end
+  #   render json: @courses, include: ["cohorts", "units.lessons"]
+  # end
 
   def show
     if @course
@@ -40,8 +40,8 @@ class CoursesController < ApplicationController
   end
 
   def destroy
-    if @course.destroy
-      render json: { message: "Course deleted" }, status: 200
+    if CoreModules::DeleteClone.delete_course(@course)
+      render json: { message: "Course successfully deleted", course: @course }
     else
       error_json
     end
@@ -69,7 +69,7 @@ class CoursesController < ApplicationController
     end
 
     def error_json
-      render json: { error: "Not Found" }, status: 404
+      render json: { error: "Bad request" }, status: 404
     end
     
 end

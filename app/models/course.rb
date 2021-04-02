@@ -8,11 +8,12 @@ class Course < ApplicationRecord
   # has_many :mentor_courses
   # has_many :mentors, through: :mentor_courses
   
-  validates_presence_of :name, :description,
+  validates_presence_of :name,
     :on => :create
 
   validates_length_of :name, :description,
     :minimum => 2,
-    :allow_nil => true
-
+    :allow_nil => true,
+    :allow_blank => true
+    
 end
