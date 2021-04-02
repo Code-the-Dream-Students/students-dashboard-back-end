@@ -1,5 +1,4 @@
 class CoursesController < ApplicationController
-
   skip_before_action :authenticate_cookie
   before_action :set_course, only: [:show, :update, :destroy]
 
