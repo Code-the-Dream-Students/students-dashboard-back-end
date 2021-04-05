@@ -1,5 +1,6 @@
 class Lesson < ApplicationRecord
-  has_many :materials
+  has_many :lesson_materials
+  has_many :materials, through: :lesson_materials
   has_many :unit_lessons
   has_many :units, through: :unit_lessons
   has_one :assignment

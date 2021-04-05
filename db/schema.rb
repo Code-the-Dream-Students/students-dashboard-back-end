@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_02_173046) do
+ActiveRecord::Schema.define(version: 2021_04_05_222853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,6 @@ ActiveRecord::Schema.define(version: 2021_04_02_173046) do
     t.datetime "updated_at", precision: 6, null: false
     t.text "resources"
     t.text "assignment"
-    t.bigint "cohort_id", null: false
-    t.index ["cohort_id"], name: "index_assignments_on_cohort_id"
     t.index ["lesson_id"], name: "index_assignments_on_lesson_id"
   end
 
@@ -64,6 +62,8 @@ ActiveRecord::Schema.define(version: 2021_04_02_173046) do
   create_table "lesson_materials", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "lesson_id"
+    t.integer "material_id"
   end
 
   create_table "lesson_sources", force: :cascade do |t|
@@ -87,9 +87,6 @@ ActiveRecord::Schema.define(version: 2021_04_02_173046) do
     t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "lesson_id", null: false
-    t.bigint "cohort_id", null: false
-    t.bigint "student_id", null: false
     t.string "description"
     t.string "platform"
     t.string "treehouse_type"
@@ -97,9 +94,6 @@ ActiveRecord::Schema.define(version: 2021_04_02_173046) do
     t.string "duration"
     t.text "learning_objectives"
     t.text "notes"
-    t.index ["cohort_id"], name: "index_materials_on_cohort_id"
-    t.index ["lesson_id"], name: "index_materials_on_lesson_id"
-    t.index ["student_id"], name: "index_materials_on_student_id"
   end
 
   create_table "mentor_courses", force: :cascade do |t|
@@ -308,12 +302,8 @@ ActiveRecord::Schema.define(version: 2021_04_02_173046) do
     t.index ["unit_id"], name: "index_weeks_on_unit_id"
   end
 
-  add_foreign_key "assignments", "cohorts"
   add_foreign_key "courses", "cohorts"
   add_foreign_key "lessons", "cohorts"
-  add_foreign_key "materials", "cohorts"
-  add_foreign_key "materials", "lessons"
-  add_foreign_key "materials", "students"
   add_foreign_key "mentors", "users"
   add_foreign_key "registered_mentor_sessions", "mentor_courses"
   add_foreign_key "registered_mentor_sessions", "student_weekly_progresses"
