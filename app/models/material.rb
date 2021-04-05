@@ -1,6 +1,7 @@
 class Material < ApplicationRecord
     belongs_to :student
     belongs_to :cohort
+    belongs_to :lesson
 
 
     validates_presence_of :source_title, :link, :on => :create
