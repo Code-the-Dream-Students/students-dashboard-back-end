@@ -61,7 +61,7 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:name, :description)
+    params.require(:lesson).permit(:name, :description, :cohort_id)
   end
 
   def set_lesson

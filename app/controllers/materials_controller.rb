@@ -1,4 +1,4 @@
-class MaterialController < ApplicationController
+class MaterialsController < ApplicationController
     skip_before_action :authenticate_cookie
     before_action :set_material, only: [:show, :update, :destroy]
 
