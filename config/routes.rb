@@ -59,6 +59,12 @@ Rails.application.routes.draw do
   post '/tlessons/:tlesson_id/tassignments/:tassignment_id', to: 'tlesson_tassignments#create'
   delete '/tlessons/:tlesson_id/tassignments/:tassignment_id', to: 'tlesson_tassignments#destroy'
 
+  get 'student_assignment/students_tracking', to: 'student_assignment#students_tracking'
+  get 'student_assignment/:student_id', to: 'student_assignment#index'
+  get 'student_assignment/:student_id/student_tracking', to: 'student_assignment#student_tracking'
+  get 'student_assignment/:student_id/assignment/:assignment_id', to: 'student_assignment#show'
+  patch 'student_assignment/:student_id/assignment/:assignment_id', to: 'student_assignment#update'
+
   # post '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#create'
   # delete '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#destroy'
   # post '/courses/:course_id/units/:unit_id', to: 'course_units#create'

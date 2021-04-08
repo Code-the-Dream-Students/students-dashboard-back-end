@@ -47,16 +47,16 @@ class AssignmentsController < ApplicationController
     end
   end
 
-  def clone_assignment
-    @lesson = Lesson.find(params[:lesson_id])
-    @tassignment = Tassignment.find(params[:tassignment_id])
+  # def clone_assignment
+  #   @lesson = Lesson.find(params[:lesson_id])
+  #   @tassignment = Tassignment.find(params[:tassignment_id])
 
-    @assignment = CoreModules::CloneGenerator.clone_material(@lesson, @tassignment)
+  #   @assignment = CoreModules::CloneGenerator.clone_material(@lesson, @tassignment)
     
-    if @assignment
-      render json: @assignment 
-    end 
-  end
+  #   if @assignment
+  #     render json: @assignment 
+  #   end 
+  # end
 
   private
 

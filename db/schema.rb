@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_222853) do
+ActiveRecord::Schema.define(version: 2021_04_06_213749) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -140,6 +140,21 @@ ActiveRecord::Schema.define(version: 2021_04_05_222853) do
     t.index ["user_id"], name: "index_staffs_on_user_id"
   end
 
+  create_table "student_assignments", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "cohort_id", null: false
+    t.bigint "material_id", null: false
+    t.integer "status"
+    t.string "assignment_submission"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "assignment_id", null: false
+    t.index ["assignment_id"], name: "index_student_assignments_on_assignment_id"
+    t.index ["cohort_id"], name: "index_student_assignments_on_cohort_id"
+    t.index ["material_id"], name: "index_student_assignments_on_material_id"
+    t.index ["student_id"], name: "index_student_assignments_on_student_id"
+  end
+
   create_table "student_courses", force: :cascade do |t|
     t.bigint "student_id", null: false
     t.bigint "course_id", null: false
@@ -147,6 +162,18 @@ ActiveRecord::Schema.define(version: 2021_04_05_222853) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["course_id"], name: "index_student_courses_on_course_id"
     t.index ["student_id"], name: "index_student_courses_on_student_id"
+  end
+
+  create_table "student_materials", force: :cascade do |t|
+    t.bigint "student_id", null: false
+    t.bigint "cohort_id", null: false
+    t.bigint "material_id", null: false
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["cohort_id"], name: "index_student_materials_on_cohort_id"
+    t.index ["material_id"], name: "index_student_materials_on_material_id"
+    t.index ["student_id"], name: "index_student_materials_on_student_id"
   end
 
   create_table "student_weekly_progresses", force: :cascade do |t|
@@ -308,8 +335,15 @@ ActiveRecord::Schema.define(version: 2021_04_05_222853) do
   add_foreign_key "registered_mentor_sessions", "mentor_courses"
   add_foreign_key "registered_mentor_sessions", "student_weekly_progresses"
   add_foreign_key "staffs", "users"
+  add_foreign_key "student_assignments", "assignments"
+  add_foreign_key "student_assignments", "cohorts"
+  add_foreign_key "student_assignments", "materials"
+  add_foreign_key "student_assignments", "students"
   add_foreign_key "student_courses", "courses"
   add_foreign_key "student_courses", "students"
+  add_foreign_key "student_materials", "cohorts"
+  add_foreign_key "student_materials", "materials"
+  add_foreign_key "student_materials", "students"
   add_foreign_key "student_weekly_progresses", "students"
   add_foreign_key "student_weekly_progresses", "units"
   add_foreign_key "student_weekly_progresses", "weeks"

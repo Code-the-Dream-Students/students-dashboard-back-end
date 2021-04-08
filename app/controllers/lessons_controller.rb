@@ -47,16 +47,16 @@ class LessonsController < ApplicationController
     end
   end
 
-  def clone_lesson
-    @unit = Unit.find(params[:unit_id])
-    @tlesson = Tlesson.find(params[:tlesson_id])
+  # def clone_lesson
+  #   @unit = Unit.find(params[:unit_id])
+  #   @tlesson = Tlesson.find(params[:tlesson_id])
 
-    @lesson = CoreModules::CloneGenerator.clone_material(@unit, @tlesson)
+  #   @lesson = CoreModules::CloneGenerator.clone_material(@unit, @tlesson)
     
-    if @lesson
-      render json: @lesson 
-    end 
-  end
+  #   if @lesson
+  #     render json: @lesson 
+  #   end 
+  # end
 
   private
 

@@ -47,16 +47,16 @@ class MaterialsController < ApplicationController
     end
   end
 
-  def clone_material
-    @lesson = Lesson.find(params[:lesson_id])
-    @tmaterial = Tmaterial.find(params[:tmaterial_id])
+  # def clone_material
+  #   @lesson = Lesson.find(params[:lesson_id])
+  #   @tmaterial = Tmaterial.find(params[:tmaterial_id])
 
-    @material = CoreModules::CloneGenerator.clone_material(@lesson, @tmaterial)
+  #   @material = CoreModules::CloneGenerator.clone_material(@lesson, @tmaterial)
     
-    if @material
-      render json: @material 
-    end 
-  end
+  #   if @material
+  #     render json: @material 
+  #   end 
+  # end
 
   private
 

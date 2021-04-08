@@ -1,3 +1,158 @@
+users = User.create([
+  {
+    username: "user1",
+    email: "user1@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "admin"
+  },
+  {
+    username: "jgabitto",
+    email: "jgabitto1792@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "staff"
+  },
+  {
+    username: "user2",
+    email: "user2@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "staff"
+  },
+  {
+    username: "user3",
+    email: "user3@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "mentor"
+  },
+  {
+    username: "user4",
+    email: "user4@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "mentor"
+  },
+  {
+    username: "user5",
+    email: "user5@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "mentor"
+  },
+  {
+    username: "user6",
+    email: "user6@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "mentor"
+  },
+  {
+    username: "user7",
+    email: "user7@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "student"
+  },
+  {
+    username: "user8",
+    email: "user8@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "student"
+  },
+  {
+    username: "user9",
+    email: "user9@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "student"
+  },
+  {
+    username: "user10",
+    email: "user10@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "student"
+  },
+  {
+    username: "user11",
+    email: "user11@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "student"
+  },
+  {
+    username: "user12",
+    email: "user12@gmail.com",
+    password: "123456",
+    password_confirmation: "123456",
+    role: "student"
+  }
+])
+
+students = Student.create([
+  {
+    first_name: "Jorge",
+    last_name: "Gabitto",
+    enrolled: true,
+    user_id: 7
+  },
+  {
+    first_name: "Sinan",
+    last_name: "Cengiz",
+    enrolled: true,
+    user_id: 8
+  },
+  {
+    first_name: "Denilson",
+    last_name: "Velasquez",
+    enrolled: true,
+    user_id: 9
+  },
+  {
+    first_name: "Johan",
+    last_name: "Ochoa",
+    enrolled: true,
+    user_id: 10
+  },
+  {
+    first_name: "Lu",
+    last_name: "Ar",
+    enrolled: true,
+    user_id: 11
+  },
+  {
+    first_name: "Natalli",
+    last_name: "Natova",
+    enrolled: true,
+    user_id: 12
+  }
+])
+
+staffs = Staff.create([
+  {
+    title: "webspace Admin",
+    first_name: "Lori",
+    last_name: "Administrator",
+    user_id: 1
+  },
+    {
+    title: "Admin",
+    first_name: "J",
+    last_name: "G",
+    user_id: 2
+  },
+  {
+    title: "Admin",
+    first_name: "Rayn",
+    last_name: "Rayu",
+    user_id: 3
+  }
+])
+
+
 cohorts = Cohort.create([
   {
     name: "Red Koi",
@@ -1399,6 +1554,201 @@ materials = Material.create([
   }
 ])
 
+student_assignments = StudentAssignment.create([
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(1).id,
+    assignment_id: Assignment.find(1).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(2).id,
+    assignment_id: Assignment.find(2).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(3).id,
+    assignment_id: Assignment.find(3).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(4).id,
+    assignment_id: Assignment.find(4).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(5).id,
+    assignment_id: Assignment.find(5).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(6).id,
+    assignment_id: Assignment.find(6).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(7).id,
+    assignment_id: Assignment.find(7).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(8).id,
+    assignment_id: Assignment.find(8).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(9).id,
+    assignment_id: Assignment.find(9).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(10).id,
+    assignment_id: Assignment.find(10).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(11).id,
+    assignment_id: Assignment.find(11).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(12).id,
+    assignment_id: Assignment.find(12).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(13).id,
+    assignment_id: Assignment.find(13).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(14).id,
+    assignment_id: Assignment.find(14).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(15).id,
+    assignment_id: Assignment.find(15).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(16).id,
+    assignment_id: Assignment.find(16).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(17).id,
+    assignment_id: Assignment.find(17).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(18).id,
+    assignment_id: Assignment.find(18).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(19).id,
+    assignment_id: Assignment.find(19).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(20).id,
+    assignment_id: Assignment.find(20).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(21).id,
+    assignment_id: Assignment.find(21).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(22).id,
+    assignment_id: Assignment.find(22).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(23).id,
+    assignment_id: Assignment.find(23).id,
+    status: 0,
+    assignment_submission: "",
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(24).id,
+    assignment_id: Assignment.find(24).id,
+    status: 0,
+    assignment_submission: "",
+  },
+])
+
 # # weeks = Week.create([
 # #   {
 # #     week_number: 1,
@@ -2089,121 +2439,6 @@ materials = Material.create([
 #   }
 # ])
 
-users = User.create([
-  {
-    username: "user1",
-    email: "user1@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "admin"
-  },
-  {
-    username: "jgabitto",
-    email: "jgabitto1792@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "staff"
-  },
-  {
-    username: "user2",
-    email: "user2@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "staff"
-  },
-  {
-    username: "user3",
-    email: "user3@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "mentor"
-  },
-  {
-    username: "user4",
-    email: "user4@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "mentor"
-  },
-  {
-    username: "user5",
-    email: "user5@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "mentor"
-  },
-  {
-    username: "user6",
-    email: "user6@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "mentor"
-  },
-  {
-    username: "user7",
-    email: "user7@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "student"
-  },
-  {
-    username: "user8",
-    email: "user8@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "student"
-  },
-  {
-    username: "user9",
-    email: "user9@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "student"
-  },
-  {
-    username: "user10",
-    email: "user10@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "student"
-  },
-  {
-    username: "user11",
-    email: "user11@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "student"
-  },
-  {
-    username: "user12",
-    email: "user12@gmail.com",
-    password: "123456",
-    password_confirmation: "123456",
-    role: "student"
-  }
-])
-
-staffs = Staff.create([
-  {
-    title: "webspace Admin",
-    first_name: "Lori",
-    last_name: "Administrator",
-    user_id: 1
-  },
-    {
-    title: "Admin",
-    first_name: "J",
-    last_name: "G",
-    user_id: 2
-  },
-  {
-    title: "Admin",
-    first_name: "Rayn",
-    last_name: "Rayu",
-    user_id: 3
-  }
-])
-
 # mentors = Mentor.create([
 #   {
 #     source_title: "Create Media Player",
@@ -2671,45 +2906,6 @@ staffs = Staff.create([
 # #     user_id: 6
 # #   }
 # # ])
-
-# students = Student.create([
-#   {
-#     first_name: "Jorge",
-#     last_name: "Gabitto",
-#     enrolled: true,
-#     user_id: 7
-#   },
-#   {
-#     first_name: "Sinan",
-#     last_name: "Cengiz",
-#     enrolled: true,
-#     user_id: 8
-#   },
-#   {
-#     first_name: "Denilson",
-#     last_name: "Velasquez",
-#     enrolled: true,
-#     user_id: 9
-#   },
-#   {
-#     first_name: "Johan",
-#     last_name: "Ochoa",
-#     enrolled: true,
-#     user_id: 10
-#   },
-#   {
-#     first_name: "Lu",
-#     last_name: "Ar",
-#     enrolled: true,
-#     user_id: 11
-#   },
-#   {
-#     first_name: "Natalli",
-#     last_name: "Natova",
-#     enrolled: true,
-#     user_id: 12
-#   }
-# ])
 
 # # mentor_courses = MentorCourse.create([
 # #   {
