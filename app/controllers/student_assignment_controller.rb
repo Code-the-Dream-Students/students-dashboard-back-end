@@ -33,7 +33,6 @@ class StudentAssignmentController < ApplicationController
     end
 
     def create
-        
     end
 
     private

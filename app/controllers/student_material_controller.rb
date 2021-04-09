@@ -7,7 +7,7 @@ class StudentMaterialController < ApplicationController
     # serialization_scope :view_context
 
     def index
-        render json: @student_materials
+        render json: @student_materials, include: ['student', 'material', 'cohort', 'material.lesson']
     end
 
     def show

@@ -1554,6 +1554,153 @@ materials = Material.create([
   }
 ])
 
+student_materials = StudentMaterial.create([
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(1).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(2).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(3).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(4).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(5).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(6).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(7).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(8).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(9).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(10).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(11).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(12).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(13).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(14).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(15).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(16).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(17).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(18).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(19).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(20).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(21).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(22).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(23).id,
+    status: 0,
+  },
+  {
+    student_id: Student.find(1).id,
+    cohort_id: Cohort.find(1).id,
+    material_id: Material.find(24).id,
+    status: 0,
+  },
+])
+
 student_assignments = StudentAssignment.create([
   {
     student_id: Student.find(1).id,
@@ -1748,6 +1895,7 @@ student_assignments = StudentAssignment.create([
     assignment_submission: "",
   },
 ])
+
 
 # # weeks = Week.create([
 # #   {
