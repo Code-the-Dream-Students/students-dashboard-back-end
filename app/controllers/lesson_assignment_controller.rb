@@ -1,14 +1,14 @@
-class LessonMaterialController < ApplicationController
+class LessonAssignmentController < ApplicationController
     skip_before_action :authenticate_cookie
     before_action :set_lesson, only: [:create, :destroy]
-    before_action :set_material, only: [:create, :destroy]
-    before_action :set_lesson_material, only: [:create, :destroy]
-    before_action :set_student_material, only: [:create, :destroy]
+    before_action :set_assignment, only: [:create, :destroy]
+    before_action :set_lesson_assignment, only: [:create, :destroy]
+    before_action :set_student_assignment, only: [:create, :destroy]
 
     def create
-        if @lesson_material == nil
-          if @lesson && @material
-            @lesson.materials << @material
+        if @lesson_assignment == nil
+          if @lesson && @assignment
+            @lesson.assignments << @assignment
             
             # if @student_material
             #     p @student
@@ -18,9 +18,9 @@ class LessonMaterialController < ApplicationController
 
             render json: {
               message: "Relationship created successfully",
-              relationship: @lesson_material,
+              relationship: @lesson_assignment,
               lesson: @lesson,
-              material: @material
+              assignment: @assignment
             }
           else
             render json: { message: "Not found" }, status: 404  
@@ -31,7 +31,7 @@ class LessonMaterialController < ApplicationController
       end
     
       def destroy
-        if @lesson_material && @lesson_material.destroy
+        if @lesson_assignment && @lesson_assignment.destroy
             # if @student_material
             #     @student_material.destroy
             # end
@@ -39,7 +39,7 @@ class LessonMaterialController < ApplicationController
           render json: {
             message: "Relationship deleted successfully",
             lesson: @lesson,
-            material: @material
+            assignment: @assignment
           }
         else
           render json: { message: "Relationship doesn't exist" }, status: 404
@@ -52,19 +52,19 @@ class LessonMaterialController < ApplicationController
           @lesson = Lesson.find(params[:lesson_id])
         end
     
-        def set_material
-          @material = Material.find(params[:material_id])
+        def set_assignment
+          @assignment = Assignment.find(params[:assignment_id])
         end
     
-        def set_lesson_material
-          @lesson_material = LessonMaterial.find_by(lesson_id: params[:lesson_id], material_id: params[:material_id])
+        def set_lesson_assignment
+          @lesson_assignment = LessonAssignment.find_by(lesson_id: params[:lesson_id], assignment_id: params[:assignment_id])
         end
 
         def set_student
             @student = Student.find(params[:student_id])
         end
 
-        def set_student_material
-            @student_material = StudentMaterial.where(material_id: params[:material_id]).order("id ASC")
+        def set_student_assignment
+            @student_assignment = StudentAssignment.where(assignment_id: params[:assignment_id]).order("id ASC")
         end
 end

@@ -23,7 +23,7 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-    @assignment = Assignment.new(assignment_params)
+    @assignment = Assignment.new({lesson_id: params[:lesson_id], link: params[:link], description: params[:description]})
     if @assignment.save
       render json: { message: "Assignment successfully created", assignment: @assignment }
     else
@@ -61,7 +61,7 @@ class AssignmentsController < ApplicationController
   private
 
   def assignment_params
-    params.require(:assignment).permit(:link, :description, :resources, :assignment)
+    params.require(:assignment).permit(:link, :description, :resources, :assignment, :lesson_id, :lesson)
   end
 
   def set_assignment

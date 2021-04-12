@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
   skip_before_action :authenticate_cookie
-  before_action :set_lesson, only: [:show, :update, :destroy]
+  before_action :set_lesson, only: [:add_assignment, :show, :update, :destroy]
+  before_action :set_assignment, only: [:add_assignment]
 
   def index
     @lessons = Lesson.all
@@ -47,6 +48,36 @@ class LessonsController < ApplicationController
     end
   end
 
+  # def add_assignment
+  #   if @lesson.assignment != @assignment
+  #     if @lesson
+  #       if @lesson.assignment
+  #         # studentAssignment = StudentAssignment.find(@lesson.assignment.id);
+  #         # studentAssignment.delete
+  #         @lesson.assignment.delete
+  #       end
+  #       @lesson.assignment << @assignment
+        
+  #       # if @student_material
+  #       #     p @student
+  #       #     p @material
+  #       #     @student.materials << @material
+  #       # end
+
+  #       render json: {
+  #         message: "Relationship created successfully",
+  #         relationship: @lesson.assignment,
+  #         lesson: @lesson,
+  #         assignment: @assignment
+  #       }
+  #     else
+  #       render json: { message: "Not found" }, status: 404  
+  #     end
+  #   else
+  #     render json: { message: "Relationship already exist" }, status: 412
+  #   end
+  # end
+
   # def clone_lesson
   #   @unit = Unit.find(params[:unit_id])
   #   @tlesson = Tlesson.find(params[:tlesson_id])
@@ -66,6 +97,10 @@ class LessonsController < ApplicationController
 
   def set_lesson
     @lesson = Lesson.find(params[:id])
+  end
+
+  def set_assignment
+    @assignment = Assignment.find(params[:assignment_id])
   end
 
   def error_json

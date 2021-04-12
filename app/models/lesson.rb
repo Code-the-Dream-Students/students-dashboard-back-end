@@ -3,7 +3,8 @@ class Lesson < ApplicationRecord
   has_many :materials, through: :lesson_materials
   has_many :unit_lessons
   has_many :units, through: :unit_lessons
-  has_one :assignment
+  has_many :lesson_assignments
+  has_many :assignments, through: :lesson_assignments
   belongs_to :cohort
   
   validates_presence_of :name, :on => :create

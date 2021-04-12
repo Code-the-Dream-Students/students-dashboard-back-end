@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_001135) do
+ActiveRecord::Schema.define(version: 2021_04_12_230523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,12 +18,10 @@ ActiveRecord::Schema.define(version: 2021_04_09_001135) do
   create_table "assignments", force: :cascade do |t|
     t.string "link"
     t.text "description"
-    t.integer "lesson_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.text "resources"
     t.text "assignment"
-    t.index ["lesson_id"], name: "index_assignments_on_lesson_id"
   end
 
   create_table "cohort_courses", force: :cascade do |t|
@@ -57,6 +55,15 @@ ActiveRecord::Schema.define(version: 2021_04_09_001135) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "cohort_id", null: false
     t.index ["cohort_id"], name: "index_courses_on_cohort_id"
+  end
+
+  create_table "lesson_assignments", force: :cascade do |t|
+    t.bigint "lesson_id", null: false
+    t.bigint "assignment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["assignment_id"], name: "index_lesson_assignments_on_assignment_id"
+    t.index ["lesson_id"], name: "index_lesson_assignments_on_lesson_id"
   end
 
   create_table "lesson_materials", force: :cascade do |t|
@@ -330,6 +337,8 @@ ActiveRecord::Schema.define(version: 2021_04_09_001135) do
   end
 
   add_foreign_key "courses", "cohorts"
+  add_foreign_key "lesson_assignments", "assignments"
+  add_foreign_key "lesson_assignments", "lessons"
   add_foreign_key "lessons", "cohorts"
   add_foreign_key "mentors", "users"
   add_foreign_key "registered_mentor_sessions", "mentor_courses"

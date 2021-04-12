@@ -71,8 +71,17 @@ Rails.application.routes.draw do
   get 'student_material/:student_id/material/:material_id', to: 'student_material#show'
   patch 'student_material/:student_id/material/:material_id', to: 'student_material#update'
 
-  post 'lesson_material/:lesson_id/material/:material_id', to: 'lesson_material#create'
-  delete 'lesson_material/:lesson_id/material/:material_id', to: 'lesson_material#destroy'
+  # add material to lesson and destroy material from lesson
+  post 'lesson/:lesson_id/material/:material_id', to: 'lesson_material#create'
+  delete 'lesson/:lesson_id/material/:material_id', to: 'lesson_material#destroy'
+
+  # add assignment to lesson and destroy assignment from lesson
+  post 'lesson/:lesson_id/assignment/:assignment_id', to: 'lesson_assignment#create'
+  delete 'lesson/:lesson_id/assignment/:assignment_id', to: 'lesson_assignment#destroy'
+
+  # add assignment to lesson
+  post 'lesson/:id/assignment/:assignment_id', to: 'lessons#add_assignment'
+
 
   # post '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#create'
   # delete '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#destroy'
