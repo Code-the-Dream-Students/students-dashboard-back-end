@@ -49,7 +49,7 @@ class SessionsController < Devise::SessionsController
       token = CoreModules::JsonWebToken.encode({
         user_id: user.id
       }, 24.hours.from_now)
-     else
+    else
       token = false
     end
     
