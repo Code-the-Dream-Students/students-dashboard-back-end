@@ -61,7 +61,17 @@ class MaterialsController < ApplicationController
   private
 
     def material_params
-      params.require(:material).permit(:source_title, :link, :description, :platform, :treehouse_type, :instructor, :duration, :learning_objectives, :notes)
+      params.require(:material).permit(
+        :title, 
+        :url, 
+        :description, 
+        :platform, 
+        :treehouse_type, 
+        :instructor, 
+        :duration, 
+        :learning_objectives, 
+        :notes
+      )
     end
 
     def set_material

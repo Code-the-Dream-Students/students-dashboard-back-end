@@ -16,12 +16,11 @@ ActiveRecord::Schema.define(version: 2021_04_12_230523) do
   enable_extension "plpgsql"
 
   create_table "assignments", force: :cascade do |t|
+    t.string "title"
     t.string "link"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "resources"
-    t.text "assignment"
   end
 
   create_table "cohort_courses", force: :cascade do |t|
