@@ -16,12 +16,11 @@ ActiveRecord::Schema.define(version: 2021_04_12_230523) do
   enable_extension "plpgsql"
 
   create_table "assignments", force: :cascade do |t|
+    t.string "title"
     t.string "link"
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "resources"
-    t.text "assignment"
   end
 
   create_table "cohort_courses", force: :cascade do |t|
@@ -81,6 +80,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_230523) do
   end
 
   create_table "lessons", force: :cascade do |t|
+    t.string "duration"
+    t.text "learning_objectives"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "cohort_id", null: false
@@ -90,8 +91,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_230523) do
   end
 
   create_table "materials", force: :cascade do |t|
-    t.string "source_title"
-    t.string "link"
+    t.string "title"
+    t.string "url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "description"
@@ -254,6 +255,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_230523) do
 
   create_table "tlessons", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.string "duration"
     t.text "learning_objectives"
     t.datetime "created_at", precision: 6, null: false
@@ -263,6 +265,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_230523) do
   create_table "tmaterials", force: :cascade do |t|
     t.string "title"
     t.string "url"
+    t.text "description"
     t.string "platform"
     t.string "treehouse_type"
     t.string "instructor"
