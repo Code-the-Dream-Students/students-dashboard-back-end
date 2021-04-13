@@ -35,7 +35,18 @@ module CoreModules::CloneGenerator
   end
 
   def self.clone_material(lesson, tmaterial)
-    material = Material.new(source_title: tmaterial.source_title, link: tmaterial.link, description: tmaterial.description, platform: tmaterial.platform, treehouse_type: tmaterial.treehouse_type, instructor: tmaterial.instructor, duration: tmaterial.duration, learning_objectives: tmaterial.learning_objectives, notes: tmaterial.notes)
+    material = Material.new(
+      source_title: tmaterial.source_title, 
+      link: tmaterial.link, 
+      description: tmaterial.description, 
+      platform: tmaterial.platform, 
+      treehouse_type: tmaterial.treehouse_type, 
+      instructor: tmaterial.instructor, 
+      duration: tmaterial.duration, 
+      learning_objectives: tmaterial.learning_objectives, 
+      notes: tmaterial.notes
+    )
+
     if material.save
       lesson.materials << material
       return material
@@ -43,7 +54,13 @@ module CoreModules::CloneGenerator
   end
 
   def self.clone_assignment(lesson, tassignment)
-    assignment = Assignment.new(link: tassignment.link, description: tassignment.description, resources: tassignment.resources, assignment: tassignment.assignment)
+    assignment = Assignment.new(
+      link: tassignment.link, 
+      description: tassignment.description, 
+      resources: tassignment.resources, 
+      assignment: tassignment.assignment
+    )
+    
     if assignment.save
       lesson.assignment << assignment
       return assignment

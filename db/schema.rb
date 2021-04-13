@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_230523) do
 
   create_table "materials", force: :cascade do |t|
     t.string "title"
-    t.string "url"
+    t.string "link"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "description"
@@ -264,7 +264,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_230523) do
 
   create_table "tmaterials", force: :cascade do |t|
     t.string "title"
-    t.string "url"
+    t.string "link"
     t.text "description"
     t.string "platform"
     t.string "treehouse_type"
