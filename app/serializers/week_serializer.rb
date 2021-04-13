@@ -6,11 +6,11 @@ class WeekSerializer < ActiveModel::Serializer
   belongs_to :lesson
 
   def course_name
-    object.course.course_name
+    object.course.name
   end
 
   def unit_name
-    object.unit.unit_name
+    object.unit.name
   end
 
   def key

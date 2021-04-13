@@ -14,42 +14,31 @@ class CohortCoursesController < ApplicationController
   def create
     if @cohort_course == nil
       if @cohort && @course
-        @cohort.courses << set_course
+        @cohort.courses << @course
 
         render json: {
-          status: 200,
           message: "Relationship created successfully",
           relationship: @cohort_course,
           cohort: @cohort,
           course: @course
         }
       else
-        render json: {
-          status: 404,
-          message: "Not found"
-        }  
+        render json: { message: "Not found" }, status: 404  
       end
     else
-      render json: {
-        status: 412,
-        message: "Relationship already exist"
-      }
+      render json: { message: "Relationship already exist" }, status: 412
     end
   end
 
   def destroy
     if @cohort_course && @cohort_course.destroy
       render json: {
-        status: 200,
         message: "Relationship deleted successfully",
         cohort: @cohort,
         course: @course
       }
     else
-      render json: {
-        status: 404,
-        message: "Relationship doesn't exist"
-      }
+      render json: { message: "Relationship doesn't exist" }, status: 404
     end
   end
 

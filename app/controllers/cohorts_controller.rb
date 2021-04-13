@@ -1,86 +1,68 @@
 class CohortsController < ApplicationController
 
   skip_before_action :authenticate_cookie
-
   before_action :set_cohort, only: [:show, :update, :destroy]
-
 
   def index
     @cohorts = Cohort.all
-    render json: @cohorts
-    # , include: ['weeks.lesson.assignment', 'units.weeks', 'units.weeks.lesson', 'units.weeks.lesson.assignment', 'units.weeks.lesson.sources'], each_serializer: StaffCreateCourseAssignmentsSerializer
+    render json: @cohorts, include: "courses.units.lessons"
   end
 
-  def search
-    @cohorts = params[:cohort_name] ? 
-      Cohort.where("cohort_name ILIKE ?", "%#{params[:cohort_name]}%") :
-      params[:description] ?
-        Cohort.where("description ILIKE ?", "%#{params[:description]}%") :
-        []
+  # def search
+  #   @cohorts = params[:name] ? Cohort.where("name ILIKE ?", "%#{params[:name]}%") :
+  #   params[:description] ? Cohort.where("description ILIKE ?", "%#{params[:description]}%") : []
 
-    render ({
-      json: @cohorts, status: :ok
-    })
-  end
+  #   render json: @cohorts, include: "courses.units.lessons"
+  # end
 
   def show
     if @cohort
-    # && @user 
-      render json: @cohort, status: 200
+      render json: @cohort, include: "courses.units.lessons"
     else
       error_json
     end
   end
 
   def create
-    @cohort = Cohort.create(cohort_params)
-    if @cohort
-    # && @user && @user.role == "staff"
-      render ({
-        json: {
-          message: "Cohort created",
-          cohort: @cohort
-        },
-        status: 201
-      })
+    @cohort = Cohort.new(cohort_params)
+    if @cohort.save
+      render json: { message: "Cohort successfully created", cohort: @cohort }
     else
-      error_json
+      render json: @cohort.errors
     end
   end
 
   def update
     if @cohort.update(cohort_params)
-    # && @user && @user.role == "staff"
-      render ({
-        json: {
-          message: "Cohort updated",
-          cohort: @cohort
-        },
-        status: 200
-      })
+      render json: { message: "Cohort successfully updated", cohort: @cohort }
     else
       error_json
     end
   end
 
   def destroy
-    if @cohort.destroy
-    # && @user && @user.role == "staff"
-      render ({
-        json: {
-          message: "Cohort deleted",
-        },
-        status: 200
-      })
+    if CoreModules::DeleteClone.delete_cohort(@cohort)
+      render json: { message: "Cohort successfully deleted", cohort: @cohort }
     else
       error_json
     end
   end
 
+  def clone_course
+    @cohort = Cohort.find(params[:cohort_id])
+    @tcourse = Tcourse.find(params[:tcourse_id])
+
+    @course = CoreModules::CloneGenerator.clone_course(@cohort, @tcourse)
+    
+    if @course
+      render json: @course 
+    end 
+  end
+
   private
 
     def cohort_params
-      params.require(:cohort).permit(:cohort_name, :description)
+      params.require(:cohort).permit(:name, :description, :start_date)
     end
 
     def set_cohort
@@ -88,13 +70,7 @@ class CohortsController < ApplicationController
     end
 
     def error_json
-      render ({
-        json: {
-          error: "Not Found"
-        },
-        status: 404
-      })
+      render json: { error: "Bad request" }, status: 404
     end
-
 
 end
