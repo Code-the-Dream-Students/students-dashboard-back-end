@@ -10,6 +10,5 @@ class Tlesson < ApplicationRecord
 
   validates_length_of :name, :duration, :learning_objectives, 
     :minimum => 2,
-    :allow_nil => true,
-    :allow_blank => true
+    :allow_nil => true
 end

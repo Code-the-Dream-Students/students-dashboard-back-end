@@ -6,12 +6,10 @@ class Tmaterial < ApplicationRecord
 
   validates_length_of :title, :platform, :treehouse_type, :instructor, :duration, :learning_objectives, :tools, :notes 
     :minimum => 2,
-    :allow_nil => true,
-    :allow_blank => true
+    :allow_nil => true
 
   validates_format_of :url, 
     :with => /\Ahttps?:\/\/.{0,}/,
     :message => "bad format",
-    :allow_nil => true,
-    :allow_blank => true
+    :allow_nil => true
 end

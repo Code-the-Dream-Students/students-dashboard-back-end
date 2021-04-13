@@ -1,6 +1,6 @@
 class LessonMaterial < ApplicationRecord
-    belongs_to :lesson
-    belongs_to :material
+	belongs_to :lesson
+	belongs_to :material
 
-    validates_presence_of :lesson, :material
+	validates_presence_of :lesson, :material
 end

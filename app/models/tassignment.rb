@@ -6,12 +6,10 @@ class Tassignment < ApplicationRecord
 
   validates_length_of :title, :description, 
     :minimum => 2, 
-    :allow_nil => true,
-    :allow_blank => true
+    :allow_nil => true
 
   validates_format_of :link, 
     :with => /\Ahttps?:\/\/.{0,}/,
     :message => "bad format",
-    :allow_nil => true,
-    :allow_blank => true
+    :allow_nil => true
 end

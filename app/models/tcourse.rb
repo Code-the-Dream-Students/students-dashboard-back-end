@@ -7,7 +7,6 @@ class Tcourse < ApplicationRecord
 
   validates_length_of :name, :description,
     :minimum => 2,
-    :allow_nil => true,
-    :allow_blank => true
+    :allow_nil => true
   
 end
