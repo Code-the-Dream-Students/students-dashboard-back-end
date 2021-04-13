@@ -46,7 +46,7 @@ class TmaterialsController < ApplicationController
     def tmaterial_params
       params.require(:tmaterial).permit(
         :title, 
-        :url, 
+        :link, 
         :platform, 
         :treehouse_type, 
         :instructor, 

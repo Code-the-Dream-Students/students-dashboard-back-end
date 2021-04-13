@@ -63,7 +63,7 @@ class MaterialsController < ApplicationController
     def material_params
       params.require(:material).permit(
         :title, 
-        :url, 
+        :link, 
         :description, 
         :platform, 
         :treehouse_type, 

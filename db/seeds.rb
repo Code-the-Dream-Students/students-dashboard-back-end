@@ -845,7 +845,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://github.com/Code-the-Dream-School/web-basics-1-week-2",
-    description: "",
     # lesson_id: 2
     lessons: [
       Lesson.find(2)
@@ -861,7 +860,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://github.com/Code-the-Dream-School/web-basics-2-week-2",
-    description: "",
     # lesson_id: 4
     lessons: [
       Lesson.find(4)
@@ -869,7 +867,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/28e039a6e21094351c65f2375fc2c0a2",
-    description: "",
     # lesson_id: 5
     lessons: [
       Lesson.find(5)
@@ -877,7 +874,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://github.com/Code-the-Dream-School/web-basics-2-week-3",
-    description: "",
     # lesson_id: 6
     lessons: [
       Lesson.find(6)
@@ -885,7 +881,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://github.com/Code-the-Dream-School/web-basics-2-week-4",
-    description: "",
     # lesson_id: 7
     lessons: [
       Lesson.find(7)
@@ -893,7 +888,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://github.com/Code-the-Dream-School/Front-End-1-Week-5-Assignment",
-    description: "",
     # lesson_id: 8
     lessons: [
       Lesson.find(8)
@@ -901,7 +895,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/a6fdb8b63faf4a9cd52e192e1d803a53",
-    description: "",
     # lesson_id: 9
     lessons: [
       Lesson.find(9)
@@ -909,7 +902,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/ebb943e6e58bb1c6516415194afd2438",
-    description: "",
     # lesson_id: 10
     lessons: [
       Lesson.find(10)
@@ -917,7 +909,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/86f7a973cc80db4df4fab55bf8a087d3",
-    description: "",
     # lesson_id: 11
     lessons: [
       Lesson.find(11)
@@ -925,7 +916,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/c9cb2d63fda939291a142e407f50fdf0",
-    description: "",
     # lesson_id: 12
     lessons: [
       Lesson.find(12)
@@ -933,7 +923,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/787bc76b33eea8f5f81928d26991c552/status",
-    description: "",
     # lesson_id: 13
     lessons: [
       Lesson.find(13)
@@ -941,14 +930,12 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/cf65f7e5b827c7bb1d9e894a7de92231",
-    description: "",
     # lesson_id: 14
     lessons: [
       Lesson.find(14)
     ]
   },
   {
-    link: "",
     description: "You have no additional assignments for this section. Practice what you’ve learned and try and weave it into your section 1 assignment. ",
     # lesson_id: 15
     lessons: [
@@ -957,14 +944,12 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/a6b1056eab3221a7d2750ed51b9cc83e/status",
-    description: "",
     # lesson_id: 16
     lessons: [
       Lesson.find(16)
     ]
   },
   {
-    link: "",
     description: "Create an App using firebase that allows users to log-in, sign-up, & reset their passwords. Follow the tutorial above and then submit your code via Squibby. ",
     # lesson_id: 17
     lessons: [
@@ -972,7 +957,6 @@ assignments = Assignment.create([
     ]
   },
   {
-    link: "",
     description: "Final project.",
     # lesson_id: 18
     lessons: [
@@ -989,7 +973,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/9d6d06b1cd76e4b4b233597f6df4bc5e/status",
-    description: "",
     # lesson_id: 20
     lessons: [
       Lesson.find(20)
@@ -997,7 +980,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/bd4ed40b2090e1844f68ebdc6fda5661/status",
-    description: "",
     # lesson_id: 21
     lessons: [
       Lesson.find(21)
@@ -1005,7 +987,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/66bfd62e48f2f4338bc46382b875dda5/status",
-    description: "",
     # lesson_id: 22
     lessons: [
       Lesson.find(22)
@@ -1013,7 +994,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/9fec8653362ca4bca32440ce258fe3d0/status",
-    description: "",
     # lesson_id: 23
     lessons: [
       Lesson.find(23)
@@ -1021,7 +1001,6 @@ assignments = Assignment.create([
   },
   {
     link: "https://classroom.github.com/assignment-invitations/c71801a77f537ebc699a433361078d52/status",
-    description: "",
     # lesson_id: 24
     lessons: [
       Lesson.find(24)
@@ -1084,7 +1063,6 @@ assignments = Assignment.create([
     ]
   },
   {
-    link: "",
     description: "You will use your own git repository. There is no git classroom assignment for the final project. By the end of week 1, you should definitely have an assignment described and agreed to by the mentors. The steps in setting up the git repository are:
 
     rails new <project-name>
@@ -1121,525 +1099,525 @@ assignments = Assignment.create([
 
 materials = Material.create([
   {
-    source_title: "Computer Basics",
+    title: "Computer Basics",
     link: "https://teamtreehouse.com/library/computer-basics",
     lessons: [
       Lesson.find(1)
     ]
   },
   {
-    source_title: "How the Internet Works",
+    title: "How the Internet Works",
     link: "https://teamtreehouse.com/library/how-the-internet-works",
     lessons: [
       Lesson.find(1)
     ]
   },
   {
-    source_title: "How the Web Works",
+    title: "How the Web Works",
     link: "https://teamtreehouse.com/library/how-the-web-works",
     lessons: [
       Lesson.find(1)
     ]
   },
   {
-    source_title: "Introduction to the Terminal",
+    title: "Introduction to the Terminal",
     link: "https://teamtreehouse.com/library/introduction-to-the-terminal",
     lessons: [
       Lesson.find(1)
     ]
   },
   {
-    source_title: "Introduction to Git",
+    title: "Introduction to Git",
     link: "https://teamtreehouse.com/library/introduction-to-git",
     lessons: [
       Lesson.find(1)
     ]
   },
   {
-    source_title: "Introduction to HTML & CSS",
+    title: "Introduction to HTML & CSS",
     link: "https://teamtreehouse.com/library/introduction-to-html-and-css",
     lessons: [
       Lesson.find(1)
     ]
   },
   {
-    source_title: "Introduction to Wireframing",
+    title: "Introduction to Wireframing",
     link: "https://teamtreehouse.com/library/introduction-to-wireframing",
     lessons: [
       Lesson.find(2)
     ]
   },
   {
-    source_title: "Introducing JavaScript",
+    title: "Introducing JavaScript",
     link: "https://teamtreehouse.com/library/introducing-javascript",
     lessons: [
       Lesson.find(2)
     ]
   },
   {
-    source_title: "HTML Basics",
+    title: "HTML Basics",
     link: "https://teamtreehouse.com/library/html-basics-2",
     lessons: [
       Lesson.find(2)
     ]
   },
   {
-    source_title: "JavaScript Basics",
+    title: "JavaScript Basics",
     link: "https://teamtreehouse.com/library/javascript-basics",
     lessons: [
       Lesson.find(3)
     ]
   },
   {
-    source_title: "JavaScript Functions",
+    title: "JavaScript Functions",
     link: "https://teamtreehouse.com/library/javascript-functions",
     lessons: [
       Lesson.find(3)
     ]
   },
   {
-    source_title: "JavaScript Numbers",
+    title: "JavaScript Numbers",
     link: "https://teamtreehouse.com/library/javascript-numbers",
     lessons: [
       Lesson.find(3)
     ]
   },
   {
-    source_title: "JavaScript Loops, Arrays, and Objects",
+    title: "JavaScript Loops, Arrays, and Objects",
     link: "https://teamtreehouse.com/library/javascript-loops-arrays-and-objects",
     lessons: [
       Lesson.find(4)   
     ]
   },
   {
-    source_title: "javaScript reading materials",
+    title: "javaScript reading materials",
     link: "https://learn.codethedream.org/web-basics-ii/web-basics-ii-week-3/",
     lessons: [
       Lesson.find(5)
     ]
   },
   {
-    source_title: "Javascript Landscape.",
+    title: "Javascript Landscape.",
     link: "https://teamtreehouse.com/library/the-landscape-of-javascript",
     lessons: [
       Lesson.find(6)
     ]
   },
   {
-    source_title: "JavaScript and the DOM",
+    title: "JavaScript and the DOM",
     link: "https://teamtreehouse.com/library/javascript-and-the-dom-2",
     lessons: [
       Lesson.find(6)
     ]
   },
   {
-    source_title: "What you need to Know About CSS Selectors",
+    title: "What you need to Know About CSS Selectors",
     link: "https://teamtreehouse.com/library/what-you-need-to-know-about-css-selectors",
     lessons: [
       Lesson.find(6)
     ]
   },
   {
-    source_title: "DOM Scripting by Example",
+    title: "DOM Scripting by Example",
     link: "https://teamtreehouse.com/library/dom-scripting-by-example",
     lessons: [
       Lesson.find(7)
     ]
   },
   {
-    source_title: "Explore & understand the concepts being implemented in the week 5 assignment ",
+    title: "Explore & understand the concepts being implemented in the week 5 assignment ",
     link: "https://learn.codethedream.org/web-basics-ii/web-basics-ii-week-6/",
     lessons: [
       Lesson.find(8)
     ]
   },
   {
-    source_title: "CSS Basic",
+    title: "CSS Basic",
     link: "https://teamtreehouse.com/library/css-basics",
     lessons: [
       Lesson.find(9)
     ]
   },
   {
-    source_title: "Debugging CSS with Chrome Devtools",
+    title: "Debugging CSS with Chrome Devtools",
     link: "https://teamtreehouse.com/library/debugging-css-with-chrome-devtools",
     lessons: [
       Lesson.find(9)
     ]
   },
   {
-    source_title: "CSS Layout Basics",
+    title: "CSS Layout Basics",
     link: "https://teamtreehouse.com/library/css-layout-basics",
     lessons: [
       Lesson.find(9)
     ]
   },
   {
-    source_title: "Responsive Layouts",
+    title: "Responsive Layouts",
     link: "https://teamtreehouse.com/library/responsive-layouts",
     lessons: [
       Lesson.find(9)
     ]
   },
   {
-    source_title: "Flexbox",
+    title: "Flexbox",
     link: "https://teamtreehouse.com/library/css-flexbox-layout",
     lessons: [
       Lesson.find(9)
     ]
   },
   {
-    source_title: "HTML Forms",
+    title: "HTML Forms",
     link: "https://teamtreehouse.com/library/html-forms",
     lessons: [
       Lesson.find(10)
     ]
   },
   {
-    source_title: "CSS Selectors",
+    title: "CSS Selectors",
     link: "https://teamtreehouse.com/library/css-selectors",
     lessons: [
       Lesson.find(10)
     ]
   },
   {
-    source_title: "Bootstrap Basics",
+    title: "Bootstrap Basics",
     link: "https://teamtreehouse.com/library/bootstrap-4-basics-2",
     lessons: [
       Lesson.find(10)
     ]
   },
   {
-    source_title: "HTML Tables",
+    title: "HTML Tables",
     link: "https://teamtreehouse.com/library/html-tables",
     lessons: [
       Lesson.find(11)
     ]
   },
   {
-    source_title: "HTML Video and Audio",
+    title: "HTML Video and Audio",
     link: "https://teamtreehouse.com/library/html-video-and-audio-2",
     lessons: [
       Lesson.find(11)
     ]
   },
   {
-    source_title: "Create Media Player",
+    title: "Create Media Player",
     link: "https://teamtreehouse.com/library/create-a-media-player-with-mediaelementjs",
     lessons: [
       Lesson.find(11)
     ]
   },
   {
-    source_title: "Intro to FE Optimization",
+    title: "Intro to FE Optimization",
     link: "https://teamtreehouse.com/library/introduction-to-front-end-performance-optimization",
     lessons: [
       Lesson.find(11)
     ]
   },
   {
-    source_title: "AJAX Basics",
+    title: "AJAX Basics",
     link: "https://teamtreehouse.com/library/ajax-basics-2",
     lessons: [
       Lesson.find(12)
     ]
   },
   {
-    source_title: "Async JavaScript",
+    title: "Async JavaScript",
     link: "https://teamtreehouse.com/library/asynchronous-programming-with-javascript",
     lessons: [
       Lesson.find(12)
     ]
   },
   {
-    source_title: "Fetch API",
+    title: "Fetch API",
     link: "https://teamtreehouse.com/library/working-with-the-fetch-api",
     lessons: [
       Lesson.find(12)
     ]
   },
   {
-    source_title: "Object-Oriented JavaScript",
+    title: "Object-Oriented JavaScript",
     link: "https://teamtreehouse.com/library/objectoriented-javascript-2",
     lessons: [
       Lesson.find(13)
     ]
   },
   {
-    source_title: "Web Accessibility",
+    title: "Web Accessibility",
     link: "https://teamtreehouse.com/library/web-accessibility-compliance",
     lessons: [
       Lesson.find(13)
     ]
   },
   {
-    source_title: "Website Optimization",
+    title: "Website Optimization",
     link: "https://teamtreehouse.com/library/website-optimization",
     lessons: [
       Lesson.find(13)
     ]
   },
   {
-    source_title: "React Basics",
+    title: "React Basics",
     link: "https://teamtreehouse.com/library/react-basics-2",
     lessons: [
       Lesson.find(14)
     ]
   },
   {
-    source_title: "React Components",
+    title: "React Components",
     link: "https://teamtreehouse.com/library/react-components",
     lessons: [
       Lesson.find(14)
     ]
   },
   {
-    source_title: "Using Create React App",
+    title: "Using Create React App",
     link: "https://teamtreehouse.com/library/using-create-react-app",
     lessons: [
       Lesson.find(14)
     ]
   },
   {
-    source_title: "React Context",
+    title: "React Context",
     link: "https://teamtreehouse.com/library/react-context-api",
     lessons: [
       Lesson.find(15)
     ]
   },
   {
-    source_title: "React Router 4",
+    title: "React Router 4",
     link: "https://teamtreehouse.com/library/react-router-4-basics-2",
     lessons: [
       Lesson.find(15)
     ]
   },
   {
-    source_title: "React 16",
+    title: "React 16",
     link: "https://teamtreehouse.com/library/whats-new-in-react-16",
     lessons: [
       Lesson.find(15)
     ]
   },
   {
-    source_title: "Data Fetching",
+    title: "Data Fetching",
     link: "https://teamtreehouse.com/library/data-fetching-in-react",
     lessons: [
       Lesson.find(15)
     ]
   },
   {
-    source_title: "Deploying a React App",
+    title: "Deploying a React App",
     link: "https://teamtreehouse.com/library/deploying-a-react-app",
     lessons: [
       Lesson.find(15)
     ]
   },
   {
-    source_title: "Additional Reading on using Airtable API",
+    title: "Additional Reading on using Airtable API",
     link: "https://blog.crowdbotics.com/use-airtable-cloud-based-database-for-react-app/#:~:text=To%20use%20the%20Airtable%20API,component%20from%20the%20Material%20UI.",
     lessons: [
       Lesson.find(16)
     ]
   },
   {
-    source_title: "Authentication patterns using Firebase",
+    title: "Authentication patterns using Firebase",
     link: "https://www.robinwieruch.de/complete-firebase-authentication-react-tutorial",
     lessons: [
       Lesson.find(17)
     ]
   },
   {
-    source_title: "Final Project Front-End",
+    title: "Final Project Front-End",
     link: "https://learn.codethedream.org/front-end-ii/front-end-ii-week-5/",
     lessons: [
       Lesson.find(18)
     ]
   },
   {
-    source_title: "SQL Basics",
+    title: "SQL Basics",
     link: "https://teamtreehouse.com/library/sql-basics",
     lessons: [
       Lesson.find(19)
     ]
   },
   {
-    source_title: "Modifying Data with SQL",
+    title: "Modifying Data with SQL",
     link: "https://teamtreehouse.com/library/modifying-data-with-sql",
     lessons: [
       Lesson.find(19)
     ]
   },
   {
-    source_title: "Reporting with SQL",
+    title: "Reporting with SQL",
     link: "https://teamtreehouse.com/library/reporting-with-sql",
     lessons: [
       Lesson.find(19)
     ]
   },
   {
-    source_title: "Querying Relational Databases",
+    title: "Querying Relational Databases",
     link: "https://teamtreehouse.com/library/querying-relational-databases",
     lessons: [
       Lesson.find(20)
     ]
   },
   {
-    source_title: "Ruby Basics",
+    title: "Ruby Basics",
     link: "https://teamtreehouse.com/library/ruby-basics-2",
     lessons: [
       Lesson.find(20)
     ]
   },
   {
-    source_title: "Ruby Collections",
+    title: "Ruby Collections",
     link: "https://teamtreehouse.com/library/ruby-collections",
     lessons: [
       Lesson.find(21)
     ]
   },
   {
-    source_title: "Ruby Loops",
+    title: "Ruby Loops",
     link: "https://teamtreehouse.com/library/ruby-loops",
     lessons: [
       Lesson.find(21)
     ]
   },
   {
-    source_title: "Ruby Objects and Classes",
+    title: "Ruby Objects and Classes",
     link: "https://teamtreehouse.com/library/ruby-objects-and-classes",
     lessons: [
       Lesson.find(21)
     ]
   },
   {
-    source_title: "Ruby Blocks",
+    title: "Ruby Blocks",
     link: "https://teamtreehouse.com/library/ruby-blocks",
     lessons: [
       Lesson.find(22)
     ]
   },
   {
-    source_title: "Build an Address Book in Ruby",
+    title: "Build an Address Book in Ruby",
     link: "https://teamtreehouse.com/library/build-an-address-book-in-ruby",
     lessons: [
       Lesson.find(22)
     ]
   },
   {
-    source_title: "Ruby Modules",
+    title: "Ruby Modules",
     link: "https://teamtreehouse.com/library/ruby-modules",
     lessons: [
       Lesson.find(22)
     ]
   },
   {
-    source_title: "Ruby Enumerable",
+    title: "Ruby Enumerable",
     link: "https://teamtreehouse.com/library/ruby-enumerable",
     lessons: [
       Lesson.find(23)
     ]
   },
   {
-    source_title: "Ruby Core and Standard Library",
+    title: "Ruby Core and Standard Library",
     link: "https://teamtreehouse.com/library/ruby-core-and-standard-library",
     lessons: [
       Lesson.find(23)
     ]
   },
   {
-    source_title: "Ruby Gems",
+    title: "Ruby Gems",
     link: "https://teamtreehouse.com/library/ruby-gems",
     lessons: [
       Lesson.find(23)
     ]
   },
   {
-    source_title: "Ruby Sinatra",
+    title: "Ruby Sinatra",
     link: "https://teamtreehouse.com/library/building-web-apps-with-sinatra",
     lessons: [
       Lesson.find(24)
     ]
   },
   {
-    source_title: "Setting Up for Rails Development",
+    title: "Setting Up for Rails Development",
     link: "https://docs.google.com/presentation/d/1sJmfU4IsAI7XxzO_mmQka0qq8JRf6VIrMu9CAZgqUko/edit",
     lessons: [
       Lesson.find(25)
     ]
   },
   {
-    source_title: "Ruby on Rails 5 Basics",
+    title: "Ruby on Rails 5 Basics",
     link: "https://teamtreehouse.com/library/ruby-on-rails-5-basics",
     lessons: [
       Lesson.find(25)
     ]
   },
   {
-    source_title: "Rails Routes and Resources",
+    title: "Rails Routes and Resources",
     link: "https://teamtreehouse.com/library/rails-routes-and-resources",
     lessons: [
       Lesson.find(25)
     ]
   },
   {
-    source_title: "Troubleshooting a Rails Application",
+    title: "Troubleshooting a Rails Application",
     link: "https://teamtreehouse.com/library/troubleshooting-a-rails-application",
     lessons: [
       Lesson.find(26)
     ]
   },
   {
-    source_title: "Active Record Associations in Rails",
+    title: "Active Record Associations in Rails",
     link: "https://teamtreehouse.com/library/active-record-associations-in-rails",
     lessons: [
       Lesson.find(26)
     ]
   },
   {
-    source_title: "Rails Validation and Error Handling",
+    title: "Rails Validation and Error Handling",
     link: "https://docs.google.com/presentation/d/1rcn2UVcTbDBNuu8s6FTsWDKpTZUy9lzsknjDX8QXYdk/edit",
     lessons: [
       Lesson.find(27)
     ]
   },
   {
-    source_title: "Rails Testing with Rspec",
+    title: "Rails Testing with Rspec",
     link: "https://docs.google.com/presentation/d/1SLed-cHT_egC1CAVAKrs1c5tPm0Hne8wNdm_nMFXSrQ/edit",
     lessons: [
       Lesson.find(27)
     ]
   },
   {
-    source_title: "Rails Guided Assignment",
+    title: "Rails Guided Assignment",
     link: "Rails Guided Assignment",
     lessons: [
       Lesson.find(28)
     ]
   },
   {
-    source_title: "Bootstrap 4 Basics",
+    title: "Bootstrap 4 Basics",
     link: "https://teamtreehouse.com/library/bootstrap-4-basics-2",
     lessons: [
       Lesson.find(29)
     ]
   },
   {
-    source_title: "Bootstrap and Rails",
+    title: "Bootstrap and Rails",
     link: "https://learn.codethedream.org/styling-your-rails-application-with-bootstrap/",
     lessons: [
       Lesson.find(29)
     ]
   },
   {
-    source_title: "Building APIs, Swagger, Ajax",
+    title: "Building APIs, Swagger, Ajax",
     link: "https://learn.codethedream.org/backend-2-json-rest-api-swagger-ajax/",
     lessons: [
       Lesson.find(30)
     ]
   },
   {
-    source_title: "Final Project",
+    title: "Final Project",
     link: "https://learn.codethedream.org/rails-spring-2020-final-project/",
     lessons: [
       Lesson.find(31)
