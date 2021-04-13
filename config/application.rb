@@ -33,16 +33,22 @@ module StudentsDashboardBackEnd
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+    # config.middleware.use ActionDispatch::Cookies # Required for all session management
+    config.autoload_paths += %W( lib/ )
+
+
+    # config.action_controller.forgery_protection_origin_check = false
+
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
-        resource(
-          '*',
+        #Removed origins Array, changed syntax as documented: https://www.rubydoc.info/gems/rack-cors/0.4.0
+        origins 'http://localhost:3001', 'http://localhost:3000'
+        resource '*',
           headers: :any,
-          methods: [:get, :post, :patch, :put, :delete, :options]
-          )
+          expose: 'Authorization',
+          methods: [:get, :post, :patch, :put, :delete, :options, :head],
+          credentials: true       
       end
-    end
-    
+    end    
   end
 end

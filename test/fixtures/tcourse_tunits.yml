@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tcourse_id: 1
+  tunit_id: 1
+
+two:
+  tcourse_id: 1
+  tunit_id: 1

@@ -14,7 +14,9 @@ gem 'puma', '~> 4.1'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+# gem 'jsonapi-serializer'
+gem 'active_model_serializers'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -24,18 +26,18 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
+gem 'rack-cors', '~> 1.1', '>= 1.1.1'
+gem 'jwt', '~> 2.2', '>= 2.2.2'
+gem 'hirb'
+gem 'rails_same_site_cookie', '~> 0.1.8'
+gem 'rails_on_heroku'
+gem 'devise'
+gem 'httparty', '~> 0.18.1'
 
-gem 'bcrypt', '~> 3.1.7'
-gem 'jwt'
-gem 'rack-cors', :require => 'rack/cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'factory_bot_rails', '~> 4.0'
-  gem 'shoulda-matchers', '~> 3.1'
-  gem 'faker'
-  gem 'database_cleaner'
 end
 
 group :development do
@@ -43,6 +45,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  
+  gem 'dotenv-rails'
+  # Avoid polling for changes (windows only)
+  # gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
