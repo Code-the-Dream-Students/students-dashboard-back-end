@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_230523) do
   end
 
   create_table "lessons", force: :cascade do |t|
+    t.string "duration"
+    t.text "learning_objectives"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "cohort_id", null: false
@@ -254,6 +256,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_230523) do
 
   create_table "tlessons", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.string "duration"
     t.text "learning_objectives"
     t.datetime "created_at", precision: 6, null: false
