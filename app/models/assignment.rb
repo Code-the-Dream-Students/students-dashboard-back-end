@@ -1,7 +1,10 @@
 class Assignment < ApplicationRecord
-  belongs_to :lesson
+  # belongs_to :lesson
+  has_many :student_assignments
+  has_many :lesson_assignments
+  has_many :lessons, through: :lesson_assignments
 
-  validates_presence_of :lesson, :on => :create
+  # validates_presence_of :lesson, :on => :create
   validates_length_of :description, 
     :minimum => 2, 
     :allow_nil => true,

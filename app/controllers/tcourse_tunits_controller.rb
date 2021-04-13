@@ -1,5 +1,4 @@
 class TcourseTunitsController < ApplicationController
-
   skip_before_action :authenticate_cookie
   before_action :set_tcourse, only: [:show, :create, :destroy]
   before_action :set_tunit, only: [:show, :create, :destroy]
