@@ -4,7 +4,7 @@ class Tmaterial < ApplicationRecord
 
   validates_presence_of :title, :on => :create
 
-  validates_length_of :title, :platform, :treehouse_type, :instructor, :duration, :learning_objectives, :tools, :notes 
+  validates_length_of :title, :platform, :treehouse_type, :instructor, :duration, :learning_objectives, :tools, :notes, 
     :minimum => 2,
     :allow_nil => true
 
