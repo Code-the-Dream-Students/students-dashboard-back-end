@@ -37,6 +37,18 @@ module CoreModules::DeleteClone
         return lesson
       end
     end
+  end
+
+  def self.delete_material(material)
+    if material.destroy 
+      return material
+    end
+  end
+
+  def self.delete_assignment(assignment)
+    if assignment.destroy 
+      return assignment
+    end
   end 
 
 end 

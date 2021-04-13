@@ -37,14 +37,10 @@ class SessionsController < Devise::SessionsController
         "Authorization" => "token #{token[0]}",
         "User-Agent" => "jgabitto"
     }
-    # info = HTTParty.get('https://api.github.com/user', :headers => headers)
-    # p info
     res = HTTParty.get('https://api.github.com/user/emails', :headers => headers)
-    p res
-    p res.parsed_response[0]["email"]
     email = res.parsed_response[0]["email"]
     user = User.find_by(email: email.downcase)
-    p user
+    
     if user
       token = CoreModules::JsonWebToken.encode({
         user_id: user.id
@@ -52,8 +48,6 @@ class SessionsController < Devise::SessionsController
     else
       token = false
     end
-    
-    p token
     
     redirect_to "http://localhost:3000/auth/user?val=#{token}"
   end

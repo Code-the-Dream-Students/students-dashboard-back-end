@@ -1,0 +1,70 @@
+class LessonMaterialController < ApplicationController
+    skip_before_action :authenticate_cookie
+    before_action :set_lesson, only: [:create, :destroy]
+    before_action :set_material, only: [:create, :destroy]
+    before_action :set_lesson_material, only: [:create, :destroy]
+    before_action :set_student_material, only: [:create, :destroy]
+
+    def create
+        if @lesson_material == nil
+          if @lesson && @material
+            @lesson.materials << @material
+            
+            # if @student_material
+            #     p @student
+            #     p @material
+            #     @student.materials << @material
+            # end
+
+            render json: {
+              message: "Relationship created successfully",
+              relationship: @lesson_material,
+              lesson: @lesson,
+              material: @material
+            }
+          else
+            render json: { message: "Not found" }, status: 404  
+          end
+        else
+          render json: { message: "Relationship already exist" }, status: 412
+        end
+      end
+    
+      def destroy
+        if @lesson_material && @lesson_material.destroy
+            # if @student_material
+            #     @student_material.destroy
+            # end
+
+          render json: {
+            message: "Relationship deleted successfully",
+            lesson: @lesson,
+            material: @material
+          }
+        else
+          render json: { message: "Relationship doesn't exist" }, status: 404
+        end
+      end
+    
+      private
+    
+        def set_lesson
+          @lesson = Lesson.find(params[:lesson_id])
+        end
+    
+        def set_material
+          @material = Material.find(params[:material_id])
+        end
+    
+        def set_lesson_material
+          @lesson_material = LessonMaterial.find_by(lesson_id: params[:lesson_id], material_id: params[:material_id])
+        end
+
+        def set_student
+            @student = Student.find(params[:student_id])
+        end
+
+        def set_student_material
+            @student_material = StudentMaterial.where(material_id: params[:material_id]).order("id ASC")
+        end
+end
