@@ -36,7 +36,7 @@ module CoreModules::CloneGenerator
 
   def self.clone_material(lesson, tmaterial)
     material = Material.new(
-      source_title: tmaterial.source_title, 
+      title: tmaterial.title, 
       link: tmaterial.link, 
       description: tmaterial.description, 
       platform: tmaterial.platform, 
@@ -60,7 +60,7 @@ module CoreModules::CloneGenerator
       resources: tassignment.resources, 
       assignment: tassignment.assignment
     )
-    
+
     if assignment.save
       lesson.assignment << assignment
       return assignment

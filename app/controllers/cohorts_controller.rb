@@ -5,7 +5,7 @@ class CohortsController < ApplicationController
 
   def index
     @cohorts = Cohort.all
-    render json: @cohorts, include: "courses.units.lessons"
+    render json: @cohorts, include: ["courses.units.lessons.materials", "courses.units.lessons.assignment"]
   end
 
   # def search
