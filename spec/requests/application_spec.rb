@@ -1,18 +1,18 @@
-# require 'rails_helper'
-# RSpec.describe ApplicationController, type: :controller do  
-#     let(:application) { Factory.create(:application) }
+require 'rails_helper'
+RSpec.describe ApplicationController, type: :controller do  
+    let(:application) { Factory.create(:application) }
   
-#     subject { application }
-#     #context "JSON" do
-#     context "when not authorized" do
-#       before do
-#         json = { :application => { :name => "foo", :description => "bar" } }
-#         request.env['CONTENT_TYPE'] = 'application/json'
-#         request.env['RAW_POST_DATA'] = json
-#         #post :create
-#       end   
-#     end
-# end
+    subject { application }
+    #context "JSON" do
+    context "when not authorized" do
+      before do
+        json = { :application => { :name => "foo", :description => "bar" } }
+        request.env['CONTENT_TYPE'] = 'application/json'
+        request.env['RAW_POST_DATA'] = json
+        #post :create
+      end   
+    end
+end
 
 
 
