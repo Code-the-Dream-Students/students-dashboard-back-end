@@ -2,7 +2,7 @@ class TmaterialSerializer < ActiveModel::Serializer
   attributes [
     :id, 
     :title, 
-    :url, 
+    :link, 
     :platform, 
     :treehouse_type, 
     :instructor, 

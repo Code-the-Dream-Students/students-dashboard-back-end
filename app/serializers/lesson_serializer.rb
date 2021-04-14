@@ -1,7 +1,7 @@
 class LessonSerializer < ActiveModel::Serializer
   attributes :id, :name, :description, :cohort_id
 
-  has_one :assignment
+  has_many :assignments
   has_many :materials
   belongs_to :cohort
   # has_one :assignment
