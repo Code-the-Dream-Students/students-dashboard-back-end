@@ -1265,13 +1265,10 @@ tmaterials = Tmaterial.create([
 ])
 
 
-
-
 courses = Course.create([
   {
     name: "Ruby on Rails",
     description: "Front-End development with React.JS",
-    cohort_id: Cohort.find(1).id,
     cohorts: [
       Cohort.find(1)
     ]
@@ -1279,7 +1276,6 @@ courses = Course.create([
   {
     name: "Intro to programming",
     description: "Web basics for Front-End or Back-End development",
-    cohort_id: Cohort.find(2).id,
     cohorts: [
       Cohort.find(1)
     ]
@@ -1292,120 +1288,105 @@ units = Unit.create([
     description: "sdfasdf",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id 
+    ]
   },
   {
     name: "Intro to HTML & CSS | Intro to Wire Framing",
     description: "adfasdf",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "JS Basics | JS Functions | JS Numbers",
     description: "adfadf",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Intro to Flexbox (Thanksgiving)",
     description: "adfadfad",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "JS Loops | JS Arrays | JS Objections",
     description: "adfasdfa",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Landscape of JS",
     description: "adfasdfa",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Catch Up week (mentor sessions continue)",
     description: "adfasdfadadf",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Winter Holiday Break (no mentor sessions)",
     description: "adfadfasd",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Battleship",
     description: "adfasdfadfadf",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Finish Battleship (mentor sessions resume)",
     description: "adfasdfasdfas",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "JS and the DOM | DOM Scripting by Examples | CSS Selectors Quickstart",
     description: "adfasdfasdf",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Working with Fetch | AJAX Basics | ASync Javascript",
     description: "adfadfasdf",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Catch Up week + start on final projects (mentor sessions continue)",
     description: "adfasdfasdf",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Final Projects",
     description: "adfasdfasd",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Final Project presentations",
     description: "adfasdfadfas",
     courses: [
       Course.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   }
 ])
 
@@ -1414,219 +1395,188 @@ lessons = Lesson.create([
     name: "Digital Literacy, Intro to Terminal, Intro to Git, Intro to HTML & CSS",
     units: [
       Unit.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Intro to Wireframing | Intro to JavaScript | HTML Basics",
     units: [
       Unit.find(1)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Beginning JavaScript | Functions | Numbers",
     units: [
       Unit.find(2)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Loops | Arrays | Objects",
     units: [
       Unit.find(2)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Additional JavaScript exercises",
     units: [
       Unit.find(2)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "JavaScript and the DOM | CSS Selectors",
     units: [
       Unit.find(2)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "DOM Scripting",
     units: [
       Unit.find(2)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Build",
     units: [
       Unit.find(2)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Debugging with CSS, CSS layouts",
     units: [
       Unit.find(3)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Advanced HTML & CSS, CSS selectors, Bootstrap 4 basics",
     units: [
       Unit.find(3)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "HTML tables, HTML video & audio, Media-player, Intro to FE optimization ",
     units: [
       Unit.find(3)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "AJAX basics, ASync JavaScript, Working with Fetch",
     units: [
       Unit.find(3)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Object-oriented JavaScript, Web Accessibility Compliance, Web optimization",
     units: [
       Unit.find(3)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Practice with reusable components, Intro to React",
     units: [
       Unit.find(4)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Fetching data & creating routes",
     units: [
       Unit.find(4)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Using APIs to fetch data in React. Using Airtable as a lightweight CMS",
     units: [
       Unit.find(4)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Authentication patterns. Using Firebase as a backend for a react app. Reviewing React Concepts.",
     units: [
       Unit.find(4)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "React Project.",
     units: [
       Unit.find(4)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "SQL Basics",
     units: [
       Unit.find(5)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "More SQL, Introduction to Ruby",
     units: [
       Unit.find(5)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Ruby",
     units: [
       Unit.find(5)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Ruby II",
     units: [
       Unit.find(5)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Ruby III",
     units: [
       Unit.find(5)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Ruby & Sinatra",
     units: [
       Unit.find(5)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Ruby on Rails Basics",
     units: [
       Unit.find(6)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Rails Development",
     units: [
       Unit.find(6)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Additional Rails Topics",
     units: [
       Unit.find(6)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Bringing it all together",
     units: [
       Unit.find(6)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Bootstrap 4 Basics; Bootstrap in Rails.",
     units: [
       Unit.find(6)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Building an API, Swagger, Ajax",
     units: [
       Unit.find(6)
-    ],
-    cohort_id: Cohort.find(1).id
+    ]
   },
   {
     name: "Final Project",
     units: [
       Unit.find(6)
-    ],
-    cohort_id: Cohort.find(1).id
-  }
+    ]
+  },
 ])
 
 assignments = Assignment.create([
@@ -2423,154 +2373,129 @@ materials = Material.create([
 student_materials = StudentMaterial.create([
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(1).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(2).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(3).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(4).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(5).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(6).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(7).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(8).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(9).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(10).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(11).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(12).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(13).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(14).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(15).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(16).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(17).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(18).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(19).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(20).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(21).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(22).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(23).id,
     status: 0,
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(24).id,
     status: 0,
-  },
+  }
 ])
 
 student_assignments = StudentAssignment.create([
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(1).id,
     assignment_id: Assignment.find(1).id,
     status: 0,
@@ -2578,7 +2503,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(2).id,
     assignment_id: Assignment.find(2).id,
     status: 0,
@@ -2586,7 +2510,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(3).id,
     assignment_id: Assignment.find(3).id,
     status: 0,
@@ -2594,7 +2517,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(4).id,
     assignment_id: Assignment.find(4).id,
     status: 0,
@@ -2602,7 +2524,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(5).id,
     assignment_id: Assignment.find(5).id,
     status: 0,
@@ -2610,7 +2531,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(6).id,
     assignment_id: Assignment.find(6).id,
     status: 0,
@@ -2618,7 +2538,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(7).id,
     assignment_id: Assignment.find(7).id,
     status: 0,
@@ -2626,7 +2545,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(8).id,
     assignment_id: Assignment.find(8).id,
     status: 0,
@@ -2634,7 +2552,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(9).id,
     assignment_id: Assignment.find(9).id,
     status: 0,
@@ -2642,7 +2559,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(10).id,
     assignment_id: Assignment.find(10).id,
     status: 0,
@@ -2650,7 +2566,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(11).id,
     assignment_id: Assignment.find(11).id,
     status: 0,
@@ -2658,7 +2573,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(12).id,
     assignment_id: Assignment.find(12).id,
     status: 0,
@@ -2666,7 +2580,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(13).id,
     assignment_id: Assignment.find(13).id,
     status: 0,
@@ -2674,7 +2587,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(14).id,
     assignment_id: Assignment.find(14).id,
     status: 0,
@@ -2682,7 +2594,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(15).id,
     assignment_id: Assignment.find(15).id,
     status: 0,
@@ -2690,7 +2601,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(16).id,
     assignment_id: Assignment.find(16).id,
     status: 0,
@@ -2698,7 +2608,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(17).id,
     assignment_id: Assignment.find(17).id,
     status: 0,
@@ -2706,7 +2615,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(18).id,
     assignment_id: Assignment.find(18).id,
     status: 0,
@@ -2714,7 +2622,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(19).id,
     assignment_id: Assignment.find(19).id,
     status: 0,
@@ -2722,7 +2629,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(20).id,
     assignment_id: Assignment.find(20).id,
     status: 0,
@@ -2730,7 +2636,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(21).id,
     assignment_id: Assignment.find(21).id,
     status: 0,
@@ -2738,7 +2643,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(22).id,
     assignment_id: Assignment.find(22).id,
     status: 0,
@@ -2746,7 +2650,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(23).id,
     assignment_id: Assignment.find(23).id,
     status: 0,
@@ -2754,7 +2657,6 @@ student_assignments = StudentAssignment.create([
   },
   {
     student_id: Student.find(1).id,
-    cohort_id: Cohort.find(1).id,
     material_id: Material.find(24).id,
     assignment_id: Assignment.find(24).id,
     status: 0,

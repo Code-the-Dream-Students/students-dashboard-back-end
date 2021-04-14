@@ -54,8 +54,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_220259) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "cohort_id", null: false
-    t.index ["cohort_id"], name: "index_courses_on_cohort_id"
   end
 
   create_table "lesson_assignments", force: :cascade do |t|
@@ -86,10 +84,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_220259) do
     t.text "learning_objectives"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "cohort_id", null: false
     t.string "description"
     t.string "name"
-    t.index ["cohort_id"], name: "index_lessons_on_cohort_id"
   end
 
   create_table "materials", force: :cascade do |t|
@@ -152,7 +148,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_220259) do
 
   create_table "student_assignments", force: :cascade do |t|
     t.bigint "student_id", null: false
-    t.bigint "cohort_id", null: false
     t.bigint "material_id", null: false
     t.integer "status"
     t.string "assignment_submission"
@@ -160,7 +155,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_220259) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "assignment_id", null: false
     t.index ["assignment_id"], name: "index_student_assignments_on_assignment_id"
-    t.index ["cohort_id"], name: "index_student_assignments_on_cohort_id"
     t.index ["material_id"], name: "index_student_assignments_on_material_id"
     t.index ["student_id"], name: "index_student_assignments_on_student_id"
   end
@@ -176,12 +170,10 @@ ActiveRecord::Schema.define(version: 2021_04_12_220259) do
 
   create_table "student_materials", force: :cascade do |t|
     t.bigint "student_id", null: false
-    t.bigint "cohort_id", null: false
     t.bigint "material_id", null: false
     t.integer "status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["cohort_id"], name: "index_student_materials_on_cohort_id"
     t.index ["material_id"], name: "index_student_materials_on_material_id"
     t.index ["student_id"], name: "index_student_materials_on_student_id"
   end
@@ -309,8 +301,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_220259) do
     t.string "duration"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "cohort_id", null: false
-    t.index ["cohort_id"], name: "index_units_on_cohort_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -341,26 +331,21 @@ ActiveRecord::Schema.define(version: 2021_04_12_220259) do
     t.index ["unit_id"], name: "index_weeks_on_unit_id"
   end
 
-  add_foreign_key "courses", "cohorts"
   add_foreign_key "lesson_assignments", "assignments"
   add_foreign_key "lesson_assignments", "lessons"
-  add_foreign_key "lessons", "cohorts"
   add_foreign_key "mentors", "users"
   add_foreign_key "registered_mentor_sessions", "mentor_courses"
   add_foreign_key "registered_mentor_sessions", "student_weekly_progresses"
   add_foreign_key "staffs", "users"
   add_foreign_key "student_assignments", "assignments"
-  add_foreign_key "student_assignments", "cohorts"
   add_foreign_key "student_assignments", "materials"
   add_foreign_key "student_assignments", "students"
   add_foreign_key "student_courses", "courses"
   add_foreign_key "student_courses", "students"
-  add_foreign_key "student_materials", "cohorts"
   add_foreign_key "student_materials", "materials"
   add_foreign_key "student_materials", "students"
   add_foreign_key "student_weekly_progresses", "students"
   add_foreign_key "student_weekly_progresses", "units"
   add_foreign_key "student_weekly_progresses", "weeks"
   add_foreign_key "students", "users"
-  add_foreign_key "units", "cohorts"
 end

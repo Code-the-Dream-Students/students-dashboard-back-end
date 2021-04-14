@@ -55,7 +55,7 @@ class CohortsController < ApplicationController
     @course = CoreModules::CloneGenerator.clone_course(@cohort, @tcourse)
     
     if @course
-      render json: @course 
+      render json: @course, include: ["units.lessons.assignments", "units.lessons.materials"] 
     end 
   end
 

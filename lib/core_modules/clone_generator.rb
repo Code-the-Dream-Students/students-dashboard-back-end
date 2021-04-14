@@ -25,7 +25,7 @@ module CoreModules::CloneGenerator
   end
 
   def self.clone_lesson(unit, tlesson, for_unit=true)
-    lesson = Lesson.new(lesson_name: tlesson.name)
+    lesson = Lesson.new(name: tlesson.name)
     if lesson.save
       unit.lessons << lesson
       if for_unit
