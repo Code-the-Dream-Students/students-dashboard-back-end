@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   resources :courses
   post 'courses/:course_id/clone_unit/:tunit_id', to: 'courses#clone_unit'
   resources :units
+  post 'units/:unit_id/clone_lesson/:tlesson_id', to: 'units#clone_lesson'
   resources :lessons
+  post 'lessons/:lesson_id/clone_material/:tmaterial_id', to: 'lessons#clone_material'
+  post 'lessons/:lesson_id/clone_assignment/:tassignment_id', to: 'lessons#clone_assignment'
   resources :materials
   resources :assignments
 
