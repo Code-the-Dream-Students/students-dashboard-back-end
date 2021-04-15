@@ -24,19 +24,33 @@ module CoreModules::CloneGenerator
     end
   end
 
-  def self.clone_lesson(unit, tlesson, for_unit=true)
-    lesson = Lesson.new(lesson_name: tlesson.name)
+  def self.clone_lesson(unit, tlesson, for_lesson=true)
+    lesson = Lesson.new(
+      name: tlesson.name, 
+      duration: tlesson.duration, 
+      learning_objectives: tlesson.learning_objectives, 
+      description: tlesson.description
+    )
+
+    tlesson.tmaterials.each do |tmaterial|
+      clone_material(lesson, tmaterial, false)
+    end
+
+    tlesson.tassignments.each do |tassignment|
+      clone_assignment(lesson, tassignment, false)
+    end
+
     if lesson.save
       unit.lessons << lesson
-      if for_unit
+      if for_lesson
         return lesson
       end
     end
   end
 
-  def self.clone_material(lesson, tmaterial)
+  def self.clone_material(lesson, tmaterial, for_material=true)
     material = Material.new(
-      source_title: tmaterial.source_title, 
+      title: tmaterial.title, 
       link: tmaterial.link, 
       description: tmaterial.description, 
       platform: tmaterial.platform, 
@@ -49,21 +63,25 @@ module CoreModules::CloneGenerator
 
     if material.save
       lesson.materials << material
-      return material
+      if for_material
+        return material
+      end 
     end
+
   end
 
-  def self.clone_assignment(lesson, tassignment)
+  def self.clone_assignment(lesson, tassignment, for_assignment=true)
     assignment = Assignment.new(
+      title: tassignment.title,
       link: tassignment.link, 
-      description: tassignment.description, 
-      resources: tassignment.resources, 
-      assignment: tassignment.assignment
+      description: tassignment.description
     )
-    
+
     if assignment.save
-      lesson.assignment << assignment
-      return assignment
+      lesson.assignments << assignment
+      if for_assignment 
+        return assignment
+      end
     end
   end
   
