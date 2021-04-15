@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_one :student, foreign_key: :user_id
   has_one :mentor, foreign_key: :user_id
   has_one :staff, foreign_key: :user_id
-# Validations
+  # Validations
   # validates :role, presence: true
   validates :username, presence: true
   validates :username, uniqueness: true
@@ -29,6 +29,4 @@ class User < ApplicationRecord
       return false
     end
   end
-
-  # validates_presence_of :password_digest
 end

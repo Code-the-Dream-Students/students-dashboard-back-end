@@ -2,7 +2,8 @@ class CreateTmaterials < ActiveRecord::Migration[6.0]
   def change
     create_table :tmaterials do |t|
       t.string :title
-      t.string :url
+      t.string :link
+      t.text :description
       t.string :platform
       t.string :treehouse_type
       t.string :instructor

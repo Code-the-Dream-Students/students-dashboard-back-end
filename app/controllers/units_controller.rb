@@ -5,18 +5,18 @@ class UnitsController < ApplicationController
 
   def index
     @units = Unit.all
-    render json: @units, status: 200, include: ["courses.cohorts", "lessons"]
+    render json: @units, status: 200, include: ["courses.cohorts", "lessons.materials", "lessons.assignments"]
   end
 
   # def search
   #   @units = params[:name] ? Unit.where("name ILIKE ?", "%#{params[:name]}%") :
   #   params[:description] ? Unit.where("description ILIKE ?", "%#{params[:description]}%") : []
         
-  #   render json: @units, include: ["courses.cohorts", "lessons"]
+  #   render json: @units, include: ["courses.cohorts", "lessons.materials", "lessons.assignments"]
   # end
 
   def show
-    render json: @unit, status: 200, include: ["courses.cohorts", "lessons"]
+    render json: @unit, status: 200, include: ["courses.cohorts", "lessons.materials", "lessons.assignments"]
   end
 
   def create
@@ -42,6 +42,17 @@ class UnitsController < ApplicationController
     else
       error_json
     end
+  end
+
+  def clone_lesson
+    @unit = Unit.find(params[:unit_id])
+    @tlesson = Tlesson.find(params[:tlesson_id])
+
+    @lesson = CoreModules::CloneGenerator.clone_lesson(@unit, @tlesson)
+
+    if @lesson
+      render json: @lesson 
+    end 
   end
 
   private

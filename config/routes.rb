@@ -22,7 +22,10 @@ Rails.application.routes.draw do
   resources :courses
   post 'courses/:course_id/clone_unit/:tunit_id', to: 'courses#clone_unit'
   resources :units
+  post 'units/:unit_id/clone_lesson/:tlesson_id', to: 'units#clone_lesson'
   resources :lessons
+  post 'lessons/:lesson_id/clone_material/:tmaterial_id', to: 'lessons#clone_material'
+  post 'lessons/:lesson_id/clone_assignment/:tassignment_id', to: 'lessons#clone_assignment'
   resources :materials
   resources :assignments
 
@@ -58,6 +61,30 @@ Rails.application.routes.draw do
   get '/tlessons/:tlesson_id/tassignments/:tassignment_id', to: 'tlesson_tassignments#show'
   post '/tlessons/:tlesson_id/tassignments/:tassignment_id', to: 'tlesson_tassignments#create'
   delete '/tlessons/:tlesson_id/tassignments/:tassignment_id', to: 'tlesson_tassignments#destroy'
+
+  get 'student_assignment/students_tracking', to: 'student_assignment#students_tracking'
+  get 'student_assignment/:student_id', to: 'student_assignment#index'
+  get 'student_assignment/:student_id/student_tracking', to: 'student_assignment#student_tracking'
+  get 'student_assignment/:student_id/assignment/:assignment_id', to: 'student_assignment#show'
+  patch 'student_assignment/:student_id/assignment/:assignment_id', to: 'student_assignment#update'
+
+  get 'student_material/students_tracking', to: 'student_material#students_tracking'
+  get 'student_material/:student_id', to: 'student_material#index'
+  get 'student_material/:student_id/student_tracking', to: 'student_material#student_tracking'
+  get 'student_material/:student_id/material/:material_id', to: 'student_material#show'
+  patch 'student_material/:student_id/material/:material_id', to: 'student_material#update'
+
+  # add material to lesson and destroy material from lesson
+  post 'lesson/:lesson_id/material/:material_id', to: 'lesson_material#create'
+  delete 'lesson/:lesson_id/material/:material_id', to: 'lesson_material#destroy'
+
+  # add assignment to lesson and destroy assignment from lesson
+  post 'lesson/:lesson_id/assignment/:assignment_id', to: 'lesson_assignment#create'
+  delete 'lesson/:lesson_id/assignment/:assignment_id', to: 'lesson_assignment#destroy'
+
+  # add assignment to lesson
+  post 'lesson/:id/assignment/:assignment_id', to: 'lessons#add_assignment'
+
 
   # post '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#create'
   # delete '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#destroy'
