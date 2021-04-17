@@ -20,6 +20,7 @@ RSpec.describe "Courses", type: :request do
   # end
   describe " POST courses#create" do
     it 'create courses with valid attributes' do
+      
       user = FactoryBot.create(:user)
       token = auth_token(user)
       course = FactoryBot.create(:course) 
@@ -27,6 +28,7 @@ RSpec.describe "Courses", type: :request do
       post courses_path(course), params: {course: {name: "create course", description: "create course"}},
       headers: {'Authorization' => token} 
       json = JSON.parse(response.body)
+      byebug
       expect(response).to have_http_status(201)
       expect(json["message"]).to eq("Course created") 
       expect(json["course"]["name"]).to eq("create course") 
