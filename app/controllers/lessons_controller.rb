@@ -48,6 +48,27 @@ class LessonsController < ApplicationController
     end
   end
 
+  def clone_material
+    @lesson = Lesson.find(params[:lesson_id])
+    @tmaterial = Tmaterial.find(params[:tmaterial_id])
+
+    @material = CoreModules::CloneGenerator.clone_material(@lesson, @tmaterial)
+
+    if @material
+      render json: @material 
+    end 
+  end
+
+  def clone_assignment
+    @lesson = Lesson.find(params[:lesson_id])
+    @tassignment = Tassignment.find(params[:tassignment_id])
+
+    @assignment = CoreModules::CloneGenerator.clone_assignment(@lesson, @tassignment)
+
+    if @assignment
+      render json: @assignment 
+    end 
+  end
   # def add_assignment
   #   if @lesson.assignment != @assignment
   #     if @lesson
@@ -92,7 +113,7 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:name, :description, :duration, :learning_objectives :cohort_id)
+    params.require(:lesson).permit(:name, :description, :duration, :learning_objectives, :cohort_id)
   end
 
   def set_lesson

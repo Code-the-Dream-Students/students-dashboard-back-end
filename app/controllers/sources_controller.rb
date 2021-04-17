@@ -58,8 +58,8 @@ class SourcesController < ApplicationController
   end
 
   def search
-    @sources = params[:source_title] ? 
-      Source.where("source_title ILIKE ?", "%#{params[:source_title]}%") :
+    @sources = params[:title] ? 
+      Source.where("title ILIKE ?", "%#{params[:title]}%") :
       params[:link] ?
         Source.where("link ILIKE ?", "%#{params[:link]}%") :
         []
@@ -178,7 +178,7 @@ class SourcesController < ApplicationController
   private
 
     def source_params
-      params.require(:source).permit(:source_title, :link, :lesson_id)
+      params.require(:source).permit(:title, :link, :lesson_id)
     end
 
     def set_course_id

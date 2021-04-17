@@ -5,19 +5,19 @@ class CohortsController < ApplicationController
 
   def index
     @cohorts = Cohort.all
-    render json: @cohorts, include: "courses.units.lessons"
+    render json: @cohorts, include: ["courses.units.lessons.materials", "courses.units.lessons.assignments"]
   end
 
   # def search
   #   @cohorts = params[:name] ? Cohort.where("name ILIKE ?", "%#{params[:name]}%") :
   #   params[:description] ? Cohort.where("description ILIKE ?", "%#{params[:description]}%") : []
 
-  #   render json: @cohorts, include: "courses.units.lessons"
+  #   render json: @cohorts, include: ["courses.units.lessons.materials", "courses.units.lessons.assignments"]
   # end
 
   def show
     if @cohort
-      render json: @cohort, include: "courses.units.lessons"
+      render json: @cohort, include: ["courses.units.lessons.materials", "courses.units.lessons.assignments"]
     else
       error_json
     end
@@ -55,7 +55,7 @@ class CohortsController < ApplicationController
     @course = CoreModules::CloneGenerator.clone_course(@cohort, @tcourse)
     
     if @course
-      render json: @course 
+      render json: @course, include: ["units.lessons.assignments", "units.lessons.materials"] 
     end 
   end
 

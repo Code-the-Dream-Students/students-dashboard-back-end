@@ -5,7 +5,7 @@ class Lesson < ApplicationRecord
   has_many :units, through: :unit_lessons
   has_many :lesson_assignments
   has_many :assignments, through: :lesson_assignments
-  belongs_to :cohort
+  # belongs_to :cohort
   
   validates_presence_of :name, :on => :create
 

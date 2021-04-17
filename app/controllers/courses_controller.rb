@@ -4,19 +4,19 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.all
-    render json: @courses, include: ["cohorts", "units.lessons"]
+    render json: @courses, include: ["cohorts", "units.lessons.materials", "units.lessons.assignments"]
   end
 
   # def search
   #   @courses = params[:name] ? Course.where("name ILIKE ?", "%#{params[:name]}%") :
   #   params[:description] ? Course.where("description ILIKE ?", "%#{params[:description]}%") : []
 
-  #   render json: @courses, include: ["cohorts", "units.lessons"]
+  #   render json: @courses, include: ["cohorts", "units.lessons.materials", "units.lessons.assignments"]
   # end
 
   def show
     if @course
-      render json: @course, include: ["cohorts", "units.lessons"]
+      render json: @course, include: ["cohorts", "units.lessons.materials", "units.lessons.assignments"]
     else
       error_json
     end
