@@ -20,7 +20,6 @@ RSpec.describe Unit, type: :model do
       it { should have_many(:courses).through(:course_units) }
       it { should have_many(:unit_lessons) }
       it { should have_many(:lessons).through(:unit_lessons) }
-      it { should have_many(:weeks) }
     end
     
     describe "Validations" do

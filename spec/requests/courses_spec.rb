@@ -20,11 +20,9 @@ RSpec.describe "Courses", type: :request do
   # end
   describe " POST courses#create" do
     it 'create courses with valid attributes' do
-      
       user = FactoryBot.create(:user)
       token = auth_token(user)
       course = FactoryBot.create(:course) 
-      # sign_in(user)
       post courses_path(course), params: {course: {name: "create course", description: "create course"}},
       headers: {'Authorization' => token} 
       json = JSON.parse(response.body)
@@ -32,7 +30,6 @@ RSpec.describe "Courses", type: :request do
       expect(response).to have_http_status(201)
       expect(json["message"]).to eq("Course created") 
       expect(json["course"]["name"]).to eq("create course") 
-      #byebug
     end
   end 
   describe "PUT courses#update" do
@@ -40,53 +37,34 @@ RSpec.describe "Courses", type: :request do
       user = FactoryBot.create(:user)
       token = auth_token(user)
       course = FactoryBot.create(:course) 
-      # sign_in(user)
       put course_path(course), params: {course: {name: "update course", description: "update course"}},
-      headers: {'Authorization' => token}
-      
+      headers: {'Authorization' => token} 
       json = JSON.parse(response.body)
       expect(response).to have_http_status(200)
       expect(json["message"]).to eq("Course updated") 
       expect(json["course"]["name"]).to eq("update course") 
-      #byebug
     end
     describe "Access Control Test" do
-      it 'wont update courses without token' do
+      it 'wont update courses without token it is expected to fail OK' do
         user = FactoryBot.create(:user)
-        # token = TokenHelper.auth_token(user)
+        byebug
         course = FactoryBot.create(:course) 
-        # sign_in(user)
         put course_path(course), params: {course: {name: "update course", description: "update course"}}
-        # headers: {'Authorization' => token} 
         json = JSON.parse(response.body)
         expect(response).to have_http_status(401)
-      #byebug
       end
     end
   end 
-  # private
-  #   def auth_token(user)
-  #     return CoreModules::JsonWebToken.encode({
-  #     user_id: user.id
-  #     }, 24.hours.from_now)
-  #   end    
 end
-  # def index
-  #   @courses = Course.all
-  #   render json: @courses, include: ["cohorts", "units.lessons"]
-  # end
 
-  # def search
-  #   @courses = params[:name] ? Course.where("name ILIKE ?", "%#{params[:name]}%") :
-  #   params[:description] ? Course.where("description ILIKE ?", "%#{params[:description]}%") : []
 
-  #   render json: @courses, include: ["cohorts", "units.lessons"]
-  # end
 
-  # def show
-  #   if @course
-  #     render json: @course, include: ["cohorts", "units.lessons"]
-  #   else
-  #     error_json
-  #   end
-  # end
+# private
+#   def auth_token(user)
+#     return CoreModules::JsonWebToken.encode({
+#     user_id: user.id
+#     }, 24.hours.from_now)
+#   end    
+
+# token = TokenHelper.auth_token(user)
+# headers: {'Authorization' => token} 
