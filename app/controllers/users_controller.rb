@@ -28,6 +28,19 @@ class UsersController < ApplicationController
       render json: @user, status: :ok, include: user_options
   end
 
+  def destroy
+    if @user.role == "staff"
+      @user.staff.destroy
+    elsif @user.role == "mentor"
+      @user.mentor.destroy
+    else
+      @user.student.destroy
+    end
+    if @user.destroy
+      render json: @user
+    end
+  end
+
   private
 
     def user_params
