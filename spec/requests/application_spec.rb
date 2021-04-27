@@ -1,7 +1,6 @@
 require 'rails_helper'
 RSpec.describe ApplicationController, type: :controller do  
     let(:application) { Factory.create(:application) }
-  
     subject { application }
     #context "JSON" do
     context "when not authorized" do

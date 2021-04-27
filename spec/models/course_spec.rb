@@ -7,9 +7,6 @@ RSpec.describe Course, type: :model do
       it { should have_many(:cohorts).through(:cohort_courses) }
       it { should have_many(:course_units) }
       it { should have_many(:units).through(:course_units) }
-    #   it { should have_many(:weeks) }
-    #   it { should have_many(:mentor_courses) }
-    #   it { should have_many(:mentors).through(:mentor_courses) }
     end
    
     describe "Validations" do

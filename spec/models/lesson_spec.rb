@@ -10,20 +10,11 @@ RSpec.describe Lesson, type: :model do
       it { should have_many(:assignments).through(:lesson_assignments) }
 
     end
-  #DATABASE
-# t.string "duration"
-# t.text "learning_objectives"
-# t.datetime "created_at", precision: 6, null: false
-# t.datetime "updated_at", precision: 6, null: false
-# t.string "description"
-# t.string "name"
   describe "Validations" do
       it { should validate_presence_of(:name) }
       it { should validate_length_of(:name).is_at_least(2) }
-
     end
     it "is valid with valid attributes" do
-        byebug
         expect(subject).to be_valid
     end
     it "is not valid without a lesson name" do
@@ -32,12 +23,10 @@ RSpec.describe Lesson, type: :model do
     end
     it "is not valid without a created_at" do
       subject.created_at=nil
-      byebug
       expect(subject).to_not be_valid
     end
     it "is not valid without a updated_at" do
       subject.updated_at=nil
-      byebug
       expect(subject).to_not be_valid
     end
     it "is not valid if the lesson name is not min 2 chars" do
@@ -47,10 +36,3 @@ RSpec.describe Lesson, type: :model do
         end
     end
 end
-
-  
-#   validates_presence_of :lesson_name, :on => :create
-
-#   validates_length_of :lesson_name, 
-#     :minimum => 2,
-#     :allow_nil => true
