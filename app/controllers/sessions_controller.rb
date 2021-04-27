@@ -1,5 +1,9 @@
 # app/controllers/authentication_controller.rb
 class SessionsController < Devise::SessionsController
+  require 'net/http'
+  require 'httparty'
+  require 'cgi'
+
   def create
     if !current_user
       email = params["email"]
@@ -19,6 +23,33 @@ class SessionsController < Devise::SessionsController
     else
       render json: { error: "User already logged in" }, status: 200
     end
+  end
+
+  def create_github
+    uri1 = URI('https://github.com/login/oauth/access_token')
+
+    response = Net::HTTP.post_form(uri1, 'client_id' => Rails.application.credentials.fetch(:client_id), 'client_secret' => Rails.application.credentials.fetch(:client_secret), 'code' => params[:code])
+    data = CGI::parse(response.body)
+    
+    token = data.values[0]
+    
+    headers = {
+        "Authorization" => "token #{token[0]}",
+        "User-Agent" => "jgabitto"
+    }
+    res = HTTParty.get('https://api.github.com/user/emails', :headers => headers)
+    email = res.parsed_response[0]["email"]
+    user = User.find_by(email: email.downcase)
+    
+    if user
+      token = CoreModules::JsonWebToken.encode({
+        user_id: user.id
+      }, 24.hours.from_now)
+    else
+      token = false
+    end
+    
+    redirect_to "http://localhost:3000/auth/user?val=#{token}"
   end
 
   private

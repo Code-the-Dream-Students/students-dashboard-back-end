@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '3.0.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.3'
@@ -32,6 +32,8 @@ gem 'hirb'
 gem 'rails_same_site_cookie', '~> 0.1.8'
 gem 'rails_on_heroku'
 gem 'devise'
+gem 'httparty', '~> 0.18.1'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
