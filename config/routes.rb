@@ -37,10 +37,8 @@ Rails.application.routes.draw do
   resources :tassignments
 
   #User information
-  get 'users', to: 'users#index'
+  resources :users
   get 'user', to: 'users#show_current_user'
-  delete 'users/:id', to: 'users#destroy'
-  put 'users/:id', to: 'users#update'
 
   #Templates relationships generators
   get '/tcourses_tunits', to: 'tcourse_tunits#index'

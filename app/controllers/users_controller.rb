@@ -2,10 +2,16 @@
 class UsersController < ApplicationController
     # GET /users
   before_action :current_user, only: [:show_current_user]
+  skip_before_action :authenticate_cookie
 
   def index
     @users = User.all
     render json: @users
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render json: @user
   end
 
   def update
@@ -29,6 +35,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:id])
+    
     if @user.role == "staff"
       @user.staff.destroy
     elsif @user.role == "mentor"
@@ -36,6 +44,7 @@ class UsersController < ApplicationController
     else
       @user.student.destroy
     end
+
     if @user.destroy
       render json: @user
     end
