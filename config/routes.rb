@@ -84,6 +84,12 @@ Rails.application.routes.draw do
   # add assignment to lesson
   post 'lesson/:id/assignment/:assignment_id', to: 'lessons#add_assignment'
 
+  # student_cohort association routes
+  get '/student_cohorts', to: 'student_cohort#index'
+  get '/student/:student_id/cohort/:cohort_id', to: 'student_cohort#show'
+  # add student to cohort and destroy student from cohort
+  post 'student/:student_id/cohort/:cohort_id', to: 'student_cohort#create'
+  delete 'student/:student_id/cohort/:cohort_id', to: 'student_cohort#destroy'
 
   # post '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#create'
   # delete '/cohorts/:cohort_id/courses/:course_id', to: 'cohort_courses#destroy'
